@@ -1,0 +1,26 @@
+.dashboard-container {
+    padding: 20px;
+
+    .mat-card {
+        margin-bottom: 20px;
+    }
+
+    .mat-table {
+        width: 100%;
+        margin-top: 16px;
+    }
+
+    .alert {
+        padding: 20px;
+        margin-bottom: 20px;
+
+        button {
+            margin-top: 10px;
+        }
+    }
+}
+
+#chart1Container {
+    min-height: 400px;
+    width: 100%;
+}

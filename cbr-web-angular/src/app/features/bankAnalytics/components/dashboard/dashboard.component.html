@@ -1,0 +1,80 @@
+<div class="dashboard-container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Bank Analytics Dashboard</h2>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="!allHomeScreenData">
+        <div class="col-md-12">
+            <div class="alert alert-warning">
+                <p>No data available. Please add favorite banks to view analytics.</p>
+                <button mat-raised-button color="primary" (click)="navigateToManageProfiles()">
+                    Manage Profiles
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="allHomeScreenData">
+        <div class="col-md-6">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Performance Metrics</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <table mat-table [dataSource]="table1Data" class="mat-elevation-z8">
+                        <ng-container *ngFor="let column of table1Data[0] | keyvalue">
+                            <ng-container [matColumnDef]="column.key">
+                                <th mat-header-cell *matHeaderCellDef>{{ column.key }}</th>
+                                <td mat-cell *matCellDef="let element">{{ element[column.key] }}</td>
+                            </ng-container>
+                        </ng-container>
+                        <tr mat-header-row
+                            *matHeaderRowDef="table1Data[0] ? (table1Data[0] | keyvalue).map(col => col.key) : []"></tr>
+                        <tr mat-row
+                            *matRowDef="let row; columns: table1Data[0] ? (table1Data[0] | keyvalue).map(col => col.key) : [];">
+                        </tr>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="col-md-6">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Financial Analysis</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <table mat-table [dataSource]="table2Data" class="mat-elevation-z8">
+                        <ng-container *ngFor="let column of table2Data[0] | keyvalue">
+                            <ng-container [matColumnDef]="column.key">
+                                <th mat-header-cell *matHeaderCellDef>{{ column.key }}</th>
+                                <td mat-cell *matCellDef="let element">{{ element[column.key] }}</td>
+                            </ng-container>
+                        </ng-container>
+                        <tr mat-header-row
+                            *matHeaderRowDef="table2Data[0] ? (table2Data[0] | keyvalue).map(col => col.key) : []"></tr>
+                        <tr mat-row
+                            *matRowDef="let row; columns: table2Data[0] ? (table2Data[0] | keyvalue).map(col => col.key) : [];">
+                        </tr>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="row mt-4" *ngIf="chart1Data.length">
+        <div class="col-md-12">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Performance Trends</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <!-- We'll implement the chart here using Highcharts in the next step -->
+                    <div id="chart1Container"></div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

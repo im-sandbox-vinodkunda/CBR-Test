@@ -20,7 +20,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     private notificationService: NotificationService,
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
@@ -31,7 +31,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             return this.authService.refreshToken().pipe(
               catchError(() => {
                 this.authService.logout();
-                this.router.navigate(['/login'], { 
+                this.router.navigate(['/login'], {
                   queryParams: { returnUrl: this.router.url }
                 });
                 this.notificationService.showError('Your session has expired. Please log in again.');

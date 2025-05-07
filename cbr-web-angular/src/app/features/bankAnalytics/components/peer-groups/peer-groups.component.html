@@ -1,0 +1,81 @@
+<div class="peer-groups-container">
+    <!-- Selection Section -->
+    <div class="selection-panel mb-4">
+        <mat-card>
+            <mat-card-content class="row">
+                <div class="col-md-6">
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Select Bank</mat-label>
+                        <mat-select [value]="selectedBank" (selectionChange)="selectBank($event.value)">
+                            <mat-option *ngFor="let bank of favoriteBanks" [value]="bank">
+                                {{bank.name}} - {{bank.location}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Select Peer Group</mat-label>
+                        <mat-select [value]="selectedPeerGroup" (selectionChange)="selectPeerGroup($event.value)">
+                            <mat-option *ngFor="let group of peerGroups" [value]="group">
+                                {{group.name}} ({{group.bankCount}} banks)
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <!-- Analysis Section -->
+    <div class="analysis-panel" *ngIf="peerGroupAnalysis">
+        <!-- Metrics Overview -->
+        <mat-card class="mb-4">
+            <mat-card-header>
+                <mat-card-title>Performance Metrics</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-md-4" *ngFor="let metric of peerGroupAnalysis.metrics">
+                        <div class="metric-card">
+                            <h4>{{metric.name}}</h4>
+                            <div class="value">{{metric.value | number:'1.2-2'}}</div>
+                            <div class="comparison" [ngClass]="metric.trend">
+                                <mat-icon>
+                                    {{metric.trend === 'up' ? 'trending_up' :
+                                    metric.trend === 'down' ? 'trending_down' : 'trending_flat'}}
+                                </mat-icon>
+                                {{metric.comparison | number:'1.2-2'}}%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <!-- Charts Section -->
+        <div class="charts-section">
+            <div class="row">
+                <div class="col-md-6 mb-4" *ngFor="let chart of peerGroupAnalysis.charts | keyvalue">
+                    <mat-card>
+                        <mat-card-header>
+                            <mat-card-title>{{chart.key}}</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div [id]="'chart-' + chart.key" class="chart-container"></div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- No Data Message -->
+    <div class="no-data" *ngIf="!selectedBank || !selectedPeerGroup">
+        <mat-card>
+            <mat-card-content class="text-center">
+                <p>Please select both a bank and a peer group to view the analysis.</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

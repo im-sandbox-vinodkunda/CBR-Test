@@ -1,0 +1,12 @@
+<div class="bank-analytics-container">
+    <nav mat-tab-nav-bar [backgroundColor]="'primary'" class="mb-3">
+        <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.path" routerLinkActive #rla="routerLinkActive"
+            [active]="rla.isActive">
+            {{link.label}}
+        </a>
+    </nav>
+
+    <div class="content-container">
+        <router-outlet></router-outlet>
+    </div>
+</div>

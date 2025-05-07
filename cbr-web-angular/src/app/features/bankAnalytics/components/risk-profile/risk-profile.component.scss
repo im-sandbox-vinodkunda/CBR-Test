@@ -1,0 +1,103 @@
+.risk-profile-container {
+    padding: 20px;
+
+    .overall-score {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+
+        .score-value {
+            font-size: 48px;
+            font-weight: 500;
+            margin-right: 16px;
+        }
+
+        .trend {
+            mat-icon {
+                font-size: 32px;
+                width: 32px;
+                height: 32px;
+            }
+        }
+    }
+
+    .category-score {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .category-description {
+        color: rgba(0, 0, 0, 0.6);
+        margin: 16px 0;
+    }
+
+    .impact-indicator {
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    // Trend colors
+    .trend-up {
+        color: #dc3545;
+
+        &.impact-indicator {
+            background-color: rgba(220, 53, 69, 0.1);
+        }
+    }
+
+    .trend-down {
+        color: #28a745;
+
+        &.impact-indicator {
+            background-color: rgba(40, 167, 69, 0.1);
+        }
+    }
+
+    .trend-neutral {
+        color: #6c757d;
+
+        &.impact-indicator {
+            background-color: rgba(108, 117, 125, 0.1);
+        }
+    }
+
+    // Impact colors
+    .impact-high {
+        background-color: rgba(220, 53, 69, 0.1);
+        color: #dc3545;
+    }
+
+    .impact-medium {
+        background-color: rgba(255, 193, 7, 0.1);
+        color: #ffc107;
+    }
+
+    .impact-low {
+        background-color: rgba(40, 167, 69, 0.1);
+        color: #28a745;
+    }
+
+    #historical-chart {
+        height: 400px;
+        width: 100%;
+    }
+
+    .mat-expansion-panel {
+        margin-bottom: 16px;
+    }
+
+    table {
+        margin-top: 16px;
+    }
+
+    .no-data {
+        text-align: center;
+        color: rgba(0, 0, 0, 0.54);
+        padding: 32px;
+    }
+}
