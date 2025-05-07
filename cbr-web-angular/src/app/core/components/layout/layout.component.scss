@@ -1,0 +1,39 @@
+.sidenav-container {
+    height: 100vh;
+}
+
+.sidenav {
+    width: 250px;
+
+    .mat-toolbar {
+        background: inherit;
+    }
+
+    .mat-nav-list {
+        .active {
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+
+        a {
+            mat-icon {
+                margin-right: 8px;
+            }
+        }
+    }
+}
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.content-container {
+    padding: 20px;
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+}
