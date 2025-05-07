@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "CapitalRiskAnalyzerHelp";
+    Layout = "~/Views/Shared/_LayoutHelpContent.cshtml";
+}
+
+<h4>How to Use Our Application – <strong>Capital Risk Analyzer</strong></h4>
+<ol>
+    <li>From Home Page click <strong>BankAnalytics</strong> &ndash; Here will arrive at the <strong>BankAnalytics Dashboard</strong></li>
+    <li>From the BankAnalytics Dashboard click <strong>Capital Risk Analyzer</strong>.</li>
+    <ol type="a">
+        <li>The Capital Risk Analyzer allows you to set your bank’s risk profile, risk weighting by risk category, and capital policy limits, resulting in a capital adequacy report including all capital ratios (Tier 1 Leverage, Common Equity Tier 1, Tier 1 Risk-Based, and Total Capital).</li>
+        <li>When first opening the Application, you are provided with the actual Capital numbers and ratios for the current quarter, for your Default bank.  Views or “tabs”:</li>
+        <ol>
+            <li><strong>Dashboard</strong> – summarizes the data from the 4 detail tabs, with both tables and charts</li>
+            <li>
+                <strong>Tier 1 Leverage Ratio</strong> – risk analysis and calculations for Tier 1 leverage capital
+            </li>
+            <li><strong>CET 1 Capital Ratio</strong> – risk analysis and calculations for CET 1 capital</li>
+            <li><strong>Tier 1 RBC Ratio</strong> – risk analysis and calculations for Tier 1 risk-based capital</li>
+            <li><strong>Total Capital Ratio</strong> – risk analysis and calculations for Total capital</li>
+        </ol>
+        <li>For each Capital category, the model calculates the Bank’s <strong>Implied Minimum</strong> ratio and amount, based on the Risk rankings and weightings.</li>
+        <ol>
+            <li>The Implied Minimum is then compared to the Bank’s Capital policy and the Actual ratio to show the “Buffer”:</li>
+            <ol type="a">
+                <li>Cushion or Excess – when the Implied Minimum is lower than the Bank Actual, therefore the existing capital covers the assessed "risk".</li>
+                <li>
+                    Shortfall – when the Implied Minimum is higher than the Bank Actual, therefore more capital is needed to cover the assessed "risk".
+                </li>
+            </ol>
+        </ol>
+    </ol>
+    <li>Getting started – creating a new scenario.  To open the <strong>"Input Data Sheet"</strong>, you can select either the <strong>Create/Edit Scenario</strong> button at the top-left of the page, or the <strong>Scenario | Create/Edit Scenario</strong> button in the mid-left section of the page (in the gray shaded box).</li>
+    <ol type="a">
+        <li>REQURIED INPUTS:</li>
+        <ol>
+            <li><strong>Risk Score:</strong>  select from drop-down menu, the risk score/rating for the corresponding Risk Category.</li>
+            <li><strong>Risk-Weighting</strong> – enter a percentage for each of the 7 Risk Categories, where the total should equal 100%.  If each were given an equal weighting, that would approximate to 14.29%.</li>
+            <li><strong>Model Name</strong> – enter a scenario name in the “Please enter a name for this model” box.  NOTE: when editing a model, changing the name edits the existing name – it does not create a new saved model.</li>
+        </ol>
+        <li>OPTIONAL DATA FIELDS:</li>
+        <ol>
+            <li>Bank’s Minimum (Policy) for:</li>
+            <ol type="a">
+                <li><strong>Tier 1 Leverage Ratio</strong> – default is 8.0%; use this field to enter the bank’s policy, if different.</li>
+                <li><strong>CET 1 Capital Ratio</strong> – default is 8.0%; use this field to enter the bank’s policy, if different.</li>
+                <li><strong>Tier 1 RBC Ratio</strong> – default is 9.0%; use this field to enter the bank’s policy, if different.</li>
+                <li><strong>Total Capital Ratio</strong> – default is 11.0%; use this field to enter the bank’s policy, if different.</li>
+            </ol>
+            <li>What-if analysis for (not available at release 1, check back for updates):</li>
+            <ol type="a">
+                <li><strong>Common Equity Tier 1 Capital</strong> – reported amount is default; input your own amount to see results for your specific needs.</li>
+                <li><strong>Tier 1 Capital</strong> – reported amount is default; input your own amount to see results for your specific needs.</li>
+                <li><strong>Total Capital</strong> – reported amount is default; input your own amount to see results for your specific needs.</li>
+                <li><strong>Total Assets (Leverage Purposes)</strong> – reported amount is default; input your own amount to see results for your specific needs.</li>
+                <li><strong>Total Risk-Weighted Assets</strong> – reported amount is default; input your own amount to see results for your specific needs.</li>
+            </ol>
+            <li><strong>Capital Risk Buffer</strong> – ability to update from default for Bank specific requirements or purposes.</li>
+            <ol type="a">
+                <li><strong>Low</strong> – default is 0.00%; update to bank’s policy or to see impact of alternative percentage.  Enter number as a decimal, where 1% = 1.00 or 2.5% = 2.5, etc.</li>
+                <li><strong>Low-Moderate</strong> – default is 1.00%; update to bank’s policy or to see impact of alternative percentage.</li>
+                <li><strong>Moderate</strong> – default is 2.50%; update to bank’s policy or to see impact of alternative percentage.</li>
+                <li>Moderate-High</strong> – default is 4.00%; update to bank’s policy or to see impact of alternative percentage.</li>
+                <li><strong>High</strong> – default is 5.00%; update to bank’s policy or to see impact of alternative percentage.</li>
+            </ol>
+        </ol>
+        <li><strong>Save Changes</strong> – once all Required and Optional inputs are completed, click this button to save the model.  Can be retrieved from the list of existing scenarios for later use and use by others on your team.</li>
+    </ol>
+    <li>When re-entering the App, you will need to click the <strong>View Existing Scenario</strong> button, and select the saved Scenario that you want to use.</li>
+    <ol type="a">
+        <li>The active Scenario is displayed in the Gray box under the “Capital Risk Analyzer” title bar, on the upper left side of the App.</li>
+        <li>
+            To view or edit the scenario inputs, click the <strong>Create/Edit Scenario</strong> button or the Gray box as noted in a. above (4.a.).
+        </li>
+        <ol>
+            <li>Select <strong>Save Changes</strong> before exiting if edits/changes have been made</li>
+            <li>Click the “X” in the upper right corner to exit the Input Data Sheet</li>
+        </ol>
+    </ol>
+    <li>Scenarios are available to all registered members within the Bank or organization </li>
+    <ol type="a">
+        <li>Saved scenarios can be viewed in a read-only mode for non-owners</li>
+        <li>The <strong>Copy Scenario</strong> feature allows a non-owner to copy an existing scenario under a new name in order to edit or change the original inputs.</li>
+    </ol>
+    <li>Additional Features:</li>
+    <ol type="a">
+        <li>
+            <strong>Select from Favorite Banks</strong> – apply saved scenarios to any other bank (saved to your Favorite Banks list).  This box is on any of the Capital Risk Analyzer tabs in the top right side of the screen.  Can also create new scenarios.
+        </li>
+        <li><strong>Export Data</strong> – export the data to an excel output.  The button is located in the top right corner of the screen.</li>
+        <ol>
+            <li>From any of the 5 tabs, the tables of data will be exported to an excel spreadsheet.  One sheet for each corresponding tab will be exported to excel. <strong>NOTE</strong>:  Charts are not included in the export.</li>
+        </ol>
+    </ol>
+</ol>
+              </ol>
+              </ol>

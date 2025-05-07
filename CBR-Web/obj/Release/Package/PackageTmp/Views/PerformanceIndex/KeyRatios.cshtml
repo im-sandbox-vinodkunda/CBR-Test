@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "KeyRatios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-12 col-lg-offset-0">
+        <div style="margin:20px 0px;">
+            <ol class="breadcrumb">
+                <li><a href="/">Dashboard</a></li>
+                <li class="active">Key Ratios</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-12 col-sm-offset-0 col-md-3 col-md-offset-0">
+        <div class="a-grey" id="QuoteStreamNav">
+            <ul class="nav nav-pills nav-stacked card">
+                <li>
+                    <a href="@Url.Action("DetailedQuote", new { pgkey=ViewData["pgkey"], state=ViewData["state"], region=ViewData["region"], ticker=ViewData["ticker"] })">
+                        <span class="nav-stacked-item">Detailed Quote</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("CompanyProfile", new { pgkey=ViewData["pgkey"], state=ViewData["state"], region=ViewData["region"], ticker=ViewData["ticker"] })">
+                        <span class="nav-stacked-item">Company Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Financials", new { pgkey=ViewData["pgkey"], state=ViewData["state"], region=ViewData["region"], ticker=ViewData["ticker"] })">
+                        <span class="nav-stacked-item">Financials</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ShareInformation", new { pgkey=ViewData["pgkey"], state=ViewData["state"], region=ViewData["region"], ticker=ViewData["ticker"] })">
+                        <span class="nav-stacked-item">Share Information</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="@Url.Action("KeyRatios", new { pgkey=ViewData["pgkey"], state=ViewData["state"], region=ViewData["region"], ticker=ViewData["ticker"] })">
+                        <span class="nav-stacked-item">Key Ratios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Filings", new { pgkey=ViewData["pgkey"], state=ViewData["state"], region=ViewData["region"], ticker=ViewData["ticker"] })">
+                        <span class="nav-stacked-item">Filings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("NewsMedia", new { pgkey=ViewData["pgkey"], state=ViewData["state"], region=ViewData["region"], ticker=ViewData["ticker"] })">
+                        <span class="nav-stacked-item">News & Media</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("MarketSummary", new { pgkey=ViewData["pgkey"], state=ViewData["state"], region=ViewData["region"], ticker=ViewData["ticker"] })">
+                        <span class="nav-stacked-item">Market Summary</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("MarketIndices", new { pgkey=ViewData["pgkey"], state=ViewData["state"], region=ViewData["region"], ticker=ViewData["ticker"] })">
+                        <span class="nav-stacked-item">Market Indices</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-sm-offset-0 col-md-9 col-md-offset-0 col-lg-9 col-lg-offset-0">
+        <div class="row">
+            <!-- APP PANEL -->
+            <div class="a-grey card" id="QMOD">
+                <!-- LOOKUP CONTAINER -->
+                <div class="smart-lookup-container">
+                    <div data-qmod-tool="smartsymbollookup"
+                         data-qmod-params='{"callbackurl":"?qm_symbol=","search":"symbol","placeholderText":"Get a Quote","symbology":"US"}'
+                         class="qtool">
+                    </div>
+                </div>
+                <!-- END LOOKUP CONTAINER -->
+                <!-- QMOD -->
+                <div data-qmod-tool="keyratios" data-qmod-params='{"chart":{"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9"],"backgroundColor":"#ffffff","legend":{"textColor":"#434348","backgroundColor":"#ffffff","textColorHover":"#000000","shadow":true},"yAxis":{"titleTextColor":"#cccccc","labelTextColor":"#434348"},"xAxis":{"titleTextColor":"#cccccc","labelTextColor":"#434348"}},"showLogo":false,"lowHigh":false,"symbol":"@ViewData["ticker"]"}'
+                     class="qtool"></div>
+            </div>
+
+        </div><!-- END PANEL -->
+    </div>
+
+</div><!-- row -->
+<script id="qmod" type="application/javascript" src="//qmod.quotemedia.com/js/qmodLoader.js" data-qmod-wmid="103039" data-qmod-env="app" async data-qmod-version=""></script>

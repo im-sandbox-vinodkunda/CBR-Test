@@ -1,0 +1,323 @@
+﻿<style>
+    .table tbody > tr > td.align-left {
+        text-align: left;
+    }
+
+    .highlightyourbank {
+        background-color:antiquewhite;
+    }
+</style>
+<div class="row">
+        <div class="col-xs-12 col-sm-4 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-12 col-lg-offset-0">
+            <div style="margin:20px 0px;">
+                <ol class="breadcrumb">
+                    <li><a href="javascript:void(0)" ng-click="GoToDashboard()">Dashboard</a></li>
+                    <li>CBR Performance Index</li>
+                    <li class="active">{{ SelectedTab }}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-sm-offset-0 col-md-3 col-md-offset-0">
+            <div class="title">
+                <h4>{{BankName}}</h4>
+            </div>
+            <div class="title">
+                <h3>Ratios</h3>
+            </div>
+            <div class="a-grey">
+                <ul class="nav nav-pills nav-stacked card">
+                    <li ng-class="{'active':IsPeerGroupActive}">
+                        <a href="javascript:void(0)" ng-click="TogglePerformanceIndexScreen($event, 'performanceIndexPeerGroupTemplate', 'Peer Group')">
+                            <span class="nav-stacked-item">Peer Group</span>
+                        </a>
+                    </li>
+                    <li ng-class="{'active':IsStateActive}">
+                        <a href="javascript:void(0)" ng-click="TogglePerformanceIndexScreen($event, 'performanceIndexStateTemplate', 'State')">
+                            <span class="nav-stacked-item">State</span>
+                        </a>
+                    </li>
+                    <li ng-class="{'active':IsRegionActive}">
+                        <a href="javascript:void(0)" ng-click="TogglePerformanceIndexScreen($event, 'performanceIndexRegionTemplate', 'Region')">
+                            <span class="nav-stacked-item">Region</span>
+                        </a>
+                    </li>
+                    <li ng-class="{'active':IsNationalActive}">
+                        <a href="javascript:void(0)" ng-click="TogglePerformanceIndexScreen($event, 'performanceIndexNationalTemplate', 'National')">
+                            <span class="nav-stacked-item">National</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="col-sm-12 col-sm-offset-0 col-md-9 col-md-offset-0 col-lg-9 col-lg-offset-0">
+            <div ng-include src="performanceIndexTemplate">
+            </div>
+        </div>
+    </div><!-- row -->
+
+    <script id="performanceIndexPeerGroupTemplate" type="text/ng-template">
+        <div ng-controller="performanceIndexPeerGroup">
+            <div class="row" style="margin-bottom:20px;">
+                <div class="col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-6 pull-right">
+                    <select class="form-control" ng-model="SelectedPeerGroup" ng-options="option.peergroupname for option in PeerGroups track by option.value" ng-change="ToggleDataOnPeerGroupChange()"></select>
+                </div>
+            </div>
+            <div class="row">
+                <!-- APP PANEL -->
+                <div class="a-grey card card-white">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr style="">
+                                <th>Rank</th>
+                                <th>Institution Name</th>
+                                <th class="align-right">FDIC Cert</th>
+                                <th>State</th>
+                                <th>Region</th>
+                                <th class="align-center">AG</th>
+                                <th class="align-center">ROAA</th>
+                                <th class="align-center">ROAE</th>
+                                <th class="align-center">NIM</th>
+                                <th class="align-center">ER</th>
+                                <th class="align-center">NPA</th>
+                                <th class="align-center">NIBD</th>
+                                <th class="align-center">NII</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in PerformanceIndexData">
+                                <td class="col-md-1">{{ x.overallDataRank }}</td>
+                                <td class="col-md-7 align-left" ng-class="{'highlightyourbank': x.institutionName == BankName}">{{ x.institutionName }}</td>
+                                <td class="col-md-2 align-right">{{ x.certNumber }}</td>
+                                <td class="align-left">{{ x.state }}</td>
+                                <td class="align-left">{{ x.region }}</td>
+                                <td class="align-right">{{ x.agr }}</td>
+                                <td class="align-right">{{ x.roaa }}</td>
+                                <td class="align-right">{{ x.roae }}</td>
+                                <td class="align-right">{{ x.nim }}</td>
+                                <td class="align-right">{{ x.er }}</td>
+                                <td class="align-right">{{ x.npa }}</td>
+                                <td class="align-right">{{ x.nibd }}</td>
+                                <td class="align-right">{{ x.nii }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="performanceIndexStateTemplate" type="text/ng-template">
+        <div ng-controller="performanceIndexState">
+            <div class="row" style="margin-bottom:20px;">
+                <div class="col-sm-12 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-6 pull-right">
+                    <select class="form-control" ng-model="SelectedState" ng-change="ToggleDataOnStateChange()">
+                        <option selected="" disabled="">Select State</option>
+                        <option value="Alabama">Alabama</option>
+                        <option value="Alaska">Alaska</option>
+                        <option value="Arizona">Arizona</option>
+                        <option value="Arkansas">Arkansas</option>
+                        <option value="California">California</option>
+                        <option value="Colorado">Colorado</option>
+                        <option value="Connecticut">Connecticut</option>
+                        <option value="Delaware">Delaware</option>
+                        <option value="District Of Columbia">District Of Columbia</option>
+                        <option value="Delaware">Delaware</option>
+                        <option value=">Federated States of Micronesia">Federated States of Micronesia</option>
+                        <option value="Florida">Florida</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Hawaii">Hawaii</option>
+                        <option value="Idaho">Idaho</option>
+                        <option value="Illinois">Illinois</option>
+                        <option value="Indiana">Indiana</option>
+                        <option value="Iowa">Iowa</option>
+                        <option value="Kansas">Kansas</option>
+                        <option value="Kentucky">Kentucky</option>
+                        <option value="Louisiana">Louisiana</option>
+                        <option value="Maine">Maine</option>
+                        <option value="Maryland">Maryland</option>
+                        <option value="Massachusetts">Massachusetts</option>
+                        <option value="Michigan">Michigan</option>
+                        <option value="Minnesota">Minnesota</option>
+                        <option value="Mississippi">Mississippi</option>
+                        <option value="Missouri">Missouri</option>
+                        <option value="Montana">Montana</option>
+                        <option value="Nebraska">Nebraska</option>
+                        <option value="Nevada">Nevada</option>
+                        <option value="New Hampshire">New Hampshire</option>
+                        <option value="New Jersey">New Jersey</option>
+                        <option value="New Mexico">New Mexico</option>
+                        <option value="New York">New York</option>
+                        <option value="North Carolina">North Carolina</option>
+                        <option value="North Dakota">North Dakota</option>
+                        <option value="Ohio">Ohio</option>
+                        <option value="Oklahoma">Oklahoma</option>
+                        <option value="Oregon">Oregon</option>
+                        <option value="Pennsylvania">Pennsylvania</option>
+                        <option value="Rhode Island">Rhode Island</option>
+                        <option value="South Carolina">South Carolina</option>
+                        <option value="South Dakota">South Dakota</option>
+                        <option value="Tennessee">Tennessee</option>
+                        <option value="Texas">Texas</option>
+                        <option value="Utah">Utah</option>
+                        <option value="Vermont">Vermont</option>
+                        <option value="Virginia">Virginia</option>
+                        <option value="Washington">Washington</option>
+                        <option value="West Virginia">West Virginia</option>
+                        <option value="Wisconsin">Wisconsin</option>
+                        <option value="Wyoming">Wyoming</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <!-- APP PANEL -->
+                <div class="a-grey card card-white">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr style="">
+                                <th>Rank</th>
+                                <th>Institution Name</th>
+                                <th class="align-right">FDIC Cert</th>
+                                <th>State</th>
+                                <th>Region</th>
+                                <th class="align-center">AG</th>
+                                <th class="align-center">ROAA</th>
+                                <th class="align-center">ROAE</th>
+                                <th class="align-center">NIM</th>
+                                <th class="align-center">ER</th>
+                                <th class="align-center">NPA</th>
+                                <th class="align-center">NIBD</th>
+                                <th class="align-center">NII</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in PerformanceIndexData">
+                                <td class="col-md-1">{{ x.overallDataRank }}</td>
+                                <td class="col-md-7 align-left" ng-class="{'highlightyourbank': x.institutionName == BankName}">{{ x.institutionName }}</td>
+                                <td class="col-md-2 align-right">{{ x.certNumber }}</td>
+                                <td class="align-left">{{ x.state }}</td>
+                                <td class="align-left">{{ x.region }}</td>
+                                <td class="align-right">{{ x.agr }}</td>
+                                <td class="align-right">{{ x.roaa }}</td>
+                                <td class="align-right">{{ x.roae }}</td>
+                                <td class="align-right">{{ x.nim }}</td>
+                                <td class="align-right">{{ x.er }}</td>
+                                <td class="align-right">{{ x.npa }}</td>
+                                <td class="align-right">{{ x.nibd }}</td>
+                                <td class="align-right">{{ x.nii }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="performanceIndexRegionTemplate" type="text/ng-template">
+        <div ng-controller="performanceIndexRegion">
+            <div class="row" style="margin-bottom:20px;">
+                <div class="col-sm-12 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-6 pull-right">
+                    <select class="form-control" ng-model="SelectedRegion" ng-change="ToggleDataOnRegionChange()">
+                        <option selected="" disabled="">Select a Region</option>
+                        <option value="Mid Atlantic">Mid Atlantic</option>
+                        <option value="Midwest">Midwest</option>
+                        <option value="Northeast">Northeast</option>
+                        <option value="Southeast">Southeast</option>
+                        <option value="Southwest">Southwest</option>
+                        <option value="West">West</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <!-- APP PANEL -->
+                <div class="a-grey card card-white">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr style="">
+                                <th>Rank</th>
+                                <th>Institution Name</th>
+                                <th class="align-right">FDIC Cert</th>
+                                <th>State</th>
+                                <th>Region</th>
+                                <th class="align-center">AG</th>
+                                <th class="align-center">ROAA</th>
+                                <th class="align-center">ROAE</th>
+                                <th class="align-center">NIM</th>
+                                <th class="align-center">ER</th>
+                                <th class="align-center">NPA</th>
+                                <th class="align-center">NIBD</th>
+                                <th class="align-center">NII</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in PerformanceIndexData">
+                                <td class="col-md-1">{{ x.overallDataRank }}</td>
+                                <td class="col-md-7 align-left" ng-class="{'highlightyourbank': x.institutionName == BankName}">{{ x.institutionName }}</td>
+                                <td class="col-md-2 align-right">{{ x.certNumber }}</td>
+                                <td class="align-left">{{ x.state }}</td>
+                                <td class="align-left">{{ x.region }}</td>
+                                <td class="align-right">{{ x.agr }}</td>
+                                <td class="align-right">{{ x.roaa }}</td>
+                                <td class="align-right">{{ x.roae }}</td>
+                                <td class="align-right">{{ x.nim }}</td>
+                                <td class="align-right">{{ x.er }}</td>
+                                <td class="align-right">{{ x.npa }}</td>
+                                <td class="align-right">{{ x.nibd }}</td>
+                                <td class="align-right">{{ x.nii }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="performanceIndexNationalTemplate" type="text/ng-template">
+        <div ng-controller="performanceIndexNational">
+            <div class="row">
+                <!-- APP PANEL -->
+                <div class="a-grey card card-white">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr style="">
+                                <th>Rank</th>
+                                <th>Institution Name</th>
+                                <th class="align-right">FDIC Cert</th>
+                                <th>State</th>
+                                <th>Region</th>
+                                <th class="align-center">AG</th>
+                                <th class="align-center">ROAA</th>
+                                <th class="align-center">ROAE</th>
+                                <th class="align-center">NIM</th>
+                                <th class="align-center">ER</th>
+                                <th class="align-center">NPA</th>
+                                <th class="align-center">NIBD</th>
+                                <th class="align-center">NII</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in PerformanceIndexData">
+                                <td class="col-md-1">{{ x.overallDataRank }}</td>
+                                <td class="col-md-7 align-left" ng-class="{'highlightyourbank': x.institutionName == BankName}">{{ x.institutionName }}</td>
+                                <td class="col-md-2 align-right">{{ x.certNumber }}</td>
+                                <td class="align-left">{{ x.state }}</td>
+                                <td class="align-left">{{ x.region }}</td>
+                                <td class="align-right">{{ x.agr }}</td>
+                                <td class="align-right">{{ x.roaa }}</td>
+                                <td class="align-right">{{ x.roae }}</td>
+                                <td class="align-right">{{ x.nim }}</td>
+                                <td class="align-right">{{ x.er }}</td>
+                                <td class="align-right">{{ x.npa }}</td>
+                                <td class="align-right">{{ x.nibd }}</td>
+                                <td class="align-right">{{ x.nii }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </script>

@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-12 col-lg-offset-0">
+        <div style="margin:20px 0px;">
+            <ol class="breadcrumb">
+                <li><a href="/">Dashboard</a></li>
+                <li class="active">Market Indices</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-12 col-sm-offset-0 col-md-3 col-md-offset-0">
+        <div class="a-grey" id="QuoteStreamNav">
+            <ul class="nav nav-pills nav-stacked card">
+                <li>
+                    <a href="@Url.Action("DetailedQuote", new { pgkey=ViewData["pgkey"], state=ViewData["state"], region=ViewData["region"], ticker=ViewData["ticker"] })">
+                        <span class="nav-stacked-item">Detailed Quote</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("CompanyProfile", new { pgkey=ViewData["pgkey"], state=ViewData["state"], region=ViewData["region"], ticker=ViewData["ticker"] })">
+                        <span class="nav-stacked-item">Company Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Financials", new { pgkey=ViewData["pgkey"], state=ViewData["state"], region=ViewData["region"], ticker=ViewData["ticker"] })">
+                        <span class="nav-stacked-item">Financials</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ShareInformation", new { pgkey=ViewData["pgkey"], state=ViewData["state"], region=ViewData["region"], ticker=ViewData["ticker"] })">
+                        <span class="nav-stacked-item">Share Information</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("KeyRatios", new { pgkey=ViewData["pgkey"], state=ViewData["state"], region=ViewData["region"], ticker=ViewData["ticker"] })">
+                        <span class="nav-stacked-item">Key Ratios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Filings", new { pgkey=ViewData["pgkey"], state=ViewData["state"], region=ViewData["region"], ticker=ViewData["ticker"] })">
+                        <span class="nav-stacked-item">Filings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("NewsMedia", new { pgkey=ViewData["pgkey"], state=ViewData["state"], region=ViewData["region"], ticker=ViewData["ticker"] })">
+                        <span class="nav-stacked-item">News & Media</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("MarketSummary", new { pgkey=ViewData["pgkey"], state=ViewData["state"], region=ViewData["region"], ticker=ViewData["ticker"] })">
+                        <span class="nav-stacked-item">Market Summary</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="@Url.Action("MarketIndices", new { pgkey=ViewData["pgkey"], state=ViewData["state"], region=ViewData["region"], ticker=ViewData["ticker"] })">
+                        <span class="nav-stacked-item">Market Indices</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-sm-offset-0 col-md-9 col-md-offset-0 col-lg-9 col-lg-offset-0">
+        <div class="row">
+            <!-- APP PANEL -->
+            <div class="a-grey card" id="QMOD">
+                <!-- LOOKUP CONTAINER -->
+                
+                <!-- END LOOKUP CONTAINER -->
+                <!-- QMOD -->
+                <div class="cont"><div data-qmod-tool="marketindices" data-qmod-params='{"lang":"en","topChartParams":{"chfill":"eeeeee","chfill2":"0071bb","chln":"00578e","chscale":"1y","chcon":"off","chfrmon":"off","chtype":"Mountain","chbgch":"ffffff","chgrd":"cccccc","chbdr":"cccccc","chxyc":"666666","chdon":"off","chton":"off","chhig":"240","chfnts":"14"},"modalParams":{"chfill":"eeeeee","chfill2":"0071bb","chln":"00578e","chscale":"5d","chcon":"off","chfrmon":"off","chtype":"Mountain","chbgch":"ffffff","chgrd":"cccccc","chbdr":"cccccc","chxyc":"666666","chdon":"off","chton":"off","chwid":"400","chhig":"250","chfnts":"14"},"sparkline":{"enabled":false,"chfrm":"#ff0000","chbg":"pink","chbgch":"pink","chfill":"f9ffff","chfill2":"192980","chfall":"#ff0000","chrise":"#008800","chscale":"5d","coltitle":"5 Day Chart","chln":"2980b9","chtype":"area","chpcon":"off","chhideaxises":"on","chgrdon":"off","chbdron":"off","chhig":"40","chwid":"200","chfrmon":"off","chmrg":"0","chlog":"on","imgtype":"png"},"showRows":20,"clickAction":"modal","selectedIndice":0,"tabBreakpoint":715}' class="qtool"></div></div>
+            </div>
+
+        </div><!-- END PANEL -->
+    </div>
+
+</div><!-- row -->
+<script id="qmod" type="application/javascript" src="//qmod.quotemedia.com/js/qmodLoader.js" data-qmod-wmid="103039" data-qmod-env="app" async data-qmod-version=""></script>

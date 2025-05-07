@@ -1,0 +1,142 @@
+﻿@model CBR.Web.Models.RegisterViewModel
+@{
+    Layout = "";
+}
+
+@Styles.Render("~/Styles/Libraries/RegisterUserStyles")
+
+    <div id="login_wrap">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-7 background-image">
+                    <div id="background_branding_container">
+                        <img id="background_background_image" alt="Illustration for CB Resource" src="../../images/transparent-overlay.png" class="img-responsive" />
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div id="login_panel" class="login_panel" style="display: block;background-color:#eeeeee;">
+                        <div class="login_inner_container">
+                            <div class="inner_container cred">
+                                <div class="login_logo_container">
+                                    <h4>Please register below</h4>
+                                </div>
+                                <div class="login_cred_container">
+                                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                                    <form id="registrationForm" action="@Request.Url.PathAndQuery" method="POST" class="form-horizontal" role="form" autocomplete="off">
+                                        @Html.AntiForgeryToken()
+                                        <div class="login_cred_field_container">
+                                            <div id="cred_FirstName_container" class="">
+                                                <div class="input_field textfield">
+                                                    <div class="input_border">
+                                                        @Html.TextBoxFor(m => m.FirstName, new { @tabindex = "1", @id = "cred_firstname_inputtext", @class = "form-control", @placeholder = "First Name", @type = "text", @name = "firstname", @spellcheck = "false", @alt = "someone@example.com ", @value = "", @autocomplete = "off" })
+                                                    </div>
+                                                </div>
+                                            </div><!-- end FirstName -->
+
+                                            <div id="cred_LastName_container" class="">
+                                                <div class="input_field textfield">
+                                                    <div class="input_border">
+                                                        @Html.TextBoxFor(m => m.LastName, new { @tabindex = "2", @id = "cred_lastname_inputtext", @class = "form-control", @placeholder = "Last Name", @type = "text", @name = "lastname", @spellcheck = "false", @alt = "someone@example.com ", @value = "", @autocomplete = "off" })
+                                                    </div>
+                                                </div>
+                                            </div><!-- end LastName -->
+
+                                            <div id="cred_Email_container" class="">
+                                                <div class="input_field textfield">
+                                                    <div class="input_border">
+                                                        @Html.TextBoxFor(m => m.Email, new { @tabindex = "3", @id = "cred_userid_inputtext", @class = "form-control", @placeholder = "Enter your email address. Ex:yourname@company.com", @type = "text", @name = "login", @spellcheck = "false", @alt = "someone@example.com ", @value = "", @autocomplete = "off" })
+                                                    </div>
+                                                </div>
+                                            </div><!-- end email address -->
+
+                                            <div id="cred_phone_container" class="">
+                                                <div class="input_field textfield">
+                                                    <div class="input_border">
+                                                        @Html.TextBoxFor(m => m.PhoneNumner, new { @tabindex = "4", @id = "cred_phoneno_inputtext", @class = "form-control", @placeholder = "Enter your phone number. Ex: (877) 367-8236", @type = "phone", @name = "login", @spellcheck = "false", @alt = "someone@example.com ", @value = "", @autocomplete = "off" })
+                                                    </div>
+                                                </div>
+                                            </div><!-- end Phone Number -->
+
+                                            <div id="cred_title_container" class="">
+                                                <div class="input_field select">
+                                                    <div class="input_border">
+                                                        @Html.DropDownListFor(m => m.Title, Model.TitleSelectList, new { @tabindex = "5", @id = "cred_title_inputtext", @class = "form-control" })
+                                                    </div>
+                                                </div>
+                                            </div><!-- end Title -->
+                                            <div id="cred_tdepartment_container" style="display:none;">
+                                                <div class="input_field select">
+                                                    <div class="input_border">
+                                                        @Html.DropDownListFor(m => m.Department, Model.DepartmentSelectList, new { @tabindex = "6", @id = "cred_department_inputtext", @class = "form-control" })
+                                                    </div>
+                                                </div>
+                                            </div><!-- end Title -->
+                                            <div id="pwd-container" class="login_textfield textfield" style="opacity: 1;">
+                                                <div class="input_field textfield">
+                                                    <div class="input_border">
+                                                        @Html.TextBoxFor(m => m.Password, new { @id = "password", @tabindex = "7", @class = "form-control", @placeholder = "Please enter a password.", @spellcheck = "false", @alt = "Password", @type = "password", @name = "password", @value = "" })
+                                                    </div>
+                                                </div>
+                                                <div class="input_field textfield">
+                                                    <div class="input_border">
+                                                        @Html.TextBoxFor(m => m.ConfirmPassword, new { @tabindex = "8", @type = "password", @id = "confirmPassword", @class = "form-control", @placeholder = "Re-Enter your password", @name = "confirmPassword", @spellcheck = "false", @alt = "Password", @value = "" })
+                                                    </div>
+                                                </div>
+                                                <div id="divCheckPasswordMatch"></div>
+                                                <div style="padding-top: 10px;">
+                                                    <div class="pwstrength_viewport_progress"></div>
+                                                </div>
+                                            </div><!-- end password -->
+                                        </div>
+
+                                        <div class="login_cred_options_container">
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <input type="submit" id="cred_registration_button" tabindex="9" class="btn" value="Register" onclick="javascript: document.getElementById('overlay').style.display = ''" />
+                                                </div>
+                                                <div class="col-md-11">
+                                                    <div id="recover_container" class="subtext smalltext">
+                                                        <span>
+                                                            
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="footer">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="../../images/cb-resource-inc-white.png" class="img-responsive" alt="CB Resource Logo" />
+                            </div>
+                            <div class="col-md-8">
+                                <ul class="toc-privacy">
+                                    <li><a href="javascript:alert('Terms and conditions will be available in a future release.');">Terms &amp; Conditions<a /></li>
+                                    <li><a href="https://www.stifel.com/disclosures/privacy-notice" target="_blank">Privacy Policy</a></li>
+                                </ul>
+                                <span class="copyright">Copyright © 2016 CB Resource, Inc.</span>
+                            </div>
+                        </div>
+                    </div><!-- /#footer -->
+                </div><!-- col-md-4 -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div><!-- #login_wrap -->
+
+<div id="overlay" style="display:none;">
+    <div style="margin-top:15%;">
+        <center><img src="../../../Images/cbr-ripple-small.gif" class="img-responsive" /></center><span>Registering...</span>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/RegisterUserJS");
+    @Scripts.Render("~/bundles/jqueryval")
+}

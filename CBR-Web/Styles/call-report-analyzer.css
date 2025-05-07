@@ -1,0 +1,368 @@
+/* 14 BankAnalyticsDashboard.html Call Report Analyzer Styles */
+
+        .bank-details-heading {
+            border: 1px solid #dddddd;
+            margin-top: 15px;
+            padding: 10px;
+        }
+
+        .bank-details-heading:after {
+            content: "";
+            display: table;
+            clear: both
+        }
+
+        .bank-details-heading h3 {
+            margin-top: 0px;
+        }
+
+        .nav.qtr-ytd > li > a {
+            padding: 5px 10px;
+        }
+
+        .nav-pills ul {
+            background-color: #fcfcfc;
+            list-style: none;
+        }
+
+        .table {
+            font-size: 11px;
+        }
+
+        /* MOVE THIS TO STYLE SHEET */
+
+        /*
+           abn-tree.css
+
+           style for the angular-bootstrap-nav-tree
+           for both Bootstrap 2 and Bootstrap 3
+
+        */
+
+        /* ------------------------------------------
+        AngularJS Animations...
+
+        The first selector is for Angular 1.1.5
+        The second selector is for Angular 1.2.0
+
+        */
+        .abn-tree-animate-enter,
+        li.abn-tree-row.ng-enter {
+            transition: 200ms linear all;
+            position: relative;
+            display: block;
+            opacity: 0;
+            max-height: 0px;
+        }
+
+        .abn-tree-animate-enter.abn-tree-animate-enter-active,
+        li.abn-tree-row.ng-enter-active {
+            opacity: 1;
+            max-height: 30px;
+        }
+
+        .abn-tree-animate-leave,
+        li.abn-tree-row.ng-leave {
+            transition: 200ms linear all;
+            position: relative;
+            display: block;
+            height: 30px;
+            max-height: 30px;
+            opacity: 1;
+        }
+
+        .abn-tree-animate-leave.abn-tree-animate-leave-active,
+        li.abn-tree-row.ng-leave-active {
+            height: 0px;
+            max-height: 0px;
+            opacity: 0;
+        }
+
+        /*
+        ------------------------------------------
+        Angular 1.2.0 Animation
+        */
+
+        .abn-tree-animate.ng-enter {
+
+        }
+
+        .abn-tree-animate.ng-enter {
+
+        }
+
+        /*
+           end animation stuff
+        -----------------------------------------
+           begin normal css stuff
+        */
+        ul.abn-tree li.abn-tree-row {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        ul.abn-tree li.abn-tree-row a {
+            padding: 10px 10px;
+        }
+
+        ul.abn-tree i.indented {
+            padding: 2px;
+        }
+
+        .abn-tree {
+            cursor: pointer;
+        }
+
+        .call-report-menu-tree-wrapper table tr.expanded.level-1{
+            font-weight: bold;
+			cursor:pointer !important;
+        }
+        .call-report-menu-tree-wrapper table tr.expanded{
+            cursor:pointer !important;
+        }
+        .call-report-menu-tree-wrapper table tr.expanded.noClicked{
+            cursor:default !important;
+        }
+        .call-report-menu-tree-wrapper table tr.noClicked i{
+            display: none;
+        }
+        .call-report-menu-tree-wrapper table tr.noClicked span.ng-binding{
+            /*padding: 0px 0px 0px 8px;*/
+        }
+        .call-report-menu-tree-wrapper table tr.no-bold {
+            font-weight: normal !important;
+        }
+        .call-report-menu-tree-wrapper table tr.bold {
+            font-weight: bold !important;
+        }
+        .call-report-menu-tree-wrapper table td {
+            height: 32px;
+        }
+        .call-report-menu-tree-wrapper table .level-1 .indented {
+            position: relative;
+            padding-left: 10px;
+        }
+        .call-report-menu-tree-wrapper table .level-2 .indented {
+            position: relative;
+            padding-left: 40px;
+        }
+        .call-report-menu-tree-wrapper table .level-3 .indented {
+            position: relative;
+            padding-left: 60px;
+        }
+        .call-report-menu-tree-wrapper table .level-4 .indented {
+            position: relative;
+            padding-left: 80px;
+        }
+
+        .call-report-menu-tree-wrapper table .level-5 .indented {
+            position: relative;
+            padding-left: 100px;
+        }
+
+        .call-report-menu-tree-wrapper table .level-6 .indented {
+            position: relative;
+            padding-left: 120px;
+        }
+
+        .call-report-menu-tree-wrapper table .level-7 .indented {
+            position: relative;
+            padding-left: 140px;
+        }
+
+        .call-report-menu-tree-wrapper table .level-8 .indented {
+            position: relative;
+            padding-left: 160px;
+        }
+
+        .call-report-menu-tree-wrapper table .level-9 .indented {
+            position: relative;
+            padding-left: 180px;
+        }
+        .tree-icon{
+            display: none;
+        }
+        .expanded .tree-icon{
+             display: inline-block;
+         }
+        .call-report-menu-tree-wrapper table tr{
+            cursor: default !important;
+        }
+        .call-report-menu-tree-wrapper table {
+            border-right: 1px solid #ddd;
+        }
+
+        .call-report-menu-tree-wrapper td {
+            vertical-align: top;
+            border: 1px solid #ddd;
+        }
+
+        .call-report-menu-tree-wrapper tr:first-child {
+            font-weight: bold;
+        }
+        .call-report-menu-tree-wrapper tr td:nth-child(2), .call-report-menu-tree-wrapper tr td:nth-child(3),
+        .call-report-menu-tree-wrapper tr td:nth-child(4), .call-report-menu-tree-wrapper tr td:nth-child(5),
+        .call-report-menu-tree-wrapper tr td:nth-child(6){
+            text-align: right;
+        }
+
+        div.call-report-menu-tree-wrapper {
+			width:100%;
+            margin-top: 10px;
+        }
+		div.call-report-menu-tree-wrapper:after{
+			content:"";
+			display:table;
+            clear:both;
+        }
+
+        div.call-report-menu-tree-wrapper:hover {
+            overflow-y: hidden;
+        }
+
+        div.call-report-menu-tree-wrapper::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        /* Track */
+        div.call-report-menu-tree-wrapper::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+        }
+
+        /* Handle */
+        div.call-report-menu-tree-wrapper::-webkit-scrollbar-thumb {
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            background: rgba(23, 57, 103, 0.8);
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+        }
+
+        div.call-report-menu-tree-wrapper::-webkit-scrollbar-thumb:window-inactive {
+            background: rgba(255, 0, 0, 0.4);
+        }
+
+        .nav.nav-pills.risk-profiles.crm-profile li.active a {
+            border: none;
+            border-bottom: 2px solid #173967;
+        }
+
+        .menu_border-bottom {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        ul.risk-profiles {
+            border: none;
+        }
+
+        .report-date-dropdown {
+            display: none;
+            width: 289px;
+            padding: 20px;
+            position: absolute;
+            top: 38px;
+            right: 5px;
+            z-index: 1;
+            background: #fff;
+            border: solid 1px #ccc;
+            border-radius: 10px;
+            -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+        }
+
+        .report-date-dropdown th {
+            color: #173967;
+            padding: 5px 0px 15px 0px;
+        }
+
+        .report-date-dropdown table {
+            width: 100%;
+            margin: 0 0 5px 0;
+        }
+
+        .report-date-dropdown td {
+            vertical-align: middle;
+            padding: 3px 0;
+        }
+
+        .report-date-dropdown label {
+            text-transform: none;
+            cursor: pointer;
+            font-size: 13px;
+            margin: 0;
+        }
+        .report-date-dropdown input[type="radio"] {
+            margin: 0 5px 0 0;
+            position: relative;
+            top: 2px;
+        }
+        .fa-file:before {
+            content: '';
+        }
+        .call-reports{
+
+        }
+        .call-reports .report{
+            display: none;
+        }
+        .call-reports .report.active{
+             display: block;
+        }
+        .call-reports .report.r2 tr:last-child{
+            font-weight:bold;
+        }
+        .tabs .nav{
+            border-bottom: solid 1px #bfbfbf;
+            margin: 0 0 30px 0;
+        }
+        .tabs .nav li{
+            display: inline-block;
+            cursor: pointer;
+            color: #0070d5;
+            border-bottom: solid 2px transparent;
+            padding: 5px 40px;
+            font-size: 13px;
+            position: relative;
+            top:1px;
+        }
+		@media only screen and (max-width: 1000px){
+			.tabs .nav li{
+				width:100%;
+				text-align:center;
+			}
+			.select-call-report{
+				margin:0 0 10px 0;
+			}
+		}
+		@media only screen and (max-width: 640px){
+			.exp_data{
+				float:left !important;
+			}
+		}
+
+        .tabs .nav li.active{
+            color: #5a5a5a;
+            cursor: default;
+            border-bottom: solid 2px #002060;
+        }
+        .tabs .tab{
+            display: none;
+        }
+		.tabs .tab:after{
+			content:"";
+			display:table;
+            clear:both;
+        }
+
+        .tabs .tab.active{
+            display: block;
+        }
+		.abn-tree{
+			cursor:default !important;
+		}
+
+        .boldcallreportschedule {
+           font: bold;
+        }
+

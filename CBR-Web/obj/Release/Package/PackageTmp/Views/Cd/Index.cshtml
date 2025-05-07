@@ -1,0 +1,174 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/issuecd")
+}
+
+@section Styles{
+    <style>
+
+        /* Document Folder CSS */
+        .dataTables_wrapper .col-sm-12 {
+            padding: 0;
+        }
+    </style>
+    <style>
+
+        .bootstrap-select li.active a,
+        .bootstrap-select li.active a:hover {
+            background-color: #003057;
+        }
+    </style>
+    <style>
+
+
+        .bank-account-details,
+        .project-access {
+            background-color: #ffffff;
+            padding: 10px;
+            margin-bottom: 30px;
+        }
+
+        .account-details-info {
+            border-bottom: 1px solid #ececec;
+            padding: 5px;
+        }
+
+            .account-details-info p {
+                margin: 0;
+            }
+
+        .btn-table {
+            text-align: center;
+        }
+
+            .btn-table .glyphicon {
+                margin-right: 5px;
+            }
+
+        .btn-project-access {
+            min-width: 170px;
+            text-align: left;
+        }
+
+        label.checkbox-inline {
+            font-size: 12px;
+        }
+
+        .toggle-on.btn {
+            background-color: #003057;
+            color: #ffffff;
+            border-color: #ddd;
+        }
+    </style>
+    <!-- Table Styles -->
+    <style>
+        
+
+        .table * {
+            font-size: 10px;
+        }
+
+        .table .form-control {
+            height: auto;
+        }
+
+            .table .form-control::-webkit-input-placeholder {
+                font-size: 10px;
+            }
+
+        .table th {
+            padding-right: 8px !important;
+        }
+
+        .table > tbody > tr > td {
+            vertical-align: middle;
+        }
+
+        .dt-nowrap {
+            white-space: nowrap;
+        }
+        /* Datepicker Styles */
+        .datepicker table {
+            width: 100%
+        }
+
+        .highlight {
+            box-shadow: 0 0 10px;
+        }
+
+        @@media (max-width: 991px) {
+            .mobile-merge-table table {
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+            }
+
+            #tableBrokeredDeposit_wrapper .col-sm-5,
+            #tableBrokeredDeposit_wrapper .col-sm-7,
+            #tableBrokeredDeposit2_wrapper .col-sm-6 {
+                min-height: 0 !important;
+            }
+
+            #tableBrokeredDeposit2_wrapper thead {
+                display: none;
+            }
+
+            #tableBrokeredDeposit2_wrapper tbody tr td:nth-child(2),
+            #tableBrokeredDeposit2_wrapper tbody tr td:nth-child(3) {
+                width: 100px;
+            }
+        }
+
+        .biggerratefont * {
+            font-size: 14px !important;
+            font-weight: bold !important;
+        }
+
+        #issuecd .title {
+            margin-top:0px !important;
+            margin-bottom:5px !important;
+        }
+
+        #issuecd .breadcrumb {
+            padding-top:0px !important;
+            margin-bottom: 0px !important;
+
+        }
+
+        #issuecd h3 {
+            margin-top:0px !important;
+            margin-bottom: 5px !important;
+        }
+
+        #issuecd .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+            padding: 4px !important;
+        }
+
+        #tableBrokeredDeposit {
+            margin-bottom: 5px !important;
+        }
+
+    </style>
+}
+<!-- end CSS styles -->
+@section jsCode{
+    var issueCdModule = angular.module("issuecd", ['cbrcommon','ui.mask','ui.bootstrap','dialogs.main','ngMask','fcsa-number'])
+    .config(function ($routeProvider, $locationProvider) {
+    $routeProvider.when('/Cd', { templateUrl: '/App/Cd/Views/IssueCd.html?v=' + versionNumber, controller: 'issueCdController' });
+    $routeProvider.otherwise({ redirectTo: '/Cd' });
+    $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+    });
+    });
+}
+
+<div ng-non-bindable>
+    <div id="issuecd">
+        <div ng-view></div>
+    </div>
+</div>

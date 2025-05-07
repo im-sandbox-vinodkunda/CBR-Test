@@ -1,0 +1,156 @@
+/* 15 BankAnalyticsDashboard.html Gap Analyzer Styles */
+
+.gray-bg {
+    background-color: #D3D3D3;
+}
+
+.row-fluid {
+    display: table !important;
+    float: none !important;
+}
+
+.spanFluid {
+    float: none !important;
+    display: table-cell !important;
+}
+
+.spanMiddleFluid {
+    float: none !important;
+    display: table-cell !important;
+    vertical-align: middle;
+}
+
+.onelefttab {
+    margin-left: 25px;
+}
+
+.twolefttab {
+    margin-left: 35px;
+}
+
+.page-container {
+    padding: 30px 30px;
+}
+
+.nav.qtr-ytd>li>a {
+    padding: 5px 10px;
+}
+
+/*.navbar-inverse .navbar-nav > li > a {
+            color: #eeeeee;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            font-size: 13px;
+        }*/
+
+.nav-pills ul {
+    background-color: #fcfcfc;
+    list-style: none;
+}
+
+.nav-pills>li>a,
+.nav-pills>li>ul>li>a {
+    font-size: 11px;
+    border-radius: 0px;
+    border: 0px;
+}
+
+ul.risk-profiles {
+    background-color: #ffffff;
+    border-bottom: 1px solid #dddddd;
+}
+
+.nav-pills.risk-profiles>li.active>a {
+    color: #fff;
+    font-weight: bold;
+}
+
+.btn-group .btn {
+    font-size: 12px;
+}
+
+.table {
+    font-size: 11px;
+}
+
+tr.active {
+    border-left: 5px solid #173967;
+}
+
+tr.clickable-row {
+    cursor: pointer;
+}
+
+tr input.benchmark-input {
+    width: 40px;
+    border: 0px;
+    border-bottom: 1px solid #dddddd;
+    padding: 0px 5px;
+}
+
+.tooltip-inner {
+    max-width: 450px;
+    /* If max-width does not work, try using width instead */
+    width: 450px;
+    font-size: 12px;
+}
+
+.bank-details-heading {
+    border: 1px solid #dddddd;
+    margin-top: 15px;
+    padding: 10px;
+}
+
+.table>tbody>tr>td.no-border {
+    border-top: 0px;
+    border-bottom: 0px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.table>thead>tr>th.no-border {
+    border-bottom: 0px;
+}
+
+.table-bordered>thead>tr>th.no-border-top,
+.table-bordered>tbody>tr>th.no-border-top {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.table-bordered {
+    border-top: 0px;
+}
+
+.table>tbody>tr>th.no-border {
+    border-top: 0px;
+    border-bottom: 0px;
+}
+
+.table>tbody>tr>td.border-bottom {
+    border-bottom: 1px solid #ddd;
+}
+
+.blue-text {
+    color: #337ab7;
+}
+
+tr input.benchmark-input {
+    width: 40px;
+    border: 0px;
+    border-bottom: 1px solid #dddddd;
+    padding: 0px 5px;
+}
+
+input.threshold-input {
+    width: 60px;
+    border: 1px solid #dddddd;
+    padding: 2px 2px;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center;
+    border-radius: 2px;
+    float: right;
+    height: 20px;
+}

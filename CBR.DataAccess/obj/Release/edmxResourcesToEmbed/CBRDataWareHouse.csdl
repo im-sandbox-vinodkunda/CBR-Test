@@ -1,0 +1,1726 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CBRDataWareHouseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AppUser">
+    <Key>
+      <PropertyRef Name="UserKey" />
+    </Key>
+    <Property Name="UserKey" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenantKey" Type="Int64" Nullable="false" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Department" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EMail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDate" Type="DateTime" Precision="3" />
+    <Property Name="ApprovalDate" Type="DateTime" Precision="3" />
+    <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
+    <Property Name="IsLocked" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordQuestion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordAnswer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ActivationToken" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="7" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AppUserClaims" Relationship="Self.FK_AppUserClaim_User" FromRole="AppUser" ToRole="AppUserClaim" />
+    <NavigationProperty Name="AppUserLogins" Relationship="Self.FK_AppUserLogin_User" FromRole="AppUser" ToRole="AppUserLogin" />
+    <NavigationProperty Name="DimCustPeerGroups" Relationship="Self.FK_DimCustPeerGroup_UserKey" FromRole="AppUser" ToRole="DimCustPeerGroup" />
+    <NavigationProperty Name="AppFavoriteBanks" Relationship="CBRDataWareHouseModel.FK_AppFavouriteBanks_UserKey" FromRole="AppUser" ToRole="AppFavoriteBank" />
+    <NavigationProperty Name="AppFavoriteSearches" Relationship="CBRDataWareHouseModel.FK_AppFavouriteSearches_UserKey" FromRole="AppUser" ToRole="AppFavoriteSearch" />
+    <NavigationProperty Name="AppUserRoles" Relationship="CBRDataWareHouseModel.FK_AppUserRole_User" FromRole="AppUser" ToRole="AppUserRole" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="AppStrategicForecastScenarios" Relationship="CBRDataWareHouseModel.FK__AppStrate__UserK__532343BF" FromRole="AppUser" ToRole="AppStrategicForecastScenario" />
+    <NavigationProperty Name="AppStrategicForecastSummaries" Relationship="CBRDataWareHouseModel.FK__AppStrate__UserK__513AFB4D" FromRole="AppUser" ToRole="AppStrategicForecastSummary" />
+    <NavigationProperty Name="AppStrategicForecastInputDatas" Relationship="CBRDataWareHouseModel.FK__AppStrate__UserK__4A8DFDBE" FromRole="AppUser" ToRole="AppStrategicForecastInputData" />
+    <NavigationProperty Name="AppStrategicForecastSummaryScenarios" Relationship="CBRDataWareHouseModel.FK__AppStrate__UserK__55959C16" FromRole="AppUser" ToRole="AppStrategicForecastSummaryScenario" />
+    <NavigationProperty Name="FactUBPRBenchmarks" Relationship="CBRDataWareHouseModel.FK_FactUBPRBenchMark_UserKey" FromRole="AppUser" ToRole="FactUBPRBenchmark" />
+    <NavigationProperty Name="FactUBPRBenchmarkThresholds" Relationship="CBRDataWareHouseModel.FK_FactUBPRBenchMarkThreshold_UserKey" FromRole="AppUser" ToRole="FactUBPRBenchmarkThreshold" />
+    <NavigationProperty Name="AppTenant" Relationship="CBRDataWareHouseModel.FK_AppUser_Tenant" FromRole="AppUser" ToRole="AppTenant" />
+    <Property Name="HasAcceptedTerms" Type="Boolean" />
+    <NavigationProperty Name="RptCBRRiskRadarUserMetricmappings" Relationship="CBRDataWareHouseModel.FK_RptCBRRiskRadarUserMappingKey" FromRole="AppUser" ToRole="RptCBRRiskRadarUserMetricmapping" />
+    <Property Name="IsEmailSent" Type="Boolean" />
+    <Property Name="IsPasswordReset" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="AppUserClaim">
+    <Key>
+      <PropertyRef Name="UserClaimKey" />
+    </Key>
+    <Property Name="UserClaimKey" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserKey" Type="Int64" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AppUser" Relationship="Self.FK_AppUserClaim_User" FromRole="AppUserClaim" ToRole="AppUser" />
+  </EntityType>
+  <EntityType Name="AppUserLogin">
+    <Key>
+      <PropertyRef Name="UserKey" />
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+    </Key>
+    <Property Name="UserKey" Type="Int64" Nullable="false" />
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AppUser" Relationship="Self.FK_AppUserLogin_User" FromRole="AppUserLogin" ToRole="AppUser" />
+  </EntityType>
+  <EntityType Name="AppUserRegistrationToken">
+    <Key>
+      <PropertyRef Name="UserRegistrationTokenKey" />
+    </Key>
+    <Property Name="UserRegistrationTokenKey" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserKey" Type="Int64" />
+    <Property Name="Token" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DimCallSchedule">
+    <Key>
+      <PropertyRef Name="CallScheduleKey" />
+    </Key>
+    <Property Name="CallScheduleKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CallScheduleCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuditInsertedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditInsertedPackageKey" Type="Int32" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="AuditUpdatedPackageKey" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DimCustPeerGroup">
+    <Key>
+      <PropertyRef Name="CustPeerGroupKey" />
+    </Key>
+    <Property Name="CustPeerGroupKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustPeerGroupName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenantKey" Type="Int64" Nullable="false" />
+    <Property Name="UserKey" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDefault" Type="Boolean" Nullable="false" />
+    <Property Name="AuditInsertedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditInsertedPackageKey" Type="Int32" />
+    <Property Name="AuditUpdatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="AuditUpdatedPackageKey" Type="Int32" />
+    <Property Name="AuditHashMD5" Type="Binary" MaxLength="16" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="AppUser" Relationship="Self.FK_DimCustPeerGroup_UserKey" FromRole="DimCustPeerGroup" ToRole="AppUser" />
+    <NavigationProperty Name="FactCustPGUBPRDatas" Relationship="Self.FK_FactCustPGUBPRData_CustPeerGroupKey" FromRole="DimCustPeerGroup" ToRole="FactCustPGUBPRData" />
+    <Property Name="StatusReason" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DimCustPeerGroupDetails" Relationship="CBRDataWareHouseModel.FK_DimCustPeerGroupDetail_CustPeerGroupKey" FromRole="DimCustPeerGroup" ToRole="DimCustPeerGroupDetail" />
+    <NavigationProperty Name="AppTenant" Relationship="CBRDataWareHouseModel.FK_DimCustPeerGroup_TenantKey" FromRole="DimCustPeerGroup" ToRole="AppTenant" />
+  </EntityType>
+  <EntityType Name="DimDate">
+    <Key>
+      <PropertyRef Name="DateKey" />
+    </Key>
+    <Property Name="DateKey" Type="Int32" Nullable="false" />
+    <Property Name="FullDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DayNumberOfWeek" Type="Byte" Nullable="false" />
+    <Property Name="DayNameOfWeek" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WeekDayType" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DayNumberOfMonth" Type="Byte" Nullable="false" />
+    <Property Name="DayNumberOfYear" Type="Int16" Nullable="false" />
+    <Property Name="WeekNumberOfYear" Type="Byte" Nullable="false" />
+    <Property Name="MonthNameOfYear" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MonthNumberOfYear" Type="Byte" Nullable="false" />
+    <Property Name="QuarterNumberCalendar" Type="Byte" Nullable="false" />
+    <Property Name="QuarterNameCalendar" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="SemesterNumberCalendar" Type="Byte" Nullable="false" />
+    <Property Name="SemesterNameCalendar" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="YearCalendar" Type="Int16" Nullable="false" />
+    <Property Name="MonthNumberFiscal" Type="Byte" Nullable="false" />
+    <Property Name="QuarterNumberFiscal" Type="Byte" Nullable="false" />
+    <Property Name="QuarterNameFiscal" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="SemesterNumberFiscal" Type="Byte" Nullable="false" />
+    <Property Name="SemesterNameFiscal" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="YearFiscal" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="FactCustPGUBPRDatas" Relationship="Self.FK_FactCustPGUBPRData_CustPGUBPRDateKey" FromRole="DimDate" ToRole="FactCustPGUBPRData" />
+    <NavigationProperty Name="FactStdPGUBPRDatas" Relationship="Self.FK_FactStdPGUBPRData_StdPGUBPRDateKey" FromRole="DimDate" ToRole="FactStdPGUBPRData" />
+  </EntityType>
+  <EntityType Name="DimInstitutionBranch">
+    <Key>
+      <PropertyRef Name="InstitutionBranchKey" />
+    </Key>
+    <Property Name="InstitutionBranchKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InstitutionBranchId" Type="Int32" Nullable="false" />
+    <Property Name="InstitutionKey" Type="Int32" Nullable="false" />
+    <Property Name="InstitutionBranchName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="InstitutionBranchAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="InstitutionBranchCity" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="InstitutionBranchZip" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="InstitutionBranchStateName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CertNumber" Type="Int32" />
+    <Property Name="InstitutionBranchEstablishedDate" Type="DateTime" Precision="3" />
+    <Property Name="InstitutionBranchOfficeName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="InstitutionBranchOfficeNum" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="FiUniNum" Type="Int32" />
+    <Property Name="IsCbsaMetro" Type="Boolean" />
+    <Property Name="IsCbsaMicro" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="AuditInsertedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditInsertedPackageKey" Type="Int32" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="AuditUpdatedPackageKey" Type="Int32" />
+    <Property Name="AuditHashMD5" Type="Binary" MaxLength="16" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="DimInstitution" Relationship="CBRDataWareHouseModel.FK_DimInstitutionBranch_InstitutionKey" FromRole="DimInstitutionBranch" ToRole="DimInstitution" />
+  </EntityType>
+  <EntityType Name="DimMDRM">
+    <Key>
+      <PropertyRef Name="MDRMKey" />
+    </Key>
+    <Property Name="MDRMKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MDRMNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MDRMShortDefinition" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuditInsertedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditInsertedPackageKey" Type="Int32" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="AuditUpdatedPackageKey" Type="Int32" />
+    <Property Name="AuditHashMD5" Type="Binary" MaxLength="16" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CustomMDRMDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DimReportingPeriodType">
+    <Key>
+      <PropertyRef Name="ReportingPeriodTypeKey" />
+    </Key>
+    <Property Name="ReportingPeriodTypeKey" Type="Int32" Nullable="false" />
+    <Property Name="ReportingPeriodType" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuditInsertedPackageKey" Type="Int32" Nullable="false" />
+    <Property Name="AuditInsertedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="FactCustPGUBPRDatas" Relationship="Self.FK_FactCustPGUBPRData_CustPGUBPRPeriodTypeKey" FromRole="DimReportingPeriodType" ToRole="FactCustPGUBPRData" />
+    <NavigationProperty Name="FactStdPGUBPRDatas" Relationship="Self.FK_FactStdPGUBPRData_StdPGUBPRPeriodTypeKey" FromRole="DimReportingPeriodType" ToRole="FactStdPGUBPRData" />
+    <NavigationProperty Name="FactUBPRBenchmarks" Relationship="CBRDataWareHouseModel.FK_FactUBPRBenchMark_ReportPeriodTypeKey" FromRole="DimReportingPeriodType" ToRole="FactUBPRBenchmark" />
+  </EntityType>
+  <EntityType Name="DimStdPeerGroup">
+    <Key>
+      <PropertyRef Name="StdPeerGroupKey" />
+    </Key>
+    <Property Name="StdPeerGroupKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StdPeerGroupCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StdPeerGroupName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AuditInsertedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditInsertedPackageKey" Type="Int32" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="AuditUpdatedPackageKey" Type="Int32" />
+    <Property Name="AuditHashMD5" Type="Binary" MaxLength="16" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="DimStdPeerGroupDetails" Relationship="Self.FK_DimStdPeerGroupDetail_StdPeerGroupKey" FromRole="DimStdPeerGroup" ToRole="DimStdPeerGroupDetail" />
+    <NavigationProperty Name="FactStdPGUBPRDatas" Relationship="Self.FK_FactStdPGUBPRData_StdPeerGroupKey" FromRole="DimStdPeerGroup" ToRole="FactStdPGUBPRData" />
+  </EntityType>
+  <EntityType Name="DimStdPeerGroupDetail">
+    <Key>
+      <PropertyRef Name="StdPeerGroupDetailKey" />
+    </Key>
+    <Property Name="StdPeerGroupDetailKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StdPeerGroupKey" Type="Int32" Nullable="false" />
+    <Property Name="StdPeerInstitutionKey" Type="Int32" Nullable="false" />
+    <Property Name="AuditInsertedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditInsertedPackageKey" Type="Int32" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="AuditUpdatedPackageKey" Type="Int32" />
+    <Property Name="AuditHashMD5" Type="Binary" MaxLength="16" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="DimStdPeerGroup" Relationship="Self.FK_DimStdPeerGroupDetail_StdPeerGroupKey" FromRole="DimStdPeerGroupDetail" ToRole="DimStdPeerGroup" />
+    <Property Name="StdPeerGroupDateKey" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DimUBPRConcept">
+    <Key>
+      <PropertyRef Name="UBPRConceptKey" />
+    </Key>
+    <Property Name="UBPRConceptKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UBPRConceptCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UBPRConceptDesc" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="UBPRConceptNarrative" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="UBPRConceptFormula" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="UBPRConceptUnit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AuditInsertedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditInsertedPackageKey" Type="Int32" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="AuditUpdatedPackageKey" Type="Int32" />
+    <Property Name="AuditHashMD5" Type="Binary" MaxLength="16" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="FactCustPGUBPRDatas" Relationship="Self.FK_FactCustPGUBPRData_CustPGUBPRConceptKey" FromRole="DimUBPRConcept" ToRole="FactCustPGUBPRData" />
+    <NavigationProperty Name="FactStdPGUBPRDatas" Relationship="Self.FK_FactStdPGUBPRData_StdPGUBPRConceptKey" FromRole="DimUBPRConcept" ToRole="FactStdPGUBPRData" />
+    <Property Name="CustomUBPRConceptCodeDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FactUBPRBenchmarks" Relationship="CBRDataWareHouseModel.FK_FactUBPRBenchMark_UBPRConceptKey" FromRole="DimUBPRConcept" ToRole="FactUBPRBenchmark" />
+  </EntityType>
+  <EntityType Name="FactCustPGUBPRData">
+    <Key>
+      <PropertyRef Name="CustPGUBPRDataKey" />
+    </Key>
+    <Property Name="CustPGUBPRDataKey" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustPeerGroupKey" Type="Int32" Nullable="false" />
+    <Property Name="CustPGUBPRDateKey" Type="Int32" Nullable="false" />
+    <Property Name="CustPGUBPRConceptKey" Type="Int32" Nullable="false" />
+    <Property Name="CustPGUBPRPeriodTypeKey" Type="Int32" Nullable="false" />
+    <Property Name="CustPGUBPRDataValue" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="AuditInsertedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditInsertedPackageKey" Type="Int32" />
+    <Property Name="AuditUpdatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="AuditUpdatedPackageKey" Type="Int32" />
+    <NavigationProperty Name="DimCustPeerGroup" Relationship="Self.FK_FactCustPGUBPRData_CustPeerGroupKey" FromRole="FactCustPGUBPRData" ToRole="DimCustPeerGroup" />
+    <NavigationProperty Name="DimDate" Relationship="Self.FK_FactCustPGUBPRData_CustPGUBPRDateKey" FromRole="FactCustPGUBPRData" ToRole="DimDate" />
+    <NavigationProperty Name="DimReportingPeriodType" Relationship="Self.FK_FactCustPGUBPRData_CustPGUBPRPeriodTypeKey" FromRole="FactCustPGUBPRData" ToRole="DimReportingPeriodType" />
+    <NavigationProperty Name="DimUBPRConcept" Relationship="Self.FK_FactCustPGUBPRData_CustPGUBPRConceptKey" FromRole="FactCustPGUBPRData" ToRole="DimUBPRConcept" />
+  </EntityType>
+  <EntityType Name="FactStdPGUBPRData">
+    <Key>
+      <PropertyRef Name="StdPGUBPRDataKey" />
+    </Key>
+    <Property Name="StdPGUBPRDataKey" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StdPeerGroupKey" Type="Int32" Nullable="false" />
+    <Property Name="StdPGUBPRDateKey" Type="Int32" Nullable="false" />
+    <Property Name="StdPGUBPRConceptKey" Type="Int32" Nullable="false" />
+    <Property Name="StdPGUBPRPeriodTypeKey" Type="Int32" Nullable="false" />
+    <Property Name="StdPGUBPRDataValue" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="AuditInsertedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditInsertedPackageKey" Type="Int32" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="AuditUpdatedPackageKey" Type="Int32" />
+    <NavigationProperty Name="DimDate" Relationship="Self.FK_FactStdPGUBPRData_StdPGUBPRDateKey" FromRole="FactStdPGUBPRData" ToRole="DimDate" />
+    <NavigationProperty Name="DimReportingPeriodType" Relationship="Self.FK_FactStdPGUBPRData_StdPGUBPRPeriodTypeKey" FromRole="FactStdPGUBPRData" ToRole="DimReportingPeriodType" />
+    <NavigationProperty Name="DimStdPeerGroup" Relationship="Self.FK_FactStdPGUBPRData_StdPeerGroupKey" FromRole="FactStdPGUBPRData" ToRole="DimStdPeerGroup" />
+    <NavigationProperty Name="DimUBPRConcept" Relationship="Self.FK_FactStdPGUBPRData_StdPGUBPRConceptKey" FromRole="FactStdPGUBPRData" ToRole="DimUBPRConcept" />
+  </EntityType>
+  <EntityType Name="FactUBPRData">
+    <Key>
+      <PropertyRef Name="UBPRDataKey" />
+    </Key>
+    <Property Name="UBPRDataKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InstitutionKey" Type="Int32" Nullable="false" />
+    <Property Name="UBPRDateKey" Type="Int32" Nullable="false" />
+    <Property Name="UBPRConceptKey" Type="Int32" Nullable="false" />
+    <Property Name="UBPRPeriodTypeKey" Type="Int32" Nullable="false" />
+    <Property Name="UBPRDataValue" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="AuditInsertedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditInsertedPackageKey" Type="Int32" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="AuditUpdatedPackageKey" Type="Int32" />
+    <Property Name="UBPRReportingPeriodDateKey" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AppUserClaim_User">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppUserClaim" Type="Self.AppUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="AppUserClaim">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUserLogin_User">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppUserLogin" Type="Self.AppUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="AppUserLogin">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DimCustPeerGroup_UserKey">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+    <End Role="DimCustPeerGroup" Type="Self.DimCustPeerGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="DimCustPeerGroup">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactCustPGUBPRData_CustPeerGroupKey">
+    <End Role="DimCustPeerGroup" Type="Self.DimCustPeerGroup" Multiplicity="1" />
+    <End Role="FactCustPGUBPRData" Type="Self.FactCustPGUBPRData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimCustPeerGroup">
+        <PropertyRef Name="CustPeerGroupKey" />
+      </Principal>
+      <Dependent Role="FactCustPGUBPRData">
+        <PropertyRef Name="CustPeerGroupKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactCustPGUBPRData_CustPGUBPRDateKey">
+    <End Role="DimDate" Type="Self.DimDate" Multiplicity="1" />
+    <End Role="FactCustPGUBPRData" Type="Self.FactCustPGUBPRData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimDate">
+        <PropertyRef Name="DateKey" />
+      </Principal>
+      <Dependent Role="FactCustPGUBPRData">
+        <PropertyRef Name="CustPGUBPRDateKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactStdPGUBPRData_StdPGUBPRDateKey">
+    <End Role="DimDate" Type="Self.DimDate" Multiplicity="1" />
+    <End Role="FactStdPGUBPRData" Type="Self.FactStdPGUBPRData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimDate">
+        <PropertyRef Name="DateKey" />
+      </Principal>
+      <Dependent Role="FactStdPGUBPRData">
+        <PropertyRef Name="StdPGUBPRDateKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactCustPGUBPRData_CustPGUBPRPeriodTypeKey">
+    <End Role="DimReportingPeriodType" Type="Self.DimReportingPeriodType" Multiplicity="1" />
+    <End Role="FactCustPGUBPRData" Type="Self.FactCustPGUBPRData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimReportingPeriodType">
+        <PropertyRef Name="ReportingPeriodTypeKey" />
+      </Principal>
+      <Dependent Role="FactCustPGUBPRData">
+        <PropertyRef Name="CustPGUBPRPeriodTypeKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactStdPGUBPRData_StdPGUBPRPeriodTypeKey">
+    <End Role="DimReportingPeriodType" Type="Self.DimReportingPeriodType" Multiplicity="1" />
+    <End Role="FactStdPGUBPRData" Type="Self.FactStdPGUBPRData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimReportingPeriodType">
+        <PropertyRef Name="ReportingPeriodTypeKey" />
+      </Principal>
+      <Dependent Role="FactStdPGUBPRData">
+        <PropertyRef Name="StdPGUBPRPeriodTypeKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DimStdPeerGroupDetail_StdPeerGroupKey">
+    <End Role="DimStdPeerGroup" Type="Self.DimStdPeerGroup" Multiplicity="1" />
+    <End Role="DimStdPeerGroupDetail" Type="Self.DimStdPeerGroupDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimStdPeerGroup">
+        <PropertyRef Name="StdPeerGroupKey" />
+      </Principal>
+      <Dependent Role="DimStdPeerGroupDetail">
+        <PropertyRef Name="StdPeerGroupKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactStdPGUBPRData_StdPeerGroupKey">
+    <End Role="DimStdPeerGroup" Type="Self.DimStdPeerGroup" Multiplicity="1" />
+    <End Role="FactStdPGUBPRData" Type="Self.FactStdPGUBPRData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimStdPeerGroup">
+        <PropertyRef Name="StdPeerGroupKey" />
+      </Principal>
+      <Dependent Role="FactStdPGUBPRData">
+        <PropertyRef Name="StdPeerGroupKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactCustPGUBPRData_CustPGUBPRConceptKey">
+    <End Role="DimUBPRConcept" Type="Self.DimUBPRConcept" Multiplicity="1" />
+    <End Role="FactCustPGUBPRData" Type="Self.FactCustPGUBPRData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimUBPRConcept">
+        <PropertyRef Name="UBPRConceptKey" />
+      </Principal>
+      <Dependent Role="FactCustPGUBPRData">
+        <PropertyRef Name="CustPGUBPRConceptKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactStdPGUBPRData_StdPGUBPRConceptKey">
+    <End Role="DimUBPRConcept" Type="Self.DimUBPRConcept" Multiplicity="1" />
+    <End Role="FactStdPGUBPRData" Type="Self.FactStdPGUBPRData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimUBPRConcept">
+        <PropertyRef Name="UBPRConceptKey" />
+      </Principal>
+      <Dependent Role="FactStdPGUBPRData">
+        <PropertyRef Name="StdPGUBPRConceptKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CBRDataWareHouseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AppUsers" EntityType="Self.AppUser" />
+    <EntitySet Name="AppUserClaims" EntityType="Self.AppUserClaim" />
+    <EntitySet Name="AppUserLogins" EntityType="Self.AppUserLogin" />
+    <EntitySet Name="AppUserRegistrationTokens" EntityType="Self.AppUserRegistrationToken" />
+    <EntitySet Name="DimCallSchedules" EntityType="Self.DimCallSchedule" />
+    <EntitySet Name="DimCustPeerGroups" EntityType="Self.DimCustPeerGroup" />
+    <EntitySet Name="DimDates" EntityType="Self.DimDate" />
+    <EntitySet Name="DimInstitutionBranches" EntityType="Self.DimInstitutionBranch" />
+    <EntitySet Name="DimMDRMs" EntityType="Self.DimMDRM" />
+    <EntitySet Name="DimReportingPeriodTypes" EntityType="Self.DimReportingPeriodType" />
+    <EntitySet Name="DimStdPeerGroups" EntityType="Self.DimStdPeerGroup" />
+    <EntitySet Name="DimStdPeerGroupDetails" EntityType="Self.DimStdPeerGroupDetail" />
+    <EntitySet Name="DimUBPRConcepts" EntityType="Self.DimUBPRConcept" />
+    <EntitySet Name="FactCustPGUBPRDatas" EntityType="Self.FactCustPGUBPRData" />
+    <EntitySet Name="FactStdPGUBPRDatas" EntityType="Self.FactStdPGUBPRData" />
+    <EntitySet Name="FactUBPRDatas" EntityType="Self.FactUBPRData" />
+    <AssociationSet Name="FK_AppUserClaim_User" Association="Self.FK_AppUserClaim_User">
+      <End Role="AppUser" EntitySet="AppUsers" />
+      <End Role="AppUserClaim" EntitySet="AppUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUserLogin_User" Association="Self.FK_AppUserLogin_User">
+      <End Role="AppUser" EntitySet="AppUsers" />
+      <End Role="AppUserLogin" EntitySet="AppUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DimCustPeerGroup_UserKey" Association="Self.FK_DimCustPeerGroup_UserKey">
+      <End Role="AppUser" EntitySet="AppUsers" />
+      <End Role="DimCustPeerGroup" EntitySet="DimCustPeerGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactCustPGUBPRData_CustPeerGroupKey" Association="Self.FK_FactCustPGUBPRData_CustPeerGroupKey">
+      <End Role="DimCustPeerGroup" EntitySet="DimCustPeerGroups" />
+      <End Role="FactCustPGUBPRData" EntitySet="FactCustPGUBPRDatas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactCustPGUBPRData_CustPGUBPRDateKey" Association="Self.FK_FactCustPGUBPRData_CustPGUBPRDateKey">
+      <End Role="DimDate" EntitySet="DimDates" />
+      <End Role="FactCustPGUBPRData" EntitySet="FactCustPGUBPRDatas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactStdPGUBPRData_StdPGUBPRDateKey" Association="Self.FK_FactStdPGUBPRData_StdPGUBPRDateKey">
+      <End Role="DimDate" EntitySet="DimDates" />
+      <End Role="FactStdPGUBPRData" EntitySet="FactStdPGUBPRDatas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactCustPGUBPRData_CustPGUBPRPeriodTypeKey" Association="Self.FK_FactCustPGUBPRData_CustPGUBPRPeriodTypeKey">
+      <End Role="DimReportingPeriodType" EntitySet="DimReportingPeriodTypes" />
+      <End Role="FactCustPGUBPRData" EntitySet="FactCustPGUBPRDatas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactStdPGUBPRData_StdPGUBPRPeriodTypeKey" Association="Self.FK_FactStdPGUBPRData_StdPGUBPRPeriodTypeKey">
+      <End Role="DimReportingPeriodType" EntitySet="DimReportingPeriodTypes" />
+      <End Role="FactStdPGUBPRData" EntitySet="FactStdPGUBPRDatas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DimStdPeerGroupDetail_StdPeerGroupKey" Association="Self.FK_DimStdPeerGroupDetail_StdPeerGroupKey">
+      <End Role="DimStdPeerGroup" EntitySet="DimStdPeerGroups" />
+      <End Role="DimStdPeerGroupDetail" EntitySet="DimStdPeerGroupDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactStdPGUBPRData_StdPeerGroupKey" Association="Self.FK_FactStdPGUBPRData_StdPeerGroupKey">
+      <End Role="DimStdPeerGroup" EntitySet="DimStdPeerGroups" />
+      <End Role="FactStdPGUBPRData" EntitySet="FactStdPGUBPRDatas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactCustPGUBPRData_CustPGUBPRConceptKey" Association="Self.FK_FactCustPGUBPRData_CustPGUBPRConceptKey">
+      <End Role="DimUBPRConcept" EntitySet="DimUBPRConcepts" />
+      <End Role="FactCustPGUBPRData" EntitySet="FactCustPGUBPRDatas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactStdPGUBPRData_StdPGUBPRConceptKey" Association="Self.FK_FactStdPGUBPRData_StdPGUBPRConceptKey">
+      <End Role="DimUBPRConcept" EntitySet="DimUBPRConcepts" />
+      <End Role="FactStdPGUBPRData" EntitySet="FactStdPGUBPRDatas" />
+    </AssociationSet>
+    <FunctionImport Name="uspDimDate" />
+    <FunctionImport Name="uspDimInstitution">
+      <Parameter Name="PackageKey" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspDimInstitutionBranch">
+      <Parameter Name="PackageKey" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspDimStdPeerGroup">
+      <Parameter Name="PackageKey" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspDimUBPRConcept">
+      <Parameter Name="PackageKey" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspDimUBPRConceptUpdate">
+      <Parameter Name="PackageKey" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspFactCustPGUBPRData">
+      <Parameter Name="PackageKey" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspFactStdPGUBPRData">
+      <Parameter Name="PackageKey" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspDimCustPeerGroupDetail" />
+    <FunctionImport Name="CreatePeerGroup" />
+    <EntitySet Name="vwProjectNewDocCounts" EntityType="CBRDataWareHouseModel.vwProjectNewDocCount" />
+    <EntitySet Name="AppFavoriteBanks" EntityType="CBRDataWareHouseModel.AppFavoriteBank" />
+    <EntitySet Name="AppFavoriteSearches" EntityType="CBRDataWareHouseModel.AppFavoriteSearch" />
+    <AssociationSet Name="FK_AppFavouriteBanks_UserKey" Association="CBRDataWareHouseModel.FK_AppFavouriteBanks_UserKey">
+      <End Role="AppUser" EntitySet="AppUsers" />
+      <End Role="AppFavoriteBank" EntitySet="AppFavoriteBanks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppFavouriteSearches_UserKey" Association="CBRDataWareHouseModel.FK_AppFavouriteSearches_UserKey">
+      <End Role="AppUser" EntitySet="AppUsers" />
+      <End Role="AppFavoriteSearch" EntitySet="AppFavoriteSearches" />
+    </AssociationSet>
+    <EntitySet Name="AppRoles" EntityType="CBRDataWareHouseModel.AppRole" />
+    <EntitySet Name="AppUserRoles" EntityType="CBRDataWareHouseModel.AppUserRole" />
+    <AssociationSet Name="FK_AppUserRole_Role" Association="CBRDataWareHouseModel.FK_AppUserRole_Role">
+      <End Role="AppRole" EntitySet="AppRoles" />
+      <End Role="AppUserRole" EntitySet="AppUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUserRole_User" Association="CBRDataWareHouseModel.FK_AppUserRole_User">
+      <End Role="AppUser" EntitySet="AppUsers" />
+      <End Role="AppUserRole" EntitySet="AppUserRoles" />
+    </AssociationSet>
+    <EntitySet Name="DimInstitutions" EntityType="CBRDataWareHouseModel.DimInstitution" />
+    <AssociationSet Name="FK_AppFavouriteBanks_InstitutionKey" Association="CBRDataWareHouseModel.FK_AppFavouriteBanks_InstitutionKey">
+      <End Role="DimInstitution" EntitySet="DimInstitutions" />
+      <End Role="AppFavoriteBank" EntitySet="AppFavoriteBanks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DimInstitutionBranch_InstitutionKey" Association="CBRDataWareHouseModel.FK_DimInstitutionBranch_InstitutionKey">
+      <End Role="DimInstitution" EntitySet="DimInstitutions" />
+      <End Role="DimInstitutionBranch" EntitySet="DimInstitutionBranches" />
+    </AssociationSet>
+    <EntitySet Name="AppProjectInfoes" EntityType="CBRDataWareHouseModel.AppProjectInfo" />
+    <EntitySet Name="FactUBPRBenchmarks" EntityType="CBRDataWareHouseModel.FactUBPRBenchmark" />
+    <EntitySet Name="FactUBPRBenchmarkThresholds" EntityType="CBRDataWareHouseModel.FactUBPRBenchmarkThreshold" />
+    <AssociationSet Name="FK_FactUBPRBenchMark_InstitutionKey" Association="CBRDataWareHouseModel.FK_FactUBPRBenchMark_InstitutionKey">
+      <End Role="DimInstitution" EntitySet="DimInstitutions" />
+      <End Role="FactUBPRBenchmark" EntitySet="FactUBPRBenchmarks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactUBPRBenchMarkThreshold_InstitutionKey" Association="CBRDataWareHouseModel.FK_FactUBPRBenchMarkThreshold_InstitutionKey">
+      <End Role="DimInstitution" EntitySet="DimInstitutions" />
+      <End Role="FactUBPRBenchmarkThreshold" EntitySet="FactUBPRBenchmarkThresholds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactUBPRBenchMark_ReportPeriodTypeKey" Association="CBRDataWareHouseModel.FK_FactUBPRBenchMark_ReportPeriodTypeKey">
+      <End Role="DimReportingPeriodType" EntitySet="DimReportingPeriodTypes" />
+      <End Role="FactUBPRBenchmark" EntitySet="FactUBPRBenchmarks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactUBPRBenchMark_UBPRConceptKey" Association="CBRDataWareHouseModel.FK_FactUBPRBenchMark_UBPRConceptKey">
+      <End Role="DimUBPRConcept" EntitySet="DimUBPRConcepts" />
+      <End Role="FactUBPRBenchmark" EntitySet="FactUBPRBenchmarks" />
+    </AssociationSet>
+    <EntitySet Name="DimCustPeerGroupDetails" EntityType="CBRDataWareHouseModel.DimCustPeerGroupDetail" />
+    <AssociationSet Name="FK_DimCustPeerGroupDetail_CustPeerGroupKey" Association="CBRDataWareHouseModel.FK_DimCustPeerGroupDetail_CustPeerGroupKey">
+      <End Role="DimCustPeerGroup" EntitySet="DimCustPeerGroups" />
+      <End Role="DimCustPeerGroupDetail" EntitySet="DimCustPeerGroupDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DimCustPeerGroupDetail_InstitutionKey" Association="CBRDataWareHouseModel.FK_DimCustPeerGroupDetail_InstitutionKey">
+      <End Role="DimInstitution" EntitySet="DimInstitutions" />
+      <End Role="DimCustPeerGroupDetail" EntitySet="DimCustPeerGroupDetails" />
+    </AssociationSet>
+    <EntitySet Name="AppCRAMModels" EntityType="CBRDataWareHouseModel.AppCRAMModel" />
+    <EntitySet Name="AppCRAMAdjustBankDatas" EntityType="CBRDataWareHouseModel.AppCRAMAdjustBankData" />
+    <EntitySet Name="AppCRAMRiskRatings" EntityType="CBRDataWareHouseModel.AppCRAMRiskRating" />
+    <EntitySet Name="AppCRAMRiskRatingDefaults" EntityType="CBRDataWareHouseModel.AppCRAMRiskRatingDefault" />
+    <EntitySet Name="AppStrategicForecastInputMetrics" EntityType="CBRDataWareHouseModel.AppStrategicForecastInputMetric" />
+    <EntitySet Name="AppStrategicForecastScenarios" EntityType="CBRDataWareHouseModel.AppStrategicForecastScenario" />
+    <EntitySet Name="AppStrategicForecastSummaries" EntityType="CBRDataWareHouseModel.AppStrategicForecastSummary" />
+    <EntitySet Name="AppStrategicForecastInputDatas" EntityType="CBRDataWareHouseModel.AppStrategicForecastInputData" />
+    <AssociationSet Name="FK__AppStrate__Metri__48A5B54C" Association="CBRDataWareHouseModel.FK__AppStrate__Metri__48A5B54C">
+      <End Role="AppStrategicForecastInputMetric" EntitySet="AppStrategicForecastInputMetrics" />
+      <End Role="AppStrategicForecastInputData" EntitySet="AppStrategicForecastInputDatas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__Scena__4B8221F7" Association="CBRDataWareHouseModel.FK__AppStrate__Scena__4B8221F7">
+      <End Role="AppStrategicForecastScenario" EntitySet="AppStrategicForecastScenarios" />
+      <End Role="AppStrategicForecastInputData" EntitySet="AppStrategicForecastInputDatas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__UserK__532343BF" Association="CBRDataWareHouseModel.FK__AppStrate__UserK__532343BF">
+      <End Role="AppUser" EntitySet="AppUsers" />
+      <End Role="AppStrategicForecastScenario" EntitySet="AppStrategicForecastScenarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__UserK__513AFB4D" Association="CBRDataWareHouseModel.FK__AppStrate__UserK__513AFB4D">
+      <End Role="AppUser" EntitySet="AppUsers" />
+      <End Role="AppStrategicForecastSummary" EntitySet="AppStrategicForecastSummaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__UserK__4A8DFDBE" Association="CBRDataWareHouseModel.FK__AppStrate__UserK__4A8DFDBE">
+      <End Role="AppUser" EntitySet="AppUsers" />
+      <End Role="AppStrategicForecastInputData" EntitySet="AppStrategicForecastInputDatas" />
+    </AssociationSet>
+    <EntitySet Name="AppHomePageContents" EntityType="CBRDataWareHouseModel.AppHomePageContent" />
+    <EntitySet Name="AppStrategicForecastSummaryScenarios" EntityType="CBRDataWareHouseModel.AppStrategicForecastSummaryScenario" />
+    <AssociationSet Name="FK__AppStrate__Scena__52B92F6B" Association="CBRDataWareHouseModel.FK__AppStrate__Scena__52B92F6B">
+      <End Role="AppStrategicForecastScenario" EntitySet="AppStrategicForecastScenarios" />
+      <End Role="AppStrategicForecastSummaryScenario" EntitySet="AppStrategicForecastSummaryScenarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__Summa__53AD53A4" Association="CBRDataWareHouseModel.FK__AppStrate__Summa__53AD53A4">
+      <End Role="AppStrategicForecastSummary" EntitySet="AppStrategicForecastSummaries" />
+      <End Role="AppStrategicForecastSummaryScenario" EntitySet="AppStrategicForecastSummaryScenarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__UserK__55959C16" Association="CBRDataWareHouseModel.FK__AppStrate__UserK__55959C16">
+      <End Role="AppUser" EntitySet="AppUsers" />
+      <End Role="AppStrategicForecastSummaryScenario" EntitySet="AppStrategicForecastSummaryScenarios" />
+    </AssociationSet>
+    <EntitySet Name="AppInfoCenterImages" EntityType="CBRDataWareHouseModel.AppInfoCenterImage" />
+    <EntitySet Name="AppCRAMRiskCategories" EntityType="CBRDataWareHouseModel.AppCRAMRiskCategory" />
+    <AssociationSet Name="FK_FactUBPRBenchMark_UserKey" Association="CBRDataWareHouseModel.FK_FactUBPRBenchMark_UserKey">
+      <End Role="AppUser" EntitySet="AppUsers" />
+      <End Role="FactUBPRBenchmark" EntitySet="FactUBPRBenchmarks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactUBPRBenchMarkThreshold_UserKey" Association="CBRDataWareHouseModel.FK_FactUBPRBenchMarkThreshold_UserKey">
+      <End Role="AppUser" EntitySet="AppUsers" />
+      <End Role="FactUBPRBenchmarkThreshold" EntitySet="FactUBPRBenchmarkThresholds" />
+    </AssociationSet>
+    <EntitySet Name="AppManageCDRates" EntityType="CBRDataWareHouseModel.AppManageCDRate" />
+    <EntitySet Name="AppCDOrders" EntityType="CBRDataWareHouseModel.AppCDOrder" />
+    <EntitySet Name="AppTenants" EntityType="CBRDataWareHouseModel.AppTenant" />
+    <AssociationSet Name="FK__AppStrate__Tenan__4D6A6A69" Association="CBRDataWareHouseModel.FK__AppStrate__Tenan__4D6A6A69">
+      <End Role="AppTenant" EntitySet="AppTenants" />
+      <End Role="AppStrategicForecastScenario" EntitySet="AppStrategicForecastScenarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__Tenan__4F52B2DB" Association="CBRDataWareHouseModel.FK__AppStrate__Tenan__4F52B2DB">
+      <End Role="AppTenant" EntitySet="AppTenants" />
+      <End Role="AppStrategicForecastSummary" EntitySet="AppStrategicForecastSummaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__Tenan__0E0EFF63" Association="CBRDataWareHouseModel.FK__AppStrate__Tenan__0E0EFF63">
+      <End Role="AppTenant" EntitySet="AppTenants" />
+      <End Role="AppStrategicForecastSummaryScenario" EntitySet="AppStrategicForecastSummaryScenarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__Tenan__4B8221F7" Association="CBRDataWareHouseModel.FK__AppStrate__Tenan__4B8221F7">
+      <End Role="AppTenant" EntitySet="AppTenants" />
+      <End Role="AppStrategicForecastInputData" EntitySet="AppStrategicForecastInputDatas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppTenant_InstitutionKey" Association="CBRDataWareHouseModel.FK_AppTenant_InstitutionKey">
+      <End Role="DimInstitution" EntitySet="DimInstitutions" />
+      <End Role="AppTenant" EntitySet="AppTenants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUser_Tenant" Association="CBRDataWareHouseModel.FK_AppUser_Tenant">
+      <End Role="AppTenant" EntitySet="AppTenants" />
+      <End Role="AppUser" EntitySet="AppUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DimCustPeerGroup_TenantKey" Association="CBRDataWareHouseModel.FK_DimCustPeerGroup_TenantKey">
+      <End Role="AppTenant" EntitySet="AppTenants" />
+      <End Role="DimCustPeerGroup" EntitySet="DimCustPeerGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactUBPRBenchMark_TenantKey" Association="CBRDataWareHouseModel.FK_FactUBPRBenchMark_TenantKey">
+      <End Role="AppTenant" EntitySet="AppTenants" />
+      <End Role="FactUBPRBenchmark" EntitySet="FactUBPRBenchmarks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactUBPRBenchMarkThreshold_TenantKey" Association="CBRDataWareHouseModel.FK_FactUBPRBenchMarkThreshold_TenantKey">
+      <End Role="AppTenant" EntitySet="AppTenants" />
+      <End Role="FactUBPRBenchmarkThreshold" EntitySet="FactUBPRBenchmarkThresholds" />
+    </AssociationSet>
+    <EntitySet Name="KriMetricMasters" EntityType="CBRDataWareHouseModel.KriMetricMaster" />
+    <EntitySet Name="RptCBRRiskRadarChartDetails" EntityType="CBRDataWareHouseModel.RptCBRRiskRadarChartDetail" />
+    <EntitySet Name="RptCBRRiskRadarUserMetricmappings" EntityType="CBRDataWareHouseModel.RptCBRRiskRadarUserMetricmapping" />
+    <AssociationSet Name="FK_RptCBRRiskRadarUserMappingKey" Association="CBRDataWareHouseModel.FK_RptCBRRiskRadarUserMappingKey">
+      <End Role="AppUser" EntitySet="AppUsers" />
+      <End Role="RptCBRRiskRadarUserMetricmapping" EntitySet="RptCBRRiskRadarUserMetricmappings" />
+    </AssociationSet>
+    <EntitySet Name="DataRefreshTimePeriods" EntityType="CBRDataWareHouseModel.DataRefreshTimePeriod" />
+    <EntitySet Name="AppAccessControls" EntityType="CBRDataWareHouseModel.AppAccessControl" />
+    <AssociationSet Name="FK__AppAccess__Tenan__0D3AD6BB" Association="CBRDataWareHouseModel.FK__AppAccess__Tenan__0D3AD6BB">
+      <End Role="AppTenant" EntitySet="AppTenants" />
+      <End Role="AppAccessControl" EntitySet="AppAccessControls" />
+    </AssociationSet>
+    <EntitySet Name="AppModules" EntityType="CBRDataWareHouseModel.AppModule" />
+    <EntitySet Name="DataRefreshUpdates" EntityType="CBRDataWareHouseModel.DataRefreshUpdate" />
+    <AssociationSet Name="FK__AppAccess__Modul__0C46B282" Association="CBRDataWareHouseModel.FK__AppAccess__Modul__0C46B282">
+      <End Role="AppModule" EntitySet="AppModules" />
+      <End Role="AppAccessControl" EntitySet="AppAccessControls" />
+    </AssociationSet>
+    <EntitySet Name="AppStorages" EntityType="CBRDataWareHouseModel.AppStorage" />
+    <EntitySet Name="ForumConfigs" EntityType="CBRDataWareHouseModel.ForumConfig" />
+  </EntityContainer>
+  <EntityType Name="vwProjectNewDocCount">
+    <Key>
+      <PropertyRef Name="ProjectType" />
+      <PropertyRef Name="DocumentType" />
+      <PropertyRef Name="NewDocCount" />
+    </Key>
+    <Property Name="ProjectType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentDisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NewDocCount" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppFavoriteBank">
+    <Key>
+      <PropertyRef Name="FavoriteBankKey" />
+    </Key>
+    <Property Name="FavoriteBankKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserKey" Type="Int64" Nullable="false" />
+    <Property Name="InstitutionKey" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AppUser" Relationship="CBRDataWareHouseModel.FK_AppFavouriteBanks_UserKey" FromRole="AppFavoriteBank" ToRole="AppUser" />
+    <NavigationProperty Name="DimInstitution" Relationship="CBRDataWareHouseModel.FK_AppFavouriteBanks_InstitutionKey" FromRole="AppFavoriteBank" ToRole="DimInstitution" />
+    <Property Name="IsDefaultBank" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppFavoriteSearch">
+    <Key>
+      <PropertyRef Name="FavoriteSearchKey" />
+    </Key>
+    <Property Name="FavoriteSearchKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserKey" Type="Int64" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AssetSize" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Percentile" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AppUser" Relationship="CBRDataWareHouseModel.FK_AppFavouriteSearches_UserKey" FromRole="AppFavoriteSearch" ToRole="AppUser" />
+  </EntityType>
+  <Association Name="FK_AppFavouriteBanks_UserKey">
+    <End Type="CBRDataWareHouseModel.AppUser" Role="AppUser" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.AppFavoriteBank" Role="AppFavoriteBank" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="AppFavoriteBank">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppFavouriteSearches_UserKey">
+    <End Type="CBRDataWareHouseModel.AppUser" Role="AppUser" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.AppFavoriteSearch" Role="AppFavoriteSearch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="AppFavoriteSearch">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AppRole">
+    <Key>
+      <PropertyRef Name="RoleKey" />
+    </Key>
+    <Property Name="RoleKey" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AppUserRoles" Relationship="CBRDataWareHouseModel.FK_AppUserRole_Role" FromRole="AppRole" ToRole="AppUserRole" />
+    <Property Name="RoleValue" Type="Int32" />
+  </EntityType>
+  <EntityType Name="AppUserRole">
+    <Key>
+      <PropertyRef Name="UserRoleKey" />
+    </Key>
+    <Property Name="UserKey" Type="Int64" Nullable="false" />
+    <Property Name="RoleKey" Type="Int64" Nullable="false" />
+    <Property Name="UserRoleKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="AppRole" Relationship="CBRDataWareHouseModel.FK_AppUserRole_Role" FromRole="AppUserRole" ToRole="AppRole" />
+    <NavigationProperty Name="AppUser" Relationship="CBRDataWareHouseModel.FK_AppUserRole_User" FromRole="AppUserRole" ToRole="AppUser" />
+    <Property Name="IsAccessible" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AppUserRole_Role">
+    <End Type="CBRDataWareHouseModel.AppRole" Role="AppRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CBRDataWareHouseModel.AppUserRole" Role="AppUserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppRole">
+        <PropertyRef Name="RoleKey" />
+      </Principal>
+      <Dependent Role="AppUserRole">
+        <PropertyRef Name="RoleKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUserRole_User">
+    <End Type="CBRDataWareHouseModel.AppUser" Role="AppUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CBRDataWareHouseModel.AppUserRole" Role="AppUserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="AppUserRole">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="DimInstitution">
+    <Key>
+      <PropertyRef Name="InstitutionKey" />
+    </Key>
+    <Property Name="InstitutionKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CertNumber" Type="Int32" />
+    <Property Name="Rssd" Type="Int32" />
+    <Property Name="InstitutionName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="InstitutionAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="InstitutionCity" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="InstitutionZip" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="InstitutionStateName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Docket" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="AssetTotal" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="BankCharterClass" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Charter" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="CharterAgencyName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Conserve" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MajorAndMinorCategoryCode" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="CmsaNo" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Cmsa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="County" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DepositTotal" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="EquityTotal" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="EstablishedDate" Type="DateTime" Precision="3" />
+    <Property Name="FDICAssignedRegionOfficeNumber" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="FDICRegion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FDICSupervisoryRegion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FederalReserveDistrict" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="FederalCharter" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="FDICFieldOffice" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MetropolitanStatisticalAreaNo" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="MetropolitanStatisticalArea" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="NewCertNumber" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Oakar" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="OfficeOfThriftSupervisionDistrict" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="OfficeOfThriftSupervisionRegion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Regulator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="StateCharter" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="ReturnOnAsset" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="ReturnOnAssetEquivalency" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="ReturnOnEquity" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="ReturnOnEquityEquivalency" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Stalp" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="StateCounty" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="StateNum" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="WebAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OfficeOfTheComptrollerDistrict" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="UniqueNumber" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="UltCertNumber" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="NumOfOffices" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="HeadQuarterCity" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DomesticDepositsTotal" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="BankHoldingCompany" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="NetIncomeTotal" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="NetIncomeEquivalency" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="RSSDIDNumber" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="StalpHcr" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MultiStateBranches" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="RoapTx" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="RoapTxQ" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="IsTrustPowers" Type="Boolean" />
+    <Property Name="AssetConcentrationHierarchy" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="SpecGrpN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Tract" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="Csa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CsaNo" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="IsCsa" Type="Boolean" />
+    <Property Name="Cbsa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CbsaNo" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="CbsaMetroName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CbsaMetro" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="IsCbsaMetro" Type="Boolean" />
+    <Property Name="CbsaDiv" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CbsaDivNo" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="IsCbsaDiv" Type="Boolean" />
+    <Property Name="ReportDate" Type="DateTime" Precision="3" />
+    <Property Name="RunDate" Type="DateTime" Precision="3" />
+    <Property Name="NumOfDomesticUSOffices" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="NumOfForeignOffices" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="SubchapterSCorporations" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="DepositInsuranceDate" Type="DateTime" Precision="3" />
+    <Property Name="LastStructureChangeEffectiveDate" Type="DateTime" Precision="3" />
+    <Property Name="IsMutualOwnership" Type="Boolean" />
+    <Property Name="ParentCertNumber" Type="Int32" />
+    <Property Name="InsuranceFundMembership" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="AuditInsertedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditInsertedPackageKey" Type="Int32" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="AuditUpdatedPackageKey" Type="Int32" />
+    <Property Name="AuditHashMD5" Type="Binary" MaxLength="16" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="AppFavoriteBanks" Relationship="CBRDataWareHouseModel.FK_AppFavouriteBanks_InstitutionKey" FromRole="DimInstitution" ToRole="AppFavoriteBank" />
+    <NavigationProperty Name="DimInstitutionBranches" Relationship="CBRDataWareHouseModel.FK_DimInstitutionBranch_InstitutionKey" FromRole="DimInstitution" ToRole="DimInstitutionBranch" />
+    <NavigationProperty Name="FactUBPRBenchmarks" Relationship="CBRDataWareHouseModel.FK_FactUBPRBenchMark_InstitutionKey" FromRole="DimInstitution" ToRole="FactUBPRBenchmark" />
+    <NavigationProperty Name="FactUBPRBenchmarkThresholds" Relationship="CBRDataWareHouseModel.FK_FactUBPRBenchMarkThreshold_InstitutionKey" FromRole="DimInstitution" ToRole="FactUBPRBenchmarkThreshold" />
+    <NavigationProperty Name="DimCustPeerGroupDetails" Relationship="CBRDataWareHouseModel.FK_DimCustPeerGroupDetail_InstitutionKey" FromRole="DimInstitution" ToRole="DimCustPeerGroupDetail" />
+    <NavigationProperty Name="AppTenants" Relationship="CBRDataWareHouseModel.FK_AppTenant_InstitutionKey" FromRole="DimInstitution" ToRole="AppTenant" />
+  </EntityType>
+  <Association Name="FK_AppFavouriteBanks_InstitutionKey">
+    <End Type="CBRDataWareHouseModel.DimInstitution" Role="DimInstitution" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.AppFavoriteBank" Role="AppFavoriteBank" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimInstitution">
+        <PropertyRef Name="InstitutionKey" />
+      </Principal>
+      <Dependent Role="AppFavoriteBank">
+        <PropertyRef Name="InstitutionKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DimInstitutionBranch_InstitutionKey">
+    <End Type="CBRDataWareHouseModel.DimInstitution" Role="DimInstitution" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.DimInstitutionBranch" Role="DimInstitutionBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimInstitution">
+        <PropertyRef Name="InstitutionKey" />
+      </Principal>
+      <Dependent Role="DimInstitutionBranch">
+        <PropertyRef Name="InstitutionKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AppProjectInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ProjectType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentDisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="FactUBPRBenchmark">
+    <Key>
+      <PropertyRef Name="BenchmarkDataKey" />
+    </Key>
+    <Property Name="BenchmarkDataKey" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InstitutionKey" Type="Int32" Nullable="false" />
+    <Property Name="UBPRConceptKey" Type="Int32" Nullable="false" />
+    <Property Name="ReportPeriodTypeKey" Type="Int32" Nullable="false" />
+    <Property Name="BenchmarkValue" Type="Decimal" Precision="36" Scale="2" />
+    <NavigationProperty Name="DimInstitution" Relationship="CBRDataWareHouseModel.FK_FactUBPRBenchMark_InstitutionKey" FromRole="FactUBPRBenchmark" ToRole="DimInstitution" />
+    <NavigationProperty Name="DimReportingPeriodType" Relationship="CBRDataWareHouseModel.FK_FactUBPRBenchMark_ReportPeriodTypeKey" FromRole="FactUBPRBenchmark" ToRole="DimReportingPeriodType" />
+    <NavigationProperty Name="DimUBPRConcept" Relationship="CBRDataWareHouseModel.FK_FactUBPRBenchMark_UBPRConceptKey" FromRole="FactUBPRBenchmark" ToRole="DimUBPRConcept" />
+    <Property Name="TenantKey" Type="Int64" />
+    <Property Name="UserKey" Type="Int64" />
+    <NavigationProperty Name="AppUser" Relationship="CBRDataWareHouseModel.FK_FactUBPRBenchMark_UserKey" FromRole="FactUBPRBenchmark" ToRole="AppUser" />
+    <NavigationProperty Name="AppTenant" Relationship="CBRDataWareHouseModel.FK_FactUBPRBenchMark_TenantKey" FromRole="FactUBPRBenchmark" ToRole="AppTenant" />
+  </EntityType>
+  <EntityType Name="FactUBPRBenchmarkThreshold">
+    <Key>
+      <PropertyRef Name="BenchmarkThresholdKey" />
+    </Key>
+    <Property Name="BenchmarkThresholdKey" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InstitutionKey" Type="Int32" Nullable="false" />
+    <Property Name="ThresholdValue" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="DimInstitution" Relationship="CBRDataWareHouseModel.FK_FactUBPRBenchMarkThreshold_InstitutionKey" FromRole="FactUBPRBenchmarkThreshold" ToRole="DimInstitution" />
+    <Property Name="TenantKey" Type="Int64" />
+    <Property Name="UserKey" Type="Int64" />
+    <NavigationProperty Name="AppUser" Relationship="CBRDataWareHouseModel.FK_FactUBPRBenchMarkThreshold_UserKey" FromRole="FactUBPRBenchmarkThreshold" ToRole="AppUser" />
+    <NavigationProperty Name="AppTenant" Relationship="CBRDataWareHouseModel.FK_FactUBPRBenchMarkThreshold_TenantKey" FromRole="FactUBPRBenchmarkThreshold" ToRole="AppTenant" />
+  </EntityType>
+  <Association Name="FK_FactUBPRBenchMark_InstitutionKey">
+    <End Type="CBRDataWareHouseModel.DimInstitution" Role="DimInstitution" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.FactUBPRBenchmark" Role="FactUBPRBenchmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimInstitution">
+        <PropertyRef Name="InstitutionKey" />
+      </Principal>
+      <Dependent Role="FactUBPRBenchmark">
+        <PropertyRef Name="InstitutionKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactUBPRBenchMarkThreshold_InstitutionKey">
+    <End Type="CBRDataWareHouseModel.DimInstitution" Role="DimInstitution" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.FactUBPRBenchmarkThreshold" Role="FactUBPRBenchmarkThreshold" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimInstitution">
+        <PropertyRef Name="InstitutionKey" />
+      </Principal>
+      <Dependent Role="FactUBPRBenchmarkThreshold">
+        <PropertyRef Name="InstitutionKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactUBPRBenchMark_ReportPeriodTypeKey">
+    <End Type="CBRDataWareHouseModel.DimReportingPeriodType" Role="DimReportingPeriodType" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.FactUBPRBenchmark" Role="FactUBPRBenchmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimReportingPeriodType">
+        <PropertyRef Name="ReportingPeriodTypeKey" />
+      </Principal>
+      <Dependent Role="FactUBPRBenchmark">
+        <PropertyRef Name="ReportPeriodTypeKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactUBPRBenchMark_UBPRConceptKey">
+    <End Type="CBRDataWareHouseModel.DimUBPRConcept" Role="DimUBPRConcept" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.FactUBPRBenchmark" Role="FactUBPRBenchmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimUBPRConcept">
+        <PropertyRef Name="UBPRConceptKey" />
+      </Principal>
+      <Dependent Role="FactUBPRBenchmark">
+        <PropertyRef Name="UBPRConceptKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="DimCustPeerGroupDetail">
+    <Key>
+      <PropertyRef Name="CustPeerGroupDetailKey" />
+    </Key>
+    <Property Name="CustPeerGroupDetailKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustPeerGroupKey" Type="Int32" Nullable="false" />
+    <Property Name="CustPeerInstitutionKey" Type="Int32" Nullable="false" />
+    <Property Name="AuditInsertedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditInsertedPackageKey" Type="Int32" />
+    <Property Name="AuditUpdatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="AuditUpdatedPackageKey" Type="Int32" />
+    <Property Name="AuditHashMD5" Type="Binary" MaxLength="16" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="DimCustPeerGroup" Relationship="CBRDataWareHouseModel.FK_DimCustPeerGroupDetail_CustPeerGroupKey" FromRole="DimCustPeerGroupDetail" ToRole="DimCustPeerGroup" />
+    <NavigationProperty Name="DimInstitution" Relationship="CBRDataWareHouseModel.FK_DimCustPeerGroupDetail_InstitutionKey" FromRole="DimCustPeerGroupDetail" ToRole="DimInstitution" />
+  </EntityType>
+  <Association Name="FK_DimCustPeerGroupDetail_CustPeerGroupKey">
+    <End Type="CBRDataWareHouseModel.DimCustPeerGroup" Role="DimCustPeerGroup" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.DimCustPeerGroupDetail" Role="DimCustPeerGroupDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimCustPeerGroup">
+        <PropertyRef Name="CustPeerGroupKey" />
+      </Principal>
+      <Dependent Role="DimCustPeerGroupDetail">
+        <PropertyRef Name="CustPeerGroupKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DimCustPeerGroupDetail_InstitutionKey">
+    <End Type="CBRDataWareHouseModel.DimInstitution" Role="DimInstitution" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.DimCustPeerGroupDetail" Role="DimCustPeerGroupDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimInstitution">
+        <PropertyRef Name="InstitutionKey" />
+      </Principal>
+      <Dependent Role="DimCustPeerGroupDetail">
+        <PropertyRef Name="CustPeerInstitutionKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AppCRAMModel">
+    <Key>
+      <PropertyRef Name="ModelKey" />
+    </Key>
+    <Property Name="ModelKey" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModelName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TenantKey" Type="Int64" Nullable="false" />
+    <Property Name="UserKey" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppCRAMAdjustBankData">
+    <Key>
+      <PropertyRef Name="ModelKey" />
+    </Key>
+    <Property Name="ModelKey" Type="Int64" Nullable="false" />
+    <Property Name="Tier1LeverageRatio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CET1CapitalRatio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Tier1CapitalRatio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalCapitalRatio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CommonEquityTier1Capital" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Tier1Capital" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalCapital" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalAssetsLeveragePurposes" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalRiskWeightedAssets" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="AppCRAMRiskRating">
+    <Key>
+      <PropertyRef Name="ModelKey" />
+    </Key>
+    <Property Name="ModelKey" Type="Int64" Nullable="false" />
+    <Property Name="Low" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="LowModerate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Moderate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ModerateHigh" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="High" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="AppCRAMRiskRatingDefault">
+    <Key>
+      <PropertyRef Name="RiskRating" />
+      <PropertyRef Name="CapitalRiskBuffer" />
+    </Key>
+    <Property Name="RiskRating" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CapitalRiskBuffer" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="AppStrategicForecastInputMetric">
+    <Key>
+      <PropertyRef Name="MetricKey" />
+    </Key>
+    <Property Name="MetricKey" Type="Int16" Nullable="false" />
+    <Property Name="MetricName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AuditInsertedDate" Type="DateTime" Precision="3" />
+    <Property Name="UBPRConceptCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AppStrategicForecastInputDatas" Relationship="CBRDataWareHouseModel.FK__AppStrate__Metri__48A5B54C" FromRole="AppStrategicForecastInputMetric" ToRole="AppStrategicForecastInputData" />
+  </EntityType>
+  <EntityType Name="AppStrategicForecastScenario">
+    <Key>
+      <PropertyRef Name="ScenarioKey" />
+    </Key>
+    <Property Name="ScenarioKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ScenarioName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TenantKey" Type="Int64" Nullable="false" />
+    <Property Name="UserKey" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="AuditInsertedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AppStrategicForecastInputDatas" Relationship="CBRDataWareHouseModel.FK__AppStrate__Scena__4B8221F7" FromRole="AppStrategicForecastScenario" ToRole="AppStrategicForecastInputData" />
+    <NavigationProperty Name="AppUser" Relationship="CBRDataWareHouseModel.FK__AppStrate__UserK__532343BF" FromRole="AppStrategicForecastScenario" ToRole="AppUser" />
+    <NavigationProperty Name="AppStrategicForecastSummaryScenarios" Relationship="CBRDataWareHouseModel.FK__AppStrate__Scena__52B92F6B" FromRole="AppStrategicForecastScenario" ToRole="AppStrategicForecastSummaryScenario" />
+    <NavigationProperty Name="AppTenant" Relationship="CBRDataWareHouseModel.FK__AppStrate__Tenan__4D6A6A69" FromRole="AppStrategicForecastScenario" ToRole="AppTenant" />
+  </EntityType>
+  <EntityType Name="AppStrategicForecastSummary">
+    <Key>
+      <PropertyRef Name="SummaryKey" />
+    </Key>
+    <Property Name="SummaryKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SummaryName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TenantKey" Type="Int64" Nullable="false" />
+    <Property Name="UserKey" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="AuditInsertedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AppUser" Relationship="CBRDataWareHouseModel.FK__AppStrate__UserK__513AFB4D" FromRole="AppStrategicForecastSummary" ToRole="AppUser" />
+    <NavigationProperty Name="AppStrategicForecastSummaryScenarios" Relationship="CBRDataWareHouseModel.FK__AppStrate__Summa__53AD53A4" FromRole="AppStrategicForecastSummary" ToRole="AppStrategicForecastSummaryScenario" />
+    <NavigationProperty Name="AppTenant" Relationship="CBRDataWareHouseModel.FK__AppStrate__Tenan__4F52B2DB" FromRole="AppStrategicForecastSummary" ToRole="AppTenant" />
+  </EntityType>
+  <EntityType Name="AppStrategicForecastInputData">
+    <Key>
+      <PropertyRef Name="TenantKey" />
+      <PropertyRef Name="UserKey" />
+      <PropertyRef Name="ScenarioKey" />
+      <PropertyRef Name="MetricKey" />
+    </Key>
+    <Property Name="TenantKey" Type="Int64" Nullable="false" />
+    <Property Name="UserKey" Type="Int64" Nullable="false" />
+    <Property Name="ScenarioKey" Type="Int32" Nullable="false" />
+    <Property Name="MetricKey" Type="Int16" Nullable="false" />
+    <Property Name="Year0" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="Year1" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="Year2" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="Year3" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="Year4" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="Year5" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="AuditInsertedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AppStrategicForecastInputMetric" Relationship="CBRDataWareHouseModel.FK__AppStrate__Metri__48A5B54C" FromRole="AppStrategicForecastInputData" ToRole="AppStrategicForecastInputMetric" />
+    <NavigationProperty Name="AppStrategicForecastScenario" Relationship="CBRDataWareHouseModel.FK__AppStrate__Scena__4B8221F7" FromRole="AppStrategicForecastInputData" ToRole="AppStrategicForecastScenario" />
+    <NavigationProperty Name="AppUser" Relationship="CBRDataWareHouseModel.FK__AppStrate__UserK__4A8DFDBE" FromRole="AppStrategicForecastInputData" ToRole="AppUser" />
+    <Property Name="PriorYear" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentYearYTD" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="AppTenant" Relationship="CBRDataWareHouseModel.FK__AppStrate__Tenan__4B8221F7" FromRole="AppStrategicForecastInputData" ToRole="AppTenant" />
+  </EntityType>
+  <Association Name="FK__AppStrate__Metri__48A5B54C">
+    <End Type="CBRDataWareHouseModel.AppStrategicForecastInputMetric" Role="AppStrategicForecastInputMetric" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.AppStrategicForecastInputData" Role="AppStrategicForecastInputData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppStrategicForecastInputMetric">
+        <PropertyRef Name="MetricKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastInputData">
+        <PropertyRef Name="MetricKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__Scena__4B8221F7">
+    <End Type="CBRDataWareHouseModel.AppStrategicForecastScenario" Role="AppStrategicForecastScenario" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.AppStrategicForecastInputData" Role="AppStrategicForecastInputData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppStrategicForecastScenario">
+        <PropertyRef Name="ScenarioKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastInputData">
+        <PropertyRef Name="ScenarioKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__UserK__532343BF">
+    <End Type="CBRDataWareHouseModel.AppUser" Role="AppUser" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.AppStrategicForecastScenario" Role="AppStrategicForecastScenario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastScenario">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__UserK__513AFB4D">
+    <End Type="CBRDataWareHouseModel.AppUser" Role="AppUser" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.AppStrategicForecastSummary" Role="AppStrategicForecastSummary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastSummary">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__UserK__4A8DFDBE">
+    <End Type="CBRDataWareHouseModel.AppUser" Role="AppUser" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.AppStrategicForecastInputData" Role="AppStrategicForecastInputData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastInputData">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AppHomePageContent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Url" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PostedBy" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="LastUpdatedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="LastUpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ContentType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AuditLastUpdatedDatetime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="AppStrategicForecastSummaryScenario">
+    <Key>
+      <PropertyRef Name="SummaryScenarioKey" />
+    </Key>
+    <Property Name="SummaryScenarioKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SummaryKey" Type="Int32" Nullable="false" />
+    <Property Name="ScenarioKey" Type="Int32" Nullable="false" />
+    <Property Name="UserKey" Type="Int64" Nullable="false" />
+    <Property Name="TenantKey" Type="Int64" Nullable="false" />
+    <Property Name="AuditInsertedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AppStrategicForecastScenario" Relationship="CBRDataWareHouseModel.FK__AppStrate__Scena__52B92F6B" FromRole="AppStrategicForecastSummaryScenario" ToRole="AppStrategicForecastScenario" />
+    <NavigationProperty Name="AppStrategicForecastSummary" Relationship="CBRDataWareHouseModel.FK__AppStrate__Summa__53AD53A4" FromRole="AppStrategicForecastSummaryScenario" ToRole="AppStrategicForecastSummary" />
+    <NavigationProperty Name="AppUser" Relationship="CBRDataWareHouseModel.FK__AppStrate__UserK__55959C16" FromRole="AppStrategicForecastSummaryScenario" ToRole="AppUser" />
+    <NavigationProperty Name="AppTenant" Relationship="CBRDataWareHouseModel.FK__AppStrate__Tenan__0E0EFF63" FromRole="AppStrategicForecastSummaryScenario" ToRole="AppTenant" />
+  </EntityType>
+  <Association Name="FK__AppStrate__Scena__52B92F6B">
+    <End Type="CBRDataWareHouseModel.AppStrategicForecastScenario" Role="AppStrategicForecastScenario" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.AppStrategicForecastSummaryScenario" Role="AppStrategicForecastSummaryScenario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppStrategicForecastScenario">
+        <PropertyRef Name="ScenarioKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastSummaryScenario">
+        <PropertyRef Name="ScenarioKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__Summa__53AD53A4">
+    <End Type="CBRDataWareHouseModel.AppStrategicForecastSummary" Role="AppStrategicForecastSummary" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.AppStrategicForecastSummaryScenario" Role="AppStrategicForecastSummaryScenario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppStrategicForecastSummary">
+        <PropertyRef Name="SummaryKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastSummaryScenario">
+        <PropertyRef Name="SummaryKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__UserK__55959C16">
+    <End Type="CBRDataWareHouseModel.AppUser" Role="AppUser" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.AppStrategicForecastSummaryScenario" Role="AppStrategicForecastSummaryScenario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastSummaryScenario">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AppInfoCenterImage">
+    <Key>
+      <PropertyRef Name="ImageKey" />
+    </Key>
+    <Property Name="ImageKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Image1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Image2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AuditInsertedDateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="AppCRAMRiskCategory">
+    <Key>
+      <PropertyRef Name="ModelKey" />
+    </Key>
+    <Property Name="ModelKey" Type="Int64" Nullable="false" />
+    <Property Name="CreditRiskScore" Type="Int16" />
+    <Property Name="CreditRiskWeighing" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="InterestRateRiskScore" Type="Int16" />
+    <Property Name="InterestRateRiskWeighing" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="LiquidityRiskScore" Type="Int16" />
+    <Property Name="LiquidityRiskWeighing" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="OperationalRiskScore" Type="Int16" />
+    <Property Name="OperationalRiskWeighing" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ComplianceRiskScore" Type="Int16" />
+    <Property Name="ComplianceRiskWeighing" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="StrategicRiskScore" Type="Int16" />
+    <Property Name="StrategicRiskWeighing" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ReputationRiskScore" Type="Int16" />
+    <Property Name="ReputationRiskWeighing" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDelete" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK_FactUBPRBenchMark_UserKey">
+    <End Type="CBRDataWareHouseModel.AppUser" Role="AppUser" Multiplicity="0..1" />
+    <End Type="CBRDataWareHouseModel.FactUBPRBenchmark" Role="FactUBPRBenchmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="FactUBPRBenchmark">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactUBPRBenchMarkThreshold_UserKey">
+    <End Type="CBRDataWareHouseModel.AppUser" Role="AppUser" Multiplicity="0..1" />
+    <End Type="CBRDataWareHouseModel.FactUBPRBenchmarkThreshold" Role="FactUBPRBenchmarkThreshold" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="FactUBPRBenchmarkThreshold">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AppManageCDRate">
+    <Key>
+      <PropertyRef Name="TermKey" />
+    </Key>
+    <Property Name="TermKey" Type="Int32" Nullable="false" />
+    <Property Name="Term" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FixedRate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Callable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AuditInsertedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditUpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="AppCDOrder">
+    <Key>
+      <PropertyRef Name="OrderKey" />
+    </Key>
+    <Property Name="OrderKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="InstitutionKey" Type="Int32" />
+    <Property Name="OrderedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Term" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Callable" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="CallFrequency" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Rate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SettleDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="InterestPaymentFrequency" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AuditInsertedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditUpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AppTenant">
+    <Key>
+      <PropertyRef Name="TenantKey" />
+    </Key>
+    <Property Name="TenantKey" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InstitutionKey" Type="Int32" Nullable="false" />
+    <Property Name="TenantName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="TenantDomain" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="InsertedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="TenantType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ReferredBy" Type="Int32" />
+    <NavigationProperty Name="AppStrategicForecastScenarios" Relationship="CBRDataWareHouseModel.FK__AppStrate__Tenan__4D6A6A69" FromRole="AppTenant" ToRole="AppStrategicForecastScenario" />
+    <NavigationProperty Name="AppStrategicForecastSummaries" Relationship="CBRDataWareHouseModel.FK__AppStrate__Tenan__4F52B2DB" FromRole="AppTenant" ToRole="AppStrategicForecastSummary" />
+    <NavigationProperty Name="AppStrategicForecastSummaryScenarios" Relationship="CBRDataWareHouseModel.FK__AppStrate__Tenan__0E0EFF63" FromRole="AppTenant" ToRole="AppStrategicForecastSummaryScenario" />
+    <NavigationProperty Name="AppStrategicForecastInputDatas" Relationship="CBRDataWareHouseModel.FK__AppStrate__Tenan__4B8221F7" FromRole="AppTenant" ToRole="AppStrategicForecastInputData" />
+    <NavigationProperty Name="DimInstitution" Relationship="CBRDataWareHouseModel.FK_AppTenant_InstitutionKey" FromRole="AppTenant" ToRole="DimInstitution" />
+    <NavigationProperty Name="AppUsers" Relationship="CBRDataWareHouseModel.FK_AppUser_Tenant" FromRole="AppTenant" ToRole="AppUser" />
+    <NavigationProperty Name="DimCustPeerGroups" Relationship="CBRDataWareHouseModel.FK_DimCustPeerGroup_TenantKey" FromRole="AppTenant" ToRole="DimCustPeerGroup" />
+    <NavigationProperty Name="FactUBPRBenchmarks" Relationship="CBRDataWareHouseModel.FK_FactUBPRBenchMark_TenantKey" FromRole="AppTenant" ToRole="FactUBPRBenchmark" />
+    <NavigationProperty Name="FactUBPRBenchmarkThresholds" Relationship="CBRDataWareHouseModel.FK_FactUBPRBenchMarkThreshold_TenantKey" FromRole="AppTenant" ToRole="FactUBPRBenchmarkThreshold" />
+    <NavigationProperty Name="AppAccessControls" Relationship="CBRDataWareHouseModel.FK__AppAccess__Tenan__0D3AD6BB" FromRole="AppTenant" ToRole="AppAccessControl" />
+  </EntityType>
+  <Association Name="FK__AppStrate__Tenan__4D6A6A69">
+    <End Type="CBRDataWareHouseModel.AppTenant" Role="AppTenant" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.AppStrategicForecastScenario" Role="AppStrategicForecastScenario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppTenant">
+        <PropertyRef Name="TenantKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastScenario">
+        <PropertyRef Name="TenantKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__Tenan__4F52B2DB">
+    <End Type="CBRDataWareHouseModel.AppTenant" Role="AppTenant" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.AppStrategicForecastSummary" Role="AppStrategicForecastSummary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppTenant">
+        <PropertyRef Name="TenantKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastSummary">
+        <PropertyRef Name="TenantKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__Tenan__0E0EFF63">
+    <End Type="CBRDataWareHouseModel.AppTenant" Role="AppTenant" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.AppStrategicForecastSummaryScenario" Role="AppStrategicForecastSummaryScenario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppTenant">
+        <PropertyRef Name="TenantKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastSummaryScenario">
+        <PropertyRef Name="TenantKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__Tenan__4B8221F7">
+    <End Type="CBRDataWareHouseModel.AppTenant" Role="AppTenant" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.AppStrategicForecastInputData" Role="AppStrategicForecastInputData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppTenant">
+        <PropertyRef Name="TenantKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastInputData">
+        <PropertyRef Name="TenantKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppTenant_InstitutionKey">
+    <End Type="CBRDataWareHouseModel.DimInstitution" Role="DimInstitution" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.AppTenant" Role="AppTenant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimInstitution">
+        <PropertyRef Name="InstitutionKey" />
+      </Principal>
+      <Dependent Role="AppTenant">
+        <PropertyRef Name="InstitutionKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUser_Tenant">
+    <End Type="CBRDataWareHouseModel.AppTenant" Role="AppTenant" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.AppUser" Role="AppUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppTenant">
+        <PropertyRef Name="TenantKey" />
+      </Principal>
+      <Dependent Role="AppUser">
+        <PropertyRef Name="TenantKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DimCustPeerGroup_TenantKey">
+    <End Type="CBRDataWareHouseModel.AppTenant" Role="AppTenant" Multiplicity="1" />
+    <End Type="CBRDataWareHouseModel.DimCustPeerGroup" Role="DimCustPeerGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppTenant">
+        <PropertyRef Name="TenantKey" />
+      </Principal>
+      <Dependent Role="DimCustPeerGroup">
+        <PropertyRef Name="TenantKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactUBPRBenchMark_TenantKey">
+    <End Type="CBRDataWareHouseModel.AppTenant" Role="AppTenant" Multiplicity="0..1" />
+    <End Type="CBRDataWareHouseModel.FactUBPRBenchmark" Role="FactUBPRBenchmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppTenant">
+        <PropertyRef Name="TenantKey" />
+      </Principal>
+      <Dependent Role="FactUBPRBenchmark">
+        <PropertyRef Name="TenantKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactUBPRBenchMarkThreshold_TenantKey">
+    <End Type="CBRDataWareHouseModel.AppTenant" Role="AppTenant" Multiplicity="0..1" />
+    <End Type="CBRDataWareHouseModel.FactUBPRBenchmarkThreshold" Role="FactUBPRBenchmarkThreshold" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppTenant">
+        <PropertyRef Name="TenantKey" />
+      </Principal>
+      <Dependent Role="FactUBPRBenchmarkThreshold">
+        <PropertyRef Name="TenantKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="KriMetricMaster">
+    <Key>
+      <PropertyRef Name="KriMetricId" />
+    </Key>
+    <Property Name="KriMetricId" Type="Int32" Nullable="false" />
+    <Property Name="KriGroup" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MetricDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Metric" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="UBPRConceptCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsDefault" Type="Int32" />
+    <Property Name="KriMetricSeq" Type="Int32" />
+    <Property Name="IsHighScoreGood" Type="Int32" />
+  </EntityType>
+  <EntityType Name="RptCBRRiskRadarChartDetail">
+    <Key>
+      <PropertyRef Name="RptRiskRadarChartDetailsKey" />
+    </Key>
+    <Property Name="RptRiskRadarChartDetailsKey" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportTabName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="InstitutionKey" Type="Int32" />
+    <Property Name="CertNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="InstitutionName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PeerGroupKey" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PeerGroup" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Region" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AssetSize" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="KriMetricId" Type="Int32" />
+    <Property Name="CurrentMinus4DataValue" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentMinus3DataValue" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentMinus2DataValue" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentMinus1DataValue" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentDataValue" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentMinus4ScoreValue" Type="Int32" />
+    <Property Name="CurrentMinus3ScoreValue" Type="Int32" />
+    <Property Name="CurrentMinus2ScoreValue" Type="Int32" />
+    <Property Name="CurrentMinus1ScoreValue" Type="Int32" />
+    <Property Name="CurrentScoreValue" Type="Int32" />
+    <Property Name="IsHighScoreGood" Type="Int32" />
+    <Property Name="CurrentMinus4PeerGroupAvgValue" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentMinus3PeerGroupAvgValue" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentMinus2PeerGroupAvgValue" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentMinus1PeerGroupAvgValue" Type="Decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentPeerGroupAvgValue" Type="Decimal" Precision="36" Scale="6" />
+  </EntityType>
+  <EntityType Name="RptCBRRiskRadarUserMetricmapping">
+    <Key>
+      <PropertyRef Name="UserMappingKey" />
+    </Key>
+    <Property Name="UserMappingKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Userkey" Type="Int64" />
+    <Property Name="KRI1" Type="Int32" />
+    <Property Name="KRI2" Type="Int32" />
+    <Property Name="KRI3" Type="Int32" />
+    <Property Name="KRI4" Type="Int32" />
+    <Property Name="KRI5" Type="Int32" />
+    <Property Name="KRI6" Type="Int32" />
+    <Property Name="KRI7" Type="Int32" />
+    <Property Name="KRI8" Type="Int32" />
+    <Property Name="KRI9" Type="Int32" />
+    <Property Name="KRI10" Type="Int32" />
+    <NavigationProperty Name="AppUser" Relationship="CBRDataWareHouseModel.FK_RptCBRRiskRadarUserMappingKey" FromRole="RptCBRRiskRadarUserMetricmapping" ToRole="AppUser" />
+  </EntityType>
+  <Association Name="FK_RptCBRRiskRadarUserMappingKey">
+    <End Type="CBRDataWareHouseModel.AppUser" Role="AppUser" Multiplicity="0..1" />
+    <End Type="CBRDataWareHouseModel.RptCBRRiskRadarUserMetricmapping" Role="RptCBRRiskRadarUserMetricmapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="RptCBRRiskRadarUserMetricmapping">
+        <PropertyRef Name="Userkey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="DataRefreshTimePeriod">
+    <Key>
+      <PropertyRef Name="PeriodId" />
+    </Key>
+    <Property Name="PeriodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuarterName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="QuarterYear" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="QuarterDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IsProcessStarted" Type="Boolean" />
+    <Property Name="IsProcessCompleted" Type="Boolean" />
+    <Property Name="IsCallDataFilesDownloaded" Type="Boolean" />
+    <Property Name="AuditInsertDate" Type="DateTime" Precision="3" />
+    <Property Name="IsQuarternameEnvVarUpdated" Type="Boolean" />
+    <Property Name="IsStatFilesDownloaded" Type="Boolean" />
+    <Property Name="IsStdGrpInstFilesDownloaded" Type="Boolean" />
+    <Property Name="IsInstFilesDownloaded" Type="Boolean" />
+    <Property Name="IsCallDataFilesStarted" Type="Boolean" />
+    <Property Name="DataRefreshGUId" Type="Guid" />
+    <Property Name="IsStdGrpInstFilesStarted" Type="Boolean" />
+    <Property Name="NoOfRetries" Type="Int32" />
+    <Property Name="IsProdProcessStarted" Type="Boolean" />
+    <Property Name="IsProdProcessCompleted" Type="Boolean" />
+    <Property Name="isManualActionRequired" Type="Boolean" />
+    <Property Name="isTimePeriodFilesAvailable" Type="Boolean" Nullable="false" />
+    <Property Name="isNewQuarter" Type="Boolean" Nullable="false" />
+    <Property Name="IsCertDownloadStarted" Type="Boolean" />
+    <Property Name="IsCertDownloadCompleted" Type="Boolean" />
+    <Property Name="IsSecondRefreshRequired" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppAccessControl">
+    <Key>
+      <PropertyRef Name="AccessControlKey" />
+    </Key>
+    <Property Name="AccessControlKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenantKey" Type="Int64" Nullable="false" />
+    <Property Name="IsAccessible" Type="Boolean" Nullable="false" />
+    <Property Name="ModuleKey" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AppTenant" Relationship="CBRDataWareHouseModel.FK__AppAccess__Tenan__0D3AD6BB" FromRole="AppAccessControl" ToRole="AppTenant" />
+    <NavigationProperty Name="AppModule" Relationship="CBRDataWareHouseModel.FK__AppAccess__Modul__0C46B282" FromRole="AppAccessControl" ToRole="AppModule" />
+  </EntityType>
+  <Association Name="FK__AppAccess__Tenan__0D3AD6BB">
+    <End Type="CBRDataWareHouseModel.AppTenant" Role="AppTenant" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CBRDataWareHouseModel.AppAccessControl" Role="AppAccessControl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppTenant">
+        <PropertyRef Name="TenantKey" />
+      </Principal>
+      <Dependent Role="AppAccessControl">
+        <PropertyRef Name="TenantKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AppModule">
+    <Key>
+      <PropertyRef Name="ModuleKey" />
+    </Key>
+    <Property Name="ModuleKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModuleType" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="ModuleName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AppAccessControls" Relationship="CBRDataWareHouseModel.FK__AppAccess__Modul__0C46B282" FromRole="AppModule" ToRole="AppAccessControl" />
+  </EntityType>
+  <EntityType Name="DataRefreshUpdate">
+    <Key>
+      <PropertyRef Name="DataRefreshId" />
+    </Key>
+    <Property Name="DataRefreshId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DataRefreshGUID" Type="Guid" />
+    <Property Name="CERTNOS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="isUpdateRequired" Type="Boolean" />
+    <Property Name="QuarterDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DataRefreshedDate" Type="DateTime" Precision="0" />
+    <Property Name="isUBPRDataFilesjobCompleted" Type="Boolean" />
+    <Property Name="isStgUBPRStandardPeerGroupPerBankDownloaded" Type="Boolean" />
+    <Property Name="isStdGroupPerBankFileAvailable" Type="Boolean" />
+    <Property Name="isStatDataFilesDownloaded" Type="Boolean" />
+    <Property Name="isStgDataLoadJobStep4Completed" Type="Boolean" />
+    <Property Name="isStgDataLoadJobStep9Completed" Type="Boolean" />
+    <Property Name="isCBRDataWarehouseDataLoad13Completed" Type="Boolean" />
+    <Property Name="isCBRDataWarehouseDataLoad23Completed" Type="Boolean" />
+    <Property Name="isCBRDataWarehouseDataLoad24Completed" Type="Boolean" />
+    <Property Name="isCBRDataWarehouseDataLoad25Completed" Type="Boolean" />
+    <Property Name="isErrorOccured" Type="Boolean" />
+    <Property Name="AuditDate" Type="DateTime" Precision="0" />
+    <Property Name="isStgDataLoadJobStep5Completed" Type="Boolean" />
+    <Property Name="isStgDataLoadJobStep6Completed" Type="Boolean" />
+    <Property Name="isNewQuarter" Type="Boolean" Nullable="false" />
+    <Property Name="LastCallDataDownloadedDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <Association Name="FK__AppAccess__Modul__0C46B282">
+    <End Type="CBRDataWareHouseModel.AppModule" Role="AppModule" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CBRDataWareHouseModel.AppAccessControl" Role="AppAccessControl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppModule">
+        <PropertyRef Name="ModuleKey" />
+      </Principal>
+      <Dependent Role="AppAccessControl">
+        <PropertyRef Name="ModuleKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AppStorage">
+    <Key>
+      <PropertyRef Name="FileId" />
+    </Key>
+    <Property Name="FileId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="FileDisplayName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentType" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectType" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FileSize" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ActualFileSizeInBytes" Type="Int64" />
+    <Property Name="DisplayDate" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AuditInsertedDatetime" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AuditInsertedBy" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AuditLastUpdatedDatetime" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AuditLastUpdatedBy" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="TenantKey" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ForumConfig">
+    <Key>
+      <PropertyRef Name="ForumId" />
+    </Key>
+    <Property Name="ForumId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ForumRegistrationURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ForumAuthenticationURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ForumHomeURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

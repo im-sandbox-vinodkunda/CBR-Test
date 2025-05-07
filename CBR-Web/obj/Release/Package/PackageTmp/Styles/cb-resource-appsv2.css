@@ -1,0 +1,85 @@
+﻿body {
+    padding-top: 0px;
+    font-family: 'Lato', sans-serif !important;
+}
+
+.nav-tabs {
+    border: 0;
+}
+
+.nav-tabs>li {
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:hover,
+.nav-tabs>li.active>a:focus {
+    color: #4591B0;
+    background-color: #fff;
+    border: 0;
+    border-top: 5px solid #003057 !important;
+    cursor: default;
+    border-bottom: 0;
+    border-radius: 0px;
+}
+
+.nav-tabs>li>a:hover {
+    border-color: #eee #eee #ddd;
+    background-color: #ffffff;
+    border-radius: 0px;
+}
+
+.bank-details-heading {
+    border: 0;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding: 10px 10px 15px 10px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+    /* .card class will apply same shadow */
+}
+
+
+.chart-wrapper {
+    /* Please remove all inline styles and add this class */
+    font-size: 12px;
+    border: 1px solid #cccccc;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+    /* .card class will apply same shadow */
+}
+
+.chart-wrapper .col-md-6 {
+    padding: 0;
+}
+
+.fusion-charts-caption {
+    /* This may need to be done within the chart script */
+    fill: rgb(85, 85, 85);
+    text-anchor: middle;
+    stroke: none;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: left;
+    display: block;
+    background-color: #ececec;
+    width: 100%;
+    line-height: 16px;
+}
+
+.table {
+    font-size: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+    /* .card class will apply same shadow */
+    transition: all .3s
+}
+
+.margin-left-minus-5px {
+    margin-left: -5px;
+}

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Project";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/dropzonescripts")
+    @Scripts.Render("~/bundles/projects")
+}
+
+@section jsCode{
+    var cbrProjectsModule = angular.module("cbrprojects", ['cbrcommon','ui.mask','ui.bootstrap','dialogs.main','ngMask','fcsa-number'])
+    .config(function ($routeProvider, $locationProvider) {
+    $routeProvider.when('/Project/Projects', { templateUrl: '/App/Project/Views/Projects.html?v=' + versionNumber, controller: 'projectsNavigationController' });
+    $routeProvider.otherwise({ redirectTo: '/Project/Projects' });
+    $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+    });
+    });
+}
+<div ng-non-bindable>
+    <div id="projects">
+        <div ng-view></div>
+    </div>
+</div>

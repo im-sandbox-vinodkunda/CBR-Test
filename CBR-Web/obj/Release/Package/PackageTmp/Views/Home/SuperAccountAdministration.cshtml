@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "SuperAccountAdministration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/superaccountadministration")
+}
+
+@section jsCode{
+    var cbrSuperAccountAdministration = angular.module("cbrsuperaccountadministration", ['cbrcommon','ui.mask','ui.bootstrap','dialogs.main','ngMask','fcsa-number'])
+    .config(function ($routeProvider, $locationProvider) {
+    $routeProvider.when('/Home/SuperAccountAdministration', { templateUrl: '/App/Home/Views/SuperAccountAdministration.html?v=' + versionNumber, controller: 'superAccountAdministrationNavigationController' });
+    $routeProvider.otherwise({ redirectTo: '/Home/SuperAccountAdministration' });
+    $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+    });
+    });
+}
+<div ng-non-bindable>
+    <div id="superaccountadministration">
+        <div ng-view></div>
+    </div>
+</div>

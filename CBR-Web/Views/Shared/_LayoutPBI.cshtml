@@ -1,0 +1,553 @@
+﻿@using CBR.Web.WebCommons
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title : Stifel</title>
+    @Styles.Render("~/Styles/Libraries/bootstrapcss")
+    @Styles.Render("~/Styles/Libraries/css")
+    @RenderSection("Styles", false)
+    @Styles.Render("~/Styles/cbrcss")
+    <link href="~/Styles/BankAnalytics-head.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/Layout-head.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/Layout-head1.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/key-risk-trends.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/manage-profiles.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/create-peer-group.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/edit-peer-group.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/favorite-banks.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/performance-comparison.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/benchmarking.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/bank-to-bank-analyzer.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/cram.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/strategic-forecast.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/call-report-analyzer.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/gap-analyzer.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/admin-head-css.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/administrator-head-css.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/cbrv2-combined-08232018.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/app-nav-styles.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/cbr-index-styles.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/quote-stream.css?v=2.0" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/riskRadar.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8" />
+    <meta name="WebPartPageExpansion" content="full" />
+    <meta name="ProgId" content="SharePoint.WebPartPage.Document" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="https://fonts.googleapis.com/css?family=Lato|Fira Sans|Roboto+Mono" rel="stylesheet">
+    <link href="~/Images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/Styles/cbr.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" type="text/css" href="~/Styles/cbr-pbi.css">
+    <script src="~/Content/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/Content/lib/powerbi-client/dist/powerbi.min.js"></script>
+
+
+</head>
+<body ng-app="cbrMain" class="has-canvas">
+    <div class="overlay"></div>
+    <nav class="navbar navbar-inverse card">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="hide col-xs-1 col-sm-1 col-sm-offset-0 col-md-1 col-md-offset-0" style="padding-right:0px;">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#" class="toggle-panel">
+                            <!-- span class="fa fa-bars fa-2x pull-left" data-placement="bottom" title="Menu"></span -->
+                            <i class="icon-open-menu pull-left" data-placement="bottom" title="Menu"></i>
+                        </a>
+                    </li>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0">
+                <a class="navbar-brand" href="/" style="display: flex; align-items: center; justify-content: space-between;">
+                    <div style="margin-top: 10px;"><img src="~/Images/Stifel-Bank-Analytics-logo.png" style="width:250px;" /></div>
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+
+            <div class="col-xs-5 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0 hidden-xs">
+                <ul class="nav navbar-nav pull-right">
+
+
+                    <li class="dropdown">
+                        <a aria-expanded="true" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" id="dropdownMenu1" type="button">
+                            <i class="icon-notification" data-placement="bottom" title="Notifications"></i>
+                        </a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="toggle-help" data-toggle="dropdown" aria-expanded="true">
+                            <i class="icon-question-mark"></i>
+                        </a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="icon-setting-gear"></i>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <h3>@UtilityFunctions.GetUserName(User.Identity.Name)</h3>
+                                    <p>@User.Identity.Name</p>
+                                </a>
+                            </li>
+                            @{ if ("System Administrator,Administrator,Non-Bank Administrator".Split(',').Contains(Session["Role"]))
+                                {
+                                    <li class="divider"></li>
+                                    <li class="@Html.IsSelected(actions: "Admin", controllers: "Home")">
+                                        <a href="@Url.Action("Admin", "Home")">
+                                            <span class="nav-stacked-icon"><i class="icon-setting-gear"></i></span>
+                                            <span class="nav-stacked-item">Administration</span>
+                                        </a>
+                                    </li>
+                                } }
+                            @{ if (UtilityFunctions.IsUserPartOfAllRoles("System Administrator", User.Identity.Name))
+                                {
+                                    <li class="divider"></li>
+                                    <li class="@Html.IsSelected(actions: "SysAdmin", controllers: "Home")">
+                                        <a href="@Url.Action("SysAdmin", "Home")">
+                                            <span class="nav-stacked-icon"><i class="icon-database"></i></span>
+                                            <span class="nav-stacked-item">System Administration</span>
+                                        </a>
+                                    </li>
+                                } }
+                            <li class="divider"></li>
+                            <li>
+                                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logOffForm" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <a href="javascript:$('#logOffForm').submit()">
+                                        <span class="nav-stacked-icon"><i class="icon-logout"></i></span>
+                                        <span class="nav-stacked-item">Logout</span>
+                                    </a>
+                                }
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav><!-- END .navbar .navbar-inverse -->
+    <!-- Push Menu Left -->
+    <!-- Push Menu -->
+    <nav id="panel-example" class="a-grey menu-panel">
+        <div class="left-menu">
+            <div class="left-menu-header">
+                <a href="#" class="toggle-panel"><h1 style="margin:0px;font-size:24px;color:#ffffff;letter-spacing:2px;font-weight:lighter;">CB Bank Analytics&trade;</h1></a>
+            </div>
+
+            <div class="left-menu-inner-wrapper">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active">
+                        <a href="/">
+                            <span class="nav-stacked-icon"><i class="icon-app-icons"></i></span>
+                            <span class="nav-stacked-item">Dashboard</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- mobile menu items (hidden on medium and large screens) -->
+                <div class="divider hidden-sm hidden-md hidden-lg"></div>
+                <ul class="nav nav-pills nav-stacked hidden-sm hidden-md hidden-lg">
+                    <li class="pushy-submenu">
+                        <button>
+                            <span class="nav-stacked-icon"><i class="icon-peer-groups"></i></span>
+                            <span class="nav-stacked-item">Manage Peers</span>
+                        </button>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="#">Peer Groups</a></li>
+                            <li><a href="#">Create Peer Group</a></li>
+                            <li><a href="#">Favorite Banks</a></li>
+                            <li><a href="#">Bank Find</a></li>
+                        </ul>
+                    </li>
+                    <div class="divider hidden-sm hidden-md hidden-lg"></div>
+                    <li class="pushy-submenu">
+                        <button>
+                            <span class="nav-stacked-icon"><i class="icon-app-icons"></i></span>
+                            <span class="nav-stacked-item">Apps</span>
+                        </button>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="#">Single Bank Profile</a></li>
+                            <li><a href="#">Key Risk Trends</a></li>
+                            <li><a href="#">Performance Analyzer</a></li>
+                            <li><a href="#">Benchmark Performance</a></li>
+                            <li><a href="#">Capital Risk Analyzer</a></li>
+                            <li><a href="#">Bank vs. Bank Analyzer</a></li>
+                            <li><a href="#">Strategic Forecast</a></li>
+                            <li><a href="#">Call Report Analyzer</a></li>
+                            <li><a href="#">Gap Analyzer</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- end mobile menu items -->
+
+                <div class="left-menu-logo"><img class="img-responsive" src="~/Images/cbr-logo.png"></div>
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="pushy-submenu">
+                        <button>
+                            <span class="nav-stacked-icon"><i class="icon-documents"></i></span>
+                            <span class="nav-stacked-item">Solutions</span>
+                        </button>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li>
+                                <a href="@UtilityFunctions.RenderProjectLink("Capital Plan", User.Identity.Name)" data-toggle="modal" data-target="@UtilityFunctions.AllowAccessOrShowErrorMessage("Capital Plan", User.Identity.Name)">
+                                    <span>Capital Plan</span>
+                                    <span class="@UtilityFunctions.LockUnLock("Capital Plan", User.Identity.Name)"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@UtilityFunctions.RenderProjectLink("Strategic Plan", User.Identity.Name)" data-toggle="modal" data-target="@UtilityFunctions.AllowAccessOrShowErrorMessage("Strategic Plan", User.Identity.Name)">
+                                    <span>Strategic Plan</span>
+                                    <span class="@UtilityFunctions.LockUnLock("Strategic Plan", User.Identity.Name)"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@UtilityFunctions.RenderProjectLink("ERM Solution", User.Identity.Name)" data-toggle="modal" data-target="@UtilityFunctions.AllowAccessOrShowErrorMessage("ERM Solution", User.Identity.Name)">
+                                    <span>ERM Solution</span>
+                                    <span class="@UtilityFunctions.LockUnLock("ERM Solution", User.Identity.Name)"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="left-menu-logo"><img class="img-responsive" src="~/Images/f500-logo.svg"></div>
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="pushy-submenu">
+                        <button>
+                            <span class="nav-stacked-icon"><i class="icon-documents"></i></span>
+                            <span class="nav-stacked-item">Solutions</span>
+                        </button>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li>
+                                <a href="@UtilityFunctions.RenderProjectLink("Issue A CD", User.Identity.Name)" data-toggle="modal" data-target="@UtilityFunctions.AllowAccessOrShowErrorMessage("Issue A CD", User.Identity.Name)">
+                                    <span class="nav-stacked-icon"><i class="icon-issue-cd"></i></span>
+                                    <span class="nav-stacked-item">Issue a CD (Beta)</span>
+                                    <span class="@UtilityFunctions.LockUnLock("Issue A CD", User.Identity.Name)"></span>
+                                </a>
+                            </li>
+                            <li class="pushy-submenu">
+                                <button>
+                                    <span class="nav-stacked-icon"><i class="icon-documents"></i></span>
+                                    <span class="nav-stacked-item">Documents (Coming Soon)</span>
+                                </button>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="#">Terms Agreements</a></li>
+                                    <li><a href="#">Master CD's</a></li>
+                                    <li><a href="#">Historical Documents</a></li>
+                                    <li><a href="#">AML/BSA Packet</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END Push Menu -->
+    <div align="center">
+        @RenderBody()
+    </div>
+    <div class="container-fluid page-container">
+       
+        <!-- Help Center Drawer -->
+        <div id="helpCenter" style="display:none;">
+            <div class="drawer-contents">
+
+                <div class="drawer-heading" style="background-color: #003057;padding:10px 10px;">
+                    <div class="container container-fluid">
+                        <h1 style="margin:0px;font-size:24px;color:#ffffff;letter-spacing:2px;font-weight:lighter;">
+                            CB Bank Analytics&trade;
+                            <span class="pull-right">
+                                <a href="#" class="toggle-help" style="color:#ffffff;"><i class="icon-close-menu"></i></a>
+                            </span>
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="drawer-body">
+                    <div class="container container-fluid">
+
+                        <div class="col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0">
+                            <div class="title">
+                                <div class="row">
+                                    <div class="col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0" style="padding-left:0px;">
+                                        <h3>Help Center <span class="pull-right"><small>Questions? Call Toll Free: (877) 367-8236</small></span></h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="card card-white">
+                                        <a href="https://www.youtube.com/user/CBResource" target="_blank">
+                                            <img src="~/images/resource-library.jpg" class="img-responsive">
+                                            <h6 class="resource-links">Tutorials</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="card card-white">
+                                        <a href="@Url.Action("BuildPeerGroupsHelp","Home")" target="_blank">
+                                            <img src="~/images/collaboration-center.jpg" class="img-responsive">
+                                            <h6 class="resource-links">Building Custom Peer Groups</h6>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="title"><h5>How to Use Our Applications</h5></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <ul class="nav nav-pills nav-stacked card">
+                                            <li><a href="@Url.Action("RatioDefinitionHelp","Home")" target="_blank">Ratio Definitions</a></li>
+                                            <li><a href="@Url.Action("SingleBankProfileHelp","Home")" target="_blank">Single Bank Profile</a></li>
+                                            <li><a href="@Url.Action("KeyRiskTrendsHelp","Home")" target="_blank">Key Risk Trends</a></li>
+                                            <li><a href="@Url.Action("PerformanceAnalyzerHelp","Home")" target="_blank">Performance Analyzer</a></li>
+                                            <li><a href="@Url.Action("BenchmarkingHelp","Home")" target="_blank">Benchmark Performance</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <ul class="nav nav-pills nav-stacked card">
+                                            <li><a href="@Url.Action("CapitalRiskAnalyzerHelp","Home")" target="_blank">Capital Risk Analyzer</a></li>
+                                            <li><a href="@Url.Action("BankToBankAnalyzerHelp","Home")" target="_blank">Bank vs. Bank Analyzer</a></li>
+                                            <li><a href="@Url.Action("StrategicForecastHelp","Home")" target="_blank">Strategic Forecast</a></li>
+                                            <li><a href="@Url.Action("GapAnalyzerHelp","Home")" target="_blank">Gap Analyzer</a></li>
+                                            <li><a href="@Url.Action("BuildPeerGroupsHelp","Home")" target="_blank">Build Custom Peer Groups</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- drawer-body -->
+        <!-- End Help Panel -->
+
+    </div>
+    <footer class="bs-docs-footer cb-resource-footer" role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <ul class="bs-docs-footer-links text-muted">
+                    <li>Copyright &copy; 2016-2024 Stifel. All Rights Reserved</li>
+                    <li>·</li>
+                    <li>
+                        <a href="https://stifelinstitutional.com/capabilities/fixed-income-capital-markets/" target="_blank">About Us</a>
+                    </li>
+                    <li>·</li>
+                    <li>
+                        <a href="https://www.stifel.com/disclosures/privacy-notice" target="_blank">Privacy Policy</a>
+                    </li>
+                    <li>·</li>
+                    <li>
+                        <a href="@Url.Action("TermsofUse", "Home")" target="_blank">Terms of Use</a>
+                    </li>
+                </ul>
+                <ul class="bs-docs-footer-links text-muted">
+                    <li>
+                        @*<a href="javascript:void(0)">Resource Library</a>*@
+
+                        <a href="javascript:void(0)" class="toggle-help">Resource Library</a>
+                    </li>
+                    @*<li>·</li>*@
+                    @*<li>
+                            <a href="javascript:void(0)">Collaboration Center</a>
+                        </li>*@
+                    @*<li>·</li>*@
+                    @*<li>
+                            <a href="javascript:void(0)">User Forums</a>
+                        </li>*@
+                    <li>·</li>
+                    @*<li>
+                        <a href="https://cb-resource.com/insights/news-briefs/" target="_blank">Latest News</a>
+                    </li>
+                    <li>·</li>*@
+                    <li>
+                        <a href="https://stifelinstitutional.com/about/stifel-institutional/?anchor=js--to-form" target="_blank">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="quote-media-footer" style="padding:30px;color:#ffffff;">
+                        <!-- Start of QuoteMedia Footer code -->
+                        Market Data copyright &copy; 2018 <a target="_blank" href="http://www.quotemedia.com" class="qmf-link"> QuoteMedia</a>.<br />
+                        <span class="qmf-rt">RT</span>=Real-Time, <span class="qmf-non-rt">EOD</span>=End of Day, <span class="qmf-non-rt">PD</span>=Previous Day.<br />
+                        Data delayed 15 minutes unless otherwise indicated (view <a target="_blank" href="http://www.quotemedia.com/legal/tos/#times" class="qmf-link">delay times</a> for all exchanges). <br />
+                        Market Data powered by <a target="_blank" href="http://www.quotemedia.com" class="qmf-link">QuoteMedia</a> Financials by Morningstar. <a target="_blank" href="http://www.quotemedia.com/legal/tos/" class="qmf-link">Terms of Use</a>. <br />
+                        <div class="qmf-logo"><a target="_blank" href="http://www.quotemedia.com"><img src="//www.quotemedia.com/footer/logo.png" alt="QuoteMedia logo" /></a></div>
+                        <!-- End of QuoteMedia Footer code -->
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/commonjs")
+    <script>
+        window.cbrApp = {};
+        $(function () {
+            var scotchPanel = $('#panel-example').scotchPanel({
+                containerSelector: 'body',
+                direction: 'left',
+                duration: 300,
+                transition: 'ease',
+                distanceX: '300px',
+                enableEscapeKey: true,
+            });
+
+            $('.toggle-panel').click(function () {
+                scotchPanel.toggle();
+                return false;
+            });
+
+            $('.overlay').click(function () {
+                // CLOSE ONLY
+                scotchPanel.close();
+            });
+        });
+
+        $(function () {
+            var scotchPanel = $('#helpCenter').scotchPanel({
+                containerSelector: 'body',
+                direction: 'right',
+                duration: 300,
+                transition: 'ease-out',
+                distanceX: '100%',
+                enableEscapeKey: true,
+            });
+
+            $('.toggle-help').click(function () {
+                $('#helpCenter').css('display', 'block');
+                scotchPanel.toggle();
+                return false;
+            });
+
+            $('.overlay').click(function () {
+                // CLOSE ONLY
+                scotchPanel.close();
+            });
+        });
+        var versionNumber = '3.0';
+    </script>
+    @Scripts.Render("~/bundles/cbrapplicationmain")
+    <script type="text/javascript">
+        cbrApp.rootPath = '@Url.Content("~")';
+        @RenderSection("jsCode", required: false)
+
+    </script>
+    @RenderSection("scripts", required: false)
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Alert</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning ng-binding">
+                        <span class="glyphicon glyphicon-exclamation-sign">
+                        </span> This functionality will be available in a future release.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="solutionNotAccessibleAdminCapitalPlan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index:1000000">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Info</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning ng-binding">
+                        <span class="glyphicon glyphicon-exclamation-sign">
+                        </span> Not Available: To learn more about this solution please contact Stifel PMG [pmg@stifel.com]
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="solutionNotAccessibleAdminStrategicPlan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index:1000000">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Info</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning ng-binding">
+                        <span class="glyphicon glyphicon-exclamation-sign">
+                        </span> Not Available: to find out more about this product, visit our website <a href="https://www.cb-resource.com/what-we-do/strategic-plan" target="_blank">www.cb-resource.com/what-we-do/strategic-plan</a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="solutionNotAccessibleAdminErmSolution" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index:1000000">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Info</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning ng-binding">
+                        <span class="glyphicon glyphicon-exclamation-sign">
+                        </span> Not Available: to find out more about this product, visit our website <a href="https://www.cb-resource.com/what-we-do/erm-solution" target="_blank">www.cb-resource.com/what-we-do/erm-solution</a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="solutionNotAccessibleSu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index:1000000">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Info</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning ng-binding">
+                        <span class="glyphicon glyphicon-exclamation-sign">
+                        </span> Not Available: Contact your Account Administrator for access.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

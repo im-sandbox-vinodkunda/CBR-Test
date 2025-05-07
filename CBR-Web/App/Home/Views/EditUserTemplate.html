@@ -1,0 +1,133 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">&times;</button>
+    <h4 class="modal-title">Edit User Profile</h4>
+</div>
+<form class="form-horizontal" name="userform" autocomplete="off">
+    <div class="form-group">
+        <label class="control-label col-md-3" for="email">First Name:</label>
+        <div class="col-md-6">
+            <div style="border-radius:4px" ng-class="{ 'has-error' : userform.firstname.$invalid && userform.firstname.$dirty}">
+                <input type="text" class="form-control" placeholder="First Name" name="firstname" ng-required="true" ng-model="UserToEdit.firstName" maxlength="255">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3" for="pwd">Last Name:</label>
+        <div class="col-md-6">
+            <div style="border-radius:4px" ng-class="{ 'has-error' : userform.lastname.$invalid && userform.lastname.$dirty}">
+                <input type="text" class="form-control" placeholder="Last Name" name="lastname" ng-required="true" ng-model="UserToEdit.lastName" maxlength="255">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3" for="pwd">Title</label>
+        <div class="col-md-6">
+            <div style="border-radius:4px" ng-class="{ 'has-error' : userform.title.$invalid && userform.title.$dirty}">
+                <input type="text" class="form-control" placeholder="Title" name="title" ng-required="true" ng-model="UserToEdit.title" maxlength="255">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3" for="pwd">Email</label>
+        <div class="col-md-6">
+            <div style="border-radius:4px">
+                <input type="email" class="form-control" placeholder="E-Mail" name="email" ng-required="true" ng-model="UserToEdit.email" maxlength="255" ng-disabled="true">
+            </div>
+        </div>
+    </div>
+    <div class="title m-1">
+        <h3 class="text-center">
+            Select User Profile Type
+        </h3>
+    </div>
+    <div class="form-group text-center" ng-show="ShowSystemAdministrator">
+        <label class="col-md-4 col-sm-12 col-xs-12" for="">System Administrator:</label>
+        <div class="col-md-4 col-sm-6 col-xs-6">
+            <div class="input-group">
+                <label>Unlimited Access (CBR only)</label>
+            </div>
+        </div>
+        <div class="col-md-2  col-sm-6 col-xs-6">
+            <label class="input-group-btn custom-check-box col-xs-12 col-sm-12 width100">
+                <input type="checkbox" name="isSystemAdministratorAssigned" ng-model="IsSystemAdministratorAssigned" ng-change="CheckRoleValueSum(4)" />
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+    <div class="form-group text-center" ng-show="ShowAdministrator">
+        <label class="col-md-4 col-sm-12 col-xs-12" for="">Administrator:</label>
+        <div class="col-md-4   col-sm-6 col-xs-6">
+            <div class="input-group">
+                <label>Account Manager</label>
+
+            </div>
+        </div>
+        <div class="col-md-2  col-sm-6 col-xs-6">
+            <label class="input-group-btn custom-check-box col-xs-12 col-sm-12 width100">
+                <input type="checkbox" name="isAdministratorAssigned" ng-model="IsAdministratorAssigned" ng-change="CheckRoleValueSum(3)">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+    <div class="form-group text-center" ng-show="ShowProjectManager">
+        <label class="col-md-4 col-sm-12 col-xs-12" for="">Project Manager:</label>
+        <div class="col-md-4   col-sm-6 col-xs-6">
+            <div class="input-group">
+                <label>Project Folders Access</label>
+
+            </div>
+        </div>
+        <div class="col-md-2  col-sm-6 col-xs-6">
+            <label class="input-group-btn custom-check-box col-xs-12 col-sm-12 width100">
+                <input type="checkbox" name="isProjectManagerAssigned" ng-model="IsProjectManagerAssigned" ng-change="CheckRoleValueSum(2)">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+    <div class="form-group text-center" ng-show="ShowStandardUser">
+        <label class="col-md-4 col-sm-12 col-xs-12" for="">Standard User:</label>
+        <div class="col-md-4   col-sm-6 col-xs-6">
+            <div class="input-group">
+                <label>CB BankAnalytics Only</label>
+            </div>
+        </div>
+        <div class="col-md-2  col-sm-6 col-xs-6">
+            <label class="input-group-btn custom-check-box col-xs-12 col-sm-12 width100">
+                <input type="checkbox" name="isStandardUserAssigned" ng-model="IsStandardUserAssigned" ng-change="CheckRoleValueSum(1)">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+    <div class="form-group text-center" ng-show="ShowNonBankStandardUser">
+        <label class="col-md-4 col-sm-12 col-xs-12" for="">Standard User:</label>
+        <div class="col-md-4 col-sm-6 col-xs-6">
+            <div class="input-group">
+                <label>CB BankAnalytics Only</label>
+            </div>
+        </div>
+        <div class="col-md-2  col-sm-6 col-xs-6">
+            <label class="input-group-btn custom-check-box col-xs-12 col-sm-12 width100">
+                <input type="checkbox" name="isNonBankStandardUserAssigned" ng-model="IsNonBankStandardUserAssigned" ng-change="CheckRoleValueSum(1)">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+    <div class="form-group text-center" ng-show="ShowNonBankAdministrator">
+        <label class="col-md-4 col-sm-12 col-xs-12" for="">Administrator:</label>
+        <div class="col-md-4   col-sm-6 col-xs-6">
+            <div class="input-group">
+                <label>Account Manager</label>
+            </div>
+        </div>
+        <div class="col-md-2  col-sm-6 col-xs-6">
+            <label class="input-group-btn custom-check-box col-xs-12 col-sm-12 width100">
+                <input type="checkbox" name="isNonBankAdministratorAssigned" ng-model="IsNonBankAdministratorAssigned" ng-change="CheckRoleValueSum(3)">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default bg-default-blue text-white" ng-disabled="userform.$invalid || !userform.$dirty || !IsUserAvailable" value="Save" ng-click="UpdateUserProfile()">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" value="Cancel" ng-click="cancel()">Cancel</button>
+    </div>
+</form>

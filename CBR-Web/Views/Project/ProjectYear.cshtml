@@ -1,0 +1,89 @@
+﻿
+<div class="tab-pane fade in col-sm-9 col-lg-9 col-xs-9">
+
+    <div class="panel-body" style="font-family: 'Raleway',sans-serif;">
+        <h3>@(ViewData["docType"].ToString() + " Documents")</h3>
+        
+        <div class="row " style="margin-top:20px;margin-bottom:20px;">
+            <form class="navbar-form navbar-left pull-right" role="search">
+                <div class="form-group">
+                    Search: <input type="text" class="form-control" placeholder="Search filename" ng-model="query.FileDisplayName">
+                </div>
+            </form>
+            <div class="col-xs-3" style="margin-top:7px;margin-bottom:20px;">
+                <span style="margin-right:-33px;">Show </span>
+                <select name="ddlPageSize" id="ddlPageSize" class="form-control col-xs-offset-2"
+                        ng-options="option.name for option in data.availableOptions track by option.id"
+                        ng-model="data.pageSize"></select>
+                <span> entries</span>
+            </div>
+        </div>
+        <div class="table-responsive row">
+            @*<div id="tableBankDocs" ui-grid="gridOptions" class="table table-striped"></div>*@
+            <table id="tableBankDocs" class="table table-striped" style="max-height:300px;overflow-y:auto;">
+
+                <thead>
+                    <tr>
+                        <th class="customwidth1 ">
+                            <a href="javascript:void(0)" ng-click="orderByField='FileDisplayName'; reverseSort = !reverseSort">
+                                @string.Concat(ViewData["docType"].ToString(), " Document Name")
+                                <span ng-show="orderByField == 'FileDisplayName'">
+                                    <span ng-show="!reverseSort" class="glyphicon glyphicon-sort-by-attributes customspancolor1"></span>
+                                    <span ng-show="reverseSort" class="glyphicon glyphicon-sort-by-attributes-alt customspancolor1"></span>
+                                </span>
+                                @*<i ng-if="reverseSort !=true" class="glyphicon glyphicon-sort"></i>*@
+                            </a>
+                        </th>
+                        <th class="customwidth2">
+                            <a href="javascript:void(0)" ng-click="orderByField='AuthorName'; reverseSort = !reverseSort">
+                                Author
+                                <span ng-show="orderByField == 'AuthorName'">
+                                    <span ng-show="!reverseSort" class="glyphicon glyphicon-sort-by-attributes customspancolor1"></span>
+                                    <span ng-show="reverseSort" class="glyphicon glyphicon-sort-by-attributes-alt customspancolor1"></span>
+                                </span>
+                            </a>
+                        </th>
+                        <th class="customwidth2">
+                            <a href="javascript:void(0)" ng-click="orderByField='DisplayDate'; reverseSort = !reverseSort">
+                                Last Modified
+                                <span ng-show="orderByField == 'DisplayDate'">
+                                    <span ng-show="!reverseSort" class="glyphicon glyphicon-sort-by-attributes customspancolor1"></span>
+                                    <span ng-show="reverseSort" class="glyphicon glyphicon-sort-by-attributes-alt customspancolor1"></span>
+                                </span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="javascript:void(0)" ng-click="orderByField='ActualFileSizeInBytes'; reverseSort = !reverseSort">
+                                File Size
+                                <span ng-show="orderByField == 'ActualFileSizeInBytes'">
+                                    <span ng-show="!reverseSort" class="glyphicon glyphicon-sort-by-attributes customspancolor1"></span>
+                                    <span ng-show="reverseSort" class="glyphicon glyphicon-sort-by-attributes-alt customspancolor1"></span>
+                                </span>
+                            </a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr dir-paginate="doc in documents | filter: query | orderBy:orderByField:reverseSort | itemsPerPage: data.pageSize.name" current-page="data.currentPage">
+                        <td>
+                            <a href="javascript:void(0)" ng-click="fnDownLoad(doc.FileName, doc.DocumentType, doc.ProjectType);" download>{{doc.FileDisplayName}}</a>
+                        </td>
+                        <td>{{doc.AuthorName}}</td>
+                        <td>
+                            <div ng-class="{'showElement': doc.AuditInsertedDatetime < lastLoginDatetime || doc.AuditInsertedBy == userName}" ng-if="doc.AuditInsertedDatetime < lastLoginDatetime || doc.AuditInsertedBy == userName"> {{doc.DisplayDate}} </div>
+                            <div ng-class="{'showElement': doc.AuditInsertedDatetime >= lastLoginDatetime && doc.AuditInsertedBy != userName}" ng-if="doc.AuditInsertedDatetime >= lastLoginDatetime && doc.AuditInsertedBy != userName" class="badge newDocument hideElement"> {{doc.DisplayDate}} </div>
+                        </td>
+                        <td>{{doc.FileSize}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <div id="projectDocTable"></div>
+            <div id="paginationID">
+                <div class="pull-left" style="margin-top:25px;">Showing {{data.currentPage == 1 ? ((documents | filter: query | orderBy:orderByField:reverseSort | itemsPerPage: data.pageSize.name).length == 0 ? 0 : 1) : (data.pageSize.name*((data.currentPage*1) - (1))) + (1)}} to {{(documents | filter: query | orderBy:orderByField:reverseSort | itemsPerPage: data.pageSize.name).length >= data.pageSize.name*data.currentPage ? data.pageSize.name*data.currentPage : (documents | filter: query | orderBy:orderByField:reverseSort | itemsPerPage: data.pageSize.name).length}} of {{(documents | filter: query | orderBy:orderByField:reverseSort | itemsPerPage: data.pageSize.name).length}} entries</div>
+                <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true" class="pull-right"> </dir-pagination-controls>
+            </div>
+            <iframe id="hiddeniframe" style="display:none;"></iframe>
+        </div>
+    </div><!-- END panel-body -->
+</div>

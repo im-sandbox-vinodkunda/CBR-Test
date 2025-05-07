@@ -1,0 +1,1176 @@
+﻿<style>
+    #overlay {
+        background: white;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: .99;
+        text-align: center;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    .color {
+        color: #ff0000;
+    }
+
+    .handlelargenote {
+        width: 50px;
+        text-overflow: ellipsis;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        border: 0px;
+    }
+
+
+
+    /* This adds the white background and dropshadow to breadcrumb */
+    .breadcrumb {
+        padding: 15px 15px;
+        margin-bottom: 20px;
+        list-style: none;
+        background-color: #ffffff;
+        border-radius: 0px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+
+    /* This is the color of the list item links */
+    .nav-documents li a {
+        color: #666766;
+    }
+
+    /* This is the active tab style */
+    .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+        color: #fff;
+        background-color: #003057;
+    }
+
+    /* This is the active pagination style with blue background */
+    .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+        z-index: 2;
+        color: #fff;
+        background-color: #003057;
+        border-color: #003057;
+        cursor: default;
+    }
+</style>
+<style>
+        /* MOVED TO cb-resource-v2.css */
+		
+		/* END QMOD Styles */
+		
+		.menu-panel {
+			position:fixed;
+			top:0;
+			bottom:0;
+			width:300px;
+			box-shadow:0px 0px 5px #333333;
+			background-color:#ffffff;
+			height: 100vh;
+			overflow-x: hidden;
+			overflow-y: scroll;
+			-webkit-overflow-scrolling: touch;
+			z-index: 0;
+			display: none;
+  		  	-webkit-transition: all 225ms ease;
+  		  	-moz-transition: all 225ms ease;
+  		  	transition: all 225ms ease;
+  		  	-webkit-animation-duration: 1s;
+  		  	animation-duration: 1s;
+  		  	-webkit-animation-fill-mode: both;
+  		  	animation-fill-mode: both;
+  		  	-webkit-animation-name: fadeIn;
+  		  	animation-name: fadeIn;
+		}
+		
+		.scotch-is-showing .menu-panel {
+		  display: block;
+	  }
+		
+		.icon-close-menu:before {
+			font-size: 24px;
+		}
+		
+		.overlay {
+		  position: fixed;
+		  background: rgba(0, 0, 0, 0.75);
+		  width: 100%;
+		  height: 100%;
+		  display: none;
+		  z-index: 999999;
+		  -webkit-transition: all 225ms ease;
+		  -moz-transition: all 225ms ease;
+		  transition: all 225ms ease;
+		  -webkit-animation-duration: 1s;
+		  animation-duration: 1s;
+		  -webkit-animation-fill-mode: both;
+		  animation-fill-mode: both;
+		  -webkit-animation-name: fadeIn;
+		  animation-name: fadeIn;
+		  cursor: pointer;
+		}
+		.scotch-is-showing .overlay {
+		  display: block;
+		}
+
+
+		@-webkit-keyframes fadeIn {
+		  0% {
+		    opacity: 0;
+		  }
+
+		  100% {
+		    opacity: 1;
+		  }
+		}
+
+		@keyframes fadeIn {
+		  0% {
+		    opacity: 0;
+		  }
+
+		  100% {
+		    opacity: 1;
+		  }
+		}   
+		/* Datepicker Styles */
+		.datepicker table {width: 100%}
+	</style><!-- end CSS styles -->
+<style>
+    /* Document Folder CSS */
+.dataTables_wrapper .col-sm-12 {padding:0;}	
+</style>
+<style>
+    .bootstrap-select li.active a, 
+	.bootstrap-select li.active a:hover {
+	background-color: #003057;
+	}
+</style>
+<style>
+    .bank-account-details,
+	.project-access {
+		background-color:#ffffff;
+		padding:10px;
+		margin-bottom:30px;
+	}
+	.account-details-info {
+		border-bottom:1px solid #ececec;
+		padding:5px;
+	}
+	.account-details-info p {margin:0;
+	}
+	.btn-table {text-align:center;}
+	.btn-table .glyphicon {
+		margin-right: 5px;
+	}
+		
+	.btn-project-access {min-width:170px;text-align:left;}
+		
+	label.checkbox-inline {font-size:12px;}
+		
+	.toggle-on.btn {
+	background-color: #003057;
+	color: #ffffff;
+	border-color: #ddd;
+}
+
+.modal-body * {
+	font-size: 12px;
+}
+
+.input-group-addon, .has-error .input-group-addon, .has-success .input-group-addon {
+		position: absolute;
+		z-index: 99;
+		top: 3px;
+		border: none;
+		background: transparent;
+		padding: 9px 0px 6px 6px;
+		color: #999;
+	}
+	.input-group .form-control {
+		border-radius: 4px;
+		padding-left: 15px;
+		/*width: 220px;*/
+	}
+	.overflow-x{
+overflow-x: scroll;
+}
+	.bg-default-blue{
+	background: #003057!important;
+}
+.text-white{
+	color: white!important
+}
+
+.custom-form-check input{
+position: absolute;
+visibility: hidden;
+}
+.bg-white{
+background: #fff
+}
+
+/* The container */
+.custom-check-box {
+display: block;
+position: relative;
+padding-left: 35px;
+margin-bottom: 12px;
+cursor: pointer;
+font-size: 22px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.custom-check-box input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+position: absolute;
+top: 0;
+right: 0;
+height: 25px;
+width: 25px;
+background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.custom-check-box:hover input ~ .checkmark {
+background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.custom-check-box input:checked ~ .checkmark {
+background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+
+/* Show the checkmark when checked */
+.custom-check-box input:checked ~ .checkmark:after {
+display: block;
+}
+
+/* Style the checkmark/indicator */
+.custom-check-box .checkmark:after {
+left: 9px;
+top: 5px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 3px 3px 0;
+-webkit-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+transform: rotate(45deg);
+}
+
+/*Radio box*/
+
+input[type="radio"] + .label-text:before{
+content: "\f10c";
+font-family: "FontAwesome";
+speak: none;
+font-style: normal;
+font-weight: normal;
+font-variant: normal;
+text-transform: none;
+line-height: 1;
+-webkit-font-smoothing:antialiased;
+width: 1em;
+display: inline-block;
+margin-right: 5px;
+font-size: 20px
+}
+
+input[type="radio"]:checked + .label-text:before{
+content: "\f192";
+color: red;
+animation: effect 250ms ease-in;
+}
+
+
+/*Radio Toggle*/
+
+.toggle input[type="radio"] + .label-text:before{
+content: "\f204";
+font-family: "FontAwesome";
+speak: none;
+font-style: normal;
+font-weight: normal;
+font-variant: normal;
+text-transform: none;
+line-height: 1;
+-webkit-font-smoothing:antialiased;
+width: 1em;
+display: inline-block;
+margin-right: 10px;
+}
+
+.toggle input[type="radio"]:checked + .label-text:before{
+content: "\f205";
+color: #16a085;
+animation: effect 250ms ease-in;
+}
+
+.toggle input[type="radio"]:disabled + .label-text{
+color: #aaa;
+}
+
+.toggle input[type="radio"]:disabled + .label-text:before{
+content: "\f204";
+color: #ccc;
+}
+</style>
+
+<div class="row">
+    <div class="col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0">
+        <style>
+            .accounts-dropdown .bootstrap-select .dropdown-toggle {
+                padding: 2px 5px;
+                font-size: 12px;
+                border: 0;
+                /*border-bottom:1px solid #666766;*/
+                border-radius: 0;
+                color: #666766;
+            }
+
+            .accounts-dropdown .bootstrap-select .bs-caret {
+                margin-left: 5px;
+            }
+        </style>
+        <div style="margin:20px 0px;">
+            <ol class="breadcrumb">
+                <li><a href="javascript:void(0)" ng-click="NavigateToDashboard()">Dashboard</a></li>
+                <li>
+                    System Administration
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-sm-offset-0 col-md-3 col-md-offset-0">
+            <div class="project-navigation-left">
+                <ul class="nav nav-documents nav-stacked nav-pills card">
+                    <li class="active">
+                        <a role="button" data-toggle="tab" href="javascript:void(0)" ng-click="ToggleSysAdminScreen($event, 'manageAccounts')">
+                            <span class="nav-stacked-icon"><i class="icon-setting-gear"></i></span> Manage
+                            Accounts
+                        </a>
+                    </li>
+                    <li>
+                        <a role="button" data-toggle="tab" href="javascript:void(0)" ng-click="ToggleSysAdminScreen($event, 'addAccounts')">
+                            <span class="nav-stacked-icon"><i class="icon-peer-groups"></i></span> Add
+                            Accounts
+                        </a>
+                    </li>
+                    <li>
+                        <a role="button" data-toggle="tab" href="javascript:void(0)" ng-click="ToggleSysAdminScreen($event, 'manageNewsAndEvents')">
+                            <span class="nav-stacked-icon"><i class="icon-documents"></i></span> Manage
+                            News &amp; Events
+                        </a>
+                    </li>
+                    <li>
+                        <a role="button" data-toggle="tab" href="javascript:void(0)" ng-click="ToggleSysAdminScreen($event, 'manageBlogs')">
+                            <span class="nav-stacked-icon"><i class="icon-billing-invoices"></i></span>
+                            Manage Blogs
+                        </a>
+                    </li>
+                    <li>
+                        <a role="button" data-toggle="tab" href="javascript:void(0)" ng-click="ToggleSysAdminScreen($event, 'manageInfoCenter')">
+                            <span class="nav-stacked-icon"><i class="icon-activity-log"></i></span> Manage
+                            Info Center
+                        </a>
+                    </li>
+                    <li>
+                        <a role="button" data-toggle="tab" href="javascript:void(0)" ng-click="ToggleSysAdminScreen($event, 'manageRates')">
+                            <span class="nav-stacked-icon"><i class="icon-activity-log"></i></span> Manage
+                            Rates
+                        </a>
+                    </li>
+                    <li>
+                        <a role="button" data-toggle="tab" href="javascript:void(0)" ng-click="ToggleSysAdminScreen($event, 'manageOrders')">
+                            <span class="nav-stacked-icon"><i class="icon-activity-log"></i></span> Manage
+                            Orders
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- div class="help-message">
+            <span><small><i class="fa fa-info-circle fa-2x"></i> Browse documents and return to your dashboard using the tabs above.</small></span>
+            </div -->
+        </div>
+        <div class="col-sm-12 col-sm-offset-0 col-md-9 col-md-offset-0 col-lg-9 col-lg-offset-0">
+            <div class="row">
+                <div ng-include src="sysAdminTemplate">
+                </div>
+            </div>
+        </div><!-- row -->
+    </div>
+</div>
+
+<script id="manageAccounts" type="text/ng-template">
+    <div class="tab-content" id="manage-accounts" ng-controller="manageAccountsController">
+        <div id="tabManageAccounts">
+            <div style="padding:0px;">
+                <div class="title">
+                    <h3>
+                        Manage Accounts
+                    </h3>
+                </div>
+                <div style="margin-bottom:60px;">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div>
+                                <label>
+                                    Show
+                                    <select ng-model="PageSize" ng-change="LoadTenants()" class="form-control input-sm" style="width:auto;display:inline-block;" aria-controls="tableTrackCDOrders">
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select> entries
+                                </label>
+                                <div class="search-form pull-right">
+                                    <label class="" style="margin-top:5px;margin-right:5px;">Search:</label>
+                                    <div class="form-group pull-right">
+                                        <input class="form-control input-sm ng-pristine ng-untouched ng-valid" aria-controls="tableManageAccounts" type="search" placeholder="Search by Name or FDIC Certificate" ng-model="TenantSearchInput" ng-keyup="FireTenantSearch()" style="width:220px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add jQuery data table plugin -->
+                    <table id="tableManageAccounts" class="table table-striped table-fluid">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <a href="javascript:void(0);" ng-click="OrderBy('accountName')" style="color:inherit">
+                                        Account Name <span ng-show="orderByField == 'accountName'"><span ng-show="!reverseSort"><i class="fa fa-sort-amount-asc" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i></span></span>
+                                    </a>
+                                </th>
+                                <th>FDIC Certificate</th>
+                                <th>
+                                    <a href="javascript:void(0);" ng-click="OrderBy('state')" style="color:inherit">
+                                        State <span ng-show="orderByField == 'state'"><span ng-show="!reverseSort"><i class="fa fa-sort-amount-asc" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i></span></span>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="javascript:void(0);" ng-click="OrderBy('memberSince')" style="color:inherit">
+                                        Member Since <span ng-show="orderByField == 'memberSince'"><span ng-show="!reverseSort"><i class="fa fa-sort-amount-asc" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i></span></span>
+                                    </a>
+                                </th>
+                                <th>Deactivate</th>
+                                <th>Reactivate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="tenant in Tenants" ng-class-odd="'odd'" ng-class-even="'even'">
+                                <td><a href="javascript:void(0)" ng-click="RedirectToSuperAccountAdministration(tenant.tenantKey)">{{ BindAccountName(tenant.accountName) }}</a></td>
+                                <td>{{BindFdicCert(tenant.fdicCert)}}</td>
+                                <td>{{BindState(tenant.state)}}</td>
+                                <td>{{ tenant.memberSince }}</td>
+                                <td>
+                                    <button class="btn btn-default btn-table btn-xs" type="button" ng-click="SelectTenantToDelete($event, tenant)" data-toggle="modal" data-target="#deleteuser" ng-show="tenant.isActive === true">
+                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                        Deactivate
+                                    </button>
+                                </td>
+                                <td>
+                                    <button class="btn btn-default btn-table btn-xs" type="button" ng-click="SelectTenantToActivate($event, tenant)" data-toggle="modal" data-target="#deleteuser" ng-show="tenant.isActive === false">
+                                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                        Reactivate
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="clearfix"></div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div aria-live="polite" ng-show="Tenants.length > 0">Showing {{ShowingFrom}} to {{ShowingTo}} of {{Tenants[0].totalAccounts}} accounts</div>
+                            <div aria-live="polite" ng-show="Tenants.length == 0 && SearchFired === true">No accounts matching your search crieteria.</div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div id="tableTrackCDOrders_paginate">
+                                <ul class="pagination pull-right">
+                                    <li id="{{ pageNumber.id }}" ng-repeat="pageNumber in PageNumbers" ng-class="{'active':CurrentPage === pageNumber.value}"><a href="javascript:void(0)" ng-hide="pageNumber.value === '>>' && DisableNextClick" ng-click="LoadNextPageOfTenants(pageNumber)">{{ pageNumber.value }}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div><!-- END panel-body -->
+        </div>
+    </div><!-- END tab-pane containing tabBankAccountDetails -->
+</script>
+
+<script id="addAccounts" type="text/ng-template">
+    <div id="tabAddAccounts" class="tab-pane fade in" ng-controller="addAccountsController">
+        <div class="panel-body">
+            <div class="title">
+                <h3>Add Accounts</h3>
+            </div>
+            <div class="edit-user">
+                <form class="form-horizontal col-md-12 card" style="padding:0px 15px;background-color:#ffffff;margin-bottom:60px;" name="systemadminuserForm" novalidate autocomplete="off">
+                    <div class="form-horizontal-inner-wrapper" style="padding:15px;">
+                        <div class="form-group">
+                            <label class=" text-left col-md-12 col-sm-12 col-xs-12">
+                                <div class="p-2 control-label">
+                                    <div class="col-md-3 text-left">
+                                        <div class="custom-form-check">
+                                            <label>
+                                                <input type="radio" name="accountType" id="inlineRadio1" value="Bank" ng-model="AccountType" ng-click="EnableDisableSearchBankButton($event,'Bank')" ng-required="true" />
+                                                <span class="label-text">Bank</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 text-left">
+                                        <div class="custom-form-check">
+                                            <label>
+                                                <input type="radio" name="accountType" id="inlineRadio2" value="Non-Bank" ng-model="AccountType" ng-click="EnableDisableSearchBankButton($event,'Non-Bank')" ng-required="true" />
+                                                <span class="label-text">Non-Bank</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 text-left">
+                                        <div class="custom-form-check">
+                                            <label>
+                                                <input type="radio" name="accountType" id="inlineRadio3" value="F500Bank" ng-model="AccountType" ng-click="EnableDisableSearchBankButton($event,'F500Bank')" ng-required="true" />
+                                                <span class="label-text">F500 Bank</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 text-left">
+                                        <div class="custom-form-check">
+                                            <label>
+                                                <input type="radio" name="accountType" id="inlineRadio4" value="F500Non-Bank" ng-model="AccountType" ng-click="EnableDisableSearchBankButton($event,'F500Non-Bank')" ng-required="true" />
+                                                <span class="label-text">F500 Non-Bank</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="color" ng-show="systemadminuserForm.accountType.$error.required && (systemadminuserForm.accountType.$dirty)">Required field.</p>
+                            </label>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : systemadminuserForm.accountName.$invalid && (systemadminuserForm.accountName.$dirty)}">
+                            <input class="form-control " type="text" placeholder="Account Name" ng-model="AccountName" name="accountName" ng-required="true" maxlength="255" ng-pattern="/^[a-zA-Z- ]*[a-zA-Z]{1,255}$/" ng-blur="IsTenantNameAvailable()" />
+                            <p class="color" ng-show="systemadminuserForm.accountName.$error.required && (systemadminuserForm.accountName.$dirty)">Required field.</p>
+                            <p class="color" ng-hide="systemadminuserForm.accountName.$invalid">{{TenantNameAvailableMessage}}</p>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input class="form-control col-md-8" id="selectedBankName" type="text" name="BanksName" placeholder="Click the Search Icon to the right to add bank details" aria-describedby="basic-addon2" ng-model="SelectedBanksName" ng-required="IsBankNameRequired" />
+                                <div class="input-group-btn">
+                                    <button type="button" id="clearBankSelectionButton" class="btn btn-default" aria-label="Refresh" ng-click="ClearSelectedBank($event)">
+                                        <i class="glyphicon glyphicon-refresh"></i>
+                                    </button>
+                                    <button type="button" id="searchBankButton" class="btn btn-default" aria-label="Search" href="javascript:void(0)" ng-click="showAddMoreBanksModal($event)">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                    </button>
+                                    <!-- Buttons -->
+                                </div>
+                            </div>
+                            <p class="color" ng-show="systemadminuserForm.BanksName.$error.required && (systemadminuserForm.BanksName.$dirty)">Required field.</p>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : systemadminuserForm.firstName.$invalid && (systemadminuserForm.firstName.$dirty)}">
+                            <input class="form-control " type="text" name="firstName" placeholder="Administrator First Name" ng-model="FirstName" ng-required="true" />
+                            <p class="color" ng-show="systemadminuserForm.firstName.$error.required && (systemadminuserForm.firstName.$dirty)">Required field.</p>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : systemadminuserForm.LastName.$invalid && (systemadminuserForm.LastName.$dirty)}">
+                            <input class="form-control " type="text" name="lastName" placeholder="Administrator Last Name" ng-model="LastName" ng-required="true" />
+                            <p class="color" ng-show="systemadminuserForm.lastName.$error.required && (systemadminuserForm.lastName.$dirty)">Required field.</p>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : systemadminuserForm.emailId.$invalid && (systemadminuserForm.emailId.$dirty)}">
+                            <input class="form-control" type="email" name="emailId" placeholder="Enter Account Administrator Email Address" ng-model="Email" ng-blur="IsUserDuplicate($event)" ng-required="true" maxlength="255" /><label ng-hide="systemadminuserForm.emailId.$invalid">{{IsUserDuplicateMessage}}</label>
+                            <p class="color" ng-show="systemadminuserForm.emailId.$error.required && (systemadminuserForm.emailId.$dirty)">Required field.</p>
+                            <p class="color" ng-show="systemadminuserForm.emailId.$error.email && (systemadminuserForm.emailId.$dirty)">Enter valid Email.</p>
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="2" class="form-control" name="messagebox" placeholder="Type a message to send to account administrator when inviting him to the portal." ng-model="Message"></textarea>
+                            <div>&nbsp;</div>
+                            <hr />
+                            <div id="accountAddSuccess" class="alert alert-warning hidden">
+                            </div>
+                        </div>
+                        <div class="form-group text-right">
+                            <input type="submit" class="btn btn-default bg-default-blue text-white" ng-click="AddAccount($event, systemadminuserForm)" value="Add Account" ng-disabled="systemadminuserForm.$invalid || TenantNameAvailable" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="drawerExample" class="drawer dw-xs-10 dw-sm-6 dw-md-9 fold" aria-labelledby="drawerExample" style="border-right:5px solid #173967;">
+            <div class="drawer-contents">
+                <div class="drawer-heading">
+                    <h3 class="drawer-title">Select Default Bank For Account <span class="pull-right"><a href="javascript:void(0)" class="btn btn-default btn-sm" ng-click="hideAddMoreBanksModal($event)">X</a></span></h3>
+                </div>
+                <div class="drawer-body">
+                    <form style="padding:30px;background-color:#ececec;" class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search for a bank name" ng-model="BankFindSearchCriteria.BankName" />
+                        </div>
+                        <div class="form-group">
+                            <label for="contain">FDIC Number</label>
+                            <input class="form-control" placeholder="FDIC Number" type="text" ng-model="BankFindSearchCriteria.CertNumber" />
+                        </div>
+                        <div class="form-group">
+                            <label for="filter">Location</label>
+                            <select class="form-control" ng-model="BankFindSearchCriteria.Location">
+                                <option value="">-- Choose a filter --</option>
+                                <!--Commented below code as per #19297-->
+                                <!--<option disabled>&#9472;</option>
+                                <option disabled>Nationwide (Coming soon)</option>
+                                <option disabled>&#9472;</option>-->
+                                <optgroup label="By Region">
+                                    <option>Mid Atlantic</option>
+                                    <option>Midwest</option>
+                                    <option>Northeast</option>
+                                    <option>Southeast</option>
+                                    <option>Southwest</option>
+                                    <option>West</option>
+                                </optgroup>
+                                <option disabled>&#9472;</option>
+                                <optgroup label="By State">
+                                    <option value="Alabama">Alabama</option>
+                                    <option value="Alaska">Alaska</option>
+                                    <option value="Arizona">Arizona</option>
+                                    <option value="Arkansas">Arkansas</option>
+                                    <option value="California">California</option>
+                                    <option value="Colorado">Colorado</option>
+                                    <option value="Connecticut">Connecticut</option>
+                                    <option value="Delaware">Delaware</option>
+                                    <option value="District Of Columbia">District Of Columbia</option>
+                                    <option value="Florida">Florida</option>
+                                    <option value="Georgia">Georgia</option>
+                                    <option value="Hawaii">Hawaii</option>
+                                    <option value="Idaho">Idaho</option>
+                                    <option value="Illinois">Illinois</option>
+                                    <option value="Indiana">Indiana</option>
+                                    <option value="Iowa">Iowa</option>
+                                    <option value="Kansas">Kansas</option>
+                                    <option value="Kentucky">Kentucky</option>
+                                    <option value="Louisiana">Louisiana</option>
+                                    <option value="Maine">Maine</option>
+                                    <option value="Maryland">Maryland</option>
+                                    <option value="Massachusetts">Massachusetts</option>
+                                    <option value="Michigan">Michigan</option>
+                                    <option value="Minnesota">Minnesota</option>
+                                    <option value="Mississippi">Mississippi</option>
+                                    <option value="Missouri">Missouri</option>
+                                    <option value="Montana">Montana</option>
+                                    <option value="Nebraska">Nebraska</option>
+                                    <option value="Nevada">Nevada</option>
+                                    <option value="New Hampshire">New Hampshire</option>
+                                    <option value="New Jersey">New Jersey</option>
+                                    <option value="New Mexico">New Mexico</option>
+                                    <option value="New York">New York</option>
+                                    <option value="North Carolina">North Carolina</option>
+                                    <option value="North Dakota">North Dakota</option>
+                                    <option value="Ohio">Ohio</option>
+                                    <option value="Oklahoma">Oklahoma</option>
+                                    <option value="Oregon">Oregon</option>
+                                    <option value="Pennsylvania">Pennsylvania</option>
+                                    <option value="Rhode Island">Rhode Island</option>
+                                    <option value="South Carolina">South Carolina</option>
+                                    <option value="South Dakota">South Dakota</option>
+                                    <option value="Tennessee">Tennessee</option>
+                                    <option value="Texas">Texas</option>
+                                    <option value="Utah">Utah</option>
+                                    <option value="Vermont">Vermont</option>
+                                    <option value="Virginia">Virginia</option>
+                                    <option value="Washington">Washington</option>
+                                    <option value="West Virginia">West Virginia</option>
+                                    <option value="Wisconsin">Wisconsin</option>
+                                    <option value="Wyoming">Wyoming</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <!--<div class="form-group">
+                        <label for="filter">Asset Size</label>
+                        <select class="form-control" ng-model="BankFindSearchCriteria.AssetSize">
+                            <option value="">-- Choose a filter --</option>
+                            <option value="All Banks">All Banks</option>
+                            <option value="Banks Less Than $100M">Banks Less Than $100M</option>
+                            <option value="Banks $100M-$249M">Banks $100M-$249M</option>
+                            <option value="Banks $250M-$499M">Banks $250M-$499M</option>
+                            <option value="Banks $500M-$999M">Banks $500M-$999M</option>
+                            <option value="Banks $1B-$3B">Banks $1B-$3B</option>
+                            <option value="Banks Over $3B">Banks Over $3B</option>
+                        </select>
+                    </div>-->
+                        <div class="form-group">
+                            <div class="col-md-12" style="padding-left: 0px; float: left;">
+                                <span>Asset Size ($Millions, i.e. 100 = $100,000,000)</span>
+                            </div>
+                            <div>
+                                <div class="col-md-1 from-label" style="padding-left:0px;padding-top:10px;">
+                                    <label for="AssetMinSize">FROM:</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <input class="form-control" type="text" numbers-only ng-model="BankFindSearchCriteria.AssetMinSize" />
+                                </div>
+                                <div class="col-md-1 from-label" style="padding-top:10px;padding-left:40px;">
+                                    <label for="AssetMaxSize">TO:</label>
+                                </div>
+                                <div class="col-md-5" style="padding-right:0px;">
+                                    <input class="form-control" type="text" numbers-only ng-model="BankFindSearchCriteria.AssetMaxSize" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="filter">Corporation Type</label>
+                            <select class="form-control" ng-model="BankFindSearchCriteria.CorporationType">
+                                <option value="">-- Choose a filter --</option>
+                                <option value="C corporation">C corporation</option>
+                                <option value="Subchapter S">Subchapter S</option>
+                                <option value="Both">Both</option>
+                            </select>
+                        </div>
+                        <a href="javascript:void(0)" type="button" class="btn btn-primary btn-sm" ng-click="searchBanks({ id: '', value: 1 })"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>Search</a> <a href="javascript:void(0)" type="button" class="btn btn-primary btn-sm" ng-click="ClearSearchDialog($event)"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>Clear</a>
+                    </form>
+                    <div style="border-top: 1px solid #eeeeee;padding:10px;" class="search-results">
+                        <hr />
+                        <center id="searchLoaderEditPeerGroup"></center>
+                        <hr />
+                        <div id="successMessage" class="alert alert-success hidden">
+                            <strong>Success!</strong> {{TotalResults}} Results.
+                        </div>
+                        <h3>
+                            Search Results
+                            <span class="pull-right">
+                                <label>Results</label>
+                                <select ng-model="PageSize" ng-change="SearchOnPageSizeChange($event)" class="input-sm">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                    <option value="All">All</option>
+                                </select>
+                            </span>
+                        </h3>
+                        <table class="table table-hover" id="search-results">
+                            <thead>
+                                <tr style="background-color:#eeeeee;border:0px;">
+                                    <th class="border-left">Institution Name</th>
+                                    <th>FDIC Cert</th>
+                                    <th>RSSD</th>
+                                    <th>SUB-S?</th>
+                                    <th>City</th>
+                                    <th>State</th>
+                                    <th>Assets ($000)</th>
+                                    <th class="border-left"><i class="fa fa-users"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="bank in ResultBanks">
+                                    <td class="border-left">{{ bank.institutionName }}</td>
+                                    <td>{{ bank.certNumber }}</td>
+                                    <td>{{ bank.rssd }}</td>
+                                    <td>{{ bank.subS }}</td>
+                                    <td>{{ bank.institutionCity }}</td>
+                                    <td>{{ bank.institutionStateName }}</td>
+                                    <td>{{ bank.assetSize | number }}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-default btn-sm pull-right" ng-click="SelectBank($event,bank)">Add this bank</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table><!-- END #peer-group-results-table -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="pagination pull-right">
+                                    <li ng-repeat="pageNumber in PageNumbers" ng-class="{'active':CurrentPage === pageNumber.value}"><a href="javascript:void(0)" ng-click="searchBanks(pageNumber)" ng-hide="pageNumber.value === '>>' && DisableNextClick">{{ pageNumber.value }}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- drawer-body -->
+
+                <div class="drawer-footer">
+                    <a href="javascript:void(0)" class="btn btn-primary btn-sm" ng-click="hideAddMoreBanksModal($event)">Close</a>
+                </div>
+            </div>
+        </div>
+        <modal title="Error" visible="showErrorMessageModal">
+            <div class="modal-body">
+                <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> {{ErrorMessageText}}</div>
+                <div class="modal-footer ">
+                    <button type="button" class="btn btn-success" ng-click="Ok($event,'Error')">Ok</button>
+                </div>
+            </div>
+        </modal>
+    </div>
+    
+</script>
+
+<script id="account-access" type="text/ng-template">
+    <div role="tabpanel" class="tab-pane active" id="account-access" ng-controller="accessAccountsController">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="section-title">Project Folder Access</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="access">
+                            <label><a href="javascript:void(0)" target="_blank"><i class="fa fa-money"></i> Capital Plan</a></label>
+                            <input type="checkbox" id="capitalPlan" checked data-size="small" ng-click="ToggleCapitalPlan($event)" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="access">
+                            <label><a href="javascript:void(0)" target="_blank"><i class="fa fa-compass"></i> Strategy</a></label>
+                            <input type="checkbox" id="strategy" checked data-size="small" ng-click="ToggleStrategy($event)">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="access">
+                            <label><a href="javascript:void(0)" target="_blank"><i class="fa fa-bar-chart"></i> ERM</a></label>
+                            <input type="checkbox" id="ERM" checked data-size="small" ng-click="ToggleERM($event)">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="access">
+                            <label><a href="javascript:void(0)" target="_blank"><i class="fa fa-area-chart"></i> ERA</a></label>
+                            <input type="checkbox" id="ERA" checked data-size="small" ng-click="ToggleERA($event)">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="access">
+                            <label><a href="javascript:void(0)"><i class="fa fa-legal"></i> Compliance</a></label>
+                            <input type="checkbox" id="compliance" checked data-size="small" ng-click="ToggleCompliance($event)">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="access">
+                            <label><a href="javascript:void(0)"><i class="fa fa-credit-card"></i> Credit</a></label>
+                            <input type="checkbox" id="credit" checked data-size="small" ng-click="ToggleCredit($event)">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="access">
+                            <label><a href="javascript:void(0)"><i class="fa fa-users"></i> DeNovo</a></label>
+                            <input type="checkbox" id="deNovo" checked data-size="small" ng-click="ToggleDeNovo($event)">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="access">
+                            <label><a href=""><i class="fa fa-university"></i> M&amp;A</a></label>
+                            <input type="checkbox" id="MA" checked data-size="small" ng-click="ToggleMA($event)">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="section-title">Product Access</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="access">
+                            <label>Bank Analytics</label>
+                            <input type="checkbox" id="bankAnalytics" checked data-size="" ng-click="ToggleBankAnalytics($event)">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="section-title">Client Account Access</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="access">
+                            <label>Account Access</label>
+                            <input type="checkbox" id="accountAccess" checked data-size="" ng-click="ToggleAccountAccess($event)">
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="manageNewsAndEvents" type="text/ng-template">
+    <div role="tabpanel" class="tab-pane" id="add-newsevent" ng-controller="manageNewsAndEventsController">
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Manage News &amp; Events</h3>
+                <div class="form-wrapper" style="background-color:#fcfcfc;padding:20px;">
+                    <form name="addNewsAndEventsForm">
+                        <div class="form-group" ng-class="{ 'has-error' : addNewsAndEventsForm.title.$invalid && (addNewsAndEventsForm.title.$dirty || submitted)}">
+                            <input class="form-control " type="text" placeholder="Title" ng-model="Title" name="title" required="" ng-required="true" />
+                            <p class="color" ng-show="addNewsAndEventsForm.title.$error.required && (addNewsAndEventsForm.title.$dirty || submitted)">Required field.</p>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : addNewsAndEventsForm.url.$invalid && (addNewsAndEventsForm.url.$dirty || submitted)}">
+                            <input class="form-control " type="text" name="url" placeholder="Url" ng-model="Url" ng-required="true" />
+                            <p class="color" ng-show="addNewsAndEventsForm.url.$error.required && (addNewsAndEventsForm.url.$dirty || submitted)">Required field.</p>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : addNewsAndEventsForm.date.$invalid && (addNewsAndEventsForm.date.$dirty || submitted)}">
+                            <input class="form-control " type="text" name="date" placeholder="Posted/Event Date" ng-model="Date" ng-required="true" />
+                            <p class="color" ng-show="addNewsAndEventsForm.date.$error.required && (addNewsAndEventsForm.date.$dirty || submitted)">Required field.</p>
+                        </div>
+                        <div class="form-group">
+                            <div>&nbsp;</div>
+                            <input type="submit" class="btn btn-success btn-lg" style="width: 100%;" ng-click="AddNewsEvent($event)" value="Add" />
+                            <hr />
+                            <div id="accountAddSuccess" class="alert alert-warning hidden">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="manageBlogs" type="text/ng-template">
+    <div role="tabpanel" class="tab-pane" id="add-blog" ng-controller="manageBlogsController">
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Manage Blogs</h3>
+                <div class="form-wrapper" style="background-color:#fcfcfc;padding:20px;">
+                    <form name="addBlogForm">
+                        <div class="form-group" ng-class="{ 'has-error' : addBlogForm.title.$invalid && (addBlogForm.title.$dirty || submitted)}">
+                            <input class="form-control " type="text" placeholder="Title" ng-model="Title" name="title" required="" ng-required="true" />
+                            <p class="color" ng-show="addBlogForm.title.$error.required && (addBlogForm.title.$dirty || submitted)">Required field.</p>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : addBlogForm.url.$invalid && (addBlogForm.url.$dirty || submitted)}">
+                            <input class="form-control " type="text" name="url" placeholder="Url" ng-model="Url" ng-required="true" />
+                            <p class="color" ng-show="addBlogForm.url.$error.required && (addBlogForm.url.$dirty || submitted)">Required field.</p>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : addBlogForm.date.$invalid && (addBlogForm.date.$dirty || submitted)}">
+                            <input class="form-control " type="text" name="date" placeholder="Posted/Event Date" ng-model="Date" ng-required="true" />
+                            <p class="color" ng-show="addBlogForm.date.$error.required && (addBlogForm.date.$dirty || submitted)">Required field.</p>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : addBlogForm.postedby.$invalid && (addBlogForm.postedby.$dirty || submitted)}">
+                            <input class="form-control " type="text" name="postedby" placeholder="Posted By" ng-model="PostedBy" ng-required="true" />
+                            <p class="color" ng-show="addBlogForm.postedby.$error.required && (addBlogForm.postedby.$dirty || submitted)">Required field.</p>
+                        </div>
+                        <div class="form-group">
+                            <div>&nbsp;</div>
+                            <input type="submit" class="btn btn-success btn-lg" style="width: 100%;" ng-click="AddBlog($event)" value="Add" />
+                            <hr />
+                            <div id="accountAddSuccess" class="alert alert-warning hidden">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="manageInfoCenter" type="text/ng-template">
+    <div role="tabpanel" class="tab-pane" id="add-account" ng-controller="manageInfoCenterController">
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Manage Info Center</h3>
+                <div class="form-wrapper" style="background-color:#fcfcfc;padding:20px;">
+                    <form name="systemadminuserForm">
+                        <div class="form-group">
+                            <label for="accountType">Image 1</label><br />
+                            <input class="form-control " type="file" id="image1">
+                        </div>
+                        <div class="form-group">
+                            <label for="accountType">Image 2</label><br />
+                            <input class="form-control " type="file" id="image2">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success btn-lg" style="width: 100%;" ng-click="UpdateImages()" value="Add/Update Images" />
+                            <hr />
+                            <div id="updateImageMessageBox" class="alert alert-warning hidden">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- END Add User Tab Content -->
+    </div>
+</script>
+
+<script id="manageRates" type="text/ng-template">
+    <div class="tab-pane" ng-controller="manageRates">
+        <ng-form name="outerForm" novalidate>
+            <div>
+                <h3>Manage Rates</h3>
+                <div class="text-right ng-binding">NOTE: Latest update: {{Rates[0].lastUpdatedDate}}</div>
+            </div>
+            <div>
+                <!-- Add jQuery data table plugin -->
+                <style>
+                    .form-inline .form-control {
+                        padding: 0;
+                        height: auto;
+                        border-top: none;
+                        border-right: none;
+                        border-left: none;
+                        background: transparent;
+                        box-shadow: none;
+                        border-radius: 0;
+                        font-size: 12px;
+                        text-align: center;
+                    }
+                </style>
+                <div id="tableManageRates_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                    <div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row">
+                        <div class="col-sm-12">
+                            <table id="tableManageRates" class="table table-striped table-fluid dataTable no-footer" style="width: 100%;" role="grid">
+                                <thead>
+                                    <tr role="row"><th class="sorting_disabled" rowspan="1" colspan="1" style="width: 28px;">Term</th><th class="sorting_disabled text-center" rowspan="1" colspan="1" style="width: 107px;">Fixed Rate</th><th class="sorting_disabled text-center" rowspan="1" colspan="1" style="width: 107px;">Callable</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr role="row" ng-repeat="rate in Rates" ng-class-odd="odd" ng-class-even="even">
+                                        <ng-form name="innerForm">
+                                            <td>{{ rate.term }}</td>
+                                            <td class="text-center">
+                                                <div class="form-group" ng-class="{ 'has-error' : (innerForm.$$parentForm['fixedrate' + $index].$invalid && innerForm.$$parentForm['fixedrate' + $index].$dirty) || (innerForm.$$parentForm['hiddenfixedrate' + $index].$invalid)}">
+                                                    <input type="text" name="fixedrate{{$index}}" class="form-control" ng-model="rate.fixedRate" pattern="^\d+(?:\.\d+)?(?:-\d+(?:\.\d+)?)*$" ng-required="rate.Required" ng-change="UpdateHiddenFixedRate(rate)">
+                                                    <input class="form-control" name="hiddenfixedrate{{$index}}" style="display:none;" type="number" placeholder="Rate" ng-model="rate.HiddenFixedRate" min="1">
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="form-group" ng-class="{ 'has-error' : (innerForm.$$parentForm['callable' + $index].$invalid && innerForm.$$parentForm['callable' + $index].$dirty) || (innerForm.$$parentForm['hiddencallablerate' + $index].$invalid)}">
+                                                    <input type="text" name="callable{{$index}}" class="form-control" ng-model="rate.callable" pattern="^\d+(?:\.\d+)?(?:-\d+(?:\.\d+)?)*$" ng-change="UpdateHiddenCallableRate(rate)">
+                                                    <input class="form-control" name="hiddencallablerate{{$index}}" style="display:none;" type="number" placeholder="Rate" ng-model="rate.HiddenCallableRate" min="1">
+                                                </div>
+                                            </td>
+                                        </ng-form>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div><div class="row"><div class="col-sm-5"></div><div class="col-sm-7"></div></div>
+                </div>
+            </div>
+            <div class="text-right">
+                <input type="submit" ng-disabled="outerForm.$invalid" class="btn btn-primary btn-group" value="Submit Rates" ng-click="submitRates(innerForm)" />
+            </div>
+        </ng-form>
+    </div>
+</script>
+
+<script id="manageOrders" type="text/ng-template">
+    <div ng-controller="manageOrders">
+        <div>
+            <h3>Track CD Issues</h3>
+        </div>
+        <div>
+            <p class="pull-right" id="table-filter">
+                Show:
+                <select ng-model="SelectedFilter">
+                    <option value="All">All</option>
+                    <option value="Pending">Pending Orders</option>
+                    <option value="Accepted">Accepted Orders</option>
+                    <option value="Complete">Completed Orders</option>
+                    <option value="CD Issued">CD Issued</option>
+                    <option value="Not Issued">Not Issued</option>
+                </select>
+            </p>
+            <!-- Add jQuery data table plugin -->
+            <div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div>
+                            <label>Show <select ng-model="SelectedPageSize" ng-change="LoadOrders()" class="form-control input-sm" style="width:auto;display:inline-block;" aria-controls="tableTrackCDOrders"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-striped table-fluid no-footer" id="tableTrackCDOrders" role="grid" aria-describedby="tableTrackCDOrders_info">
+                            <thead>
+                                <tr role="row">
+                                    <th tabindex="0" class="sorting_asc" aria-controls="tableTrackCDOrders" style="width: 42px;" aria-label="Order Date: activate to sort column descending" aria-sort="ascending" rowspan="1" colspan="1">
+                                        <a href="javascript:void(0);" ng-click="orderByField='orderDate'; reverseSort = !reverseSort">
+                                            Issue Date <span ng-show="orderByField == 'orderDate'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                                        </a>
+                                    </th>
+                                    <th style="width: 63px;" aria-label="Institution Name" rowspan="1" colspan="1">Institution Name</th>
+                                    <th style="width: 46px;" aria-label="Ordered By" rowspan="1" colspan="1">Submitted By</th>
+                                    <th style="width: 52px;" aria-label="Contact Phone" rowspan="1" colspan="1">Contact Phone</th>
+                                    <th style="width: 24px;" aria-label="Term" rowspan="1" colspan="1">Term</th>
+                                    <th style="width: 37px;" aria-label="Callable" rowspan="1" colspan="1">Callable</th>
+                                    <th style="width: 59px;" aria-label="Call Frequency" rowspan="1" colspan="1">Call Frequency</th>
+                                    <th style="width: 21px;" aria-label="Rate" rowspan="1" colspan="1">Rate</th>
+                                    <th style="width: 37px;" aria-label="Amount" rowspan="1" colspan="1">Amount</th>
+                                    <th style="width: 42px;" aria-label="Settle Date" rowspan="1" colspan="1">Settle Date</th>
+                                    <th style="width: 48px;" aria-label="Frequency" rowspan="1" colspan="1">Frequency</th>
+                                    <th style="width: 29px;" aria-label="Notes" rowspan="1" colspan="1">Notes</th>
+                                    <th style="width: 29px;" aria-label="Status" rowspan="1" colspan="1">Status</th>
+                                    <th style="width: 18px;" aria-label="Edit" rowspan="1" colspan="1">Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="order in ExistingOrders|orderBy:orderByField:reverseSort track by order.orderKey" ng-class-even="even" ng-class-odd="odd" role="row" ng-show="(SelectedFilter === 'All' || order.status === SelectedFilter)">
+                                    <td>{{ order.orderDate }}</td>
+                                    <td>{{ order.institutionName }}</td>
+                                    <td>{{ order.orderedBy}}</td>
+                                    <td>{{ order.contactPhone }}</td>
+                                    <td>{{ order.term }}</td>
+                                    <td>{{ order.callable }}</td>
+                                    <td>{{ order.callFrequency }}</td>
+                                    <td>{{ order.rate }}</td>
+                                    <td>{{ order.amount | currency: "$" : 0 }}</td>
+                                    <td>{{ order.settleDate }}</td>
+                                    <td>{{ order.interestPaymentFrequency }}</td>
+                                    <td class="handlelargenote notes">{{ order.notes }}</td>
+                                    <td>{{ order.status }}</td>
+                                    <td><button class="btn btn-sm btn-primary" ng-click="editOrder(order, $index)">Edit</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div id="tableTrackCDOrders_info" role="status" aria-live="polite">Showing {{ShowingFrom}} to {{ShowingTo}} of {{ExistingOrders[0].totalOrders}} orders (filtered from {{ExistingOrders[0].totalOrders}} total entries)</div>
+                    </div>
+                    <div class="col-sm-7">
+                        <div id="tableTrackCDOrders_paginate">
+                            <ul class="pagination pull-right">
+                                <li id="{{ pageNumber.id }}" ng-repeat="pageNumber in PageNumbers" ng-class="{'active':CurrentPage === pageNumber.value}"><a href="javascript:void(0)" ng-hide="pageNumber.value === '>>' && DisableNextClick" ng-click="getCdOrders(pageNumber)">{{ pageNumber.value }}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<div id="overlay" style="z-index:1000;display:none;">
+    <div style="margin-top:15%;">
+        <center><img src="../../../Images/cbr-ripple-small.gif" class="img-responsive" /></center><span id="overlayLoadingText">Loading...</span>
+    </div>
+</div>

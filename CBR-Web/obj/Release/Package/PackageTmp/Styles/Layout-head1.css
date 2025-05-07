@@ -1,0 +1,62 @@
+/* Header Styles Position 2 */
+
+        .page-container {
+            padding: 30px 30px; /* This should be 30px 0px - also exists as duplicate*/
+        }
+
+        .nav.qtr-ytd > li > a {
+            padding: 5px 10px;
+        }
+
+        /*.navbar-inverse .navbar-nav > li > a {
+            color: #eeeeee;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            font-size: 13px;
+        }*/
+
+        .nav-pills ul {
+            background-color: #fcfcfc;
+            list-style: none;
+        }
+
+        .nav-pills > li > a, .nav-pills > li > ul > li > a {
+            font-size: 11px;
+            border-radius: 0px;
+            border: 0px;
+        }
+
+        ul.risk-profiles {
+            background-color: #ffffff;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .nav-pills.risk-profiles > li.active > a {
+            color: #555;
+            font-weight: bold;
+        }
+
+        .btn-group .btn {
+            font-size: 12px;
+        }
+
+        .table {
+            font-size: 11px;
+        }
+
+        tr.active {
+            border-left: 5px solid #173967;
+        }
+
+        tr.clickable-row {
+            cursor: pointer;
+        }
+
+        .badge-new {
+            background-color: #A71D23;
+            padding: 4px 8px;
+            font-size: 9px;
+            border-radius: 2px;
+        }
+
+/* END Header Styles Position 2 */

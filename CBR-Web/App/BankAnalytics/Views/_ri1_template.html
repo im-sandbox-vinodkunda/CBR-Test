@@ -1,0 +1,31 @@
+<table class="table table-responsive">
+	<tr 
+		ng-click="expended_click(row)"
+		ng-repeat="row in tree_rows | filter:{visible:true} track by row.branch.uid"
+		ng-animate="abn-tree-animate"
+		ng-class="level-{{ row.level }} {{(row.branch.selected ? ' active':'')}}"
+		class="abn-tree-row closeall accordion-toggle level-{{ row.level }} {{row.branch.children.length ? 'expanded' : ''}} {{row.branch.bold ? 'bold' : 'no-bold'}} {{row.branch.noClicked ? 'noClicked' : ''}} {{row.branch.opened ? 'opened' : ''}}"
+		data-toggle="collapse"
+		ng-init="row.branch.opened ? expended_all_children(row): ''"
+		>
+		<td class="indented tree-label col-md-7">
+			<i ng-class="row.tree_icon" ng-click="user_clicks_branch(row.branch)" class="tree-icon"></i>
+			<span> {{row.label}}</span>
+		</td>
+		<td class='col-md-1'>
+			<span>{{row.branch.date0}}</span>
+		</td>
+		<td class='col-md-1'>
+			<span>{{row.branch.date1}}</span>
+		</td>
+		<td class='col-md-1'>
+			<span>{{row.branch.date2}}</span>
+		</td>
+		<td class='col-md-1'>
+			<span>{{row.branch.date3}}</span>
+		</td>
+		<td class='col-md-1'>
+			<span>{{row.branch.date4}}</span>
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dfcab92dfe174c64a7873e6b8ce18ab0" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppUser" Width="1.5" PointX="5"
+          PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppUserClaim" Width="1.5" PointX="7.5"
+          PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppUserLogin" Width="1.5" PointX="7.5"
+          PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppUserRegistrationToken" Width="1.5"
+          PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.DimCallSchedule" Width="1.5"
+          PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.DimCustPeerGroup" Width="1.5"
+          PointX="10.5" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.DimDate" Width="1.5" PointX="10.5"
+          PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.DimInstitutionBranch" Width="1.5"
+          PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.DimMDRM" Width="1.5" PointX="4.75"
+          PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.DimReportingPeriodType" Width="1.5"
+          PointX="10.5" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.DimStdPeerGroup" Width="2.75"
+          PointX="3.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.DimStdPeerGroupDetail" Width="2.875"
+          PointX="6" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.DimUBPRConcept" Width="1.5" PointX="10.5"
+          PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.FactCustPGUBPRData" Width="1.5"
+          PointX="12.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.FactStdPGUBPRData" Width="1.5"
+          PointX="15.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.FactUBPRData" Width="1.5" PointX="6.75"
+          PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK_AppUserClaim_User"
+          ManuallyRouted="false" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK_AppUserLogin_User"
+          ManuallyRouted="false" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK_DimCustPeerGroup_UserKey"
+          ManuallyRouted="false" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_FactCustPGUBPRData_CustPeerGroupKey"
+          ManuallyRouted="false" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_FactCustPGUBPRData_CustPGUBPRDateKey"
+          ManuallyRouted="false" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_FactStdPGUBPRData_StdPGUBPRDateKey"
+          ManuallyRouted="false" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_FactCustPGUBPRData_CustPGUBPRPeriodTypeKey"
+          ManuallyRouted="false" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_FactStdPGUBPRData_StdPGUBPRPeriodTypeKey"
+          ManuallyRouted="false" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_DimStdPeerGroupDetail_StdPeerGroupKey"
+          ManuallyRouted="false" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_FactStdPGUBPRData_StdPeerGroupKey"
+          ManuallyRouted="false" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_FactCustPGUBPRData_CustPGUBPRConceptKey"
+          ManuallyRouted="false" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_FactStdPGUBPRData_StdPGUBPRConceptKey"
+          ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.vwProjectNewDocCount" Width="1.5"
+          PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppFavoriteBank" Width="1.5"
+          PointX="13.5" PointY="16.25" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppFavoriteSearch" Width="1.5"
+          PointX="7.5" PointY="19" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK_AppFavouriteBanks_UserKey" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK_AppFavouriteSearches_UserKey" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppRole" Width="1.5" PointX="13"
+          PointY="20.125" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppUserRole" Width="1.5" PointX="15.25"
+          PointY="9" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK_AppUserRole_Role" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK_AppUserRole_User" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.DimInstitution" Width="1.5" PointX="0.75"
+          PointY="4.125" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_AppFavouriteBanks_InstitutionKey" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_DimInstitutionBranch_InstitutionKey" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppProjectInfo" Width="1.5"
+          PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.FactUBPRBenchmark" Width="1.5"
+          PointX="15.75" PointY="16.375" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.FactUBPRBenchmarkThreshold" Width="1.5"
+          PointX="3" PointY="23.125" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_FactUBPRBenchMark_InstitutionKey" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_FactUBPRBenchMarkThreshold_InstitutionKey" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_FactUBPRBenchMark_ReportPeriodTypeKey" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_FactUBPRBenchMark_UBPRConceptKey" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.DimCustPeerGroupDetail" Width="1.5"
+          PointX="12.75" PointY="12.25" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_DimCustPeerGroupDetail_CustPeerGroupKey" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_DimCustPeerGroupDetail_InstitutionKey" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppCRAMModel" Width="1.5" PointX="7.375"
+          PointY="4.75" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppCRAMAdjustBankData" Width="1.5"
+          PointX="15.375" PointY="3.75" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppCRAMRiskRating" Width="1.5"
+          PointX="17.375" PointY="6.75" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppCRAMRiskRatingDefault" Width="1.5"
+          PointX="18.375" PointY="10.75" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppStrategicForecastInputMetric"
+          Width="1.5" PointX="16.25" PointY="20.75" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppStrategicForecastScenario" Width="1.5"
+          PointX="10.25" PointY="20.875" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppStrategicForecastSummary"
+          Width="2.875" PointX="18.25" PointY="13" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppStrategicForecastInputData"
+          Width="1.5" PointX="18.5" PointY="16.75" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK__AppStrate__Metri__48A5B54C" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK__AppStrate__Scena__4B8221F7" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK__AppStrate__UserK__532343BF" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK__AppStrate__UserK__513AFB4D" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK__AppStrate__UserK__4A8DFDBE" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppHomePageContent" Width="1.5"
+          PointX="19.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppStrategicForecastSummaryScenario"
+          Width="1.5" PointX="21.875" PointY="14.25" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK__AppStrate__Scena__52B92F6B" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK__AppStrate__Summa__53AD53A4" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK__AppStrate__UserK__55959C16" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppInfoCenterImage" Width="1.5"
+          PointX="19.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppCRAMRiskCategory" Width="1.5"
+          PointX="20.375" PointY="7.75" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK_FactUBPRBenchMark_UserKey" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_FactUBPRBenchMarkThreshold_UserKey" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppManageCDRate" Width="1.5"
+          PointX="21.375" PointY="18.75" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppCDOrder" Width="1.5" PointX="21.375"
+          PointY="0.75" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppTenant" Width="1.5" PointX="3"
+          PointY="26.375" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK__AppStrate__Tenan__4D6A6A69" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK__AppStrate__Tenan__4F52B2DB" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK__AppStrate__Tenan__0E0EFF63" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK__AppStrate__Tenan__4B8221F7" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK_AppTenant_InstitutionKey" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK_AppUser_Tenant" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK_DimCustPeerGroup_TenantKey" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK_FactUBPRBenchMark_TenantKey" />
+        <AssociationConnector
+          Association="CBRDataWareHouseModel.FK_FactUBPRBenchMarkThreshold_TenantKey" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.KriMetricMaster" Width="1.5"
+          PointX="5.375" PointY="22.75" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.RptCBRRiskRadarChartDetail" Width="1.5"
+          PointX="22.375" PointY="5.75" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.RptCBRRiskRadarUserMetricmapping"
+          Width="1.5" PointX="7.25" PointY="26.125" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK_RptCBRRiskRadarUserMappingKey" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.DataRefreshTimePeriod" Width="1.5"
+          PointX="12.375" PointY="22.75" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppAccessControl" Width="1.5"
+          PointX="5.25" PointY="30.75" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK__AppAccess__Tenan__0D3AD6BB" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppModule" Width="1.5" PointX="18.375" PointY="22.875" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.DataRefreshUpdate" Width="1.5" PointX="14.375" PointY="23.75" />
+        <AssociationConnector Association="CBRDataWareHouseModel.FK__AppAccess__Modul__0C46B282" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.AppStorage" Width="1.5" PointX="21.375" PointY="21.75" />
+        <EntityTypeShape EntityType="CBRDataWareHouseModel.ForumConfig" Width="2.125" PointX="7.375" PointY="22.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

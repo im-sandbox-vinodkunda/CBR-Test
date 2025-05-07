@@ -1,0 +1,864 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CBRDataWareHouseModelStoreContainer" CdmEntityContainer="CBRDataWareHouseEntities">
+    <EntitySetMapping Name="AppUsers">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppUser">
+        <MappingFragment StoreEntitySet="AppUser">
+          <ScalarProperty Name="IsPasswordReset" ColumnName="IsPasswordReset" />
+          <ScalarProperty Name="IsEmailSent" ColumnName="IsEmailSent" />
+          <ScalarProperty Name="HasAcceptedTerms" ColumnName="HasAcceptedTerms" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+          <ScalarProperty Name="TenantKey" ColumnName="TenantKey" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ApprovalDate" ColumnName="ApprovalDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+          <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+          <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+          <ScalarProperty Name="ActivationToken" ColumnName="ActivationToken" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppUserClaims">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppUserClaim">
+        <MappingFragment StoreEntitySet="AppUserClaim">
+          <ScalarProperty Name="UserClaimKey" ColumnName="UserClaimKey" />
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppUserLogins">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppUserLogin">
+        <MappingFragment StoreEntitySet="AppUserLogin">
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppUserRegistrationTokens">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppUserRegistrationToken">
+        <MappingFragment StoreEntitySet="AppUserRegistrationToken">
+          <ScalarProperty Name="UserRegistrationTokenKey" ColumnName="UserRegistrationTokenKey" />
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DimCallSchedules">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.DimCallSchedule">
+        <MappingFragment StoreEntitySet="DimCallSchedule">
+          <ScalarProperty Name="CallScheduleKey" ColumnName="CallScheduleKey" />
+          <ScalarProperty Name="CallScheduleCode" ColumnName="CallScheduleCode" />
+          <ScalarProperty Name="AuditInsertedDateTime" ColumnName="AuditInsertedDateTime" />
+          <ScalarProperty Name="AuditInsertedPackageKey" ColumnName="AuditInsertedPackageKey" />
+          <ScalarProperty Name="AuditUpdatedDateTime" ColumnName="AuditUpdatedDateTime" />
+          <ScalarProperty Name="AuditUpdatedPackageKey" ColumnName="AuditUpdatedPackageKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DimCustPeerGroups">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.DimCustPeerGroup">
+        <MappingFragment StoreEntitySet="DimCustPeerGroup">
+          <ScalarProperty Name="StatusReason" ColumnName="StatusReason" />
+          <ScalarProperty Name="CustPeerGroupKey" ColumnName="CustPeerGroupKey" />
+          <ScalarProperty Name="CustPeerGroupName" ColumnName="CustPeerGroupName" />
+          <ScalarProperty Name="TenantKey" ColumnName="TenantKey" />
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="AuditInsertedDateTime" ColumnName="AuditInsertedDateTime" />
+          <ScalarProperty Name="AuditInsertedPackageKey" ColumnName="AuditInsertedPackageKey" />
+          <ScalarProperty Name="AuditUpdatedDateTime" ColumnName="AuditUpdatedDateTime" />
+          <ScalarProperty Name="AuditUpdatedPackageKey" ColumnName="AuditUpdatedPackageKey" />
+          <ScalarProperty Name="AuditHashMD5" ColumnName="AuditHashMD5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DimDates">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.DimDate">
+        <MappingFragment StoreEntitySet="DimDate">
+          <ScalarProperty Name="DateKey" ColumnName="DateKey" />
+          <ScalarProperty Name="FullDate" ColumnName="FullDate" />
+          <ScalarProperty Name="DayNumberOfWeek" ColumnName="DayNumberOfWeek" />
+          <ScalarProperty Name="DayNameOfWeek" ColumnName="DayNameOfWeek" />
+          <ScalarProperty Name="WeekDayType" ColumnName="WeekDayType" />
+          <ScalarProperty Name="DayNumberOfMonth" ColumnName="DayNumberOfMonth" />
+          <ScalarProperty Name="DayNumberOfYear" ColumnName="DayNumberOfYear" />
+          <ScalarProperty Name="WeekNumberOfYear" ColumnName="WeekNumberOfYear" />
+          <ScalarProperty Name="MonthNameOfYear" ColumnName="MonthNameOfYear" />
+          <ScalarProperty Name="MonthNumberOfYear" ColumnName="MonthNumberOfYear" />
+          <ScalarProperty Name="QuarterNumberCalendar" ColumnName="QuarterNumberCalendar" />
+          <ScalarProperty Name="QuarterNameCalendar" ColumnName="QuarterNameCalendar" />
+          <ScalarProperty Name="SemesterNumberCalendar" ColumnName="SemesterNumberCalendar" />
+          <ScalarProperty Name="SemesterNameCalendar" ColumnName="SemesterNameCalendar" />
+          <ScalarProperty Name="YearCalendar" ColumnName="YearCalendar" />
+          <ScalarProperty Name="MonthNumberFiscal" ColumnName="MonthNumberFiscal" />
+          <ScalarProperty Name="QuarterNumberFiscal" ColumnName="QuarterNumberFiscal" />
+          <ScalarProperty Name="QuarterNameFiscal" ColumnName="QuarterNameFiscal" />
+          <ScalarProperty Name="SemesterNumberFiscal" ColumnName="SemesterNumberFiscal" />
+          <ScalarProperty Name="SemesterNameFiscal" ColumnName="SemesterNameFiscal" />
+          <ScalarProperty Name="YearFiscal" ColumnName="YearFiscal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DimInstitutionBranches">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.DimInstitutionBranch">
+        <MappingFragment StoreEntitySet="DimInstitutionBranch">
+          <ScalarProperty Name="InstitutionBranchKey" ColumnName="InstitutionBranchKey" />
+          <ScalarProperty Name="InstitutionBranchId" ColumnName="InstitutionBranchId" />
+          <ScalarProperty Name="InstitutionKey" ColumnName="InstitutionKey" />
+          <ScalarProperty Name="InstitutionBranchName" ColumnName="InstitutionBranchName" />
+          <ScalarProperty Name="InstitutionBranchAddress" ColumnName="InstitutionBranchAddress" />
+          <ScalarProperty Name="InstitutionBranchCity" ColumnName="InstitutionBranchCity" />
+          <ScalarProperty Name="InstitutionBranchZip" ColumnName="InstitutionBranchZip" />
+          <ScalarProperty Name="InstitutionBranchStateName" ColumnName="InstitutionBranchStateName" />
+          <ScalarProperty Name="CertNumber" ColumnName="CertNumber" />
+          <ScalarProperty Name="InstitutionBranchEstablishedDate" ColumnName="InstitutionBranchEstablishedDate" />
+          <ScalarProperty Name="InstitutionBranchOfficeName" ColumnName="InstitutionBranchOfficeName" />
+          <ScalarProperty Name="InstitutionBranchOfficeNum" ColumnName="InstitutionBranchOfficeNum" />
+          <ScalarProperty Name="FiUniNum" ColumnName="FiUniNum" />
+          <ScalarProperty Name="IsCbsaMetro" ColumnName="IsCbsaMetro" />
+          <ScalarProperty Name="IsCbsaMicro" ColumnName="IsCbsaMicro" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AuditInsertedDateTime" ColumnName="AuditInsertedDateTime" />
+          <ScalarProperty Name="AuditInsertedPackageKey" ColumnName="AuditInsertedPackageKey" />
+          <ScalarProperty Name="AuditUpdatedDateTime" ColumnName="AuditUpdatedDateTime" />
+          <ScalarProperty Name="AuditUpdatedPackageKey" ColumnName="AuditUpdatedPackageKey" />
+          <ScalarProperty Name="AuditHashMD5" ColumnName="AuditHashMD5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DimMDRMs">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.DimMDRM">
+        <MappingFragment StoreEntitySet="DimMDRM">
+          <ScalarProperty Name="CustomMDRMDesc" ColumnName="CustomMDRMDesc" />
+          <ScalarProperty Name="MDRMKey" ColumnName="MDRMKey" />
+          <ScalarProperty Name="MDRMNumber" ColumnName="MDRMNumber" />
+          <ScalarProperty Name="MDRMShortDefinition" ColumnName="MDRMShortDefinition" />
+          <ScalarProperty Name="AuditInsertedDateTime" ColumnName="AuditInsertedDateTime" />
+          <ScalarProperty Name="AuditInsertedPackageKey" ColumnName="AuditInsertedPackageKey" />
+          <ScalarProperty Name="AuditUpdatedDateTime" ColumnName="AuditUpdatedDateTime" />
+          <ScalarProperty Name="AuditUpdatedPackageKey" ColumnName="AuditUpdatedPackageKey" />
+          <ScalarProperty Name="AuditHashMD5" ColumnName="AuditHashMD5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DimReportingPeriodTypes">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.DimReportingPeriodType">
+        <MappingFragment StoreEntitySet="DimReportingPeriodType">
+          <ScalarProperty Name="ReportingPeriodTypeKey" ColumnName="ReportingPeriodTypeKey" />
+          <ScalarProperty Name="ReportingPeriodType" ColumnName="ReportingPeriodType" />
+          <ScalarProperty Name="AuditInsertedPackageKey" ColumnName="AuditInsertedPackageKey" />
+          <ScalarProperty Name="AuditInsertedDateTime" ColumnName="AuditInsertedDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DimStdPeerGroups">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.DimStdPeerGroup">
+        <MappingFragment StoreEntitySet="DimStdPeerGroup">
+          <ScalarProperty Name="StdPeerGroupKey" ColumnName="StdPeerGroupKey" />
+          <ScalarProperty Name="StdPeerGroupCode" ColumnName="StdPeerGroupCode" />
+          <ScalarProperty Name="StdPeerGroupName" ColumnName="StdPeerGroupName" />
+          <ScalarProperty Name="AuditInsertedDateTime" ColumnName="AuditInsertedDateTime" />
+          <ScalarProperty Name="AuditInsertedPackageKey" ColumnName="AuditInsertedPackageKey" />
+          <ScalarProperty Name="AuditUpdatedDateTime" ColumnName="AuditUpdatedDateTime" />
+          <ScalarProperty Name="AuditUpdatedPackageKey" ColumnName="AuditUpdatedPackageKey" />
+          <ScalarProperty Name="AuditHashMD5" ColumnName="AuditHashMD5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DimStdPeerGroupDetails">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.DimStdPeerGroupDetail">
+        <MappingFragment StoreEntitySet="DimStdPeerGroupDetail">
+          <ScalarProperty Name="StdPeerGroupDateKey" ColumnName="StdPeerGroupDateKey" />
+          <ScalarProperty Name="StdPeerGroupDetailKey" ColumnName="StdPeerGroupDetailKey" />
+          <ScalarProperty Name="StdPeerGroupKey" ColumnName="StdPeerGroupKey" />
+          <ScalarProperty Name="StdPeerInstitutionKey" ColumnName="StdPeerInstitutionKey" />
+          <ScalarProperty Name="AuditInsertedDateTime" ColumnName="AuditInsertedDateTime" />
+          <ScalarProperty Name="AuditInsertedPackageKey" ColumnName="AuditInsertedPackageKey" />
+          <ScalarProperty Name="AuditUpdatedDateTime" ColumnName="AuditUpdatedDateTime" />
+          <ScalarProperty Name="AuditUpdatedPackageKey" ColumnName="AuditUpdatedPackageKey" />
+          <ScalarProperty Name="AuditHashMD5" ColumnName="AuditHashMD5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DimUBPRConcepts">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.DimUBPRConcept">
+        <MappingFragment StoreEntitySet="DimUBPRConcept">
+          <ScalarProperty Name="CustomUBPRConceptCodeDesc" ColumnName="CustomUBPRConceptCodeDesc" />
+          <ScalarProperty Name="UBPRConceptKey" ColumnName="UBPRConceptKey" />
+          <ScalarProperty Name="UBPRConceptCode" ColumnName="UBPRConceptCode" />
+          <ScalarProperty Name="UBPRConceptDesc" ColumnName="UBPRConceptDesc" />
+          <ScalarProperty Name="UBPRConceptNarrative" ColumnName="UBPRConceptNarrative" />
+          <ScalarProperty Name="UBPRConceptFormula" ColumnName="UBPRConceptFormula" />
+          <ScalarProperty Name="UBPRConceptUnit" ColumnName="UBPRConceptUnit" />
+          <ScalarProperty Name="AuditInsertedDateTime" ColumnName="AuditInsertedDateTime" />
+          <ScalarProperty Name="AuditInsertedPackageKey" ColumnName="AuditInsertedPackageKey" />
+          <ScalarProperty Name="AuditUpdatedDateTime" ColumnName="AuditUpdatedDateTime" />
+          <ScalarProperty Name="AuditUpdatedPackageKey" ColumnName="AuditUpdatedPackageKey" />
+          <ScalarProperty Name="AuditHashMD5" ColumnName="AuditHashMD5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FactCustPGUBPRDatas">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.FactCustPGUBPRData">
+        <MappingFragment StoreEntitySet="FactCustPGUBPRData">
+          <ScalarProperty Name="CustPGUBPRDataKey" ColumnName="CustPGUBPRDataKey" />
+          <ScalarProperty Name="CustPeerGroupKey" ColumnName="CustPeerGroupKey" />
+          <ScalarProperty Name="CustPGUBPRDateKey" ColumnName="CustPGUBPRDateKey" />
+          <ScalarProperty Name="CustPGUBPRConceptKey" ColumnName="CustPGUBPRConceptKey" />
+          <ScalarProperty Name="CustPGUBPRPeriodTypeKey" ColumnName="CustPGUBPRPeriodTypeKey" />
+          <ScalarProperty Name="CustPGUBPRDataValue" ColumnName="CustPGUBPRDataValue" />
+          <ScalarProperty Name="AuditInsertedDateTime" ColumnName="AuditInsertedDateTime" />
+          <ScalarProperty Name="AuditInsertedPackageKey" ColumnName="AuditInsertedPackageKey" />
+          <ScalarProperty Name="AuditUpdatedDateTime" ColumnName="AuditUpdatedDateTime" />
+          <ScalarProperty Name="AuditUpdatedPackageKey" ColumnName="AuditUpdatedPackageKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FactStdPGUBPRDatas">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.FactStdPGUBPRData">
+        <MappingFragment StoreEntitySet="FactStdPGUBPRData">
+          <ScalarProperty Name="StdPGUBPRDataKey" ColumnName="StdPGUBPRDataKey" />
+          <ScalarProperty Name="StdPeerGroupKey" ColumnName="StdPeerGroupKey" />
+          <ScalarProperty Name="StdPGUBPRDateKey" ColumnName="StdPGUBPRDateKey" />
+          <ScalarProperty Name="StdPGUBPRConceptKey" ColumnName="StdPGUBPRConceptKey" />
+          <ScalarProperty Name="StdPGUBPRPeriodTypeKey" ColumnName="StdPGUBPRPeriodTypeKey" />
+          <ScalarProperty Name="StdPGUBPRDataValue" ColumnName="StdPGUBPRDataValue" />
+          <ScalarProperty Name="AuditInsertedDateTime" ColumnName="AuditInsertedDateTime" />
+          <ScalarProperty Name="AuditInsertedPackageKey" ColumnName="AuditInsertedPackageKey" />
+          <ScalarProperty Name="AuditUpdatedDateTime" ColumnName="AuditUpdatedDateTime" />
+          <ScalarProperty Name="AuditUpdatedPackageKey" ColumnName="AuditUpdatedPackageKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FactUBPRDatas">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.FactUBPRData">
+        <MappingFragment StoreEntitySet="FactUBPRData">
+          <ScalarProperty Name="UBPRReportingPeriodDateKey" ColumnName="UBPRReportingPeriodDateKey" />
+          <ScalarProperty Name="UBPRDataKey" ColumnName="UBPRDataKey" />
+          <ScalarProperty Name="InstitutionKey" ColumnName="InstitutionKey" />
+          <ScalarProperty Name="UBPRDateKey" ColumnName="UBPRDateKey" />
+          <ScalarProperty Name="UBPRConceptKey" ColumnName="UBPRConceptKey" />
+          <ScalarProperty Name="UBPRPeriodTypeKey" ColumnName="UBPRPeriodTypeKey" />
+          <ScalarProperty Name="UBPRDataValue" ColumnName="UBPRDataValue" />
+          <ScalarProperty Name="AuditInsertedDateTime" ColumnName="AuditInsertedDateTime" />
+          <ScalarProperty Name="AuditInsertedPackageKey" ColumnName="AuditInsertedPackageKey" />
+          <ScalarProperty Name="AuditUpdatedDateTime" ColumnName="AuditUpdatedDateTime" />
+          <ScalarProperty Name="AuditUpdatedPackageKey" ColumnName="AuditUpdatedPackageKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="uspDimDate" FunctionName="CBRDataWareHouseModel.Store.uspDimDate" />
+    <FunctionImportMapping FunctionImportName="uspDimInstitution" FunctionName="CBRDataWareHouseModel.Store.uspDimInstitution" />
+    <FunctionImportMapping FunctionImportName="uspDimInstitutionBranch" FunctionName="CBRDataWareHouseModel.Store.uspDimInstitutionBranch" />
+    <FunctionImportMapping FunctionImportName="uspDimStdPeerGroup" FunctionName="CBRDataWareHouseModel.Store.uspDimStdPeerGroup" />
+    <FunctionImportMapping FunctionImportName="uspDimUBPRConcept" FunctionName="CBRDataWareHouseModel.Store.uspDimUBPRConcept" />
+    <FunctionImportMapping FunctionImportName="uspDimUBPRConceptUpdate" FunctionName="CBRDataWareHouseModel.Store.uspDimUBPRConceptUpdate" />
+    <FunctionImportMapping FunctionImportName="uspFactCustPGUBPRData" FunctionName="CBRDataWareHouseModel.Store.uspFactCustPGUBPRData" />
+    <FunctionImportMapping FunctionImportName="uspFactStdPGUBPRData" FunctionName="CBRDataWareHouseModel.Store.uspFactStdPGUBPRData" />
+    <FunctionImportMapping FunctionImportName="uspDimCustPeerGroupDetail" FunctionName="CBRDataWareHouseModel.Store.uspDimCustPeerGroupDetail" />
+    <FunctionImportMapping FunctionImportName="CreatePeerGroup" FunctionName="CBRDataWareHouseModel.Store.uspDimCustPeerGroupDetail" />
+    <EntitySetMapping Name="vwProjectNewDocCounts">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.vwProjectNewDocCount">
+        <MappingFragment StoreEntitySet="vwProjectNewDocCount">
+          <ScalarProperty Name="NewDocCount" ColumnName="NewDocCount" />
+          <ScalarProperty Name="DocumentDisplayName" ColumnName="DocumentDisplayName" />
+          <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+          <ScalarProperty Name="ProjectType" ColumnName="ProjectType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppFavoriteBanks">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppFavoriteBank">
+        <MappingFragment StoreEntitySet="AppFavoriteBank">
+          <ScalarProperty Name="IsDefaultBank" ColumnName="IsDefaultBank" />
+          <ScalarProperty Name="InstitutionKey" ColumnName="InstitutionKey" />
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+          <ScalarProperty Name="FavoriteBankKey" ColumnName="FavoriteBankKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppFavoriteSearches">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppFavoriteSearch">
+        <MappingFragment StoreEntitySet="AppFavoriteSearch">
+          <ScalarProperty Name="Percentile" ColumnName="Percentile" />
+          <ScalarProperty Name="AssetSize" ColumnName="AssetSize" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+          <ScalarProperty Name="FavoriteSearchKey" ColumnName="FavoriteSearchKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppRoles">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppRole">
+        <MappingFragment StoreEntitySet="AppRole">
+          <ScalarProperty Name="RoleValue" ColumnName="RoleValue" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RoleKey" ColumnName="RoleKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppUserRoles">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppUserRole">
+        <MappingFragment StoreEntitySet="AppUserRole">
+          <ScalarProperty Name="IsAccessible" ColumnName="IsAccessible" />
+          <ScalarProperty Name="UserRoleKey" ColumnName="UserRoleKey" />
+          <ScalarProperty Name="RoleKey" ColumnName="RoleKey" />
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DimInstitutions">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.DimInstitution">
+        <MappingFragment StoreEntitySet="DimInstitution">
+          <ScalarProperty Name="AuditHashMD5" ColumnName="AuditHashMD5" />
+          <ScalarProperty Name="AuditUpdatedPackageKey" ColumnName="AuditUpdatedPackageKey" />
+          <ScalarProperty Name="AuditUpdatedDateTime" ColumnName="AuditUpdatedDateTime" />
+          <ScalarProperty Name="AuditInsertedPackageKey" ColumnName="AuditInsertedPackageKey" />
+          <ScalarProperty Name="AuditInsertedDateTime" ColumnName="AuditInsertedDateTime" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="InsuranceFundMembership" ColumnName="InsuranceFundMembership" />
+          <ScalarProperty Name="ParentCertNumber" ColumnName="ParentCertNumber" />
+          <ScalarProperty Name="IsMutualOwnership" ColumnName="IsMutualOwnership" />
+          <ScalarProperty Name="LastStructureChangeEffectiveDate" ColumnName="LastStructureChangeEffectiveDate" />
+          <ScalarProperty Name="DepositInsuranceDate" ColumnName="DepositInsuranceDate" />
+          <ScalarProperty Name="SubchapterSCorporations" ColumnName="SubchapterSCorporations" />
+          <ScalarProperty Name="NumOfForeignOffices" ColumnName="NumOfForeignOffices" />
+          <ScalarProperty Name="NumOfDomesticUSOffices" ColumnName="NumOfDomesticUSOffices" />
+          <ScalarProperty Name="RunDate" ColumnName="RunDate" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="IsCbsaDiv" ColumnName="IsCbsaDiv" />
+          <ScalarProperty Name="CbsaDivNo" ColumnName="CbsaDivNo" />
+          <ScalarProperty Name="CbsaDiv" ColumnName="CbsaDiv" />
+          <ScalarProperty Name="IsCbsaMetro" ColumnName="IsCbsaMetro" />
+          <ScalarProperty Name="CbsaMetro" ColumnName="CbsaMetro" />
+          <ScalarProperty Name="CbsaMetroName" ColumnName="CbsaMetroName" />
+          <ScalarProperty Name="CbsaNo" ColumnName="CbsaNo" />
+          <ScalarProperty Name="Cbsa" ColumnName="Cbsa" />
+          <ScalarProperty Name="IsCsa" ColumnName="IsCsa" />
+          <ScalarProperty Name="CsaNo" ColumnName="CsaNo" />
+          <ScalarProperty Name="Csa" ColumnName="Csa" />
+          <ScalarProperty Name="Tract" ColumnName="Tract" />
+          <ScalarProperty Name="SpecGrpN" ColumnName="SpecGrpN" />
+          <ScalarProperty Name="AssetConcentrationHierarchy" ColumnName="AssetConcentrationHierarchy" />
+          <ScalarProperty Name="IsTrustPowers" ColumnName="IsTrustPowers" />
+          <ScalarProperty Name="RoapTxQ" ColumnName="RoapTxQ" />
+          <ScalarProperty Name="RoapTx" ColumnName="RoapTx" />
+          <ScalarProperty Name="MultiStateBranches" ColumnName="MultiStateBranches" />
+          <ScalarProperty Name="StalpHcr" ColumnName="StalpHcr" />
+          <ScalarProperty Name="RSSDIDNumber" ColumnName="RSSDIDNumber" />
+          <ScalarProperty Name="NetIncomeEquivalency" ColumnName="NetIncomeEquivalency" />
+          <ScalarProperty Name="NetIncomeTotal" ColumnName="NetIncomeTotal" />
+          <ScalarProperty Name="BankHoldingCompany" ColumnName="BankHoldingCompany" />
+          <ScalarProperty Name="DomesticDepositsTotal" ColumnName="DomesticDepositsTotal" />
+          <ScalarProperty Name="HeadQuarterCity" ColumnName="HeadQuarterCity" />
+          <ScalarProperty Name="NumOfOffices" ColumnName="NumOfOffices" />
+          <ScalarProperty Name="UltCertNumber" ColumnName="UltCertNumber" />
+          <ScalarProperty Name="UniqueNumber" ColumnName="UniqueNumber" />
+          <ScalarProperty Name="OfficeOfTheComptrollerDistrict" ColumnName="OfficeOfTheComptrollerDistrict" />
+          <ScalarProperty Name="WebAddress" ColumnName="WebAddress" />
+          <ScalarProperty Name="StateNum" ColumnName="StateNum" />
+          <ScalarProperty Name="StateCounty" ColumnName="StateCounty" />
+          <ScalarProperty Name="Stalp" ColumnName="Stalp" />
+          <ScalarProperty Name="ReturnOnEquityEquivalency" ColumnName="ReturnOnEquityEquivalency" />
+          <ScalarProperty Name="ReturnOnEquity" ColumnName="ReturnOnEquity" />
+          <ScalarProperty Name="ReturnOnAssetEquivalency" ColumnName="ReturnOnAssetEquivalency" />
+          <ScalarProperty Name="ReturnOnAsset" ColumnName="ReturnOnAsset" />
+          <ScalarProperty Name="StateCharter" ColumnName="StateCharter" />
+          <ScalarProperty Name="Regulator" ColumnName="Regulator" />
+          <ScalarProperty Name="OfficeOfThriftSupervisionRegion" ColumnName="OfficeOfThriftSupervisionRegion" />
+          <ScalarProperty Name="OfficeOfThriftSupervisionDistrict" ColumnName="OfficeOfThriftSupervisionDistrict" />
+          <ScalarProperty Name="Oakar" ColumnName="Oakar" />
+          <ScalarProperty Name="NewCertNumber" ColumnName="NewCertNumber" />
+          <ScalarProperty Name="MetropolitanStatisticalArea" ColumnName="MetropolitanStatisticalArea" />
+          <ScalarProperty Name="MetropolitanStatisticalAreaNo" ColumnName="MetropolitanStatisticalAreaNo" />
+          <ScalarProperty Name="FDICFieldOffice" ColumnName="FDICFieldOffice" />
+          <ScalarProperty Name="FederalCharter" ColumnName="FederalCharter" />
+          <ScalarProperty Name="FederalReserveDistrict" ColumnName="FederalReserveDistrict" />
+          <ScalarProperty Name="FDICSupervisoryRegion" ColumnName="FDICSupervisoryRegion" />
+          <ScalarProperty Name="FDICRegion" ColumnName="FDICRegion" />
+          <ScalarProperty Name="FDICAssignedRegionOfficeNumber" ColumnName="FDICAssignedRegionOfficeNumber" />
+          <ScalarProperty Name="EstablishedDate" ColumnName="EstablishedDate" />
+          <ScalarProperty Name="EquityTotal" ColumnName="EquityTotal" />
+          <ScalarProperty Name="DepositTotal" ColumnName="DepositTotal" />
+          <ScalarProperty Name="County" ColumnName="County" />
+          <ScalarProperty Name="Cmsa" ColumnName="Cmsa" />
+          <ScalarProperty Name="CmsaNo" ColumnName="CmsaNo" />
+          <ScalarProperty Name="MajorAndMinorCategoryCode" ColumnName="MajorAndMinorCategoryCode" />
+          <ScalarProperty Name="Conserve" ColumnName="Conserve" />
+          <ScalarProperty Name="CharterAgencyName" ColumnName="CharterAgencyName" />
+          <ScalarProperty Name="Charter" ColumnName="Charter" />
+          <ScalarProperty Name="BankCharterClass" ColumnName="BankCharterClass" />
+          <ScalarProperty Name="AssetTotal" ColumnName="AssetTotal" />
+          <ScalarProperty Name="Docket" ColumnName="Docket" />
+          <ScalarProperty Name="InstitutionStateName" ColumnName="InstitutionStateName" />
+          <ScalarProperty Name="InstitutionZip" ColumnName="InstitutionZip" />
+          <ScalarProperty Name="InstitutionCity" ColumnName="InstitutionCity" />
+          <ScalarProperty Name="InstitutionAddress" ColumnName="InstitutionAddress" />
+          <ScalarProperty Name="InstitutionName" ColumnName="InstitutionName" />
+          <ScalarProperty Name="Rssd" ColumnName="Rssd" />
+          <ScalarProperty Name="CertNumber" ColumnName="CertNumber" />
+          <ScalarProperty Name="InstitutionKey" ColumnName="InstitutionKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppProjectInfoes">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppProjectInfo">
+        <MappingFragment StoreEntitySet="AppProjectInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DocumentDisplayName" ColumnName="DocumentDisplayName" />
+          <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+          <ScalarProperty Name="ProjectType" ColumnName="ProjectType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FactUBPRBenchmarks">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.FactUBPRBenchmark">
+        <MappingFragment StoreEntitySet="FactUBPRBenchmark">
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+          <ScalarProperty Name="TenantKey" ColumnName="TenantKey" />
+          <ScalarProperty Name="BenchmarkValue" ColumnName="BenchmarkValue" />
+          <ScalarProperty Name="ReportPeriodTypeKey" ColumnName="ReportPeriodTypeKey" />
+          <ScalarProperty Name="UBPRConceptKey" ColumnName="UBPRConceptKey" />
+          <ScalarProperty Name="InstitutionKey" ColumnName="InstitutionKey" />
+          <ScalarProperty Name="BenchmarkDataKey" ColumnName="BenchmarkDataKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FactUBPRBenchmarkThresholds">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.FactUBPRBenchmarkThreshold">
+        <MappingFragment StoreEntitySet="FactUBPRBenchmarkThreshold">
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+          <ScalarProperty Name="TenantKey" ColumnName="TenantKey" />
+          <ScalarProperty Name="ThresholdValue" ColumnName="ThresholdValue" />
+          <ScalarProperty Name="InstitutionKey" ColumnName="InstitutionKey" />
+          <ScalarProperty Name="BenchmarkThresholdKey" ColumnName="BenchmarkThresholdKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DimCustPeerGroupDetails">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.DimCustPeerGroupDetail">
+        <MappingFragment StoreEntitySet="DimCustPeerGroupDetail">
+          <ScalarProperty Name="AuditHashMD5" ColumnName="AuditHashMD5" />
+          <ScalarProperty Name="AuditUpdatedPackageKey" ColumnName="AuditUpdatedPackageKey" />
+          <ScalarProperty Name="AuditUpdatedDateTime" ColumnName="AuditUpdatedDateTime" />
+          <ScalarProperty Name="AuditInsertedPackageKey" ColumnName="AuditInsertedPackageKey" />
+          <ScalarProperty Name="AuditInsertedDateTime" ColumnName="AuditInsertedDateTime" />
+          <ScalarProperty Name="CustPeerInstitutionKey" ColumnName="CustPeerInstitutionKey" />
+          <ScalarProperty Name="CustPeerGroupKey" ColumnName="CustPeerGroupKey" />
+          <ScalarProperty Name="CustPeerGroupDetailKey" ColumnName="CustPeerGroupDetailKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppCRAMModels">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppCRAMModel">
+        <MappingFragment StoreEntitySet="AppCRAMModel">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+          <ScalarProperty Name="TenantKey" ColumnName="TenantKey" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="ModelKey" ColumnName="ModelKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppCRAMAdjustBankDatas">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppCRAMAdjustBankData">
+        <MappingFragment StoreEntitySet="AppCRAMAdjustBankData">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TotalRiskWeightedAssets" ColumnName="TotalRiskWeightedAssets" />
+          <ScalarProperty Name="TotalAssetsLeveragePurposes" ColumnName="TotalAssetsLeveragePurposes" />
+          <ScalarProperty Name="TotalCapital" ColumnName="TotalCapital" />
+          <ScalarProperty Name="Tier1Capital" ColumnName="Tier1Capital" />
+          <ScalarProperty Name="CommonEquityTier1Capital" ColumnName="CommonEquityTier1Capital" />
+          <ScalarProperty Name="TotalCapitalRatio" ColumnName="TotalCapitalRatio" />
+          <ScalarProperty Name="Tier1CapitalRatio" ColumnName="Tier1CapitalRatio" />
+          <ScalarProperty Name="CET1CapitalRatio" ColumnName="CET1CapitalRatio" />
+          <ScalarProperty Name="Tier1LeverageRatio" ColumnName="Tier1LeverageRatio" />
+          <ScalarProperty Name="ModelKey" ColumnName="ModelKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppCRAMRiskRatings">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppCRAMRiskRating">
+        <MappingFragment StoreEntitySet="AppCRAMRiskRating">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="High" ColumnName="High" />
+          <ScalarProperty Name="ModerateHigh" ColumnName="ModerateHigh" />
+          <ScalarProperty Name="Moderate" ColumnName="Moderate" />
+          <ScalarProperty Name="LowModerate" ColumnName="LowModerate" />
+          <ScalarProperty Name="Low" ColumnName="Low" />
+          <ScalarProperty Name="ModelKey" ColumnName="ModelKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppCRAMRiskRatingDefaults">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppCRAMRiskRatingDefault">
+        <MappingFragment StoreEntitySet="AppCRAMRiskRatingDefault">
+          <ScalarProperty Name="CapitalRiskBuffer" ColumnName="CapitalRiskBuffer" />
+          <ScalarProperty Name="RiskRating" ColumnName="RiskRating" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppStrategicForecastInputMetrics">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppStrategicForecastInputMetric">
+        <MappingFragment StoreEntitySet="AppStrategicForecastInputMetric">
+          <ScalarProperty Name="UBPRConceptCode" ColumnName="UBPRConceptCode" />
+          <ScalarProperty Name="AuditInsertedDate" ColumnName="AuditInsertedDate" />
+          <ScalarProperty Name="MetricName" ColumnName="MetricName" />
+          <ScalarProperty Name="MetricKey" ColumnName="MetricKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppStrategicForecastScenarios">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppStrategicForecastScenario">
+        <MappingFragment StoreEntitySet="AppStrategicForecastScenario">
+          <ScalarProperty Name="AuditInsertedDate" ColumnName="AuditInsertedDate" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+          <ScalarProperty Name="TenantKey" ColumnName="TenantKey" />
+          <ScalarProperty Name="ScenarioName" ColumnName="ScenarioName" />
+          <ScalarProperty Name="ScenarioKey" ColumnName="ScenarioKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppStrategicForecastSummaries">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppStrategicForecastSummary">
+        <MappingFragment StoreEntitySet="AppStrategicForecastSummary">
+          <ScalarProperty Name="AuditInsertedDate" ColumnName="AuditInsertedDate" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+          <ScalarProperty Name="TenantKey" ColumnName="TenantKey" />
+          <ScalarProperty Name="SummaryName" ColumnName="SummaryName" />
+          <ScalarProperty Name="SummaryKey" ColumnName="SummaryKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppStrategicForecastInputDatas">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppStrategicForecastInputData">
+        <MappingFragment StoreEntitySet="AppStrategicForecastInputData">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CurrentYearYTD" ColumnName="CurrentYearYTD" />
+          <ScalarProperty Name="PriorYear" ColumnName="PriorYear" />
+          <ScalarProperty Name="AuditInsertedDate" ColumnName="AuditInsertedDate" />
+          <ScalarProperty Name="Year5" ColumnName="Year5" />
+          <ScalarProperty Name="Year4" ColumnName="Year4" />
+          <ScalarProperty Name="Year3" ColumnName="Year3" />
+          <ScalarProperty Name="Year2" ColumnName="Year2" />
+          <ScalarProperty Name="Year1" ColumnName="Year1" />
+          <ScalarProperty Name="Year0" ColumnName="Year0" />
+          <ScalarProperty Name="MetricKey" ColumnName="MetricKey" />
+          <ScalarProperty Name="ScenarioKey" ColumnName="ScenarioKey" />
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+          <ScalarProperty Name="TenantKey" ColumnName="TenantKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppHomePageContents">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppHomePageContent">
+        <MappingFragment StoreEntitySet="AppHomePageContent">
+          <ScalarProperty Name="AuditLastUpdatedDatetime" ColumnName="AuditLastUpdatedDatetime" />
+          <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+          <ScalarProperty Name="LastUpdatedOn" ColumnName="LastUpdatedOn" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="PostedBy" ColumnName="PostedBy" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppStrategicForecastSummaryScenarios">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppStrategicForecastSummaryScenario">
+        <MappingFragment StoreEntitySet="AppStrategicForecastSummaryScenario">
+          <ScalarProperty Name="AuditInsertedDate" ColumnName="AuditInsertedDate" />
+          <ScalarProperty Name="TenantKey" ColumnName="TenantKey" />
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+          <ScalarProperty Name="ScenarioKey" ColumnName="ScenarioKey" />
+          <ScalarProperty Name="SummaryKey" ColumnName="SummaryKey" />
+          <ScalarProperty Name="SummaryScenarioKey" ColumnName="SummaryScenarioKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppInfoCenterImages">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppInfoCenterImage">
+        <MappingFragment StoreEntitySet="AppInfoCenterImage">
+          <ScalarProperty Name="AuditInsertedDateTime" ColumnName="AuditInsertedDateTime" />
+          <ScalarProperty Name="Image2" ColumnName="Image2" />
+          <ScalarProperty Name="Image1" ColumnName="Image1" />
+          <ScalarProperty Name="ImageKey" ColumnName="ImageKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppCRAMRiskCategories">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppCRAMRiskCategory">
+        <MappingFragment StoreEntitySet="AppCRAMRiskCategories">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ReputationRiskWeighing" ColumnName="ReputationRiskWeighing" />
+          <ScalarProperty Name="ReputationRiskScore" ColumnName="ReputationRiskScore" />
+          <ScalarProperty Name="StrategicRiskWeighing" ColumnName="StrategicRiskWeighing" />
+          <ScalarProperty Name="StrategicRiskScore" ColumnName="StrategicRiskScore" />
+          <ScalarProperty Name="ComplianceRiskWeighing" ColumnName="ComplianceRiskWeighing" />
+          <ScalarProperty Name="ComplianceRiskScore" ColumnName="ComplianceRiskScore" />
+          <ScalarProperty Name="OperationalRiskWeighing" ColumnName="OperationalRiskWeighing" />
+          <ScalarProperty Name="OperationalRiskScore" ColumnName="OperationalRiskScore" />
+          <ScalarProperty Name="LiquidityRiskWeighing" ColumnName="LiquidityRiskWeighing" />
+          <ScalarProperty Name="LiquidityRiskScore" ColumnName="LiquidityRiskScore" />
+          <ScalarProperty Name="InterestRateRiskWeighing" ColumnName="InterestRateRiskWeighing" />
+          <ScalarProperty Name="InterestRateRiskScore" ColumnName="InterestRateRiskScore" />
+          <ScalarProperty Name="CreditRiskWeighing" ColumnName="CreditRiskWeighing" />
+          <ScalarProperty Name="CreditRiskScore" ColumnName="CreditRiskScore" />
+          <ScalarProperty Name="ModelKey" ColumnName="ModelKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppManageCDRates">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppManageCDRate">
+        <MappingFragment StoreEntitySet="AppManageCDRates">
+          <ScalarProperty Name="AuditUpdatedDateTime" ColumnName="AuditUpdatedDateTime" />
+          <ScalarProperty Name="AuditInsertedDateTime" ColumnName="AuditInsertedDateTime" />
+          <ScalarProperty Name="Callable" ColumnName="Callable" />
+          <ScalarProperty Name="FixedRate" ColumnName="FixedRate" />
+          <ScalarProperty Name="Term" ColumnName="Term" />
+          <ScalarProperty Name="TermKey" ColumnName="TermKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppCDOrders">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppCDOrder">
+        <MappingFragment StoreEntitySet="AppCDOrders">
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="AuditUpdatedDateTime" ColumnName="AuditUpdatedDateTime" />
+          <ScalarProperty Name="AuditInsertedDateTime" ColumnName="AuditInsertedDateTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="InterestPaymentFrequency" ColumnName="InterestPaymentFrequency" />
+          <ScalarProperty Name="SettleDate" ColumnName="SettleDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="CallFrequency" ColumnName="CallFrequency" />
+          <ScalarProperty Name="Callable" ColumnName="Callable" />
+          <ScalarProperty Name="Term" ColumnName="Term" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="OrderedBy" ColumnName="OrderedBy" />
+          <ScalarProperty Name="InstitutionKey" ColumnName="InstitutionKey" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="OrderKey" ColumnName="OrderKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppTenants">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppTenant">
+        <MappingFragment StoreEntitySet="AppTenant">
+          <ScalarProperty Name="ReferredBy" ColumnName="ReferredBy" />
+          <ScalarProperty Name="TenantType" ColumnName="TenantType" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="InsertedDateTime" ColumnName="InsertedDateTime" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TenantDomain" ColumnName="TenantDomain" />
+          <ScalarProperty Name="TenantName" ColumnName="TenantName" />
+          <ScalarProperty Name="InstitutionKey" ColumnName="InstitutionKey" />
+          <ScalarProperty Name="TenantKey" ColumnName="TenantKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KriMetricMasters">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.KriMetricMaster">
+        <MappingFragment StoreEntitySet="KriMetricMaster">
+          <ScalarProperty Name="IsHighScoreGood" ColumnName="IsHighScoreGood" />
+          <ScalarProperty Name="KriMetricSeq" ColumnName="KriMetricSeq" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="UBPRConceptCode" ColumnName="UBPRConceptCode" />
+          <ScalarProperty Name="Metric" ColumnName="Metric" />
+          <ScalarProperty Name="MetricDesc" ColumnName="MetricDesc" />
+          <ScalarProperty Name="KriGroup" ColumnName="KriGroup" />
+          <ScalarProperty Name="KriMetricId" ColumnName="KriMetricId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RptCBRRiskRadarChartDetails">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.RptCBRRiskRadarChartDetail">
+        <MappingFragment StoreEntitySet="RptCBRRiskRadarChartDetails">
+          <ScalarProperty Name="CurrentPeerGroupAvgValue" ColumnName="CurrentPeerGroupAvgValue" />
+          <ScalarProperty Name="CurrentMinus1PeerGroupAvgValue" ColumnName="CurrentMinus1PeerGroupAvgValue" />
+          <ScalarProperty Name="CurrentMinus2PeerGroupAvgValue" ColumnName="CurrentMinus2PeerGroupAvgValue" />
+          <ScalarProperty Name="CurrentMinus3PeerGroupAvgValue" ColumnName="CurrentMinus3PeerGroupAvgValue" />
+          <ScalarProperty Name="CurrentMinus4PeerGroupAvgValue" ColumnName="CurrentMinus4PeerGroupAvgValue" />
+          <ScalarProperty Name="IsHighScoreGood" ColumnName="IsHighScoreGood" />
+          <ScalarProperty Name="CurrentScoreValue" ColumnName="CurrentScoreValue" />
+          <ScalarProperty Name="CurrentMinus1ScoreValue" ColumnName="CurrentMinus1ScoreValue" />
+          <ScalarProperty Name="CurrentMinus2ScoreValue" ColumnName="CurrentMinus2ScoreValue" />
+          <ScalarProperty Name="CurrentMinus3ScoreValue" ColumnName="CurrentMinus3ScoreValue" />
+          <ScalarProperty Name="CurrentMinus4ScoreValue" ColumnName="CurrentMinus4ScoreValue" />
+          <ScalarProperty Name="CurrentDataValue" ColumnName="CurrentDataValue" />
+          <ScalarProperty Name="CurrentMinus1DataValue" ColumnName="CurrentMinus1DataValue" />
+          <ScalarProperty Name="CurrentMinus2DataValue" ColumnName="CurrentMinus2DataValue" />
+          <ScalarProperty Name="CurrentMinus3DataValue" ColumnName="CurrentMinus3DataValue" />
+          <ScalarProperty Name="CurrentMinus4DataValue" ColumnName="CurrentMinus4DataValue" />
+          <ScalarProperty Name="KriMetricId" ColumnName="KriMetricId" />
+          <ScalarProperty Name="AssetSize" ColumnName="AssetSize" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="PeerGroup" ColumnName="PeerGroup" />
+          <ScalarProperty Name="PeerGroupKey" ColumnName="PeerGroupKey" />
+          <ScalarProperty Name="InstitutionName" ColumnName="InstitutionName" />
+          <ScalarProperty Name="CertNumber" ColumnName="CertNumber" />
+          <ScalarProperty Name="InstitutionKey" ColumnName="InstitutionKey" />
+          <ScalarProperty Name="ReportTabName" ColumnName="ReportTabName" />
+          <ScalarProperty Name="RptRiskRadarChartDetailsKey" ColumnName="RptRiskRadarChartDetailsKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RptCBRRiskRadarUserMetricmappings">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.RptCBRRiskRadarUserMetricmapping">
+        <MappingFragment StoreEntitySet="RptCBRRiskRadarUserMetricmapping">
+          <ScalarProperty Name="KRI10" ColumnName="KRI10" />
+          <ScalarProperty Name="KRI9" ColumnName="KRI9" />
+          <ScalarProperty Name="KRI8" ColumnName="KRI8" />
+          <ScalarProperty Name="KRI7" ColumnName="KRI7" />
+          <ScalarProperty Name="KRI6" ColumnName="KRI6" />
+          <ScalarProperty Name="KRI5" ColumnName="KRI5" />
+          <ScalarProperty Name="KRI4" ColumnName="KRI4" />
+          <ScalarProperty Name="KRI3" ColumnName="KRI3" />
+          <ScalarProperty Name="KRI2" ColumnName="KRI2" />
+          <ScalarProperty Name="KRI1" ColumnName="KRI1" />
+          <ScalarProperty Name="Userkey" ColumnName="Userkey" />
+          <ScalarProperty Name="UserMappingKey" ColumnName="UserMappingKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DataRefreshTimePeriods">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.DataRefreshTimePeriod">
+        <MappingFragment StoreEntitySet="DataRefreshTimePeriods">
+          <ScalarProperty Name="IsSecondRefreshRequired" ColumnName="IsSecondRefreshRequired" />
+          <ScalarProperty Name="IsCertDownloadCompleted" ColumnName="IsCertDownloadCompleted" />
+          <ScalarProperty Name="IsCertDownloadStarted" ColumnName="IsCertDownloadStarted" />
+          <ScalarProperty Name="isNewQuarter" ColumnName="isNewQuarter" />
+          <ScalarProperty Name="isTimePeriodFilesAvailable" ColumnName="isTimePeriodFilesAvailable" />
+          <ScalarProperty Name="isManualActionRequired" ColumnName="isManualActionRequired" />
+          <ScalarProperty Name="IsProdProcessCompleted" ColumnName="IsProdProcessCompleted" />
+          <ScalarProperty Name="IsProdProcessStarted" ColumnName="IsProdProcessStarted" />
+          <ScalarProperty Name="NoOfRetries" ColumnName="NoOfRetries" />
+          <ScalarProperty Name="IsStdGrpInstFilesStarted" ColumnName="IsStdGrpInstFilesStarted" />
+          <ScalarProperty Name="DataRefreshGUId" ColumnName="DataRefreshGUId" />
+          <ScalarProperty Name="IsCallDataFilesStarted" ColumnName="IsCallDataFilesStarted" />
+          <ScalarProperty Name="IsInstFilesDownloaded" ColumnName="IsInstFilesDownloaded" />
+          <ScalarProperty Name="IsStdGrpInstFilesDownloaded" ColumnName="IsStdGrpInstFilesDownloaded" />
+          <ScalarProperty Name="IsStatFilesDownloaded" ColumnName="IsStatFilesDownloaded" />
+          <ScalarProperty Name="IsQuarternameEnvVarUpdated" ColumnName="IsQuarternameEnvVarUpdated" />
+          <ScalarProperty Name="AuditInsertDate" ColumnName="AuditInsertDate" />
+          <ScalarProperty Name="IsCallDataFilesDownloaded" ColumnName="IsCallDataFilesDownloaded" />
+          <ScalarProperty Name="IsProcessCompleted" ColumnName="IsProcessCompleted" />
+          <ScalarProperty Name="IsProcessStarted" ColumnName="IsProcessStarted" />
+          <ScalarProperty Name="QuarterDate" ColumnName="QuarterDate" />
+          <ScalarProperty Name="QuarterYear" ColumnName="QuarterYear" />
+          <ScalarProperty Name="QuarterName" ColumnName="QuarterName" />
+          <ScalarProperty Name="PeriodId" ColumnName="PeriodId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppAccessControls">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppAccessControl">
+        <MappingFragment StoreEntitySet="AppAccessControl">
+          <ScalarProperty Name="ModuleKey" ColumnName="ModuleKey" />
+          <ScalarProperty Name="IsAccessible" ColumnName="IsAccessible" />
+          <ScalarProperty Name="TenantKey" ColumnName="TenantKey" />
+          <ScalarProperty Name="AccessControlKey" ColumnName="AccessControlKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppModules">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppModule">
+        <MappingFragment StoreEntitySet="AppModule">
+          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+          <ScalarProperty Name="ModuleType" ColumnName="ModuleType" />
+          <ScalarProperty Name="ModuleKey" ColumnName="ModuleKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DataRefreshUpdates">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.DataRefreshUpdate">
+        <MappingFragment StoreEntitySet="DataRefreshUpdates">
+          <ScalarProperty Name="LastCallDataDownloadedDate" ColumnName="LastCallDataDownloadedDate" />
+          <ScalarProperty Name="isNewQuarter" ColumnName="isNewQuarter" />
+          <ScalarProperty Name="isStgDataLoadJobStep6Completed" ColumnName="isStgDataLoadJobStep6Completed" />
+          <ScalarProperty Name="isStgDataLoadJobStep5Completed" ColumnName="isStgDataLoadJobStep5Completed" />
+          <ScalarProperty Name="AuditDate" ColumnName="AuditDate" />
+          <ScalarProperty Name="isErrorOccured" ColumnName="isErrorOccured" />
+          <ScalarProperty Name="isCBRDataWarehouseDataLoad25Completed" ColumnName="isCBRDataWarehouseDataLoad25Completed" />
+          <ScalarProperty Name="isCBRDataWarehouseDataLoad24Completed" ColumnName="isCBRDataWarehouseDataLoad24Completed" />
+          <ScalarProperty Name="isCBRDataWarehouseDataLoad23Completed" ColumnName="isCBRDataWarehouseDataLoad23Completed" />
+          <ScalarProperty Name="isCBRDataWarehouseDataLoad13Completed" ColumnName="isCBRDataWarehouseDataLoad13Completed" />
+          <ScalarProperty Name="isStgDataLoadJobStep9Completed" ColumnName="isStgDataLoadJobStep9Completed" />
+          <ScalarProperty Name="isStgDataLoadJobStep4Completed" ColumnName="isStgDataLoadJobStep4Completed" />
+          <ScalarProperty Name="isStatDataFilesDownloaded" ColumnName="isStatDataFilesDownloaded" />
+          <ScalarProperty Name="isStdGroupPerBankFileAvailable" ColumnName="isStdGroupPerBankFileAvailable" />
+          <ScalarProperty Name="isStgUBPRStandardPeerGroupPerBankDownloaded" ColumnName="isStgUBPRStandardPeerGroupPerBankDownloaded" />
+          <ScalarProperty Name="isUBPRDataFilesjobCompleted" ColumnName="isUBPRDataFilesjobCompleted" />
+          <ScalarProperty Name="DataRefreshedDate" ColumnName="DataRefreshedDate" />
+          <ScalarProperty Name="QuarterDate" ColumnName="QuarterDate" />
+          <ScalarProperty Name="isUpdateRequired" ColumnName="isUpdateRequired" />
+          <ScalarProperty Name="CERTNOS" ColumnName="CERTNOS" />
+          <ScalarProperty Name="DataRefreshGUID" ColumnName="DataRefreshGUID" />
+          <ScalarProperty Name="DataRefreshId" ColumnName="DataRefreshId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppStorages">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.AppStorage">
+        <MappingFragment StoreEntitySet="AppStorage">
+          <ScalarProperty Name="TenantKey" ColumnName="TenantKey" />
+          <ScalarProperty Name="AuditLastUpdatedBy" ColumnName="AuditLastUpdatedBy" />
+          <ScalarProperty Name="AuditLastUpdatedDatetime" ColumnName="AuditLastUpdatedDatetime" />
+          <ScalarProperty Name="AuditInsertedBy" ColumnName="AuditInsertedBy" />
+          <ScalarProperty Name="AuditInsertedDatetime" ColumnName="AuditInsertedDatetime" />
+          <ScalarProperty Name="DisplayDate" ColumnName="DisplayDate" />
+          <ScalarProperty Name="ActualFileSizeInBytes" ColumnName="ActualFileSizeInBytes" />
+          <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+          <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+          <ScalarProperty Name="ProjectType" ColumnName="ProjectType" />
+          <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+          <ScalarProperty Name="FileDisplayName" ColumnName="FileDisplayName" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FileId" ColumnName="FileId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ForumConfigs">
+      <EntityTypeMapping TypeName="CBRDataWareHouseModel.ForumConfig">
+        <MappingFragment StoreEntitySet="ForumConfig">
+          <ScalarProperty Name="ForumHomeURL" ColumnName="ForumHomeURL" />
+          <ScalarProperty Name="ForumAuthenticationURL" ColumnName="ForumAuthenticationURL" />
+          <ScalarProperty Name="ForumRegistrationURL" ColumnName="ForumRegistrationURL" />
+          <ScalarProperty Name="ForumId" ColumnName="ForumId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

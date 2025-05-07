@@ -1,0 +1,29 @@
+﻿@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
+@{
+    ViewBag.Title = "Create Role";
+}
+
+<h2>Create Role</h2>
+<br />
+<style type="text/css">
+    #tbrole, .c {
+        border: solid;
+        border-bottom-width:thin;
+    }
+</style>
+
+
+@using (Html.BeginForm())
+{
+    <div class="form-group container">
+        <div class="col-md-1">
+        @Html.LabelFor(m => m.Name, new { @class = "col-md-1 control-label" })
+            </div>
+        <div class="col-md-2">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        </div>
+        <div class="col-md-2">
+            <input type="submit" value="Create Role" class="btn btn-default" />
+        </div>
+    </div>
+}

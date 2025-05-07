@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "StrategicForecastHelp";
+    Layout = "~/Views/Shared/_LayoutHelpContent.cshtml";
+}
+
+<h4>How to Use Our Application &ndash; <strong>Strategic Forecast</strong></h4>
+<ol>
+    <li>From the BankAnalytics Dashboard click <strong>Strategic Forecast</strong>.</li>
+    <ol type="a">
+        <li>This report allows you to forecast current year plus 5 additional years, allowing inputs for such items as Asset Growth rate, ROAA or Net Income, Dividend amount or rate, and Shares Outstanding; plus, some additional optional inputs. There is also the ability to compare up to 8 scenarios side-by-side.</li>
+    </ol>
+    <li>Your Bank/Default Bank information will automatically populate the <strong>Prior Year</strong>&nbsp;column with the actual reported results (in both the <strong>Forecast</strong> and <strong>Value</strong> tabs).</li>
+    <ol type="a">
+        <li><strong>Forecast</strong> tab &ndash; shows Net Income, Dividends, Capital and Capital ratios, Assets, ROAA and ROAE, and basic Equity analysis.</li>
+        <li><strong>Value</strong> tab &ndash; shows the major categories from the Forecast tab, with additional Market Value Equity Share Price multipliers.</li>
+        <li><strong>Summary</strong> tab &ndash; can compare up to 8 different scenarios side by side, comparing various Strategic data points, for a specific year or Horizon.</li>
+    </ol>
+    <li>Getting started &ndash; creating a new scenario. To open the <strong>&ldquo;Input Data Sheet&rdquo;</strong>, you can select either the <strong>Create/Edit Scenario</strong> button at the top-left of the page, or the <strong>Scenario | Create/Edit Scenario</strong> button in the mid-left section of the page (in the gray shaded box).</li>
+    <ol type="a">
+        <li>
+            REQUIRED INPUTS:&nbsp;
+            <ol>
+                <li><strong>Scenario Name:</strong> over-write the "Create/Edit Scenario" with your custom scenario description. Recommend using short descriptive names that are easily identified and distinguishable from other scenarios. Will be helpful in the Summary or comparison tool.</li>
+                <li><strong>Asset Growth Rate</strong> &ndash; first column is actual reported rates for &ldquo;Prior Year&rdquo;. Must input percentage for the 6 open input boxes.</li>
+                <li><strong>Net Income Calculation</strong> &ndash; choose between entering Net Income or Return on Average Assets (ROAA).</li>
+                <ol type="a">
+                    <li><strong>ROAA</strong> is the default input; must input percentage (where 1.20% is input as 1.2) for the 6 open input boxes. Net Income is calculated automatically.</li>
+                    <li><strong>Net Income</strong> is the optional input, where the user must select the check box to activate the input boxes. Enter amounts in $000s. ROAA will then be system calculated.</li>
+                </ol>
+                <li><strong>Dividends Calculation</strong> &ndash; choose between entering Dividends Rate or Dividends amount ($000s).</li>
+                <ol type="a">
+                    <li><strong>Dividends Rate</strong> is the default input; must input percentage (where 20.5% is input as 20.5) for the 6 open input boxes. Dividend amount is calculated automatically.</li>
+                    <li><strong>Dividends</strong> is the optional input, where the user must select the check box to activate the input boxes. Enter amounts in ($000s). Dividend Rate will then be system calculated.</li>
+                </ol>
+                <li><strong>Shares Outstanding</strong> is an input for all periods, including Prior Year and Current Qtr.</li>
+                <ol type="a">
+                    <li>The input for Prior Year will auto-fill the other 7 input boxes. To change any of the forward periods, user must type or input over the existing number.</li>
+                    <li>The number should be full number of shares outstanding.</li>
+                </ol>
+            </ol>
+        </li>
+        <li>
+            OPTIONAL DATA FIELDS:
+            <ol>
+                <li><strong>New Capital</strong> &ndash; enter amount in $000s of new capital for the corresponding period/year. User must select the check box next to New Capital to activate the input boxes for New Capital, Price per share of New Capital, and New Acquisition-Assets. Note: Only need to enter values in Year(s) with activity.</li>
+                <li><strong>Price per share of New Capital</strong> &ndash; enter the price each share in the corresponding period. The New Capital divided by the Price per share should increase the Shares Outstanding proportionally (but, must be added manually to the Shares Outstanding input section). Note: Only need to enter values in Year(s) with activity.</li>
+                <li><strong>New Acquisition-Assets</strong> &ndash; enter the amount of new assets in $000s. Will be added to the Total Assets in the corresponding period. Note: Only need to enter values in Year(s) with activity.</li>
+                <li><strong>CET 1 Capital Adjustment</strong> &ndash; will default to the Current Qtr reported amount. User must select the input box to activate the input boxes to enter a different amount in $000s.</li>
+                <li><strong>Tier 1 Capital Adjustment</strong> &ndash; will default to the Current Qtr reported amount. User must select the input box to activate the input boxes to enter a different amount in $000s.</li>
+                <li><strong>Tier 2 Capital</strong> &ndash; choose between the default calculation or manual input.</li>
+                <li><strong>Risk-Weighted Assets (RWA)</strong> &ndash; choose between the default calculation or manual input.</li>
+                <li><strong>Total Assets for Leverage</strong> &ndash; choose between the default calculation or manual input.</li>
+            </ol>
+        </li>
+        <li>
+            FOR REFERENCE ONLY:
+            <ol>
+                <li>Prior Year <strong>Tier 2 Capital</strong> to Tier 1 Capital is the rate used for each Year, 1 to 6, to calculate the <strong>Tier 2 Capital</strong> amount. Shown as a percentage. As referenced in 6.a. above (default calculation).</li>
+                <li>Prior Year <strong>Risk Weighted Assets to Assets</strong> is the rate used for each Year, 1 to 6, to calculate the <strong>Risk-Weighted</strong> Assets amount. Shown as a percentage. As referenced in 7.a. above (default calculation).</li>
+                <li>Prior Year <strong>Assets for Leverage</strong> to Assets is the rate used for each Year, 1 to 6, to calculate the <strong>Total Assets for Leverage</strong> amount. Shown as a percentage. As referenced in 8.a. above (default calculation).</li>
+            </ol>
+        </li>
+        <li>
+            Select <strong>Save Changes</strong> once all inputs are complete.
+            <ol>
+                <li>Calculations for the Year 1-6 columns will complete and be available in the <strong>Forecast</strong> and <strong>Value</strong> tabs.</li>
+            </ol>
+        </li>
+        <li>To view previously saved scenarios, click the <strong>View Existing Scenario</strong> button in the top left side of the screen. A new window will open, and the user can click on an existing scenario to open it.</li>
+    </ol>
+    <li><strong>Summary</strong> tab features:</li>
+    <ol type="a">
+        <li>Compare saved scenarios for a specific Horizon or Year.&nbsp;</li>
+        <li>User can select any Year, 1-6, for a year specific comparison of up to 8 scenarios at once.</li>
+        <li>To use this feature, select a scenario from the <strong>Select Scenario</strong> drop down box at the top of each of the 8 columns.</li>
+        <li>
+            The same year or <strong>Horizon</strong> is used for a consistent comparison. Once the Horizon is selected in the second row drop down box, the remaining Horizon column headers update to match.<br />
+            <ol>
+                <li>The Year in the 3rd row of the table also updates to reflect the actual Year corresponding to the Horizon selected.</li>
+            </ol>
+        </li>
+        <li>
+            To save a specific comparison, click the <strong>Save Comparison</strong> button in the top left side of the screen.<br />
+            <ol>
+                <li>The user will be prompted to &ldquo;Please enter a name for this comparison&rdquo;.</li>
+                <li>Once the name is entered, the user will click the <strong>Save Comparison</strong> button to complete the save.</li>
+                <li>
+                    Saved comparisons will be available to view by clicking the <strong>View Existing Comparison</strong> button, in the top left side of the screen.<br />
+                    <ol>
+                        <li>A new window will open, listing the available saved comparisons</li>
+                        <li>Click the desired comparison to open in the Summary tab.</li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+    </ol>
+    <li>Additional Features:</li>
+    <ol type="a">
+        <li><strong>Select from Favorite Banks</strong>&nbsp;&ndash; apply saved scenarios to any other bank (saved to your Favorite Banks list).</li>
+        <li><strong>Export Data</strong> &ndash; export the data to an excel output. The button is located in the top right corner of the screen.</li>
+    </ol>
+</ol>

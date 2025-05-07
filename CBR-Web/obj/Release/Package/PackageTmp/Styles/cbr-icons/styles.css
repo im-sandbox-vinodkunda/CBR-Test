@@ -1,0 +1,272 @@
+﻿@charset "UTF-8";
+
+@font-face {
+  font-family: "cbr-bank-analytics";
+  src:url("../cbr-icons/fonts/cbr-bank-analytics.eot");
+  src:url("../cbr-icons/fonts/cbr-bank-analytics.eot?#iefix") format("embedded-opentype"),
+    url("../cbr-icons/fonts/cbr-bank-analytics.woff") format("woff"),
+    url("../cbr-icons/fonts/cbr-bank-analytics.ttf") format("truetype"),
+    url("../cbr-icons/fonts/cbr-bank-analytics.svg#cbr-bank-analytics") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "cbr-bank-analytics" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "cbr-bank-analytics" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-peer-groups:before {
+  content: "\61";
+}
+.icon-create-peer:before {
+  content: "\62";
+}
+.icon-gap-analyzer:before {
+  content: "\63";
+}
+.icon-performance-analyzer:before {
+  content: "\64";
+}
+.icon-bank-vs-bank:before {
+  content: "\65";
+}
+.icon-capital-plan:before {
+    content: "\66";
+}
+.icon-issue-cd:before {
+  content: "\67";
+}
+.icon-bank-alternate:before {
+  content: "\68";
+}
+.icon-capital-risk:before {
+  content: "\69";
+}
+.icon-key-risk-trends:before {
+  content: "\6a";
+}
+.icon-strategic-forecast:before {
+  content: "\6b";
+}
+.icon-strategic-plan:before {
+  content: "\6c";
+}
+.icon-call-report:before {
+  content: "\6d";
+}
+.icon-documents:before {
+  content: "\70";
+}
+.icon-notification:before {
+  content: "\6f";
+}
+.icon-single-bank:before {
+  content: "\71";
+}
+.icon-database:before {
+  content: "\72";
+}
+.icon-app-icons:before {
+  content: "\73";
+}
+.icon-setting-gear:before {
+  content: "\74";
+}
+.icon-logout:before {
+  content: "\75";
+}
+.icon-bank-find:before {
+  content: "\76";
+}
+.icon-secure:before {
+  content: "\77";
+}
+.icon-open-menu:before {
+  content: "\78";
+}
+.icon-close-menu:before {
+  content: "\79";
+}
+.icon-help:before {
+  content: "\7a";
+}
+.icon-benchmark-1:before {
+  content: "\41";
+}
+.icon-benchmark-2:before {
+  content: "\42";
+}
+.icon-favorite-1:before {
+  content: "\43";
+}
+.icon-line:before {
+  content: "\6e";
+}
+.icon-profile:before {
+  content: "\44";
+}
+.icon-sub-folder:before {
+  content: "\45";
+}
+.icon-question-mark:before {
+  content: "\46";
+}
+
+.icon-peer-groups:before {
+    content: "\61";
+}
+
+.icon-create-peer:before {
+    content: "\62";
+}
+
+.icon-gap-analyzer:before {
+    content: "\63";
+}
+
+.icon-performance-analyzer:before {
+    content: "\64";
+}
+
+.icon-bank-vs-bank:before {
+    content: "\65";
+}
+
+.icon-capital-plan:before {
+    content: "\66";
+}
+
+.icon-issue-cd:before {
+    content: "\67";
+}
+
+.icon-bank-alternate:before {
+    content: "\68";
+}
+
+.icon-capital-risk:before {
+    content: "\69";
+}
+
+.icon-key-risk-trends:before {
+    content: "\6a";
+}
+
+.icon-strategic-forecast:before {
+    content: "\6b";
+}
+
+.icon-strategic-plan:before {
+    content: "\6c";
+}
+
+.icon-call-report:before {
+    content: "\6d";
+}
+
+.icon-documents:before {
+    content: "\70";
+}
+
+.icon-notification:before {
+    content: "\6f";
+}
+
+.icon-single-bank:before {
+    content: "\71";
+}
+
+.icon-database:before {
+    content: "\72";
+}
+
+.icon-app-icons:before {
+    content: "\73";
+}
+
+.icon-setting-gear:before {
+    content: "\74";
+}
+
+.icon-logout:before {
+    content: "\75";
+}
+
+.icon-bank-find:before {
+    content: "\76";
+}
+
+.icon-secure:before {
+    content: "\77";
+}
+
+.icon-open-menu:before {
+    content: "\78";
+}
+
+.icon-close-menu:before {
+    content: "\79";
+}
+
+.icon-help:before {
+    content: "\7a";
+}
+
+.icon-benchmark-1:before {
+    content: "\41";
+}
+
+.icon-benchmark-2:before {
+    content: "\42";
+}
+
+.icon-favorite-1:before {
+    content: "\43";
+}
+
+.icon-line:before {
+    content: "\6e";
+}
+
+.icon-profile:before {
+    content: "\44";
+}
+
+.icon-sub-folder:before {
+    content: "\45";
+}
+
+.icon-question-mark:before {
+    content: "\46";
+}
+
+.icon-billing-invoices:before {
+    content: "\47";
+}
+
+.icon-activity-log:before {
+    content: "\48";
+}

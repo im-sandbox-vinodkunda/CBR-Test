@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "BenchmarkingHelp";
+    Layout = "~/Views/Shared/_LayoutHelpContent.cshtml";
+}
+
+<h4>How to Use Our Applications &ndash; <strong>Benchmark Performance</strong></h4>
+<p>1. From the <strong>BankAnalytics Dashboard</strong> click <strong>Benchmark Performance</strong>.&nbsp; This report allows you to compare a Bank to a Custom peer group and to its UBPR assigned peer group, like <strong>Key Risk Trends</strong>,&nbsp;but, with the added functionality of adding a Benchmark target. You can see how each data point compares to your internally set Benchmark.</p>
+<p>2. Your Bank/Default Bank information will automatically populate the data fields and charts.</p>
+<p style="padding-left: 30px;">a. There is a Quarter-to-Date (<strong>QTD</strong>) and Year-to-Date (<strong>YTD</strong>) tab (upper-right side of the page, in the Chart box) that can be selected to change the data view.</p>
+<p style="padding-left: 60px;">1. <strong>QTD</strong> shows a rolling 5 quarters of data.</p>
+<p style="padding-left: 60px;">2. <strong>YTD</strong> shows a rolling 5 years of data, with current year being in one of 4 different states, YYYYQ1, YYYYQ2, YYYYQ3 or FY (Depending on the most recent data submitted to the FFIEC).</p>
+<p>3. There are 2 functions available when using the Benchmarking capabilities.</p>
+<p style="padding-left: 30px;">a. <strong>Benchmark</strong> is the Target amount or percentage that you want your data point to achieve. This number would be placed in the box to the right of the data point under the <strong>Chart with Upward Arrow</strong>&nbsp;icon header. When the data point is equal to or better than the Benchmark, the box to the right of the Benchmark will be <strong>Green</strong>. When the data point is worse than the Benchmark, the box will be <strong>Red</strong>.</p>
+<p style="padding-left: 60px;">1. For Benchmarks where Higher is better, if the <strong>BANK</strong> number is greater than or equal to the Benchmark, then the box will be <strong>Green</strong>. If the <strong>BANK</strong> number is less than the Benchmark, then the box will be <strong>Red</strong>. The opposite holds true when Lower is better versus the Benchmark.</p>
+<p style="padding-left: 60px;">2. Example: <strong>Net Loans &amp; Leases / Total Assets (%)</strong> where Benchmark = 70% and the Higher % is better.</p>
+<p style="padding-left: 90px;">a) When <strong>BANK</strong> = 70% or higher, the box is <strong>Green</strong>.</p>
+<p style="padding-left: 90px;">b) When <strong>BANK</strong> = less than 70%, the box is <strong>Red</strong></p>
+<p style="padding-left: 60px;">3. Example: Non-Performing Assets / Total Assets (%) where Benchmark = 0.50% and the Lower % is better.</p>
+<p style="padding-left: 90px;">a) When Bank = 0.50% or lower, the box is <strong>Green</strong>.</p>
+<p style="padding-left: 90px;">b) When Bank = greater than 0.50%, the box is <strong>Red</strong>.</p>
+<p style="padding-left: 30px;">b. Threshold % can be set between 0 &ndash; 100. It is used when the data point number is worse than the Benchmark, it creates a range of acceptability near the Benchmark target. If the data point number is worse than target, but within this specified range, then the box to the right of the Benchmark target will be <strong>Yellow</strong>.</p>
+<p style="padding-left: 60px;">1. Using the same Net Loans &amp; Leases example above, when the Threshold is set at 5%, then:</p>
+<p style="padding-left: 90px;">a) When <strong>BANK</strong> = 70% or higher, the box is <strong>Green</strong> (no change).</p>
+<p style="padding-left: 90px;">b) When Bank = less than 70% to 66.5%, the box is <strong>Yellow</strong>.</p>
+<p style="padding-left: 90px;">c) When Bank = less than 66.5%, the box is <strong>Red</strong>.</p>
+<p style="padding-left: 60px;">2. Using the same Non-Performing Assets example above, when the Threshold is set at 5%, then:</p>
+<p style="padding-left: 90px;">a) When Bank = 0.50% or lower, the box is Green (no change).</p>
+<p style="padding-left: 90px;">b) When Bank = greater than 0.50% to 0.525%, the box is <strong>Yellow</strong>.</p>
+<p style="padding-left: 90px;">c) When Bank = greater than 0.525%, the box is <strong>Red</strong>.</p>
+<p>4. The <strong>Threshold %</strong> and <strong>Benchmark number</strong> will remain the same between the <strong>QTD</strong> and <strong>YTD</strong> selections.</p>
+<p>5. You can turn the <strong>PEER 1</strong> and <strong>PEER 2</strong> selections <strong>ON</strong> or <strong>OFF</strong>. To compare the <strong>BANK</strong> number directly/ or next to the Benchmark, you would need to click <strong>PEER 1</strong> to OFF and <strong>PEER 2</strong> to OFF. Next to each Peer group description in the top right hand side of the page, there is a <strong>ON</strong>/<strong>OFF</strong> toggle switch. Each switch is separate, so you can select ON or <strong>OFF</strong> as needed.</p>
+<p>6. You can change the Risk Category and data points by selecting the links at the top left of the page; <strong>Credit Risk</strong>, <strong>Interest Rate Risk</strong>, <strong>Liquidity &amp; Price Risk</strong>, and <strong>Strategic Risk</strong>.</p>
+<p>7. The data in the tables on the left side of the page are for the current Quarter (<strong>QTD</strong>) or the current Year (<strong>YTD</strong>).</p>
+<p style="padding-left: 30px;">a. <strong>BANK</strong> &ndash; Your Bank/Default Bank data or another Bank since you can change this in the page at any time.</p>
+<p style="padding-left: 60px;">1. To change <strong>BANK</strong>, select the <strong>Select from Fabovite Banks</strong>&nbsp;dropdown on the upper-right of the page, and select a listed Bank. Only Bank&rsquo;s previously saved as a <strong>Favorite Bank</strong> will be listed here.</p>
+<p style="padding-left: 30px;">b. <strong>PEER 1</strong> &ndash; Custom peer group &ndash; which can be Default, or non-default since you can change this in the page at any time.</p>
+<p style="padding-left: 60px;">1. To change <strong>PEER 1</strong>, select the <strong>Change Peer Group</strong> dropdown on the upper-right of the page, and select one of the previously created custom peer groups. Peer 1 will now reflect data for the newly selected peer group.</p>
+<p style="padding-left: 30px;">c. <strong>PEER 2</strong> &ndash; the UBPR peer group assigned to Your Bank or the Default Bank</p>
+<p>8. The data in the <strong>Chart, Peer Group Comparison Table</strong>, and <strong>Custom Peer Group Ranking Table</strong> on the right side of the page, reflects the data from the selected row from the Risk table on the left side of the page.</p>
+<p style="padding-left: 30px;">a. Chart (defaults to <strong>Net Loans &amp; Leases / Total Assets (%)</strong>) data shows 5 Quarters or 5 Years of data for each of the groups &ndash; <strong>BANK</strong>, <strong>PEER 1</strong>, <strong>PEER 2</strong>. With the <strong>BANK</strong> shown as the Blue bars, <strong>PEER 1</strong> shown as the Green line, <strong>PEER 2</strong> shown as the Red line.</p>
+<p style="padding-left: 30px;">b. <strong>Peer Group Comparison Table</strong> shows the summary of the charted data points for each of the Bank and Peer Groups.</p>
+<p style="padding-left: 30px;">c. <strong>Custom Peer Group Ranking Table</strong> shows the 5 period data points for each of the banks in the <strong>PEER 1</strong> peer group listing. Ranked in order for the current period from Best to Worst.</p>
+<p style="padding-left: 30px;">d. To change the data point that is shown in the Chart and Tables on the right side of the page, click in any part of the row of the desired data point in the table on the left side of the page.</p>
+<p style="padding-left: 60px;">1. The default selection is <strong>Net Loans &amp; Leases / Total Assets (%)</strong>; to move to <strong>Texas Ratio (%)</strong> as an example, select anywhere in that row, from <strong>Texas Ratio (%)</strong> through the <strong>PEER 2</strong> number.</p>
+<p>9. To view any of the Banks listed in the <strong>Custom Peer Group Ranking Table</strong>, click the Bank name and you will be re-directed to the <strong>Single Bank Profile</strong> for that specific Bank.</p>
+

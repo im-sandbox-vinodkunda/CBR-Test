@@ -1,0 +1,78 @@
+/* 9 BankAnalyticsDashboard.html Performance Comparison Styles */
+
+        .bank-details-heading {
+            border: 1px solid #dddddd;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+
+            .bank-details-heading h3 {
+                margin-top: 0px;
+            }
+
+        .label {
+            font-size: 100%;
+            margin-right: 0px;
+        }
+
+        .label-danger {
+            background-color: #A71D23;
+        }
+
+        .nav.qtr-ytd > li > a {
+            padding: 5px 10px;
+        }
+
+        .nav-pills ul {
+            background-color: #fcfcfc;
+            list-style: none;
+        }
+
+        .nav-pills > li > a, .nav-pills > li > ul > li > a {
+            font-size: 11px;
+            border-radius: 0px;
+            border: 1px solid #ececec;
+        }
+
+        .table {
+            font-size: 11px;
+        }
+
+            .table#performance-comparison-results > tbody > tr > td {
+                font-size: 11px;
+                padding: 15px 8px;
+                line-height: 1.42857143;
+                vertical-align: top;
+                border-top: 1px solid #ddd;
+                border-bottom: 2px solid #ccc;
+            }
+
+            .table td.border-left, .table th.border-left {
+                border-left: 2px solid #ccc;
+            }
+
+            .table td.border-right, .table th.border-right {
+                border-right: 2px solid #ccc;
+            }
+
+            .table td.border-bottom, .table th.border-bottom {
+                border-bottom: 2px solid #ccc;
+            }
+
+            .table > tbody > tr > td.success {
+                background-color: rgb(35,139,24,0.1);
+            }
+
+            .table > tbody > tr > td.danger {
+                background-color: rgb(167,29,35,0.1);
+            }
+
+        tr.clickable-row {
+            cursor: pointer;
+        }
+
+        #performance-comparison-peer-results tr td:last-child, #performance-comparison-peer-results-bottom tr td:last-child,
+        #performance-comparison-peer-results tr th:last-child, #performance-comparison-peer-results-bottom tr th:last-child {
+            text-align: right;
+        }

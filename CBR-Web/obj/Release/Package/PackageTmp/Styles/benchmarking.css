@@ -1,0 +1,117 @@
+/* 10 BankAnalyticsDashboard.html Benchmarking Styles */
+
+
+        .highlightDefaultBank{
+            background-color:#ffffcc;border:1px solid #e1e1e8;border-radius:4px
+        }
+            .hidebenchmarkinput {
+                visibility: hidden;
+            }
+
+            table.off3 td:nth-child(3) {
+                display: none;
+            }
+
+            table.off3 th:nth-child(3) {
+                display: none;
+            }
+
+            table.off4 td:nth-child(4) {
+                display: none;
+            }
+
+            table.off4 th:nth-child(4) {
+                display: none;
+            }
+
+            .page-container {
+                padding: 30px 30px;
+            }
+
+            .nav.qtr-ytd > li > a {
+                padding: 5px 10px;
+            }
+
+            input.threshold-input {
+                width: 60px;
+                border: 1px solid #dddddd;
+                padding: 2px 2px;
+                font-size: 12px;
+                font-weight: normal;
+                text-align: center;
+                border-radius: 2px;
+                float: right;
+            }
+
+            .nav-pills ul {
+                background-color: #fcfcfc;
+                list-style: none;
+            }
+
+            .nav-pills > li > a, .nav-pills > li > ul > li > a {
+                font-size: 11px;
+                border-radius: 0px;
+                border: 0px;
+            }
+
+            ul.risk-profiles {
+                background-color: #ffffff;
+                border-bottom: 1px solid #dddddd;
+            }
+
+            .nav-pills.risk-profiles > li.active > a {
+                color: #555;
+                font-weight: bold;
+            }
+
+            .btn-group .btn {
+                font-size: 12px;
+            }
+
+            .table {
+                font-size: 11px;
+            }
+
+            tr.active {
+                border-left: 5px solid #173967;
+            }
+
+            tr.clickable-row {
+                cursor: pointer;
+            }
+
+            tr input.benchmark-input {
+                width: 34px;
+                border: 0px;
+                border-bottom: 1px solid #dddddd;
+                padding: 0px 5px;
+            }
+
+            i.greater-than {
+                color: #238b18;
+            }
+
+            .greater-thanBG {
+                background-color: #238b18 !important;
+            }
+
+            i.less-than {
+                color: #A71D24;
+            }
+
+            .less-thanBG {
+                background-color: #A71D24 !important;
+            }
+            i.range {
+                color: #FFC207;
+            }
+            .rangeBG {
+                background-color: #FFC207 !important;
+            }
+            i.undefined {
+                color: #dddddd;
+            }
+             .undefinedBG {
+                background-color: #dddddd !important;
+            }
+

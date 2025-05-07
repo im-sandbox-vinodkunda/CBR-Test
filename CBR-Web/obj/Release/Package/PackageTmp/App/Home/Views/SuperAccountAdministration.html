@@ -1,0 +1,748 @@
+﻿<style>
+    #overlay {
+        background: white;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: .99;
+        text-align: center;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    .color {
+        color: #ff0000;
+    }
+
+    .handlelargenote {
+        width: 50px;
+        text-overflow: ellipsis;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        border: 0px;
+    }
+
+
+
+    /* This adds the white background and dropshadow to breadcrumb */
+    .breadcrumb {
+        padding: 15px 15px;
+        margin-bottom: 20px;
+        list-style: none;
+        background-color: #ffffff;
+        border-radius: 0px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+
+    /* This is the color of the list item links */
+    .nav-documents li a {
+        color: #666766;
+    }
+
+    /* This is the active tab style */
+    .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+        color: #fff;
+        background-color: #003057;
+    }
+
+    /* This is the active pagination style with blue background */
+    .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+        z-index: 2;
+        color: #fff;
+        background-color: #003057;
+        border-color: #003057;
+        cursor: default;
+    }
+</style>
+<style>
+
+    /* MOVED TO cb-resource-v2.css */
+
+    /* END QMOD Styles */
+
+    .menu-panel {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 300px;
+        box-shadow: 0px 0px 5px #333333;
+        background-color: #ffffff;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        z-index: 0;
+        display: none;
+        -webkit-transition: all 225ms ease;
+        -moz-transition: all 225ms ease;
+        transition: all 225ms ease;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
+    }
+
+    .scotch-is-showing .menu-panel {
+        display: block;
+    }
+
+    .icon-close-menu:before {
+        font-size: 24px;
+    }
+
+    .overlay {
+        position: fixed;
+        background: rgba(0, 0, 0, 0.75);
+        width: 100%;
+        height: 100%;
+        display: none;
+        z-index: 999999;
+        -webkit-transition: all 225ms ease;
+        -moz-transition: all 225ms ease;
+        transition: all 225ms ease;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
+        cursor: pointer;
+    }
+
+    .scotch-is-showing .overlay {
+        display: block;
+    }
+
+
+    @-webkit-keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+    /* Datepicker Styles */
+    .datepicker table {
+        width: 100%
+    }
+</style><!-- end CSS styles -->
+<style>
+
+    /* Document Folder CSS */
+    .dataTables_wrapper .col-sm-12 {
+        padding: 0;
+    }
+</style>
+<style>
+
+    .bootstrap-select li.active a,
+    .bootstrap-select li.active a:hover {
+        background-color: #003057;
+    }
+</style>
+<style>
+
+    .bank-account-details,
+    .project-access {
+        background-color: #ffffff;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+
+    .account-details-info {
+        border-bottom: 1px solid #ececec;
+        padding: 5px;
+    }
+
+        .account-details-info p {
+            margin: 0;
+        }
+
+    .btn-table {
+        text-align: center;
+    }
+
+        .btn-table .glyphicon {
+            margin-right: 5px;
+        }
+
+    .btn-project-access {
+        min-width: 170px;
+        text-align: left;
+    }
+
+    label.checkbox-inline {
+        font-size: 12px;
+    }
+
+    .toggle-on.btn {
+        background-color: #003057;
+        color: #ffffff;
+        border-color: #ddd;
+    }
+
+    .modal-body * {
+        font-size: 12px;
+    }
+
+    .input-group-addon, .has-error .input-group-addon, .has-success .input-group-addon {
+        position: absolute;
+        z-index: 99;
+        top: 3px;
+        border: none;
+        background: transparent;
+        padding: 9px 0px 6px 6px;
+        color: #999;
+    }
+
+    .input-group .form-control {
+        border-radius: 4px;
+        padding-left: 15px;
+        /*width: 220px;*/
+    }
+
+    .overflow-x {
+        overflow-x: scroll;
+    }
+
+    .bg-default-blue {
+        background: #003057 !important;
+    }
+
+    .text-white {
+        color: white !important
+    }
+
+    .custom-form-check input {
+        position: absolute;
+        visibility: hidden;
+    }
+
+    .bg-white {
+        background: #fff
+    }
+
+    /* The container */
+    .custom-check-box {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+        /* Hide the browser's default checkbox */
+        .custom-check-box input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+    /* Create a custom checkbox */
+    .checkmark {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .custom-check-box:hover input ~ .checkmark {
+        background-color: #ccc;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    .custom-check-box input:checked ~ .checkmark {
+        background-color: #2196F3;
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .custom-check-box input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .custom-check-box .checkmark:after {
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    /*Radio box*/
+
+    input[type="radio"] + .label-text:before {
+        content: "\f10c";
+        font-family: "FontAwesome";
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        width: 1em;
+        display: inline-block;
+        margin-right: 5px;
+        font-size: 20px
+    }
+
+    input[type="radio"]:checked + .label-text:before {
+        content: "\f192";
+        color: red;
+        animation: effect 250ms ease-in;
+    }
+
+
+    /*Radio Toggle*/
+
+    .toggle input[type="radio"] + .label-text:before {
+        content: "\f204";
+        font-family: "FontAwesome";
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        width: 1em;
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .toggle input[type="radio"]:checked + .label-text:before {
+        content: "\f205";
+        color: #16a085;
+        animation: effect 250ms ease-in;
+    }
+
+    .toggle input[type="radio"]:disabled + .label-text {
+        color: #aaa;
+    }
+
+        .toggle input[type="radio"]:disabled + .label-text:before {
+            content: "\f204";
+            color: #ccc;
+        }
+</style>
+
+<div class="row">
+    <div class="col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0">
+        <style>
+            .accounts-dropdown .bootstrap-select .dropdown-toggle {
+                padding: 2px 5px;
+                font-size: 12px;
+                border: 0;
+                /*border-bottom:1px solid #666766;*/
+                border-radius: 0;
+                color: #666766;
+            }
+
+            .accounts-dropdown .bootstrap-select .bs-caret {
+                margin-left: 5px;
+            }
+        </style>
+        <div style="margin:20px 0px;">
+            <ol class="breadcrumb">
+                <li><a href="javascript:void(0)" ng-click="NavigateToDashboard()">Dashboard</a></li>
+                <li>
+                    <a href="javascript:void(0)" ng-click="NavigateToSystemAdministration()">System Administration</a>
+                </li>
+                <li>
+                    {{TenantName}}
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-sm-offset-0 col-md-3 col-md-offset-0">
+            <div class="project-navigation-left">
+                <ul class="nav nav-documents nav-stacked nav-pills card">
+                    <li class="active">
+                        <a role="button" data-toggle="tab" href="javascript:void(0)" ng-click="ToggleSuperAccountAdminScreen($event, 'accountProfile')">
+                            <span class="nav-stacked-icon"><i class="icon-setting-gear"></i></span>
+                            Account Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a role="button" data-toggle="tab" href="javascript:void(0)" ng-click="ToggleSuperAccountAdminScreen($event, 'accountAccess')" >
+                            <span class="nav-stacked-icon"><i class="icon-documents"></i></span>
+                            Account Access
+                        </a>
+                    </li>
+                    <li>
+                        <a role="button" data-toggle="tab" href="javascript:void(0)" ng-click="ToggleSuperAccountAdminScreen($event, 'manageUsers')">
+                            <span class="nav-stacked-icon"><i class="icon-peer-groups"></i></span>
+                            Manage Users
+                        </a>
+                    </li>
+                    <li>
+                        <a role="button" data-toggle="tab" href="javascript:void(0)" ng-click="ToggleSuperAccountAdminScreen($event, 'addUsers')">
+                            <span class="nav-stacked-icon"><i class="icon-create-peer"></i></span>
+                            Add Users
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- div class="help-message">
+            <span><small><i class="fa fa-info-circle fa-2x"></i> Browse documents and return to your dashboard using the tabs above.</small></span>
+            </div -->
+        </div>
+        <div class="col-sm-12 col-sm-offset-0 col-md-9 col-md-offset-0 col-lg-9 col-lg-offset-0">
+            <div class="row">
+                <div ng-include src="superAdminTemplate">
+                </div>
+            </div>
+        </div><!-- row -->
+    </div>
+</div>
+
+<script id="accountProfile" type="text/ng-template">
+    <div class="tab-content" id="SuperAdminTabs" ng-controller="accountProfileController">
+        <div id="tabBankAccountDetails" class="tab-pane fade in active">
+            <div class="panel-body">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="title  border-none m-0">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <h3>{{Tenant.accountName}}</h3>
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-medium btn-primary pull-right" ng-click="editAccountProfile(Tenant)" style="margin-top: 15px;background-color:#003057;border:#003057;">EDIT</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row card bank-account-details">
+                    <div class="col-sm-12 overflow-x">
+                        <div class="row">
+                            <table class="table table-striped table-fluid dataTable no-footer" role="grid" aria-describedby="tableManageUsers_info">
+                                <tbody>
+                                    <tr role="row" class="odd">
+                                        <td>Member Since:</td>
+                                        <td>{{BindMemberSince(Tenant.memberSince)}}</td>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <td>Account Type:</td>
+                                        <td>{{Tenant.accountType}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="bg-default-blue card p-1 text-white m-0">Account Details (Banks Only)</td>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <td>FDIC Certificate Number</td>
+                                        <td>{{BindFdicCertNumber(Tenant.certNumber)}}</td>
+                                    </tr>
+                                    <tr role="row" class="odd">
+                                        <td>Headquarters</td>
+                                        <td>{{BindHeadQuarters(Tenant.headQuarters)}}</td>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <td>BHC Name</td>
+                                        <td>{{BindBHCName(Tenant.bhcName)}}</td>
+                                    </tr>
+                                    <tr role="row" class="odd">
+                                        <td>Stock Ticker</td>
+                                        <td>{{BindStockTicker(Tenant.stockTicker)}}</td>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <td>Number of Branches</td>
+                                        <td>{{BindNumberOfBranches(Tenant.numberofBranches)}}</td>
+                                    </tr>
+                                    <tr role="row" class="odd">
+                                        <td>FT Empoyees</td>
+                                        <td>{{BindFTEmployees(Tenant.ftEmployees)}}</td>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <td>Website</td>
+                                        <td><a href="{{BindAccountWebLink(Tenant.website)}}" target="_blank">{{BindWebSite(Tenant.website)}}</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- END panel-body -->
+        </div><!-- END tab-pane containing tabBankAccountDetails -->
+    </div>
+</script>
+
+<script id="accountAccess" type="text/ng-template">
+    <div class="tab-content" ng-controller="accountAccessController">
+        <div id="tabProjects" class="tab-pane fade in active">
+            <div class="panel-body">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="title  border-none m-0">
+                                        <h3>Account Access</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row card bank-account-details">
+                    <div class="color-md-12 col-sm-12 overflow-x">
+                        <div class="row">
+                            <div class="col-xs-12 bg-default-blue card">
+                                <div class="row">
+                                    <p class="text-white p-1 m-0">Name</p>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="row">
+                                    <table class="table table-striped table-fluid dataTable no-footer" role="grid" aria-describedby="tableManageUsers_info">
+                                        <tbody>
+                                            <tr role="row" class="odd">
+                                                <td>Capital Plan</td>
+                                                <td class="text-right"> <input id="capitalPlan" type="checkbox" data-offstyle="danger" ng-click="ToggleCapitalPlan($event)"></td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>Strategic Plan</td>
+                                                <td class="text-right"> <input id="strategy" type="checkbox" data-offstyle="danger" ng-click="ToggleStrategy($event)"></td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>ERM Solution</td>
+                                                <td class="text-right"> <input id="ERM" type="checkbox" data-offstyle="danger" ng-click="ToggleERM($event)"></td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>Issue a CD</td>
+                                                <td class="text-right"> <input id="issueCd" type="checkbox" data-offstyle="danger"  ng-click="ToggleIssueCD($event)"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- END panel-body -->
+        </div><!-- END tab-pane containing tabProjects -->
+    </div>
+</script>
+
+<script id="manageUsers" type="text/ng-template">
+    <div class="tab-content" ng-controller="manageUsersController">
+        <div id="tabManageUsers" class="tab-pane fade in active">
+            <div class="panel-body">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="title  border-none m-0">
+                                        <h3>Manage Users</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div>
+                                        <label>
+                                            Show
+                                            <select ng-model="PageSize" ng-change="getTenantUsers({id:'', value:1})" class="form-control input-sm" style="width:auto;display:inline-block;" aria-controls="tableTrackCDOrders">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select> entries
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <style>
+                    div.dataTables_length label {
+                        padding: 0;
+                        font-size: 12px;
+                        font-weight: normal;
+                        line-height: 1;
+                        color: #666766;
+                        background-color: transparent;
+                    }
+                </style>
+                <div class="row card bank-account-details">
+                    <div class="col-sm-12 overflow-x">
+                        <div class="row">
+                            <!-- Add jQuery data table plugin -->
+                            <table id="tableManageUsers" class="table table-striped table-fluid">
+                                <thead>
+                                    <tr>
+                                        <th tabindex="0" class="sorting_asc" aria-controls="tableTrackCDOrders" aria-label="Name: activate to sort column descending" aria-sort="ascending" rowspan="1" colspan="1" style="color:black">
+                                            <a href="javascript:void(0);" ng-click="orderByField='firstName'; reverseSort = !reverseSort">
+                                                Name <span ng-show="orderByField == 'firstName'"><span ng-show="!reverseSort"><i class="fa fa-sort-amount-asc" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i></span></span>
+                                            </a>
+                                        </th>
+                                        <th tabindex="0" class="sorting_asc" aria-controls="tableTrackCDOrders" aria-label="Title: activate to sort column descending" aria-sort="ascending" rowspan="1" colspan="1" style="color:inherit">
+                                            <a href="javascript:void(0);" ng-click="orderByField='title'; reverseSort = !reverseSort">
+                                                Title <span ng-show="orderByField == 'title'"><span ng-show="!reverseSort"><i class="fa fa-sort-amount-asc" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i></span></span>
+                                            </a>
+                                        </th>
+                                        <th tabindex="0" class="sorting_asc" aria-controls="tableTrackCDOrders" aria-label="EMail: activate to sort column descending" aria-sort="ascending" rowspan="1" colspan="1" style="color:inherit">
+                                            <a href="javascript:void(0);" ng-click="orderByField='email'; reverseSort = !reverseSort">
+                                                EMail <span ng-show="orderByField == 'email'"><span ng-show="!reverseSort"><i class="fa fa-sort-amount-asc" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i></span></span>
+                                            </a>
+                                        </th>
+                                        <th tabindex="0" class="sorting_asc" aria-controls="tableTrackCDOrders" aria-label="Profile: activate to sort column descending" aria-sort="ascending" rowspan="1" colspan="1" style="color:inherit">
+                                            <a href="javascript:void(0);" ng-click="orderByField='userRoles'; reverseSort = !reverseSort">
+                                                Profile <span ng-show="orderByField == 'userRoles'"><span ng-show="!reverseSort"><i class="fa fa-sort-amount-asc" aria-hidden="true"></i></span><span ng-show="reverseSort"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i></span></span>
+                                            </a>
+                                        </th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                        <th>Reactivate</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="tenantUser in TenantUsers|orderBy:orderByField:reverseSort track by tenantUser.userKey">
+                                        <td>{{BindUserName(tenantUser)}}</td>
+                                        <td>{{BindUserTitle(tenantUser.title)}}</td>
+                                        <td>{{tenantUser.email}}</td>
+                                        <td>{{tenantUser.userRoles}}</td>
+                                        <td>
+                                            <a href="javascript:void(0)" class="btn btn-default btn-table btn-xs" role="button" ng-click="editUserProfile(tenantUser, $index)">
+                                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit User
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-default btn-table btn-xs" type="button" ng-click="DeleteUser($event, tenantUser)" ng-hide="tenantUser.status === 'Inactive'">
+                                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete User
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-default btn-table btn-xs" type="button" ng-click="ReactivateUser($event, tenantUser)" ng-hide="tenantUser.status === 'Active'">
+                                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Reactivate
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div id="tableTrackCDOrders_paginate">
+                                    <ul class="pagination pull-right">
+                                        <li id="{{ pageNumber.id }}" ng-repeat="pageNumber in PageNumbers" ng-class="{'active':CurrentPage === pageNumber.value}"><a href="javascript:void(0)" ng-hide="pageNumber.value === '>>' && DisableNextClick" ng-click="getTenantUsers(pageNumber)">{{ pageNumber.value }}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- END panel-body -->
+        </div><!-- END tab-pane containing tabManageUsers -->
+    </div>
+</script>
+
+<script id="addUsers" type="text/ng-template">
+    <div class="tab-content" ng-controller="addUsersController">
+        <div id="tabAddUser" class="tab-pane fade in active">
+            <div class="panel-body">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="title  border-none m-0">
+                                        <h3>Add User</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row card bank-account-details">
+                    <div class="col-sm-12">
+                        <form class="form-horizontal" name="adduserform" autocomplete="off">
+                            <div class="form-horizontal-inner-wrapper" style="padding:15px;">
+                                <div class="form-group">
+                                    <div style="border-radius:4px" ng-class="{ 'has-error' : adduserform.firstname.$invalid && adduserform.firstname.$dirty}">
+                                        <input type="text" class="form-control" placeholder="First Name" name="firstname" ng-required="true" ng-model="NewUser.firstName" maxlength="255" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div style="border-radius:4px" ng-class="{ 'has-error' : adduserform.lastname.$invalid && adduserform.lastname.$dirty}">
+                                        <input type="text" class="form-control" placeholder="Last Name" name="lastname" ng-required="true" ng-model="NewUser.lastName" maxlength="255" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div style="border-radius:4px" ng-class="{ 'has-error' : adduserform.title.$invalid && adduserform.title.$dirty}">
+                                        <input type="text" class="form-control" placeholder="Title" name="title" ng-required="true" ng-model="NewUser.title" maxlength="255"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div style="border-radius:4px" ng-class="{ 'has-error' : adduserform.email.$invalid && adduserform.email.$dirty}">
+                                        <input type="email" class="form-control" placeholder="Email Address" name="email" ng-required="true" ng-model="NewUser.eMail" maxlength="255" ng-blur="IsUserDuplicate($event)" /><label ng-hide="adduserform.email.$invalid">{{IsUserDuplicateMessage}}</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div style="border-radius:4px" ng-class="{ 'has-error' : adduserform.message.$invalid && adduserform.message.$dirty}">
+                                        <textarea rows="4" cols="20" name="message" class="form-control textarea-ht" ng-model="NewUser.message" placeholder="Type a message to send to this user when inviting them to CB BankAnalytics."></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group text-right">
+                                    <button class="btn btn-default bg-default-blue text-white" ng-disabled="adduserform.$invalid" ng-click="AddUser(adduserform)">Add User</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- END panel-body -->
+        </div><!-- END tab-pane containing tabProjects -->
+    </div>
+</script>
+
+<div id="overlay" style="z-index:1000;display:none;">
+    <div style="margin-top:15%;">
+        <center><img src="../../../Images/cbr-ripple-small.gif" class="img-responsive" /></center><span id="overlayLoadingText">Loading...</span>
+    </div>
+</div>

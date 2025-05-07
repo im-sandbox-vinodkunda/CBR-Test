@@ -1,0 +1,732 @@
+﻿<style>
+    #overlay {
+        background: white;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: .99;
+        text-align: center;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    .color {
+        color: #ff0000;
+    }
+
+    .handlelargenote {
+        width: 50px;
+        text-overflow: ellipsis;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        border: 0px;
+    }
+
+
+
+    /* This adds the white background and dropshadow to breadcrumb */
+    .breadcrumb {
+        padding: 15px 15px;
+        margin-bottom: 20px;
+        list-style: none;
+        background-color: #ffffff;
+        border-radius: 0px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+
+    /* This is the color of the list item links */
+    .nav-documents li a {
+        color: #666766;
+    }
+
+    /* This is the active tab style */
+    .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+        color: #fff;
+        background-color: #003057;
+    }
+
+    /* This is the active pagination style with blue background */
+    .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+        z-index: 2;
+        color: #fff;
+        background-color: #003057;
+        border-color: #003057;
+        cursor: default;
+    }
+</style>
+<style>
+
+    /* MOVED TO cb-resource-v2.css */
+
+    /* END QMOD Styles */
+
+    .menu-panel {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 300px;
+        box-shadow: 0px 0px 5px #333333;
+        background-color: #ffffff;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        z-index: 0;
+        display: none;
+        -webkit-transition: all 225ms ease;
+        -moz-transition: all 225ms ease;
+        transition: all 225ms ease;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
+    }
+
+    .scotch-is-showing .menu-panel {
+        display: block;
+    }
+
+    .icon-close-menu:before {
+        font-size: 24px;
+    }
+
+    .overlay {
+        position: fixed;
+        background: rgba(0, 0, 0, 0.75);
+        width: 100%;
+        height: 100%;
+        display: none;
+        z-index: 999999;
+        -webkit-transition: all 225ms ease;
+        -moz-transition: all 225ms ease;
+        transition: all 225ms ease;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
+        cursor: pointer;
+    }
+
+    .scotch-is-showing .overlay {
+        display: block;
+    }
+
+
+    @-webkit-keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+    /* Datepicker Styles */
+    .datepicker table {
+        width: 100%
+    }
+</style><!-- end CSS styles -->
+<style>
+
+    /* Document Folder CSS */
+    .dataTables_wrapper .col-sm-12 {
+        padding: 0;
+    }
+</style>
+<style>
+
+    .bootstrap-select li.active a,
+    .bootstrap-select li.active a:hover {
+        background-color: #003057;
+    }
+</style>
+<style>
+
+    .bank-account-details,
+    .project-access {
+        background-color: #ffffff;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+
+    .account-details-info {
+        border-bottom: 1px solid #ececec;
+        padding: 5px;
+    }
+
+        .account-details-info p {
+            margin: 0;
+        }
+
+    .btn-table {
+        text-align: center;
+    }
+
+        .btn-table .glyphicon {
+            margin-right: 5px;
+        }
+
+    .btn-project-access {
+        min-width: 170px;
+        text-align: left;
+    }
+
+    label.checkbox-inline {
+        font-size: 12px;
+    }
+
+    .toggle-on.btn {
+        background-color: #003057;
+        color: #ffffff;
+        border-color: #ddd;
+    }
+
+    .modal-body * {
+        font-size: 12px;
+    }
+
+    .input-group-addon, .has-error .input-group-addon, .has-success .input-group-addon {
+        position: absolute;
+        z-index: 99;
+        top: 3px;
+        border: none;
+        background: transparent;
+        padding: 9px 0px 6px 6px;
+        color: #999;
+    }
+
+    .input-group .form-control {
+        border-radius: 4px;
+        padding-left: 15px;
+        /*width: 220px;*/
+    }
+
+    .overflow-x {
+        overflow-x: scroll;
+    }
+
+    .bg-default-blue {
+        background: #003057 !important;
+    }
+
+    .text-white {
+        color: white !important
+    }
+
+    .custom-form-check input {
+        position: absolute;
+        visibility: hidden;
+    }
+
+    .bg-white {
+        background: #fff
+    }
+
+    /* The container */
+    .custom-check-box {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+        /* Hide the browser's default checkbox */
+        .custom-check-box input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+    /* Create a custom checkbox */
+    .checkmark {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .custom-check-box:hover input ~ .checkmark {
+        background-color: #ccc;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    .custom-check-box input:checked ~ .checkmark {
+        background-color: #2196F3;
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .custom-check-box input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .custom-check-box .checkmark:after {
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    /*Radio box*/
+
+    input[type="radio"] + .label-text:before {
+        content: "\f10c";
+        font-family: "FontAwesome";
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        width: 1em;
+        display: inline-block;
+        margin-right: 5px;
+        font-size: 20px
+    }
+
+    input[type="radio"]:checked + .label-text:before {
+        content: "\f192";
+        color: red;
+        animation: effect 250ms ease-in;
+    }
+
+
+    /*Radio Toggle*/
+
+    .toggle input[type="radio"] + .label-text:before {
+        content: "\f204";
+        font-family: "FontAwesome";
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        width: 1em;
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .toggle input[type="radio"]:checked + .label-text:before {
+        content: "\f205";
+        color: #16a085;
+        animation: effect 250ms ease-in;
+    }
+
+    .toggle input[type="radio"]:disabled + .label-text {
+        color: #aaa;
+    }
+
+        .toggle input[type="radio"]:disabled + .label-text:before {
+            content: "\f204";
+            color: #ccc;
+        }
+    .dropzone {
+        background:#fff;
+        margin: 10px 0;
+    }
+    .row {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+    .row-h {
+        margin:0px;
+    }
+    .pagination-menu {
+        margin: 0 0 10px 0;
+    }
+    .table-responsive-overflow .nav-documents {
+        margin-bottom: 12px;
+        margin-top:0px;
+    }
+
+    .table {
+        font-size: 12px;
+        background-color: #ffffff;
+        box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24); /* .card class will apply same shadow */
+        transition: all .3s
+    }
+</style>
+
+<div class="row">
+    <div class="col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0">
+        <style>
+            .accounts-dropdown .bootstrap-select .dropdown-toggle {
+                padding: 2px 5px;
+                font-size: 12px;
+                border: 0;
+                /*border-bottom:1px solid #666766;*/
+                border-radius: 0;
+                color: #666766;
+            }
+
+            .accounts-dropdown .bootstrap-select .bs-caret {
+                margin-left: 5px;
+            }
+        </style>
+        <div style="margin:20px 0px;">
+            <ol class="breadcrumb">
+                <li><a href="javascript:void(0)" ng-click="NavigateToDashboard()">Dashboard</a></li>
+                <li>Solutions</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row-h">
+        <div class="col-sm-12 col-sm-offset-0 col-md-3 col-md-offset-0">
+            <div class="project-navigation-left">
+                <div class="title">
+                    <h3>
+                        {{TenantName}}
+                    </h3>
+                </div>
+                <ul class="nav nav-documents nav-stacked nav-pills card">
+                    <li ng-class="{'active': SelectedTemplate === 'capitalPlan'}">
+                        <a role="button" href="javascript:void(0)" ng-click="ToggleProjectTemplate($event, 'capitalPlan')">
+                            Capital Plan
+                            <span class="glyphicon glyphicon-lock pull-right" ng-hide="((IsProjectManagerAssigned || IsAdministratorAssigned)  && IsCapitalPlanAccessible) || IsSystemAdministratorAssigned"></span>
+                        </a>
+                    </li>
+                    <li ng-class="{'active': SelectedTemplate === 'strategicPlan'}">
+                        <a role="button" href="javascript:void(0)" ng-click="ToggleProjectTemplate($event, 'strategicPlan')">
+                            Strategic Plan
+                            <span class="glyphicon glyphicon-lock pull-right" ng-hide="((IsProjectManagerAssigned || IsAdministratorAssigned) && IsStrategicPlanAccessible) || IsSystemAdministratorAssigned "></span>
+                        </a>
+                    </li>
+                    <li ng-class="{'active': SelectedTemplate === 'ermSolution'}">
+                        <a role="button" href="javascript:void(0)" ng-click="ToggleProjectTemplate($event, 'ermSolution')">
+                            ERM Solution
+                            <span class="glyphicon glyphicon-lock pull-right" ng-hide="((IsProjectManagerAssigned || IsAdministratorAssigned)  && IsErmAccessible) || IsSystemAdministratorAssigned"></span>
+                        </a>
+                    </li>
+                    <li ng-class="{'active': SelectedTemplate === 'ermPortal'}">
+                        <a role="button" href="javascript:void(0)" ng-click="ToggleProjectTemplate($event, 'ermPortal')">
+                            ERM Assessment portal
+                            <span class="glyphicon glyphicon-lock pull-right" ng-hide="((IsProjectManagerAssigned || IsAdministratorAssigned)  && IsErmAccessible) || IsSystemAdministratorAssigned"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- div class="help-message">
+            <span><small><i class="fa fa-info-circle fa-2x"></i> Browse documents and return to your dashboard using the tabs above.</small></span>
+            </div -->
+        </div>
+        <div class="col-sm-12 col-sm-offset-0 col-md-9 col-md-offset-0 col-lg-9 col-lg-offset-0">
+            <div class="row">
+                <div ng-include src="projectTemplate">
+                </div>
+            </div>
+        </div><!-- row -->
+    </div>
+</div>
+
+<script id="capitalPlan" type="text/ng-template">
+    <div class="tab-content" ng-controller="capitalPlanController">
+        <div class="tab-pane fade in active">
+            <div class="row-h">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="col-md-5 nav" style="width:100%">
+                                <li class="padding-0">
+                                    <select id="change-content" class="form-control" ng-model="DocumentType" ng-change="LoadDocuments({ id: 'pageNumber1', value: 1 })">
+                                        <option value="Bank Documents">Bank Documents</option>
+                                        <option value="Capital Plan">Capital Plan Documents</option>
+                                        <option value="Capital Allocation Model">Capital Allocation Model</option>
+                                        <option value="Financial Models">Financial Models</option>
+                                        <option value="Research">Research</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <input id="yearfilter" type="text" style="border-radius:4px" class="form-control datetimepicker pull-right" placeholder="Select Year" ng-model="YearFilter" ng-change="LoadDocuments({ id: 'pageNumber1', value: 1 })">
+                        </div>
+                        <div class="col-md-12 BankDocuments select-panel">
+                            <ng-dropzone id="capitalPlanDropZone" class="dropzone" options="dzOptions" callbacks="dzCallbacks" methods="dzMethods"></ng-dropzone>
+
+                            <div class="table-responsive-overflow" style="margin-bottom:60px;">
+                                <ul class="nav nav-documents nav-stacked nav-pills">
+                                    <li style="background:transparent;padding:0">
+                                        <h4 style="margin: 0">{{DocumentType}}</h4>
+                                    </li>
+                                </ul>
+                                <label class="pagination-menu">
+                                    Show
+                                    <select ng-model="PageSize" ng-change="LoadDocuments({ id: 'pageNumber1', value: 1 })" class="form-control input-sm" style="width:auto;display:inline-block;" aria-controls="tableTrackCDOrders">
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select> entries
+                                </label>
+
+                                <!-- Add jQuery data table plugin -->
+                                <div class="height-300">
+                                    <table class="table table-striped table-fluid" style="">
+                                        <thead>
+                                            <tr>
+                                                <th style="background-color: #003057;color: #ffffff;">Document Name</th>
+                                                <th style="background-color: #003057;color: #ffffff;">Author</th>
+                                                <th style="background-color: #003057;color: #ffffff;">Last Modified</th>
+                                                <th style="background-color: #003057;color: #ffffff;">File Size</th>
+                                                <th style="background-color: #003057;color: #ffffff;">Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="document in Documents" ng-class-odd="'odd'" ng-class-even="'even'">
+                                                <td><a href="javascript:void(0);" ng-click="DownloadFile(document)">{{ document.fileDisplayName }}</a></td>
+                                                <td>{{document.authorName}}</td>
+                                                <td>{{document.displayDate}}</td>
+                                                <td>{{BindFileSize(document.actualFileSizeInBytes)}}</td>
+                                                <td>
+                                                    <button class="btn btn-default btn-table btn-xs" type="button" ng-click="DeleteFile(document)">
+                                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                                        Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-sm-12" ng-show="PageNumbers.length > 0">
+                                    <div id="tableTrackCDOrders_paginate">
+                                        <ul class="pagination pull-right">
+                                            <li id="{{ pageNumber.id }}" ng-repeat="pageNumber in PageNumbers" ng-class="{'active':CurrentPage === pageNumber.value}"><a href="javascript:void(0)" ng-hide="pageNumber.value === '>>' && DisableNextClick" ng-click="LoadDocuments(pageNumber)">{{ pageNumber.value }}</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="strategicPlan" type="text/ng-template">
+    <div class="tab-content" ng-controller="strategicPlanController">
+        <div class="tab-pane fade in active">
+            <div class="row-h">
+                <div class="panel-body">
+                        <div class="row">
+                        <div class="col-md-6">
+                            <ul class="col-md-5 nav" style="width:100%" ng-model="DocumentType" ng-change="LoadDocuments({ id: 'pageNumber1', value: 1 })">
+                                <li class="padding-0">
+                                    <select id="change-content2" class="form-control" ng-model="DocumentType" ng-change="LoadDocuments({ id: 'pageNumber1', value: 1 })">
+                                        <option value="Bank Documents">Bank Documents</option>
+                                        <option value="Strategic Plan Documents">Strategic Plan Documents</option>
+                                        <option value="Presentations">Presentations</option>
+                                        <option value="Financial Models">Financial Models</option>
+                                        <option value="Research">Research</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <input id="yearfilter" type="text" style="border-radius:4px" class="form-control datetimepicker pull-right" placeholder="Select Year" ng-model="YearFilter" ng-change="LoadDocuments({ id: 'pageNumber1', value: 1 })">
+                        </div>
+                        <div class="col-md-12 BankDocuments select-panel">
+                            <ng-dropzone id="strategicPlanDropZone" class="dropzone" options="dzOptions" callbacks="dzCallbacks" methods="dzMethods"></ng-dropzone>
+
+                            <div class="table-responsive-overflow" style="margin-bottom:60px;">
+                                <ul class="nav nav-documents nav-stacked nav-pills">
+                                    <li style="background:transparent;padding:0">
+                                        <h4 style="margin: 0">{{DocumentType}}</h4>
+                                    </li>
+                                </ul>
+                                <label class="pagination-menu">
+                                    Show
+                                    <select ng-model="PageSize" ng-change="LoadDocuments({ id: 'pageNumber1', value: 1 })" class="form-control input-sm" style="width:auto;display:inline-block;" aria-controls="tableTrackCDOrders">
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select> entries
+                                </label>
+
+                                <!-- Add jQuery data table plugin -->
+                                <div class="height-300">
+                                    <table class="table table-striped table-fluid" style="">
+                                        <thead>
+                                            <tr>
+                                                <th style="background-color: #003057;color: #ffffff;">Document Name</th>
+                                                <th style="background-color: #003057;color: #ffffff;">Author</th>
+                                                <th style="background-color: #003057;color: #ffffff;">Last Modified</th>
+                                                <th style="background-color: #003057;color: #ffffff;">File Size</th>
+                                                <th style="background-color: #003057;color: #ffffff;">Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="document in Documents" ng-class-odd="'odd'" ng-class-even="'even'">
+                                                <td><a href="javascript:void(0);" ng-click="DownloadFile(document)">{{ document.fileDisplayName }}</a></td>
+                                                <td>{{document.authorName}}</td>
+                                                <td>{{document.displayDate}}</td>
+                                                <td>{{BindFileSize(document.actualFileSizeInBytes)}}</td>
+                                                <td>
+                                                    <button class="btn btn-default btn-table btn-xs" type="button" ng-click="DeleteFile(document)">
+                                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                                        Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-sm-12" ng-show="PageNumbers.length > 0">
+                                    <div id="tableTrackCDOrders_paginate">
+                                        <ul class="pagination pull-right">
+                                            <li id="{{ pageNumber.id }}" ng-repeat="pageNumber in PageNumbers" ng-class="{'active':CurrentPage === pageNumber.value}"><a href="javascript:void(0)" ng-hide="pageNumber.value === '>>' && DisableNextClick" ng-click="LoadDocuments(pageNumber)">{{ pageNumber.value }}</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</script>
+
+<script id="ermSolution" type="text/ng-template">
+    <div class="tab-content" ng-controller="ermSolutionController">
+        <div class="tab-pane fade in active">
+            <div class="row-h">
+                <div class="panel-body">
+                    <div class="row">
+                    <div class="col-md-6">
+                        <ul class="col-md-5 nav" style="width:100%">
+                            <li class="padding-0">
+                                <select id="change-content3" class="form-control" ng-model="DocumentType" ng-change="LoadDocuments({ id: 'pageNumber1', value: 1 })">
+                                    <option value="Bank Documents">Bank Documents</option>
+                                    <option value="Control Documents">Control Documents</option>
+                                    <option value="Risk Appetite Assessment">Risk Appetite Assessment</option>
+                                    <option value="Enterprise Risk Assessment">Enterprise Risk Assessment</option>
+                                    <option value="Top Risks">Top Risks</option>
+                                    <option value="Risk Mitigation Plan">Risk Mitigation Plan</option>
+                                    <option value="Board and Management Reports">Board and Management Reports</option>
+                                    <option value="Risk Trends and Variance Reports">Risk Trends and Variance Reports</option>
+                                    <option value="Research">Research</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <input id="yearfilter" type="text" style="border-radius:4px" class="form-control datetimepicker pull-right" placeholder="Select Year" ng-model="YearFilter" ng-change="LoadDocuments({ id: 'pageNumber1', value: 1 })">
+                    </div>
+                    <div class="col-md-12 BankDocuments select-panel">
+                        <ng-dropzone id="ermSolutionDropZone" class="dropzone" options="dzOptions" callbacks="dzCallbacks" methods="dzMethods"></ng-dropzone>
+
+                        <div class="table-responsive-overflow" style="margin-bottom:60px;">
+                            <ul class="nav nav-documents nav-stacked nav-pills">
+                                <li style="background:transparent;padding:0">
+                                    <h4 style="margin: 0">{{DocumentType}}</h4>
+                                </li>
+                            </ul>
+                            <label class="pagination-menu">
+                                Show
+                                <select ng-model="PageSize" ng-change="LoadDocuments({ id: 'pageNumber1', value: 1 })" class="form-control input-sm" style="width:auto;display:inline-block;" aria-controls="tableTrackCDOrders">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select> entries
+                            </label>
+
+                            <!-- Add jQuery data table plugin -->
+                            <div class="height-300">
+                                <table class="table table-striped table-fluid" style="">
+                                    <thead>
+                                        <tr>
+                                            <th style="background-color: #003057;color: #ffffff;">Document Name</th>
+                                            <th style="background-color: #003057;color: #ffffff;">Author</th>
+                                            <th style="background-color: #003057;color: #ffffff;">Last Modified</th>
+                                            <th style="background-color: #003057;color: #ffffff;">File Size</th>
+                                            <th style="background-color: #003057;color: #ffffff;">Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="document in Documents" ng-class-odd="'odd'" ng-class-even="'even'">
+                                            <td><a href="javascript:void(0);" ng-click="DownloadFile(document)">{{ document.fileDisplayName }}</a></td>
+                                            <td>{{document.authorName}}</td>
+                                            <td>{{document.displayDate}}</td>
+                                            <td>{{BindFileSize(document.actualFileSizeInBytes)}}</td>
+                                            <td>
+                                                <button class="btn btn-default btn-table btn-xs" type="button" ng-click="DeleteFile(document)">
+                                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                                    Delete
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="col-sm-12" ng-show="PageNumbers.length > 0">
+                                <div id="tableTrackCDOrders_paginate">
+                                    <ul class="pagination pull-right">
+                                        <li id="{{ pageNumber.id }}" ng-repeat="pageNumber in PageNumbers" ng-class="{'active':CurrentPage === pageNumber.value}"><a href="javascript:void(0)" ng-hide="pageNumber.value === '>>' && DisableNextClick" ng-click="LoadDocuments(pageNumber)">{{ pageNumber.value }}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+</script>
+
+<div id="overlay" style="z-index:1000;display:none;">
+    <div style="margin-top:15%;">
+        <center><img src="../../../Images/cbr-ripple-small.gif" class="img-responsive" /></center><span id="overlayLoadingText">Loading...</span>
+    </div>
+</div>

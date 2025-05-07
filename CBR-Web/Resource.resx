@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CapitalPlan" xml:space="preserve">
+    <value>&lt;div id="tabCapitalPlanDashboard" class="tab-pane fade in active col-sm-8"&gt;
+    &lt;div class="panel-body"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col-sm-6 col-sm-offset-0 col-md-12 col-md-offset-0"&gt;
+                &lt;h2&gt;WELCOME&lt;/h2&gt;
+                &lt;p&gt;You have arrived at your Capital Plan Project portal.  CB Resource, Inc. is committed to providing a quality product and customer experience.  Please review the following information.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h3&gt;OVERVIEW&lt;/h3&gt;
+
+                &lt;p&gt;This project management portal has been designed to provide a secure and efficient collaborative experience in support of your capital planning process. The following outline provides an overview of site content, user instructions and related information.&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;CONTENT/FILE FOLDERS&lt;/h3&gt;
+
+                &lt;p&gt;This site contains the necessary tools and information to construct your bank’s capital plan.  The file folders to the left have been structured to organize the key components of your plan.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h4&gt;FILE FOLDERS&lt;/h4&gt;
+
+                &lt;p&gt;&lt;strong&gt;Bank Documents.&lt;/strong&gt; This folder contains all bank provided documents necessary to complete this project.  Please upload the following documents and information.  Click HERE to view document checklist.&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Capital Plan Document.&lt;/strong&gt;  This folder contains all versions of your new capital plan&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Capital Allocation Model.&lt;/strong&gt;  This folder contains all versions of the Capital Allocation Model&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Financial Models.&lt;/strong&gt;  This folder contains all versions of your pro forma financial forecasts and capital stress testing results.&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Research.&lt;/strong&gt; This file contain provided research and analysis to support the development of your capital plan.  Research includes National, State and Local economic forecasts, peer analysis, market analysis (number and types of businesses and key demographic data), deposit market trends, and other related information.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h4&gt;UPLOADING AND DOWNLOADING DOCUMENTS&lt;/h4&gt;
+
+                &lt;p&gt;Uploading and accessing files is very user friendly.  To upload files, select the file folder you intend to access.  You have two methods to upload a document, 1) simply place your cursor on the document you intend to upload and drag and drop it into the file folder or the larger grey highlighted area at the top of the portal, 2) double click on the grey highlighted area, your computer’s browser window will open, double click on the document that you intend to upload. &lt;/p&gt;
+
+                &lt;p&gt;To download (access) a document, simply select a file folder.  Files within the folder will be displayed on the left.  Double click on the desired document, it will open in the appropriate program (i.e. Word, Excel, PDF, Power Point, etc.)&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h3&gt;NOTIFICATIONS&lt;/h3&gt;
+
+                &lt;p&gt;You will receive notifications via email when CB Resource uploads any documents.  Also notice that the most recently uploaded file folders and documents will be highlighted in “Red”.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h3&gt;SEARCH&lt;/h3&gt;
+                &lt;p&gt;Should you desire to locate a particular document in the Project Portal, type all or part of the file name in the “Search” window.&lt;/p&gt;
+
+                &lt;p&gt;For additional information, please contact us at info@cb-resource.com or call 877.367.8236&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</value>
+  </data>
+  <data name="Compliance" xml:space="preserve">
+    <value>&lt;div id="tabComplianceDashboard" class="tab-pane fade in active col-sm-8"&gt;
+    &lt;div class="panel-body"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col-sm-6 col-sm-offset-0 col-md-12 col-md-offset-0"&gt;
+                &lt;h2&gt;WELCOME&lt;/h2&gt;
+                &lt;p&gt;You have arrived at your Compliance Project portal.  CB Resource, Inc. is committed to providing a quality product and customer experience.  Please review the following information.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h3&gt;OVERVIEW&lt;/h3&gt;
+
+                &lt;p&gt;This project management portal has been designed to provide a secure and efficient collaborative experience in support of your capital planning process. The following outline provides an overview of site content, user instructions and related information.&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;CONTENT/FILE FOLDERS&lt;/h3&gt;
+
+                &lt;p&gt;This site contains the necessary tools and information to construct your bank’s capital plan.  The file folders to the left have been structured to organize the key components of your plan.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h4&gt;FILE FOLDERS&lt;/h4&gt;
+
+                &lt;p&gt;&lt;strong&gt;Bank Documents.&lt;/strong&gt; This folder contains all bank provided documents necessary to complete this project.  Please upload the following documents and information.  Click HERE to view document checklist.&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Capital Plan Document.&lt;/strong&gt;  This folder contains all versions of your new capital plan&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Capital Allocation Model.&lt;/strong&gt;  This folder contains all versions of the Capital Allocation Model&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Financial Models.&lt;/strong&gt;  This folder contains all versions of your pro forma financial forecasts and capital stress testing results.&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Research.&lt;/strong&gt; This file contain provided research and analysis to support the development of your capital plan.  Research includes National, State and Local economic forecasts, peer analysis, market analysis (number and types of businesses and key demographic data), deposit market trends, and other related information.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h4&gt;UPLOADING AND DOWNLOADING DOCUMENTS&lt;/h4&gt;
+
+                &lt;p&gt;Uploading and accessing files is very user friendly.  To upload files, select the file folder you intend to access.  You have two methods to upload a document, 1) simply place your cursor on the document you intend to upload and drag and drop it into the file folder or the larger grey highlighted area at the top of the portal, 2) double click on the grey highlighted area, your computer’s browser window will open, double click on the document that you intend to upload. &lt;/p&gt;
+
+                &lt;p&gt;To download (access) a document, simply select a file folder.  Files within the folder will be displayed on the left.  Double click on the desired document, it will open in the appropriate program (i.e. Word, Excel, PDF, Power Point, etc.)&lt;/p&gt;
+                &lt;hr /&gt;
+                &lt;h3&gt;NOTIFICATIONS&lt;/h3&gt;
+
+                &lt;p&gt;You will receive notifications via email when CB Resource uploads any documents.  Also notice that the most recently uploaded file folders and documents will be highlighted in “Red”.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h3&gt;SEARCH&lt;/h3&gt;
+                &lt;p&gt;Should you desire to locate a particular document in the Project Portal, type all or part of the file name in the “Search” window.&lt;/p&gt;
+
+                &lt;p&gt;For additional information, please contact us at info@cb-resource.com or call 877.367.8236&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</value>
+  </data>
+  <data name="Credit" xml:space="preserve">
+    <value>&lt;div id="tabCreditDashboard" class="tab-pane fade in active col-sm-8"&gt;
+    &lt;div class="panel-body"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col-sm-6 col-sm-offset-0 col-md-12 col-md-offset-0"&gt;
+                &lt;h2&gt;WELCOME&lt;/h2&gt;
+                &lt;p&gt;You have arrived at your Credit Project portal.  CB Resource, Inc. is committed to providing a quality product and customer experience.  Please review the following information.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h3&gt;OVERVIEW&lt;/h3&gt;
+
+                &lt;p&gt;This project management portal has been designed to provide a secure and efficient collaborative experience in support of your capital planning process. The following outline provides an overview of site content, user instructions and related information.&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;CONTENT/FILE FOLDERS&lt;/h3&gt;
+
+                &lt;p&gt;This site contains the necessary tools and information to construct your bank’s capital plan.  The file folders to the left have been structured to organize the key components of your plan.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h4&gt;FILE FOLDERS&lt;/h4&gt;
+
+                &lt;p&gt;&lt;strong&gt;Bank Documents.&lt;/strong&gt; This folder contains all bank provided documents necessary to complete this project.  Please upload the following documents and information.  Click HERE to view document checklist.&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Capital Plan Document.&lt;/strong&gt;  This folder contains all versions of your new capital plan&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Capital Allocation Model.&lt;/strong&gt;  This folder contains all versions of the Capital Allocation Model&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Financial Models.&lt;/strong&gt;  This folder contains all versions of your pro forma financial forecasts and capital stress testing results.&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Research.&lt;/strong&gt; This file contain provided research and analysis to support the development of your capital plan.  Research includes National, State and Local economic forecasts, peer analysis, market analysis (number and types of businesses and key demographic data), deposit market trends, and other related information.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h4&gt;UPLOADING AND DOWNLOADING DOCUMENTS&lt;/h4&gt;
+
+                &lt;p&gt;Uploading and accessing files is very user friendly.  To upload files, select the file folder you intend to access.  You have two methods to upload a document, 1) simply place your cursor on the document you intend to upload and drag and drop it into the file folder or the larger grey highlighted area at the top of the portal, 2) double click on the grey highlighted area, your computer’s browser window will open, double click on the document that you intend to upload. &lt;/p&gt;
+
+                &lt;p&gt;To download (access) a document, simply select a file folder.  Files within the folder will be displayed on the left.  Double click on the desired document, it will open in the appropriate program (i.e. Word, Excel, PDF, Power Point, etc.)&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;NOTIFICATIONS&lt;/h3&gt;
+
+                &lt;p&gt;You will receive notifications via email when CB Resource uploads any documents.  Also notice that the most recently uploaded file folders and documents will be highlighted in “Red”.&lt;/p&gt;
+                &lt;hr /&gt;
+                &lt;h3&gt;SEARCH&lt;/h3&gt;
+                &lt;p&gt;Should you desire to locate a particular document in the Project Portal, type all or part of the file name in the “Search” window.&lt;/p&gt;
+
+                &lt;p&gt;For additional information, please contact us at info@cb-resource.com or call 877.367.8236&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</value>
+  </data>
+  <data name="DeNovo" xml:space="preserve">
+    <value>&lt;div id="tabDeNovoDashboard" class="tab-pane fade in active col-sm-8"&gt;
+    &lt;div class="panel-body"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col-sm-6 col-sm-offset-0 col-md-12 col-md-offset-0"&gt;
+                &lt;h2&gt;WELCOME&lt;/h2&gt;
+                &lt;p&gt;You have arrived at your DeNovo Project portal.  CB Resource, Inc. is committed to providing a quality product and customer experience.  Please review the following information.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h3&gt;OVERVIEW&lt;/h3&gt;
+
+                &lt;p&gt;This project management portal has been designed to provide a secure and efficient collaborative experience in support of your capital planning process. The following outline provides an overview of site content, user instructions and related information.&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;CONTENT/FILE FOLDERS&lt;/h3&gt;
+
+                &lt;p&gt;This site contains the necessary tools and information to construct your bank’s capital plan.  The file folders to the left have been structured to organize the key components of your plan.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h4&gt;FILE FOLDERS&lt;/h4&gt;
+
+                &lt;p&gt;&lt;strong&gt;Bank Documents.&lt;/strong&gt; This folder contains all bank provided documents necessary to complete this project.  Please upload the following documents and information.  Click HERE to view document checklist.&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Capital Plan Document.&lt;/strong&gt;  This folder contains all versions of your new capital plan&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Capital Allocation Model.&lt;/strong&gt;  This folder contains all versions of the Capital Allocation Model&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Financial Models.&lt;/strong&gt;  This folder contains all versions of your pro forma financial forecasts and capital stress testing results.&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Research.&lt;/strong&gt; This file contain provided research and analysis to support the development of your capital plan.  Research includes National, State and Local economic forecasts, peer analysis, market analysis (number and types of businesses and key demographic data), deposit market trends, and other related information.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h4&gt;UPLOADING AND DOWNLOADING DOCUMENTS&lt;/h4&gt;
+
+                &lt;p&gt;Uploading and accessing files is very user friendly.  To upload files, select the file folder you intend to access.  You have two methods to upload a document, 1) simply place your cursor on the document you intend to upload and drag and drop it into the file folder or the larger grey highlighted area at the top of the portal, 2) double click on the grey highlighted area, your computer’s browser window will open, double click on the document that you intend to upload. &lt;/p&gt;
+
+                &lt;p&gt;To download (access) a document, simply select a file folder.  Files within the folder will be displayed on the left.  Double click on the desired document, it will open in the appropriate program (i.e. Word, Excel, PDF, Power Point, etc.)&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;NOTIFICATIONS&lt;/h3&gt;
+
+                &lt;p&gt;You will receive notifications via email when CB Resource uploads any documents.  Also notice that the most recently uploaded file folders and documents will be highlighted in “Red”.&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;SEARCH&lt;/h3&gt;
+                &lt;p&gt;Should you desire to locate a particular document in the Project Portal, type all or part of the file name in the “Search” window.&lt;/p&gt;
+
+                &lt;p&gt;For additional information, please contact us at info@cb-resource.com or call 877.367.8236&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</value>
+  </data>
+  <data name="ERA" xml:space="preserve">
+    <value>&lt;div id="tabERADashboard" class="tab-pane fade in active col-sm-8"&gt;
+    &lt;div class="panel-body"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col-sm-6 col-sm-offset-0 col-md-12 col-md-offset-0"&gt;
+                &lt;h2&gt;WELCOME&lt;/h2&gt;
+                &lt;p&gt;You have arrived at your ERA Project portal.  CB Resource, Inc. is committed to providing a quality product and customer experience.  Please review the following information.&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;OVERVIEW&lt;/h3&gt;
+
+                &lt;p&gt;This project management portal has been designed to provide a secure and efficient collaborative experience in support of your capital planning process. The following outline provides an overview of site content, user instructions and related information.&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;CONTENT/FILE FOLDERS&lt;/h3&gt;
+
+                &lt;p&gt;This site contains the necessary tools and information to construct your bank’s ERA plan.  The file folders to the left have been structured to organize the key components of your plan.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                
+                &lt;h4&gt;UPLOADING AND DOWNLOADING DOCUMENTS&lt;/h4&gt;
+
+                &lt;p&gt;Uploading and accessing files is very user friendly.  To upload files, select the file folder you intend to access.  You have two methods to upload a document, 1) simply place your cursor on the document you intend to upload and drag and drop it into the file folder or the larger grey highlighted area at the top of the portal, 2) double click on the grey highlighted area, your computer’s browser window will open, double click on the document that you intend to upload. &lt;/p&gt;
+
+                &lt;p&gt;To download (access) a document, simply select a file folder.  Files within the folder will be displayed on the left.  Double click on the desired document, it will open in the appropriate program (i.e. Word, Excel, PDF, Power Point, etc.)&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;NOTIFICATIONS&lt;/h3&gt;
+
+                &lt;p&gt;You will receive notifications via email when CB Resource uploads any documents.  Also notice that the most recently uploaded file folders and documents will be highlighted in “Red”.&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;SEARCH&lt;/h3&gt;
+                &lt;p&gt;Should you desire to locate a particular document in the Project Portal, type all or part of the file name in the “Search” window.&lt;/p&gt;
+
+                &lt;p&gt;For additional information, please contact us at info@cb-resource.com or call 877.367.8236&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</value>
+  </data>
+  <data name="ERM" xml:space="preserve">
+    <value>&lt;div id="tabERMDashboard" class="tab-pane fade in active col-sm-8"&gt;
+    &lt;div class="panel-body"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col-sm-6 col-sm-offset-0 col-md-12 col-md-offset-0"&gt;
+                &lt;h2&gt;WELCOME&lt;/h2&gt;
+                &lt;p&gt;You have arrived at your Enterprise Risk Management ("ERM") Project portal. CB Resource, Inc. is committed to providing a quality product and customer experience. Please review the following information.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h3&gt;OVERVIEW&lt;/h3&gt;
+
+                &lt;p&gt;This project management portal has been designed to provide a secure and efficient collaborative experience in support of your ERM implementation process. The following outline provides an overview of site content, user instructions and related information.&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;CONTENT/FILE FOLDERS&lt;/h3&gt;
+
+                &lt;p&gt;This site contains the necessary tools and information to implement your ERM process. The file folders to the left have been structured to organize the key components of your plan.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h4&gt;FILE FOLDERS&lt;/h4&gt;
+
+                &lt;p&gt;&lt;strong&gt;Bank Documents.&lt;/strong&gt; This folder contains all bank provided documents necessary to complete this project.  Please upload the following documents and information.  Click HERE to view document checklist.&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Control Document.&lt;/strong&gt;  This folder contains all versions of your ERM Control document (catalogs major components of your ERM models). &lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Risk Appetite Assessment.&lt;/strong&gt;   This folder contains the link to your risk appetite assessment, risk appetite assessment results, risk appetite development session presentation, risk appetite framework (heat map), risk appetite statements, and key risk indicators. &lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Enterprise Risk Assessment.&lt;/strong&gt;  This folder contains the links to your key risk category assessments, enterprise risk assessment results, and other related materials that support the Enterprise Risk Assessment process.&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Top Risk.&lt;/strong&gt;  This folder contains the results of your top risk identification, analysis and top risk analysis workshop presentation.&lt;/p&gt;
+                
+                &lt;p&gt;&lt;strong&gt;Risk Mitigation Plan.&lt;/strong&gt;  This folder contains all drafts of your risk mitigation action plan.&lt;/p&gt;
+                
+                &lt;p&gt;&lt;strong&gt;ERM Board and Management Report.&lt;/strong&gt;  This folder contains all quarterly ERM Board and Management Reports.&lt;/p&gt;
+                
+                &lt;p&gt;&lt;strong&gt;Risk Trends Reports.&lt;/strong&gt;  This folder contains your quarterly risk variance and risk trends reports. Additionally, there may be reference materials related to key risk category trends.&lt;/p&gt;
+                
+                &lt;p&gt;&lt;strong&gt;Financial Models.&lt;/strong&gt;   This folder contains all versions of your pro forma financial forecasts and capital stress testing results.&lt;/p&gt;
+                
+                &lt;p&gt;&lt;strong&gt;Research.&lt;/strong&gt;  This file contains provided research and analysis to support your ERM implementation process. Research includes National, State and Local economic forecasts, peer analysis, market analysis (number and types of businesses and key demographic data), deposit market trends, and other related information.&lt;/p&gt;
+                
+                &lt;hr /&gt;
+
+                &lt;h4&gt;UPLOADING AND DOWNLOADING DOCUMENTS&lt;/h4&gt;
+
+                &lt;p&gt;Uploading and accessing files is very user friendly.  To upload files, select the file folder you intend to access.  You have two methods to upload a document, 1) simply place your cursor on the document you intend to upload and drag and drop it into the file folder or the larger grey highlighted area at the top of the portal, 2) double click on the grey highlighted area, your computer’s browser window will open, double click on the document that you intend to upload. &lt;/p&gt;
+
+                &lt;p&gt;To download (access) a document, simply select a file folder.  Files within the folder will be displayed on the left.  Double click on the desired document, it will open in the appropriate program (i.e. Word, Excel, PDF, Power Point, etc.)&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;NOTIFICATIONS&lt;/h3&gt;
+
+                &lt;p&gt;You will receive notifications via email when CB Resource uploads any documents.  Also notice that the most recently uploaded file folders and documents will be highlighted in “Red”.&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;SEARCH&lt;/h3&gt;
+                &lt;p&gt;Should you desire to locate a particular document in the Project Portal, type all or part of the file name in the “Search” window.&lt;/p&gt;
+
+                &lt;p&gt;For additional information, please contact us at info@cb-resource.com or call 877.367.8236&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</value>
+  </data>
+  <data name="MA" xml:space="preserve">
+    <value>&lt;div id="tabM&amp;ADashboard" class="tab-pane fade in active col-sm-8"&gt;
+    &lt;div class="panel-body"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col-sm-6 col-sm-offset-0 col-md-12 col-md-offset-0"&gt;
+                &lt;h2&gt;WELCOME&lt;/h2&gt;
+                &lt;p&gt;You have arrived at your M&amp;A Project portal.  CB Resource, Inc. is committed to providing a quality product and customer experience.  Please review the following information.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h3&gt;OVERVIEW&lt;/h3&gt;
+
+                &lt;p&gt;This project management portal has been designed to provide a secure and efficient collaborative experience in support of your capital planning process. The following outline provides an overview of site content, user instructions and related information.&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;CONTENT/FILE FOLDERS&lt;/h3&gt;
+
+                &lt;p&gt;This site contains the necessary tools and information to construct your bank’s capital plan.  The file folders to the left have been structured to organize the key components of your plan.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h4&gt;FILE FOLDERS&lt;/h4&gt;
+
+                &lt;p&gt;&lt;strong&gt;Bank Documents.&lt;/strong&gt; This folder contains all bank provided documents necessary to complete this project.  Please upload the following documents and information.  Click HERE to view document checklist.&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Capital Plan Document.&lt;/strong&gt;  This folder contains all versions of your new capital plan&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Capital Allocation Model.&lt;/strong&gt;  This folder contains all versions of the Capital Allocation Model&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Financial Models.&lt;/strong&gt;  This folder contains all versions of your pro forma financial forecasts and capital stress testing results.&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Research.&lt;/strong&gt; This file contain provided research and analysis to support the development of your capital plan.  Research includes National, State and Local economic forecasts, peer analysis, market analysis (number and types of businesses and key demographic data), deposit market trends, and other related information.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h4&gt;UPLOADING AND DOWNLOADING DOCUMENTS&lt;/h4&gt;
+
+                &lt;p&gt;Uploading and accessing files is very user friendly.  To upload files, select the file folder you intend to access.  You have two methods to upload a document, 1) simply place your cursor on the document you intend to upload and drag and drop it into the file folder or the larger grey highlighted area at the top of the portal, 2) double click on the grey highlighted area, your computer’s browser window will open, double click on the document that you intend to upload. &lt;/p&gt;
+
+                &lt;p&gt;To download (access) a document, simply select a file folder.  Files within the folder will be displayed on the left.  Double click on the desired document, it will open in the appropriate program (i.e. Word, Excel, PDF, Power Point, etc.)&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;NOTIFICATIONS&lt;/h3&gt;
+
+                &lt;p&gt;You will receive notifications via email when CB Resource uploads any documents.  Also notice that the most recently uploaded file folders and documents will be highlighted in “Red”.&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;SEARCH&lt;/h3&gt;
+                &lt;p&gt;Should you desire to locate a particular document in the Project Portal, type all or part of the file name in the “Search” window.&lt;/p&gt;
+
+                &lt;p&gt;For additional information, please contact us at info@cb-resource.com or call 877.367.8236&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</value>
+  </data>
+  <data name="Strategy" xml:space="preserve">
+    <value>&lt;div id="tabStrategyDashboard" class="tab-pane fade in active col-sm-8"&gt;
+    &lt;div class="panel-body"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col-sm-6 col-sm-offset-0 col-md-12 col-md-offset-0"&gt;
+                &lt;h2&gt;WELCOME&lt;/h2&gt;
+                &lt;p&gt;You have arrived at your Strategic Plan Project portal. CB Resource, Inc. is committed to providing a quality product and customer experience. Please review the following information.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h3&gt;OVERVIEW&lt;/h3&gt;
+
+                &lt;p&gt;This project management portal has been designed to provide a secure and efficient collaborative experience in support of your strategic planning process. The following outline provides an overview of site content, user instructions and related information.&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;CONTENT/FILE FOLDERS&lt;/h3&gt;
+
+                &lt;p&gt;This site contains the necessary tools and information to construct your bank’s strategic plan. The file folders to the left have been structured to organize the key components of your plan.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h4&gt;FILE FOLDERS&lt;/h4&gt;
+
+                &lt;p&gt;&lt;strong&gt;Bank Documents.&lt;/strong&gt; This folder contains all bank provided documents necessary to complete this project.&lt;/p&gt;
+
+                &lt;p&gt;Please upload the following documents and information. Click HERE to view document checklist.&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Strategic Plan Document.&lt;/strong&gt;  This folder contains all versions of your new strategic plan&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Presentations.&lt;/strong&gt;  This folder contains all versions of planning and research presentations.&lt;/p&gt;
+      
+                &lt;p&gt;&lt;strong&gt;Financial Models.&lt;/strong&gt;  This folder contains all versions of your pro forma financial forecasts and capital stress testing results.&lt;/p&gt;
+
+                &lt;p&gt;&lt;strong&gt;Research.&lt;/strong&gt;  This file contain provided research and analysis to support the development of your strategic plan. Research includes National, State and Local economic forecasts, peer analysis, market analysis (number and types of businesses and key demographic data), deposit market trends, and other related information.&lt;/p&gt;          
+      
+                &lt;hr /&gt;
+
+                &lt;h4&gt;UPLOADING AND DOWNLOADING DOCUMENTS&lt;/h4&gt;
+
+                &lt;p&gt;Uploading and accessing files is very user friendly.  To upload files, select the file folder you intend to access.  You have two methods to upload a document, 1) simply place your cursor on the document you intend to upload and drag and drop it into the file folder or the larger grey highlighted area at the top of the portal, 2) double click on the grey highlighted area, your computer’s browser window will open, double click on the document that you intend to upload. &lt;/p&gt;
+
+                &lt;p&gt;To download (access) a document, simply select a file folder.  Files within the folder will be displayed on the left.  Double click on the desired document, it will open in the appropriate program (i.e. Word, Excel, PDF, Power Point, etc.)&lt;/p&gt;
+                &lt;hr /&gt;
+                
+                &lt;h3&gt;NOTIFICATIONS&lt;/h3&gt;
+
+                &lt;p&gt;You will receive notifications via email when CB Resource uploads any documents.  Also notice that the most recently uploaded file folders and documents will be highlighted in “Red”.&lt;/p&gt;
+                &lt;hr /&gt;
+
+                &lt;h3&gt;SEARCH&lt;/h3&gt;
+                &lt;p&gt;Should you desire to locate a particular document in the Project Portal, type all or part of the file name in the “Search” window.&lt;/p&gt;
+
+                &lt;p&gt;For additional information, please contact us at info@cb-resource.com or call 877.367.8236&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</value>
+  </data>
+</root>

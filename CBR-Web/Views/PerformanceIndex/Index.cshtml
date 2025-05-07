@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/performanceindex")
+}
+
+@section jsCode{
+    var cbrPerformanceIndexModule = angular.module("cbrperformanceindex", ['cbrcommon'])
+    .config(function ($routeProvider, $locationProvider) {
+    $routeProvider.when('/PerformanceIndex', { templateUrl: '/App/PerformanceIndex/Views/PerformanceIndex.html', controller: 'performanceIndexNavigationController' });
+    $routeProvider.otherwise({ redirectTo: '/' });
+    $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+    });
+    });
+}
+<div ng-non-bindable>
+    <div id="performanceindex" ng-controller="performanceIndexNavigationController">
+        <div ng-view></div>
+    </div>
+</div>

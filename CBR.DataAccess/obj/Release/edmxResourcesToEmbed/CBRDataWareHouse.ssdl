@@ -1,0 +1,1771 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CBRDataWareHouseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CBRDataWarehouse.dbo.ActiveCallReportList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ActiveCallReportList">
+    <Key>
+      <PropertyRef Name="DateInserted" />
+    </Key>
+    <Property Name="ReportingPeriod" Type="varchar" MaxLength="50" />
+    <Property Name="CertNumber" Type="int" />
+    <Property Name="InstitutionName" Type="varchar" MaxLength="255" />
+    <Property Name="DateInserted" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppAccessControl">
+    <Key>
+      <PropertyRef Name="AccessControlKey" />
+    </Key>
+    <Property Name="AccessControlKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenantKey" Type="bigint" Nullable="false" />
+    <Property Name="IsAccessible" Type="bit" Nullable="false" />
+    <Property Name="ModuleKey" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppCDOrders">
+    <Key>
+      <PropertyRef Name="OrderKey" />
+    </Key>
+    <Property Name="OrderKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderDate" Type="varchar" MaxLength="20" />
+    <Property Name="InstitutionKey" Type="int" />
+    <Property Name="OrderedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="ContactPhone" Type="varchar" MaxLength="20" />
+    <Property Name="Term" Type="varchar" MaxLength="20" />
+    <Property Name="Callable" Type="varchar" MaxLength="3" />
+    <Property Name="CallFrequency" Type="varchar" MaxLength="15" />
+    <Property Name="Rate" Type="varchar" MaxLength="50" />
+    <Property Name="Amount" Type="varchar" MaxLength="50" />
+    <Property Name="SettleDate" Type="varchar" MaxLength="20" />
+    <Property Name="InterestPaymentFrequency" Type="varchar" MaxLength="15" />
+    <Property Name="Status" Type="varchar" MaxLength="20" />
+    <Property Name="AuditInsertedDateTime" Type="datetime" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="datetime" Nullable="false" />
+    <Property Name="Notes" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CBRDataWarehouse.dbo.AppCRAMAdjustBankData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AppCRAMAdjustBankData">
+    <Key>
+      <PropertyRef Name="ModelKey" />
+    </Key>
+    <Property Name="ModelKey" Type="bigint" Nullable="false" />
+    <Property Name="Tier1LeverageRatio" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CET1CapitalRatio" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Tier1CapitalRatio" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TotalCapitalRatio" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CommonEquityTier1Capital" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Tier1Capital" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TotalCapital" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TotalAssetsLeveragePurposes" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TotalRiskWeightedAssets" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="AppCRAMModel">
+    <Key>
+      <PropertyRef Name="ModelKey" />
+    </Key>
+    <Property Name="ModelKey" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModelName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="TenantKey" Type="bigint" Nullable="false" />
+    <Property Name="UserKey" Type="bigint" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CBRDataWarehouse.dbo.AppCRAMRiskCategories' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AppCRAMRiskCategories">
+    <Key>
+      <PropertyRef Name="ModelKey" />
+    </Key>
+    <Property Name="ModelKey" Type="bigint" Nullable="false" />
+    <Property Name="CreditRiskScore" Type="smallint" />
+    <Property Name="CreditRiskWeighing" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="InterestRateRiskScore" Type="smallint" />
+    <Property Name="InterestRateRiskWeighing" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="LiquidityRiskScore" Type="smallint" />
+    <Property Name="LiquidityRiskWeighing" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="OperationalRiskScore" Type="smallint" />
+    <Property Name="OperationalRiskWeighing" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ComplianceRiskScore" Type="smallint" />
+    <Property Name="ComplianceRiskWeighing" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="StrategicRiskScore" Type="smallint" />
+    <Property Name="StrategicRiskWeighing" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ReputationRiskScore" Type="smallint" />
+    <Property Name="ReputationRiskWeighing" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CBRDataWarehouse.dbo.AppCRAMRiskRating' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AppCRAMRiskRating">
+    <Key>
+      <PropertyRef Name="ModelKey" />
+    </Key>
+    <Property Name="ModelKey" Type="bigint" Nullable="false" />
+    <Property Name="Low" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="LowModerate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Moderate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ModerateHigh" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="High" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CBRDataWarehouse.dbo.AppCRAMRiskRatingDefault' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AppCRAMRiskRatingDefault">
+    <Key>
+      <PropertyRef Name="RiskRating" />
+      <PropertyRef Name="CapitalRiskBuffer" />
+    </Key>
+    <Property Name="RiskRating" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="CapitalRiskBuffer" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppFavoriteBank">
+    <Key>
+      <PropertyRef Name="FavoriteBankKey" />
+    </Key>
+    <Property Name="FavoriteBankKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserKey" Type="bigint" Nullable="false" />
+    <Property Name="InstitutionKey" Type="int" Nullable="false" />
+    <Property Name="IsDefaultBank" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppFavoriteSearch">
+    <Key>
+      <PropertyRef Name="FavoriteSearchKey" />
+    </Key>
+    <Property Name="FavoriteSearchKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserKey" Type="bigint" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="255" />
+    <Property Name="AssetSize" Type="varchar" MaxLength="255" />
+    <Property Name="Percentile" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="AppHomePageContent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Url" Type="varchar(max)" Nullable="false" />
+    <Property Name="PostedBy" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="LastUpdatedBy" Type="varchar" MaxLength="250" />
+    <Property Name="LastUpdatedOn" Type="datetime" />
+    <Property Name="ContentType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AuditLastUpdatedDatetime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppInfoCenterImage">
+    <Key>
+      <PropertyRef Name="ImageKey" />
+    </Key>
+    <Property Name="ImageKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Image1" Type="varchar(max)" />
+    <Property Name="Image2" Type="varchar(max)" />
+    <Property Name="AuditInsertedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AppManageCDRates">
+    <Key>
+      <PropertyRef Name="TermKey" />
+    </Key>
+    <Property Name="TermKey" Type="int" Nullable="false" />
+    <Property Name="Term" Type="varchar" MaxLength="30" />
+    <Property Name="FixedRate" Type="varchar" MaxLength="50" />
+    <Property Name="Callable" Type="varchar" MaxLength="50" />
+    <Property Name="AuditInsertedDateTime" Type="datetime" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppModule">
+    <Key>
+      <PropertyRef Name="ModuleKey" />
+    </Key>
+    <Property Name="ModuleKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModuleType" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="ModuleName" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppProjectInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ProjectType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DocumentType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DocumentDisplayName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppRole">
+    <Key>
+      <PropertyRef Name="RoleKey" />
+    </Key>
+    <Property Name="RoleKey" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RoleValue" Type="int" />
+  </EntityType>
+  <EntityType Name="AppStorage">
+    <Key>
+      <PropertyRef Name="FileId" />
+    </Key>
+    <Property Name="FileId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="varchar" MaxLength="255" StoreGeneratedPattern="Computed" />
+    <Property Name="FileDisplayName" Type="nvarchar" MaxLength="500" />
+    <Property Name="DocumentType" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="ProjectType" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="AuthorName" Type="nvarchar" MaxLength="500" />
+    <Property Name="FileSize" Type="nvarchar" MaxLength="500" />
+    <Property Name="ActualFileSizeInBytes" Type="bigint" />
+    <Property Name="DisplayDate" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="AuditInsertedDatetime" Type="smalldatetime" Nullable="false" />
+    <Property Name="AuditInsertedBy" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="AuditLastUpdatedDatetime" Type="smalldatetime" Nullable="false" />
+    <Property Name="AuditLastUpdatedBy" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="TenantKey" Type="bigint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CBRDataWarehouse.dbo.AppStrategicForecastInputData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AppStrategicForecastInputData">
+    <Key>
+      <PropertyRef Name="TenantKey" />
+      <PropertyRef Name="UserKey" />
+      <PropertyRef Name="ScenarioKey" />
+      <PropertyRef Name="MetricKey" />
+    </Key>
+    <Property Name="TenantKey" Type="bigint" Nullable="false" />
+    <Property Name="UserKey" Type="bigint" Nullable="false" />
+    <Property Name="ScenarioKey" Type="int" Nullable="false" />
+    <Property Name="MetricKey" Type="smallint" Nullable="false" />
+    <Property Name="Year0" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="Year1" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="Year2" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="Year3" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="Year4" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="Year5" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="AuditInsertedDate" Type="datetime" />
+    <Property Name="PriorYear" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentYearYTD" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="AppStrategicForecastInputMetric">
+    <Key>
+      <PropertyRef Name="MetricKey" />
+    </Key>
+    <Property Name="MetricKey" Type="smallint" Nullable="false" />
+    <Property Name="MetricName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="AuditInsertedDate" Type="datetime" />
+    <Property Name="UBPRConceptCode" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="AppStrategicForecastScenario">
+    <Key>
+      <PropertyRef Name="ScenarioKey" />
+    </Key>
+    <Property Name="ScenarioKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ScenarioName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="TenantKey" Type="bigint" Nullable="false" />
+    <Property Name="UserKey" Type="bigint" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="AuditInsertedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AppStrategicForecastSummary">
+    <Key>
+      <PropertyRef Name="SummaryKey" />
+    </Key>
+    <Property Name="SummaryKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SummaryName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="TenantKey" Type="bigint" Nullable="false" />
+    <Property Name="UserKey" Type="bigint" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="AuditInsertedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AppStrategicForecastSummaryScenario">
+    <Key>
+      <PropertyRef Name="SummaryScenarioKey" />
+    </Key>
+    <Property Name="SummaryScenarioKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SummaryKey" Type="int" Nullable="false" />
+    <Property Name="ScenarioKey" Type="int" Nullable="false" />
+    <Property Name="UserKey" Type="bigint" Nullable="false" />
+    <Property Name="TenantKey" Type="bigint" Nullable="false" />
+    <Property Name="AuditInsertedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AppTenant">
+    <Key>
+      <PropertyRef Name="TenantKey" />
+    </Key>
+    <Property Name="TenantKey" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstitutionKey" Type="int" Nullable="false" />
+    <Property Name="TenantName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="TenantDomain" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="InsertedDateTime" Type="datetime" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="TenantType" Type="varchar" MaxLength="10" />
+    <Property Name="ReferredBy" Type="int" />
+  </EntityType>
+  <EntityType Name="AppUser">
+    <Key>
+      <PropertyRef Name="UserKey" />
+    </Key>
+    <Property Name="UserKey" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenantKey" Type="bigint" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Department" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="EMail" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="ApprovalDate" Type="datetime" />
+    <Property Name="LastLoginDate" Type="datetime" />
+    <Property Name="IsLocked" Type="bit" Nullable="false" />
+    <Property Name="PasswordQuestion" Type="nvarchar(max)" />
+    <Property Name="PasswordAnswer" Type="nvarchar(max)" />
+    <Property Name="ActivationToken" Type="nvarchar" MaxLength="200" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime2" Precision="7" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="HasAcceptedTerms" Type="bit" />
+    <Property Name="IsEmailSent" Type="bit" />
+    <Property Name="IsPasswordReset" Type="bit" />
+  </EntityType>
+  <EntityType Name="AppUserClaim">
+    <Key>
+      <PropertyRef Name="UserClaimKey" />
+    </Key>
+    <Property Name="UserClaimKey" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserKey" Type="bigint" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AppUserLogin">
+    <Key>
+      <PropertyRef Name="UserKey" />
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+    </Key>
+    <Property Name="UserKey" Type="bigint" Nullable="false" />
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppUserRegistrationToken">
+    <Key>
+      <PropertyRef Name="UserRegistrationTokenKey" />
+    </Key>
+    <Property Name="UserRegistrationTokenKey" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserKey" Type="bigint" />
+    <Property Name="Token" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppUserRole">
+    <Key>
+      <PropertyRef Name="UserRoleKey" />
+    </Key>
+    <Property Name="UserKey" Type="bigint" Nullable="false" />
+    <Property Name="RoleKey" Type="bigint" Nullable="false" />
+    <Property Name="UserRoleKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsAccessible" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DataRefreshErrors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DataRefreshGUID" Type="uniqueidentifier" />
+    <Property Name="QuarterDate" Type="varchar" MaxLength="50" />
+    <Property Name="ErrorAtStep" Type="varchar" MaxLength="100" />
+    <Property Name="ErrorMessage" Type="varchar(max)" />
+    <Property Name="IsEmailSent" Type="bit" />
+    <Property Name="IsErrorSolved" Type="bit" />
+    <Property Name="AuditDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DataRefreshTimePeriods">
+    <Key>
+      <PropertyRef Name="PeriodId" />
+    </Key>
+    <Property Name="PeriodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DataRefreshGUId" Type="uniqueidentifier" />
+    <Property Name="QuarterName" Type="varchar" MaxLength="10" />
+    <Property Name="QuarterYear" Type="varchar" MaxLength="10" />
+    <Property Name="QuarterDate" Type="varchar" MaxLength="20" />
+    <Property Name="IsProcessStarted" Type="bit" />
+    <Property Name="IsProcessCompleted" Type="bit" />
+    <Property Name="IsInstFilesDownloaded" Type="bit" />
+    <Property Name="IsStatFilesDownloaded" Type="bit" />
+    <Property Name="IsCallDataFilesStarted" Type="bit" />
+    <Property Name="IsCallDataFilesDownloaded" Type="bit" />
+    <Property Name="IsStdGrpInstFilesStarted" Type="bit" />
+    <Property Name="IsStdGrpInstFilesDownloaded" Type="bit" />
+    <Property Name="IsQuarternameEnvVarUpdated" Type="bit" />
+    <Property Name="NoOfRetries" Type="int" />
+    <Property Name="AuditInsertDate" Type="datetime" />
+    <Property Name="IsProdProcessStarted" Type="bit" />
+    <Property Name="IsProdProcessCompleted" Type="bit" />
+    <Property Name="isManualActionRequired" Type="bit" />
+    <Property Name="isTimePeriodFilesAvailable" Type="bit" Nullable="false" />
+    <Property Name="isNewQuarter" Type="bit" Nullable="false" />
+    <Property Name="IsCertDownloadStarted" Type="bit" />
+    <Property Name="IsCertDownloadCompleted" Type="bit" />
+    <Property Name="IsSecondRefreshRequired" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DataRefreshUpdates">
+    <Key>
+      <PropertyRef Name="DataRefreshId" />
+    </Key>
+    <Property Name="DataRefreshId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DataRefreshGUID" Type="uniqueidentifier" />
+    <Property Name="CERTNOS" Type="nvarchar(max)" />
+    <Property Name="isUpdateRequired" Type="bit" />
+    <Property Name="QuarterDate" Type="varchar" MaxLength="20" />
+    <Property Name="DataRefreshedDate" Type="date" />
+    <Property Name="isUBPRDataFilesjobCompleted" Type="bit" />
+    <Property Name="isStgUBPRStandardPeerGroupPerBankDownloaded" Type="bit" />
+    <Property Name="isStdGroupPerBankFileAvailable" Type="bit" />
+    <Property Name="isStatDataFilesDownloaded" Type="bit" />
+    <Property Name="isStgDataLoadJobStep4Completed" Type="bit" />
+    <Property Name="isStgDataLoadJobStep9Completed" Type="bit" />
+    <Property Name="isCBRDataWarehouseDataLoad13Completed" Type="bit" />
+    <Property Name="isCBRDataWarehouseDataLoad23Completed" Type="bit" />
+    <Property Name="isCBRDataWarehouseDataLoad24Completed" Type="bit" />
+    <Property Name="isCBRDataWarehouseDataLoad25Completed" Type="bit" />
+    <Property Name="isErrorOccured" Type="bit" />
+    <Property Name="AuditDate" Type="date" />
+    <Property Name="isStgDataLoadJobStep5Completed" Type="bit" />
+    <Property Name="isStgDataLoadJobStep6Completed" Type="bit" />
+    <Property Name="isNewQuarter" Type="bit" Nullable="false" />
+    <Property Name="LastCallDataDownloadedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="DimCallSchedule">
+    <Key>
+      <PropertyRef Name="CallScheduleKey" />
+    </Key>
+    <Property Name="CallScheduleKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CallScheduleCode" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="AuditInsertedDateTime" Type="datetime" Nullable="false" />
+    <Property Name="AuditInsertedPackageKey" Type="int" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="datetime" />
+    <Property Name="AuditUpdatedPackageKey" Type="int" />
+  </EntityType>
+  <EntityType Name="DimCustPeerGroup">
+    <Key>
+      <PropertyRef Name="CustPeerGroupKey" />
+    </Key>
+    <Property Name="CustPeerGroupKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustPeerGroupName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="TenantKey" Type="bigint" Nullable="false" />
+    <Property Name="UserKey" Type="bigint" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDefault" Type="bit" Nullable="false" />
+    <Property Name="StatusReason" Type="varchar" MaxLength="255" />
+    <Property Name="AuditInsertedDateTime" Type="datetime" Nullable="false" />
+    <Property Name="AuditInsertedPackageKey" Type="int" />
+    <Property Name="AuditUpdatedDateTime" Type="datetime" />
+    <Property Name="AuditUpdatedPackageKey" Type="int" />
+    <Property Name="AuditHashMD5" Type="binary" MaxLength="16" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="DimCustPeerGroupDetail">
+    <Key>
+      <PropertyRef Name="CustPeerGroupDetailKey" />
+    </Key>
+    <Property Name="CustPeerGroupDetailKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustPeerGroupKey" Type="int" Nullable="false" />
+    <Property Name="CustPeerInstitutionKey" Type="int" Nullable="false" />
+    <Property Name="AuditInsertedDateTime" Type="datetime" Nullable="false" />
+    <Property Name="AuditInsertedPackageKey" Type="int" />
+    <Property Name="AuditUpdatedDateTime" Type="datetime" />
+    <Property Name="AuditUpdatedPackageKey" Type="int" />
+    <Property Name="AuditHashMD5" Type="binary" MaxLength="16" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="DimDate">
+    <Key>
+      <PropertyRef Name="DateKey" />
+    </Key>
+    <Property Name="DateKey" Type="int" Nullable="false" />
+    <Property Name="FullDate" Type="date" Nullable="false" />
+    <Property Name="DayNumberOfWeek" Type="tinyint" Nullable="false" />
+    <Property Name="DayNameOfWeek" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="WeekDayType" Type="nvarchar" MaxLength="7" Nullable="false" />
+    <Property Name="DayNumberOfMonth" Type="tinyint" Nullable="false" />
+    <Property Name="DayNumberOfYear" Type="smallint" Nullable="false" />
+    <Property Name="WeekNumberOfYear" Type="tinyint" Nullable="false" />
+    <Property Name="MonthNameOfYear" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="MonthNumberOfYear" Type="tinyint" Nullable="false" />
+    <Property Name="QuarterNumberCalendar" Type="tinyint" Nullable="false" />
+    <Property Name="QuarterNameCalendar" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="SemesterNumberCalendar" Type="tinyint" Nullable="false" />
+    <Property Name="SemesterNameCalendar" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="YearCalendar" Type="smallint" Nullable="false" />
+    <Property Name="MonthNumberFiscal" Type="tinyint" Nullable="false" />
+    <Property Name="QuarterNumberFiscal" Type="tinyint" Nullable="false" />
+    <Property Name="QuarterNameFiscal" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="SemesterNumberFiscal" Type="tinyint" Nullable="false" />
+    <Property Name="SemesterNameFiscal" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="YearFiscal" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DimInstitution">
+    <Key>
+      <PropertyRef Name="InstitutionKey" />
+    </Key>
+    <Property Name="InstitutionKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CertNumber" Type="int" />
+    <Property Name="Rssd" Type="int" />
+    <Property Name="InstitutionName" Type="varchar" MaxLength="255" />
+    <Property Name="InstitutionAddress" Type="varchar" MaxLength="255" />
+    <Property Name="InstitutionCity" Type="varchar" MaxLength="255" />
+    <Property Name="InstitutionZip" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="InstitutionStateName" Type="varchar" MaxLength="255" />
+    <Property Name="Docket" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="AssetTotal" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="BankCharterClass" Type="varchar" MaxLength="255" />
+    <Property Name="Charter" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="CharterAgencyName" Type="varchar" MaxLength="255" />
+    <Property Name="Conserve" Type="varchar" MaxLength="255" />
+    <Property Name="MajorAndMinorCategoryCode" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="CmsaNo" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="Cmsa" Type="varchar" MaxLength="255" />
+    <Property Name="County" Type="varchar" MaxLength="255" />
+    <Property Name="DepositTotal" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="EquityTotal" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="EstablishedDate" Type="datetime" />
+    <Property Name="FDICAssignedRegionOfficeNumber" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="FDICRegion" Type="varchar" MaxLength="255" />
+    <Property Name="FDICSupervisoryRegion" Type="varchar" MaxLength="255" />
+    <Property Name="FederalReserveDistrict" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="FederalCharter" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="FDICFieldOffice" Type="varchar" MaxLength="255" />
+    <Property Name="MetropolitanStatisticalAreaNo" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="MetropolitanStatisticalArea" Type="varchar" MaxLength="255" />
+    <Property Name="NewCertNumber" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="Oakar" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="OfficeOfThriftSupervisionDistrict" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="OfficeOfThriftSupervisionRegion" Type="varchar" MaxLength="255" />
+    <Property Name="Regulator" Type="varchar" MaxLength="255" />
+    <Property Name="StateCharter" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="ReturnOnAsset" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="ReturnOnAssetEquivalency" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="ReturnOnEquity" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="ReturnOnEquityEquivalency" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="Stalp" Type="varchar" MaxLength="255" />
+    <Property Name="StateCounty" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="StateNum" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="WebAddress" Type="varchar" MaxLength="255" />
+    <Property Name="OfficeOfTheComptrollerDistrict" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="UniqueNumber" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="UltCertNumber" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="NumOfOffices" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="HeadQuarterCity" Type="varchar" MaxLength="255" />
+    <Property Name="DomesticDepositsTotal" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="BankHoldingCompany" Type="varchar" MaxLength="255" />
+    <Property Name="NetIncomeTotal" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="NetIncomeEquivalency" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="RSSDIDNumber" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="StalpHcr" Type="varchar" MaxLength="255" />
+    <Property Name="MultiStateBranches" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="RoapTx" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="RoapTxQ" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="IsTrustPowers" Type="bit" />
+    <Property Name="AssetConcentrationHierarchy" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="SpecGrpN" Type="varchar" MaxLength="255" />
+    <Property Name="Tract" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="Csa" Type="varchar" MaxLength="255" />
+    <Property Name="CsaNo" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="IsCsa" Type="bit" />
+    <Property Name="Cbsa" Type="varchar" MaxLength="255" />
+    <Property Name="CbsaNo" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="CbsaMetroName" Type="varchar" MaxLength="255" />
+    <Property Name="CbsaMetro" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="IsCbsaMetro" Type="bit" />
+    <Property Name="CbsaDiv" Type="varchar" MaxLength="255" />
+    <Property Name="CbsaDivNo" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="IsCbsaDiv" Type="bit" />
+    <Property Name="ReportDate" Type="datetime" />
+    <Property Name="RunDate" Type="datetime" />
+    <Property Name="NumOfDomesticUSOffices" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="NumOfForeignOffices" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="SubchapterSCorporations" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="DepositInsuranceDate" Type="datetime" />
+    <Property Name="LastStructureChangeEffectiveDate" Type="datetime" />
+    <Property Name="IsMutualOwnership" Type="bit" />
+    <Property Name="ParentCertNumber" Type="int" />
+    <Property Name="InsuranceFundMembership" Type="varchar" MaxLength="255" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="AuditInsertedDateTime" Type="datetime" Nullable="false" />
+    <Property Name="AuditInsertedPackageKey" Type="int" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="datetime" />
+    <Property Name="AuditUpdatedPackageKey" Type="int" />
+    <Property Name="AuditHashMD5" Type="binary" MaxLength="16" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="DimInstitutionBranch">
+    <Key>
+      <PropertyRef Name="InstitutionBranchKey" />
+    </Key>
+    <Property Name="InstitutionBranchKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstitutionBranchId" Type="int" Nullable="false" />
+    <Property Name="InstitutionKey" Type="int" Nullable="false" />
+    <Property Name="InstitutionBranchName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="InstitutionBranchAddress" Type="varchar" MaxLength="255" />
+    <Property Name="InstitutionBranchCity" Type="varchar" MaxLength="255" />
+    <Property Name="InstitutionBranchZip" Type="varchar" MaxLength="255" />
+    <Property Name="InstitutionBranchStateName" Type="varchar" MaxLength="255" />
+    <Property Name="CertNumber" Type="int" />
+    <Property Name="InstitutionBranchEstablishedDate" Type="datetime" />
+    <Property Name="InstitutionBranchOfficeName" Type="varchar" MaxLength="255" />
+    <Property Name="InstitutionBranchOfficeNum" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="FiUniNum" Type="int" />
+    <Property Name="IsCbsaMetro" Type="bit" />
+    <Property Name="IsCbsaMicro" Type="bit" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="AuditInsertedDateTime" Type="datetime" Nullable="false" />
+    <Property Name="AuditInsertedPackageKey" Type="int" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="datetime" />
+    <Property Name="AuditUpdatedPackageKey" Type="int" />
+    <Property Name="AuditHashMD5" Type="binary" MaxLength="16" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="DimMDRM">
+    <Key>
+      <PropertyRef Name="MDRMKey" />
+    </Key>
+    <Property Name="MDRMKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MDRMNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MDRMShortDefinition" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="AuditInsertedDateTime" Type="datetime" Nullable="false" />
+    <Property Name="AuditInsertedPackageKey" Type="int" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="datetime" />
+    <Property Name="AuditUpdatedPackageKey" Type="int" />
+    <Property Name="AuditHashMD5" Type="binary" MaxLength="16" StoreGeneratedPattern="Computed" />
+    <Property Name="CustomMDRMDesc" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="DimReportingPeriodType">
+    <Key>
+      <PropertyRef Name="ReportingPeriodTypeKey" />
+    </Key>
+    <Property Name="ReportingPeriodTypeKey" Type="int" Nullable="false" />
+    <Property Name="ReportingPeriodType" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="AuditInsertedPackageKey" Type="int" Nullable="false" />
+    <Property Name="AuditInsertedDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DimStdPeerGroup">
+    <Key>
+      <PropertyRef Name="StdPeerGroupKey" />
+    </Key>
+    <Property Name="StdPeerGroupKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StdPeerGroupCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StdPeerGroupName" Type="varchar" MaxLength="255" />
+    <Property Name="AuditInsertedDateTime" Type="datetime" Nullable="false" />
+    <Property Name="AuditInsertedPackageKey" Type="int" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="datetime" />
+    <Property Name="AuditUpdatedPackageKey" Type="int" />
+    <Property Name="AuditHashMD5" Type="binary" MaxLength="16" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="DimStdPeerGroupDetail">
+    <Key>
+      <PropertyRef Name="StdPeerGroupDetailKey" />
+    </Key>
+    <Property Name="StdPeerGroupDetailKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StdPeerGroupKey" Type="int" Nullable="false" />
+    <Property Name="StdPeerInstitutionKey" Type="int" Nullable="false" />
+    <Property Name="StdPeerGroupDateKey" Type="int" />
+    <Property Name="AuditInsertedDateTime" Type="datetime" Nullable="false" />
+    <Property Name="AuditInsertedPackageKey" Type="int" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="datetime" />
+    <Property Name="AuditUpdatedPackageKey" Type="int" />
+    <Property Name="AuditHashMD5" Type="binary" MaxLength="16" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="DimUBPRConcept">
+    <Key>
+      <PropertyRef Name="UBPRConceptKey" />
+    </Key>
+    <Property Name="UBPRConceptKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UBPRConceptCode" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="UBPRConceptDesc" Type="varchar" MaxLength="1000" />
+    <Property Name="UBPRConceptNarrative" Type="varchar" MaxLength="4000" />
+    <Property Name="UBPRConceptFormula" Type="varchar" MaxLength="4000" />
+    <Property Name="UBPRConceptUnit" Type="varchar" MaxLength="255" />
+    <Property Name="AuditInsertedDateTime" Type="datetime" Nullable="false" />
+    <Property Name="AuditInsertedPackageKey" Type="int" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="datetime" />
+    <Property Name="AuditUpdatedPackageKey" Type="int" />
+    <Property Name="AuditHashMD5" Type="binary" MaxLength="16" StoreGeneratedPattern="Computed" />
+    <Property Name="CustomUBPRConceptCodeDesc" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CBRDataWarehouse.dbo.ERMAccesscontrol' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ERMAccesscontrol">
+    <Key>
+      <PropertyRef Name="ERMAccessControlKey" />
+      <PropertyRef Name="auditinserteddatetime" />
+    </Key>
+    <Property Name="ERMAccessControlKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenantKey" Type="int" />
+    <Property Name="TenantType" Type="varchar" MaxLength="50" />
+    <Property Name="institutionkey" Type="int" />
+    <Property Name="Institutionname" Type="varchar" MaxLength="255" />
+    <Property Name="userkey" Type="int" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="firstname" Type="varchar" MaxLength="255" />
+    <Property Name="lastname" Type="varchar" MaxLength="255" />
+    <Property Name="modulename" Type="varchar" MaxLength="50" />
+    <Property Name="rolename" Type="varchar" MaxLength="50" />
+    <Property Name="isaccessible" Type="bit" />
+    <Property Name="auditinserteddatetime" Type="datetime" Nullable="false" />
+    <Property Name="auditupdateddatetime" Type="datetime" />
+    <Property Name="Rssd" Type="int" />
+    <Property Name="FDICNumber" Type="int" />
+  </EntityType>
+  <EntityType Name="FactCustPGUBPRData">
+    <Key>
+      <PropertyRef Name="CustPGUBPRDataKey" />
+    </Key>
+    <Property Name="CustPGUBPRDataKey" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustPeerGroupKey" Type="int" Nullable="false" />
+    <Property Name="CustPGUBPRDateKey" Type="int" Nullable="false" />
+    <Property Name="CustPGUBPRConceptKey" Type="int" Nullable="false" />
+    <Property Name="CustPGUBPRPeriodTypeKey" Type="int" Nullable="false" />
+    <Property Name="CustPGUBPRDataValue" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="AuditInsertedDateTime" Type="datetime" Nullable="false" />
+    <Property Name="AuditInsertedPackageKey" Type="int" />
+    <Property Name="AuditUpdatedDateTime" Type="datetime" />
+    <Property Name="AuditUpdatedPackageKey" Type="int" />
+  </EntityType>
+  <EntityType Name="FactStdPGUBPRData">
+    <Key>
+      <PropertyRef Name="StdPGUBPRDataKey" />
+    </Key>
+    <Property Name="StdPGUBPRDataKey" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StdPeerGroupKey" Type="int" Nullable="false" />
+    <Property Name="StdPGUBPRDateKey" Type="int" Nullable="false" />
+    <Property Name="StdPGUBPRConceptKey" Type="int" Nullable="false" />
+    <Property Name="StdPGUBPRPeriodTypeKey" Type="int" Nullable="false" />
+    <Property Name="StdPGUBPRDataValue" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="AuditInsertedDateTime" Type="datetime" Nullable="false" />
+    <Property Name="AuditInsertedPackageKey" Type="int" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="datetime" />
+    <Property Name="AuditUpdatedPackageKey" Type="int" />
+  </EntityType>
+  <EntityType Name="FactUBPRBenchmark">
+    <Key>
+      <PropertyRef Name="BenchmarkDataKey" />
+    </Key>
+    <Property Name="BenchmarkDataKey" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstitutionKey" Type="int" Nullable="false" />
+    <Property Name="UBPRConceptKey" Type="int" Nullable="false" />
+    <Property Name="ReportPeriodTypeKey" Type="int" Nullable="false" />
+    <Property Name="BenchmarkValue" Type="decimal" Precision="36" Scale="2" />
+    <Property Name="TenantKey" Type="bigint" />
+    <Property Name="UserKey" Type="bigint" />
+  </EntityType>
+  <EntityType Name="FactUBPRBenchmarkThreshold">
+    <Key>
+      <PropertyRef Name="BenchmarkThresholdKey" />
+    </Key>
+    <Property Name="BenchmarkThresholdKey" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstitutionKey" Type="int" Nullable="false" />
+    <Property Name="ThresholdValue" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TenantKey" Type="bigint" />
+    <Property Name="UserKey" Type="bigint" />
+  </EntityType>
+  <EntityType Name="FactUBPRData">
+    <Key>
+      <PropertyRef Name="UBPRDataKey" />
+    </Key>
+    <Property Name="UBPRDataKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstitutionKey" Type="int" Nullable="false" />
+    <Property Name="UBPRDateKey" Type="int" Nullable="false" />
+    <Property Name="UBPRConceptKey" Type="int" Nullable="false" />
+    <Property Name="UBPRPeriodTypeKey" Type="int" Nullable="false" />
+    <Property Name="UBPRDataValue" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="UBPRReportingPeriodDateKey" Type="int" Nullable="false" />
+    <Property Name="AuditInsertedDateTime" Type="datetime" Nullable="false" />
+    <Property Name="AuditInsertedPackageKey" Type="int" Nullable="false" />
+    <Property Name="AuditUpdatedDateTime" Type="datetime" />
+    <Property Name="AuditUpdatedPackageKey" Type="int" />
+  </EntityType>
+  <EntityType Name="ForumConfig">
+    <Key>
+      <PropertyRef Name="ForumId" />
+    </Key>
+    <Property Name="ForumId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ForumRegistrationURL" Type="nvarchar(max)" />
+    <Property Name="ForumAuthenticationURL" Type="nvarchar(max)" />
+    <Property Name="ForumHomeURL" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="KriMetricMaster">
+    <Key>
+      <PropertyRef Name="KriMetricId" />
+    </Key>
+    <Property Name="KriMetricId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KriGroup" Type="varchar" MaxLength="255" />
+    <Property Name="MetricDesc" Type="varchar" MaxLength="255" />
+    <Property Name="Metric" Type="varchar" MaxLength="255" />
+    <Property Name="UBPRConceptCode" Type="varchar" MaxLength="50" />
+    <Property Name="IsDefault" Type="int" />
+    <Property Name="KriMetricSeq" Type="int" />
+    <Property Name="IsHighScoreGood" Type="int" />
+  </EntityType>
+  <EntityType Name="RptCBRRiskRadarChartDetails">
+    <Key>
+      <PropertyRef Name="RptRiskRadarChartDetailsKey" />
+    </Key>
+    <Property Name="RptRiskRadarChartDetailsKey" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportTabName" Type="varchar" MaxLength="25" />
+    <Property Name="InstitutionKey" Type="int" />
+    <Property Name="CertNumber" Type="varchar" MaxLength="255" />
+    <Property Name="InstitutionName" Type="varchar" MaxLength="255" />
+    <Property Name="PeerGroupKey" Type="varchar" MaxLength="255" />
+    <Property Name="PeerGroup" Type="varchar" MaxLength="255" />
+    <Property Name="State" Type="varchar" MaxLength="255" />
+    <Property Name="Region" Type="varchar" MaxLength="255" />
+    <Property Name="AssetSize" Type="varchar" MaxLength="255" />
+    <Property Name="KriMetricId" Type="int" />
+    <Property Name="CurrentMinus4DataValue" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentMinus3DataValue" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentMinus2DataValue" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentMinus1DataValue" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentDataValue" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentMinus4ScoreValue" Type="int" />
+    <Property Name="CurrentMinus3ScoreValue" Type="int" />
+    <Property Name="CurrentMinus2ScoreValue" Type="int" />
+    <Property Name="CurrentMinus1ScoreValue" Type="int" />
+    <Property Name="CurrentScoreValue" Type="int" />
+    <Property Name="IsHighScoreGood" Type="int" />
+    <Property Name="CurrentMinus4PeerGroupAvgValue" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentMinus3PeerGroupAvgValue" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentMinus2PeerGroupAvgValue" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentMinus1PeerGroupAvgValue" Type="decimal" Precision="36" Scale="6" />
+    <Property Name="CurrentPeerGroupAvgValue" Type="decimal" Precision="36" Scale="6" />
+  </EntityType>
+  <EntityType Name="RptCBRRiskRadarUserMetricmapping">
+    <Key>
+      <PropertyRef Name="UserMappingKey" />
+    </Key>
+    <Property Name="UserMappingKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Userkey" Type="bigint" />
+    <Property Name="KRI1" Type="int" />
+    <Property Name="KRI2" Type="int" />
+    <Property Name="KRI3" Type="int" />
+    <Property Name="KRI4" Type="int" />
+    <Property Name="KRI5" Type="int" />
+    <Property Name="KRI6" Type="int" />
+    <Property Name="KRI7" Type="int" />
+    <Property Name="KRI8" Type="int" />
+    <Property Name="KRI9" Type="int" />
+    <Property Name="KRI10" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CBRDataWarehouse.dbo.vwProjectNewDocCount' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwProjectNewDocCount">
+    <Key>
+      <PropertyRef Name="ProjectType" />
+      <PropertyRef Name="DocumentType" />
+      <PropertyRef Name="NewDocCount" />
+    </Key>
+    <Property Name="ProjectType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DocumentType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DocumentDisplayName" Type="nvarchar" MaxLength="100" />
+    <Property Name="NewDocCount" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__AppAccess__Modul__0C46B282">
+    <End Role="AppModule" Type="Self.AppModule" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppAccessControl" Type="Self.AppAccessControl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppModule">
+        <PropertyRef Name="ModuleKey" />
+      </Principal>
+      <Dependent Role="AppAccessControl">
+        <PropertyRef Name="ModuleKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppAccess__Tenan__0D3AD6BB">
+    <End Role="AppTenant" Type="Self.AppTenant" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppAccessControl" Type="Self.AppAccessControl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppTenant">
+        <PropertyRef Name="TenantKey" />
+      </Principal>
+      <Dependent Role="AppAccessControl">
+        <PropertyRef Name="TenantKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__Metri__04B07DB2">
+    <End Role="AppStrategicForecastInputMetric" Type="Self.AppStrategicForecastInputMetric" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppStrategicForecastInputData" Type="Self.AppStrategicForecastInputData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppStrategicForecastInputMetric">
+        <PropertyRef Name="MetricKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastInputData">
+        <PropertyRef Name="MetricKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__Scena__05A4A1EB">
+    <End Role="AppStrategicForecastScenario" Type="Self.AppStrategicForecastScenario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppStrategicForecastInputData" Type="Self.AppStrategicForecastInputData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppStrategicForecastScenario">
+        <PropertyRef Name="ScenarioKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastInputData">
+        <PropertyRef Name="ScenarioKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__Summa__0D1ADB2A">
+    <End Role="AppStrategicForecastSummary" Type="Self.AppStrategicForecastSummary" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppStrategicForecastSummaryScenario" Type="Self.AppStrategicForecastSummaryScenario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppStrategicForecastSummary">
+        <PropertyRef Name="SummaryKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastSummaryScenario">
+        <PropertyRef Name="SummaryKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__Tenan__00DFECCE">
+    <End Role="AppTenant" Type="Self.AppTenant" Multiplicity="1" />
+    <End Role="AppStrategicForecastScenario" Type="Self.AppStrategicForecastScenario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppTenant">
+        <PropertyRef Name="TenantKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastScenario">
+        <PropertyRef Name="TenantKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__Tenan__0698C624">
+    <End Role="AppTenant" Type="Self.AppTenant" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppStrategicForecastInputData" Type="Self.AppStrategicForecastInputData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppTenant">
+        <PropertyRef Name="TenantKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastInputData">
+        <PropertyRef Name="TenantKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__Tenan__0E0EFF63">
+    <End Role="AppTenant" Type="Self.AppTenant" Multiplicity="1" />
+    <End Role="AppStrategicForecastSummaryScenario" Type="Self.AppStrategicForecastSummaryScenario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppTenant">
+        <PropertyRef Name="TenantKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastSummaryScenario">
+        <PropertyRef Name="TenantKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__Tenan__4F52B2DB">
+    <End Role="AppTenant" Type="Self.AppTenant" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppStrategicForecastSummary" Type="Self.AppStrategicForecastSummary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppTenant">
+        <PropertyRef Name="TenantKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastSummary">
+        <PropertyRef Name="TenantKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__UserK__078CEA5D">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppStrategicForecastInputData" Type="Self.AppStrategicForecastInputData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastInputData">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__UserK__0F03239C">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+    <End Role="AppStrategicForecastSummaryScenario" Type="Self.AppStrategicForecastSummaryScenario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastSummaryScenario">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AppStrate__UserK__5046D714">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppStrategicForecastSummary" Type="Self.AppStrategicForecastSummary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="AppStrategicForecastSummary">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppFavouriteBanks_InstitutionKey">
+    <End Role="DimInstitution" Type="Self.DimInstitution" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppFavoriteBank" Type="Self.AppFavoriteBank" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimInstitution">
+        <PropertyRef Name="InstitutionKey" />
+      </Principal>
+      <Dependent Role="AppFavoriteBank">
+        <PropertyRef Name="InstitutionKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppFavouriteBanks_UserKey">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppFavoriteBank" Type="Self.AppFavoriteBank" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="AppFavoriteBank">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppFavouriteSearches_UserKey">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppFavoriteSearch" Type="Self.AppFavoriteSearch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="AppFavoriteSearch">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppTenant_InstitutionKey">
+    <End Role="DimInstitution" Type="Self.DimInstitution" Multiplicity="1" />
+    <End Role="AppTenant" Type="Self.AppTenant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimInstitution">
+        <PropertyRef Name="InstitutionKey" />
+      </Principal>
+      <Dependent Role="AppTenant">
+        <PropertyRef Name="InstitutionKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUser_Tenant">
+    <End Role="AppTenant" Type="Self.AppTenant" Multiplicity="1" />
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppTenant">
+        <PropertyRef Name="TenantKey" />
+      </Principal>
+      <Dependent Role="AppUser">
+        <PropertyRef Name="TenantKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUserClaim_User">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppUserClaim" Type="Self.AppUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="AppUserClaim">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUserLogin_User">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppUserLogin" Type="Self.AppUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="AppUserLogin">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUserRole_Role">
+    <End Role="AppRole" Type="Self.AppRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppUserRole" Type="Self.AppUserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppRole">
+        <PropertyRef Name="RoleKey" />
+      </Principal>
+      <Dependent Role="AppUserRole">
+        <PropertyRef Name="RoleKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppUserRole_User">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppUserRole" Type="Self.AppUserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="AppUserRole">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DimCustPeerGroup_TenantKey">
+    <End Role="AppTenant" Type="Self.AppTenant" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DimCustPeerGroup" Type="Self.DimCustPeerGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppTenant">
+        <PropertyRef Name="TenantKey" />
+      </Principal>
+      <Dependent Role="DimCustPeerGroup">
+        <PropertyRef Name="TenantKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DimCustPeerGroup_UserKey">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DimCustPeerGroup" Type="Self.DimCustPeerGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="DimCustPeerGroup">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DimCustPeerGroupDetail_CustPeerGroupKey">
+    <End Role="DimCustPeerGroup" Type="Self.DimCustPeerGroup" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DimCustPeerGroupDetail" Type="Self.DimCustPeerGroupDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimCustPeerGroup">
+        <PropertyRef Name="CustPeerGroupKey" />
+      </Principal>
+      <Dependent Role="DimCustPeerGroupDetail">
+        <PropertyRef Name="CustPeerGroupKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DimCustPeerGroupDetail_InstitutionKey">
+    <End Role="DimInstitution" Type="Self.DimInstitution" Multiplicity="1" />
+    <End Role="DimCustPeerGroupDetail" Type="Self.DimCustPeerGroupDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimInstitution">
+        <PropertyRef Name="InstitutionKey" />
+      </Principal>
+      <Dependent Role="DimCustPeerGroupDetail">
+        <PropertyRef Name="CustPeerInstitutionKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DimInstitutionBranch_InstitutionKey">
+    <End Role="DimInstitution" Type="Self.DimInstitution" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DimInstitutionBranch" Type="Self.DimInstitutionBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimInstitution">
+        <PropertyRef Name="InstitutionKey" />
+      </Principal>
+      <Dependent Role="DimInstitutionBranch">
+        <PropertyRef Name="InstitutionKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactCustPGUBPRData_CustPeerGroupKey">
+    <End Role="DimCustPeerGroup" Type="Self.DimCustPeerGroup" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FactCustPGUBPRData" Type="Self.FactCustPGUBPRData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimCustPeerGroup">
+        <PropertyRef Name="CustPeerGroupKey" />
+      </Principal>
+      <Dependent Role="FactCustPGUBPRData">
+        <PropertyRef Name="CustPeerGroupKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactCustPGUBPRData_CustPGUBPRConceptKey">
+    <End Role="DimUBPRConcept" Type="Self.DimUBPRConcept" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FactCustPGUBPRData" Type="Self.FactCustPGUBPRData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimUBPRConcept">
+        <PropertyRef Name="UBPRConceptKey" />
+      </Principal>
+      <Dependent Role="FactCustPGUBPRData">
+        <PropertyRef Name="CustPGUBPRConceptKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactCustPGUBPRData_CustPGUBPRDateKey">
+    <End Role="DimDate" Type="Self.DimDate" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FactCustPGUBPRData" Type="Self.FactCustPGUBPRData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimDate">
+        <PropertyRef Name="DateKey" />
+      </Principal>
+      <Dependent Role="FactCustPGUBPRData">
+        <PropertyRef Name="CustPGUBPRDateKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactCustPGUBPRData_CustPGUBPRPeriodTypeKey">
+    <End Role="DimReportingPeriodType" Type="Self.DimReportingPeriodType" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FactCustPGUBPRData" Type="Self.FactCustPGUBPRData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimReportingPeriodType">
+        <PropertyRef Name="ReportingPeriodTypeKey" />
+      </Principal>
+      <Dependent Role="FactCustPGUBPRData">
+        <PropertyRef Name="CustPGUBPRPeriodTypeKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactStdPGUBPRData_StdPGUBPRConceptKey">
+    <End Role="DimUBPRConcept" Type="Self.DimUBPRConcept" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FactStdPGUBPRData" Type="Self.FactStdPGUBPRData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimUBPRConcept">
+        <PropertyRef Name="UBPRConceptKey" />
+      </Principal>
+      <Dependent Role="FactStdPGUBPRData">
+        <PropertyRef Name="StdPGUBPRConceptKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactStdPGUBPRData_StdPGUBPRPeriodTypeKey">
+    <End Role="DimReportingPeriodType" Type="Self.DimReportingPeriodType" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FactStdPGUBPRData" Type="Self.FactStdPGUBPRData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimReportingPeriodType">
+        <PropertyRef Name="ReportingPeriodTypeKey" />
+      </Principal>
+      <Dependent Role="FactStdPGUBPRData">
+        <PropertyRef Name="StdPGUBPRPeriodTypeKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactUBPRBenchMark_InstitutionKey">
+    <End Role="DimInstitution" Type="Self.DimInstitution" Multiplicity="1" />
+    <End Role="FactUBPRBenchmark" Type="Self.FactUBPRBenchmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimInstitution">
+        <PropertyRef Name="InstitutionKey" />
+      </Principal>
+      <Dependent Role="FactUBPRBenchmark">
+        <PropertyRef Name="InstitutionKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactUBPRBenchMark_ReportPeriodTypeKey">
+    <End Role="DimReportingPeriodType" Type="Self.DimReportingPeriodType" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FactUBPRBenchmark" Type="Self.FactUBPRBenchmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimReportingPeriodType">
+        <PropertyRef Name="ReportingPeriodTypeKey" />
+      </Principal>
+      <Dependent Role="FactUBPRBenchmark">
+        <PropertyRef Name="ReportPeriodTypeKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactUBPRBenchMark_TenantKey">
+    <End Role="AppTenant" Type="Self.AppTenant" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FactUBPRBenchmark" Type="Self.FactUBPRBenchmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppTenant">
+        <PropertyRef Name="TenantKey" />
+      </Principal>
+      <Dependent Role="FactUBPRBenchmark">
+        <PropertyRef Name="TenantKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactUBPRBenchMark_UBPRConceptKey">
+    <End Role="DimUBPRConcept" Type="Self.DimUBPRConcept" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FactUBPRBenchmark" Type="Self.FactUBPRBenchmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimUBPRConcept">
+        <PropertyRef Name="UBPRConceptKey" />
+      </Principal>
+      <Dependent Role="FactUBPRBenchmark">
+        <PropertyRef Name="UBPRConceptKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactUBPRBenchMark_UserKey">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FactUBPRBenchmark" Type="Self.FactUBPRBenchmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="FactUBPRBenchmark">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactUBPRBenchMarkThreshold_InstitutionKey">
+    <End Role="DimInstitution" Type="Self.DimInstitution" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FactUBPRBenchmarkThreshold" Type="Self.FactUBPRBenchmarkThreshold" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DimInstitution">
+        <PropertyRef Name="InstitutionKey" />
+      </Principal>
+      <Dependent Role="FactUBPRBenchmarkThreshold">
+        <PropertyRef Name="InstitutionKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactUBPRBenchMarkThreshold_TenantKey">
+    <End Role="AppTenant" Type="Self.AppTenant" Multiplicity="0..1" />
+    <End Role="FactUBPRBenchmarkThreshold" Type="Self.FactUBPRBenchmarkThreshold" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppTenant">
+        <PropertyRef Name="TenantKey" />
+      </Principal>
+      <Dependent Role="FactUBPRBenchmarkThreshold">
+        <PropertyRef Name="TenantKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactUBPRBenchMarkThreshold_UserKey">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FactUBPRBenchmarkThreshold" Type="Self.FactUBPRBenchmarkThreshold" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="FactUBPRBenchmarkThreshold">
+        <PropertyRef Name="UserKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RptCBRRiskRadarUserMappingKey">
+    <End Role="AppUser" Type="Self.AppUser" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RptCBRRiskRadarUserMetricmapping" Type="Self.RptCBRRiskRadarUserMetricmapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUser">
+        <PropertyRef Name="UserKey" />
+      </Principal>
+      <Dependent Role="RptCBRRiskRadarUserMetricmapping">
+        <PropertyRef Name="Userkey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="uspDimCustPeerGroupDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspDimDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="uspDimInstitution" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PackageKey" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspDimInstitutionBranch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PackageKey" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspDimStdPeerGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PackageKey" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspDimUBPRConcept" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PackageKey" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspDimUBPRConceptUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PackageKey" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspFactCustPGUBPRData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PackageKey" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspFactStdPGUBPRData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PackageKey" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="CBRDataWareHouseModelStoreContainer">
+    <EntitySet Name="AppAccessControl" EntityType="Self.AppAccessControl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppCDOrders" EntityType="Self.AppCDOrders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppCRAMModel" EntityType="Self.AppCRAMModel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppFavoriteBank" EntityType="Self.AppFavoriteBank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppFavoriteSearch" EntityType="Self.AppFavoriteSearch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppHomePageContent" EntityType="Self.AppHomePageContent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppInfoCenterImage" EntityType="Self.AppInfoCenterImage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppManageCDRates" EntityType="Self.AppManageCDRates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppModule" EntityType="Self.AppModule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppProjectInfo" EntityType="Self.AppProjectInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppRole" EntityType="Self.AppRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppStorage" EntityType="Self.AppStorage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppStrategicForecastInputMetric" EntityType="Self.AppStrategicForecastInputMetric" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppStrategicForecastScenario" EntityType="Self.AppStrategicForecastScenario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppStrategicForecastSummary" EntityType="Self.AppStrategicForecastSummary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppStrategicForecastSummaryScenario" EntityType="Self.AppStrategicForecastSummaryScenario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppTenant" EntityType="Self.AppTenant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppUser" EntityType="Self.AppUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppUserClaim" EntityType="Self.AppUserClaim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppUserLogin" EntityType="Self.AppUserLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppUserRegistrationToken" EntityType="Self.AppUserRegistrationToken" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppUserRole" EntityType="Self.AppUserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DataRefreshErrors" EntityType="Self.DataRefreshErrors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DataRefreshTimePeriods" EntityType="Self.DataRefreshTimePeriods" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DataRefreshUpdates" EntityType="Self.DataRefreshUpdates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DimCallSchedule" EntityType="Self.DimCallSchedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DimCustPeerGroup" EntityType="Self.DimCustPeerGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DimCustPeerGroupDetail" EntityType="Self.DimCustPeerGroupDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DimDate" EntityType="Self.DimDate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DimInstitution" EntityType="Self.DimInstitution" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DimInstitutionBranch" EntityType="Self.DimInstitutionBranch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DimMDRM" EntityType="Self.DimMDRM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DimReportingPeriodType" EntityType="Self.DimReportingPeriodType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DimStdPeerGroup" EntityType="Self.DimStdPeerGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DimStdPeerGroupDetail" EntityType="Self.DimStdPeerGroupDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DimUBPRConcept" EntityType="Self.DimUBPRConcept" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FactCustPGUBPRData" EntityType="Self.FactCustPGUBPRData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FactStdPGUBPRData" EntityType="Self.FactStdPGUBPRData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FactUBPRBenchmark" EntityType="Self.FactUBPRBenchmark" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FactUBPRBenchmarkThreshold" EntityType="Self.FactUBPRBenchmarkThreshold" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FactUBPRData" EntityType="Self.FactUBPRData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ForumConfig" EntityType="Self.ForumConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KriMetricMaster" EntityType="Self.KriMetricMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RptCBRRiskRadarChartDetails" EntityType="Self.RptCBRRiskRadarChartDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RptCBRRiskRadarUserMetricmapping" EntityType="Self.RptCBRRiskRadarUserMetricmapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActiveCallReportList" EntityType="Self.ActiveCallReportList" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ActiveCallReportList].[ReportingPeriod] AS [ReportingPeriod], 
+    [ActiveCallReportList].[CertNumber] AS [CertNumber], 
+    [ActiveCallReportList].[InstitutionName] AS [InstitutionName], 
+    [ActiveCallReportList].[DateInserted] AS [DateInserted]
+    FROM [dbo].[ActiveCallReportList] AS [ActiveCallReportList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AppCRAMAdjustBankData" EntityType="Self.AppCRAMAdjustBankData" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AppCRAMAdjustBankData].[ModelKey] AS [ModelKey], 
+    [AppCRAMAdjustBankData].[Tier1LeverageRatio] AS [Tier1LeverageRatio], 
+    [AppCRAMAdjustBankData].[CET1CapitalRatio] AS [CET1CapitalRatio], 
+    [AppCRAMAdjustBankData].[Tier1CapitalRatio] AS [Tier1CapitalRatio], 
+    [AppCRAMAdjustBankData].[TotalCapitalRatio] AS [TotalCapitalRatio], 
+    [AppCRAMAdjustBankData].[CommonEquityTier1Capital] AS [CommonEquityTier1Capital], 
+    [AppCRAMAdjustBankData].[Tier1Capital] AS [Tier1Capital], 
+    [AppCRAMAdjustBankData].[TotalCapital] AS [TotalCapital], 
+    [AppCRAMAdjustBankData].[TotalAssetsLeveragePurposes] AS [TotalAssetsLeveragePurposes], 
+    [AppCRAMAdjustBankData].[TotalRiskWeightedAssets] AS [TotalRiskWeightedAssets], 
+    [AppCRAMAdjustBankData].[IsActive] AS [IsActive], 
+    [AppCRAMAdjustBankData].[IsDelete] AS [IsDelete]
+    FROM [dbo].[AppCRAMAdjustBankData] AS [AppCRAMAdjustBankData]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AppCRAMRiskCategories" EntityType="Self.AppCRAMRiskCategories" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AppCRAMRiskCategories].[ModelKey] AS [ModelKey], 
+    [AppCRAMRiskCategories].[CreditRiskScore] AS [CreditRiskScore], 
+    [AppCRAMRiskCategories].[CreditRiskWeighing] AS [CreditRiskWeighing], 
+    [AppCRAMRiskCategories].[InterestRateRiskScore] AS [InterestRateRiskScore], 
+    [AppCRAMRiskCategories].[InterestRateRiskWeighing] AS [InterestRateRiskWeighing], 
+    [AppCRAMRiskCategories].[LiquidityRiskScore] AS [LiquidityRiskScore], 
+    [AppCRAMRiskCategories].[LiquidityRiskWeighing] AS [LiquidityRiskWeighing], 
+    [AppCRAMRiskCategories].[OperationalRiskScore] AS [OperationalRiskScore], 
+    [AppCRAMRiskCategories].[OperationalRiskWeighing] AS [OperationalRiskWeighing], 
+    [AppCRAMRiskCategories].[ComplianceRiskScore] AS [ComplianceRiskScore], 
+    [AppCRAMRiskCategories].[ComplianceRiskWeighing] AS [ComplianceRiskWeighing], 
+    [AppCRAMRiskCategories].[StrategicRiskScore] AS [StrategicRiskScore], 
+    [AppCRAMRiskCategories].[StrategicRiskWeighing] AS [StrategicRiskWeighing], 
+    [AppCRAMRiskCategories].[ReputationRiskScore] AS [ReputationRiskScore], 
+    [AppCRAMRiskCategories].[ReputationRiskWeighing] AS [ReputationRiskWeighing], 
+    [AppCRAMRiskCategories].[IsActive] AS [IsActive], 
+    [AppCRAMRiskCategories].[IsDelete] AS [IsDelete]
+    FROM [dbo].[AppCRAMRiskCategories] AS [AppCRAMRiskCategories]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AppCRAMRiskRating" EntityType="Self.AppCRAMRiskRating" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AppCRAMRiskRating].[ModelKey] AS [ModelKey], 
+    [AppCRAMRiskRating].[Low] AS [Low], 
+    [AppCRAMRiskRating].[LowModerate] AS [LowModerate], 
+    [AppCRAMRiskRating].[Moderate] AS [Moderate], 
+    [AppCRAMRiskRating].[ModerateHigh] AS [ModerateHigh], 
+    [AppCRAMRiskRating].[High] AS [High], 
+    [AppCRAMRiskRating].[IsActive] AS [IsActive], 
+    [AppCRAMRiskRating].[IsDelete] AS [IsDelete]
+    FROM [dbo].[AppCRAMRiskRating] AS [AppCRAMRiskRating]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AppCRAMRiskRatingDefault" EntityType="Self.AppCRAMRiskRatingDefault" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AppCRAMRiskRatingDefault].[RiskRating] AS [RiskRating], 
+    [AppCRAMRiskRatingDefault].[CapitalRiskBuffer] AS [CapitalRiskBuffer]
+    FROM [dbo].[AppCRAMRiskRatingDefault] AS [AppCRAMRiskRatingDefault]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AppStrategicForecastInputData" EntityType="Self.AppStrategicForecastInputData" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AppStrategicForecastInputData].[TenantKey] AS [TenantKey], 
+    [AppStrategicForecastInputData].[UserKey] AS [UserKey], 
+    [AppStrategicForecastInputData].[ScenarioKey] AS [ScenarioKey], 
+    [AppStrategicForecastInputData].[MetricKey] AS [MetricKey], 
+    [AppStrategicForecastInputData].[Year0] AS [Year0], 
+    [AppStrategicForecastInputData].[Year1] AS [Year1], 
+    [AppStrategicForecastInputData].[Year2] AS [Year2], 
+    [AppStrategicForecastInputData].[Year3] AS [Year3], 
+    [AppStrategicForecastInputData].[Year4] AS [Year4], 
+    [AppStrategicForecastInputData].[Year5] AS [Year5], 
+    [AppStrategicForecastInputData].[AuditInsertedDate] AS [AuditInsertedDate], 
+    [AppStrategicForecastInputData].[PriorYear] AS [PriorYear], 
+    [AppStrategicForecastInputData].[CurrentYearYTD] AS [CurrentYearYTD], 
+    [AppStrategicForecastInputData].[IsActive] AS [IsActive]
+    FROM [dbo].[AppStrategicForecastInputData] AS [AppStrategicForecastInputData]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ERMAccesscontrol" EntityType="Self.ERMAccesscontrol" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ERMAccesscontrol].[ERMAccessControlKey] AS [ERMAccessControlKey], 
+    [ERMAccesscontrol].[TenantKey] AS [TenantKey], 
+    [ERMAccesscontrol].[TenantType] AS [TenantType], 
+    [ERMAccesscontrol].[institutionkey] AS [institutionkey], 
+    [ERMAccesscontrol].[Institutionname] AS [Institutionname], 
+    [ERMAccesscontrol].[userkey] AS [userkey], 
+    [ERMAccesscontrol].[email] AS [email], 
+    [ERMAccesscontrol].[firstname] AS [firstname], 
+    [ERMAccesscontrol].[lastname] AS [lastname], 
+    [ERMAccesscontrol].[modulename] AS [modulename], 
+    [ERMAccesscontrol].[rolename] AS [rolename], 
+    [ERMAccesscontrol].[isaccessible] AS [isaccessible], 
+    [ERMAccesscontrol].[auditinserteddatetime] AS [auditinserteddatetime], 
+    [ERMAccesscontrol].[auditupdateddatetime] AS [auditupdateddatetime], 
+    [ERMAccesscontrol].[Rssd] AS [Rssd], 
+    [ERMAccesscontrol].[FDICNumber] AS [FDICNumber]
+    FROM [dbo].[ERMAccesscontrol] AS [ERMAccesscontrol]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwProjectNewDocCount" EntityType="Self.vwProjectNewDocCount" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwProjectNewDocCount].[ProjectType] AS [ProjectType], 
+    [vwProjectNewDocCount].[DocumentType] AS [DocumentType], 
+    [vwProjectNewDocCount].[DocumentDisplayName] AS [DocumentDisplayName], 
+    [vwProjectNewDocCount].[NewDocCount] AS [NewDocCount]
+    FROM [dbo].[vwProjectNewDocCount] AS [vwProjectNewDocCount]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__AppAccess__Modul__0C46B282" Association="Self.FK__AppAccess__Modul__0C46B282">
+      <End Role="AppModule" EntitySet="AppModule" />
+      <End Role="AppAccessControl" EntitySet="AppAccessControl" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppAccess__Tenan__0D3AD6BB" Association="Self.FK__AppAccess__Tenan__0D3AD6BB">
+      <End Role="AppTenant" EntitySet="AppTenant" />
+      <End Role="AppAccessControl" EntitySet="AppAccessControl" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__Metri__04B07DB2" Association="Self.FK__AppStrate__Metri__04B07DB2">
+      <End Role="AppStrategicForecastInputMetric" EntitySet="AppStrategicForecastInputMetric" />
+      <End Role="AppStrategicForecastInputData" EntitySet="AppStrategicForecastInputData" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__Scena__05A4A1EB" Association="Self.FK__AppStrate__Scena__05A4A1EB">
+      <End Role="AppStrategicForecastScenario" EntitySet="AppStrategicForecastScenario" />
+      <End Role="AppStrategicForecastInputData" EntitySet="AppStrategicForecastInputData" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__Summa__0D1ADB2A" Association="Self.FK__AppStrate__Summa__0D1ADB2A">
+      <End Role="AppStrategicForecastSummary" EntitySet="AppStrategicForecastSummary" />
+      <End Role="AppStrategicForecastSummaryScenario" EntitySet="AppStrategicForecastSummaryScenario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__Tenan__00DFECCE" Association="Self.FK__AppStrate__Tenan__00DFECCE">
+      <End Role="AppTenant" EntitySet="AppTenant" />
+      <End Role="AppStrategicForecastScenario" EntitySet="AppStrategicForecastScenario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__Tenan__0698C624" Association="Self.FK__AppStrate__Tenan__0698C624">
+      <End Role="AppTenant" EntitySet="AppTenant" />
+      <End Role="AppStrategicForecastInputData" EntitySet="AppStrategicForecastInputData" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__Tenan__0E0EFF63" Association="Self.FK__AppStrate__Tenan__0E0EFF63">
+      <End Role="AppTenant" EntitySet="AppTenant" />
+      <End Role="AppStrategicForecastSummaryScenario" EntitySet="AppStrategicForecastSummaryScenario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__Tenan__4F52B2DB" Association="Self.FK__AppStrate__Tenan__4F52B2DB">
+      <End Role="AppTenant" EntitySet="AppTenant" />
+      <End Role="AppStrategicForecastSummary" EntitySet="AppStrategicForecastSummary" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__UserK__078CEA5D" Association="Self.FK__AppStrate__UserK__078CEA5D">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="AppStrategicForecastInputData" EntitySet="AppStrategicForecastInputData" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__UserK__0F03239C" Association="Self.FK__AppStrate__UserK__0F03239C">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="AppStrategicForecastSummaryScenario" EntitySet="AppStrategicForecastSummaryScenario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AppStrate__UserK__5046D714" Association="Self.FK__AppStrate__UserK__5046D714">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="AppStrategicForecastSummary" EntitySet="AppStrategicForecastSummary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppFavouriteBanks_InstitutionKey" Association="Self.FK_AppFavouriteBanks_InstitutionKey">
+      <End Role="DimInstitution" EntitySet="DimInstitution" />
+      <End Role="AppFavoriteBank" EntitySet="AppFavoriteBank" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppFavouriteBanks_UserKey" Association="Self.FK_AppFavouriteBanks_UserKey">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="AppFavoriteBank" EntitySet="AppFavoriteBank" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppFavouriteSearches_UserKey" Association="Self.FK_AppFavouriteSearches_UserKey">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="AppFavoriteSearch" EntitySet="AppFavoriteSearch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppTenant_InstitutionKey" Association="Self.FK_AppTenant_InstitutionKey">
+      <End Role="DimInstitution" EntitySet="DimInstitution" />
+      <End Role="AppTenant" EntitySet="AppTenant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUser_Tenant" Association="Self.FK_AppUser_Tenant">
+      <End Role="AppTenant" EntitySet="AppTenant" />
+      <End Role="AppUser" EntitySet="AppUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUserClaim_User" Association="Self.FK_AppUserClaim_User">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="AppUserClaim" EntitySet="AppUserClaim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUserLogin_User" Association="Self.FK_AppUserLogin_User">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="AppUserLogin" EntitySet="AppUserLogin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUserRole_Role" Association="Self.FK_AppUserRole_Role">
+      <End Role="AppRole" EntitySet="AppRole" />
+      <End Role="AppUserRole" EntitySet="AppUserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppUserRole_User" Association="Self.FK_AppUserRole_User">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="AppUserRole" EntitySet="AppUserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DimCustPeerGroup_TenantKey" Association="Self.FK_DimCustPeerGroup_TenantKey">
+      <End Role="AppTenant" EntitySet="AppTenant" />
+      <End Role="DimCustPeerGroup" EntitySet="DimCustPeerGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DimCustPeerGroup_UserKey" Association="Self.FK_DimCustPeerGroup_UserKey">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="DimCustPeerGroup" EntitySet="DimCustPeerGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DimCustPeerGroupDetail_CustPeerGroupKey" Association="Self.FK_DimCustPeerGroupDetail_CustPeerGroupKey">
+      <End Role="DimCustPeerGroup" EntitySet="DimCustPeerGroup" />
+      <End Role="DimCustPeerGroupDetail" EntitySet="DimCustPeerGroupDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DimCustPeerGroupDetail_InstitutionKey" Association="Self.FK_DimCustPeerGroupDetail_InstitutionKey">
+      <End Role="DimInstitution" EntitySet="DimInstitution" />
+      <End Role="DimCustPeerGroupDetail" EntitySet="DimCustPeerGroupDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DimInstitutionBranch_InstitutionKey" Association="Self.FK_DimInstitutionBranch_InstitutionKey">
+      <End Role="DimInstitution" EntitySet="DimInstitution" />
+      <End Role="DimInstitutionBranch" EntitySet="DimInstitutionBranch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactCustPGUBPRData_CustPeerGroupKey" Association="Self.FK_FactCustPGUBPRData_CustPeerGroupKey">
+      <End Role="DimCustPeerGroup" EntitySet="DimCustPeerGroup" />
+      <End Role="FactCustPGUBPRData" EntitySet="FactCustPGUBPRData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactCustPGUBPRData_CustPGUBPRConceptKey" Association="Self.FK_FactCustPGUBPRData_CustPGUBPRConceptKey">
+      <End Role="DimUBPRConcept" EntitySet="DimUBPRConcept" />
+      <End Role="FactCustPGUBPRData" EntitySet="FactCustPGUBPRData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactCustPGUBPRData_CustPGUBPRDateKey" Association="Self.FK_FactCustPGUBPRData_CustPGUBPRDateKey">
+      <End Role="DimDate" EntitySet="DimDate" />
+      <End Role="FactCustPGUBPRData" EntitySet="FactCustPGUBPRData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactCustPGUBPRData_CustPGUBPRPeriodTypeKey" Association="Self.FK_FactCustPGUBPRData_CustPGUBPRPeriodTypeKey">
+      <End Role="DimReportingPeriodType" EntitySet="DimReportingPeriodType" />
+      <End Role="FactCustPGUBPRData" EntitySet="FactCustPGUBPRData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactStdPGUBPRData_StdPGUBPRConceptKey" Association="Self.FK_FactStdPGUBPRData_StdPGUBPRConceptKey">
+      <End Role="DimUBPRConcept" EntitySet="DimUBPRConcept" />
+      <End Role="FactStdPGUBPRData" EntitySet="FactStdPGUBPRData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactStdPGUBPRData_StdPGUBPRPeriodTypeKey" Association="Self.FK_FactStdPGUBPRData_StdPGUBPRPeriodTypeKey">
+      <End Role="DimReportingPeriodType" EntitySet="DimReportingPeriodType" />
+      <End Role="FactStdPGUBPRData" EntitySet="FactStdPGUBPRData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactUBPRBenchMark_InstitutionKey" Association="Self.FK_FactUBPRBenchMark_InstitutionKey">
+      <End Role="DimInstitution" EntitySet="DimInstitution" />
+      <End Role="FactUBPRBenchmark" EntitySet="FactUBPRBenchmark" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactUBPRBenchMark_ReportPeriodTypeKey" Association="Self.FK_FactUBPRBenchMark_ReportPeriodTypeKey">
+      <End Role="DimReportingPeriodType" EntitySet="DimReportingPeriodType" />
+      <End Role="FactUBPRBenchmark" EntitySet="FactUBPRBenchmark" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactUBPRBenchMark_TenantKey" Association="Self.FK_FactUBPRBenchMark_TenantKey">
+      <End Role="AppTenant" EntitySet="AppTenant" />
+      <End Role="FactUBPRBenchmark" EntitySet="FactUBPRBenchmark" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactUBPRBenchMark_UBPRConceptKey" Association="Self.FK_FactUBPRBenchMark_UBPRConceptKey">
+      <End Role="DimUBPRConcept" EntitySet="DimUBPRConcept" />
+      <End Role="FactUBPRBenchmark" EntitySet="FactUBPRBenchmark" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactUBPRBenchMark_UserKey" Association="Self.FK_FactUBPRBenchMark_UserKey">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="FactUBPRBenchmark" EntitySet="FactUBPRBenchmark" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactUBPRBenchMarkThreshold_InstitutionKey" Association="Self.FK_FactUBPRBenchMarkThreshold_InstitutionKey">
+      <End Role="DimInstitution" EntitySet="DimInstitution" />
+      <End Role="FactUBPRBenchmarkThreshold" EntitySet="FactUBPRBenchmarkThreshold" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactUBPRBenchMarkThreshold_TenantKey" Association="Self.FK_FactUBPRBenchMarkThreshold_TenantKey">
+      <End Role="AppTenant" EntitySet="AppTenant" />
+      <End Role="FactUBPRBenchmarkThreshold" EntitySet="FactUBPRBenchmarkThreshold" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactUBPRBenchMarkThreshold_UserKey" Association="Self.FK_FactUBPRBenchMarkThreshold_UserKey">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="FactUBPRBenchmarkThreshold" EntitySet="FactUBPRBenchmarkThreshold" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RptCBRRiskRadarUserMappingKey" Association="Self.FK_RptCBRRiskRadarUserMappingKey">
+      <End Role="AppUser" EntitySet="AppUser" />
+      <End Role="RptCBRRiskRadarUserMetricmapping" EntitySet="RptCBRRiskRadarUserMetricmapping" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

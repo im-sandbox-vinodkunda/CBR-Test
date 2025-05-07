@@ -1,0 +1,99 @@
+	.cbr-index-nav {
+		margin-top:5px;
+		margin-bottom:5px;
+		border-bottom:0;
+	}
+	
+	.cbr-index-nav.nav-tabs>li>a {
+	    color: #666766;
+	    background-color: #f0f0f0;
+	    border:0;
+	    border-bottom-color:0;
+	    cursor: default;
+	    border-top:0;
+		padding:3px;
+		border-radius:0;
+		font-size:9px;
+		margin:1px;
+	}
+	
+	.cbr-index-nav.nav-tabs>li.active>a, 
+	.cbr-index-nav.nav-tabs>li.active>a:hover, 
+	.cbr-index-nav.nav-tabs>li.active>a:focus {
+	    color: #ffffff;
+	    background-color: #003057;
+	    border:0;
+	    border-bottom-color:0;
+	    cursor: default;
+	    border-top:0;
+	}
+	
+	 
+	.cbr-index-nav.nav-tabs>li>a:hover, 
+	.cbr-index-nav.nav-tabs>li>a:focus {
+	    color: #ffffff;
+	    background-color: #003057;
+	    border:0;
+	    border-bottom-color:0;
+	    cursor: pointer;
+	}
+	
+	.cbr-index-tabs-container .col-md-12,
+	.cbr-index-bank-details-cont .col-md-9,
+	.cbr-index-bank-details-cont .col-md-3 {
+		padding:0;
+	}
+	
+    .cbr-index-bank-details-cont table {
+	font-size: 9px;
+    text-align: left;
+	margin-bottom:0;
+    box-shadow:none;
+}
+	.cbr-index-bank-details-cont .btn-group {margin-top:0;margin-bottom:0;}
+
+.cbr-index-bank-details-cont .btn-primary.toggle,	
+ .cbr-index-bank-details-cont .btn-primary.toggle-on.btn,
+ .cbr-index-bank-details-cont .btn-primary.toggle-off.btn {
+    background-color: #003057;
+    color: #ffffff;
+	border-color: #ddd !important;
+}
+
+.cbr-index-chart-container {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    height: 215px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.overflowhandler
+{
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.radio-dashboard-fontsize {
+	font-size: 10px;
+}
+.table-row-top-border-zero td{
+	border-top:0px !important;
+}
+.rr-info-chart-dashboard {	
+	display: flex;
+}
+
+.fixed {	
+	width: 90px;
+}
+
+.flex-item {	
+	flex-grow: 1;
+}
+
+input.radio {
+	display: inline;
+}
+.padding-right-10{
+	padding-right:10px;
+}

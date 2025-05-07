@@ -1,0 +1,1621 @@
+/* COMBINED AND MERGED STYLE SHEETS AUG 23 2018 */
+
+/* cbr.css */
+/* cb-resource.css */
+/* cb-resource.css */
+/* cb-resource-appsvs.css */
+
+
+
+.container-fluid.header {
+     background-color: #ffffff;
+     min-height: 70px;
+     padding-bottom: 0px;
+}
+
+.container-fluid.header .navbar-default {
+     background-color: transparent;
+     border-color: transparent;
+}
+
+.container-fluid.header .navbar-default .navbar-nav>li>a {
+     color: #173967;
+}
+
+.sub-header {
+     padding-bottom: 10px;
+     border-bottom: 1px solid #eee;
+}
+
+.navbar-fixed-top {
+     border: 0;
+     height: 100px;
+}
+
+.nav-sidebar {
+     margin-right: -21px;
+     margin-bottom: 20px;
+     margin-left: -20px;
+}
+
+.nav-sidebar>li>a {
+     padding-right: 20px;
+     padding-left: 20px;
+}
+
+.main {
+     padding: 20px 10px;
+}
+
+@media (min-width: 768px) {
+     .sidebar {
+          position: fixed;
+          top: 100px;
+          bottom: 0;
+          left: 0;
+          z-index: 1000;
+          display: block;
+          padding: 20px;
+          overflow-x: hidden;
+          overflow-y: auto;
+          background-color: #f5f5f5;
+          border-right: 1px solid #eee;
+
+          .main {
+               padding-right: 15px;
+               padding-left: 15px;
+          }
+
+          .main .page-header {
+               margin-top: 0;
+          }
+
+          .placeholders {
+               margin-bottom: 30px;
+               text-align: center;
+          }
+
+          .placeholders h4 {
+               margin-bottom: 0;
+          }
+
+          .placeholder img {
+               display: inline-block;
+               border-radius: 0%;
+          }
+
+          .fa-square.chart-legend-green {
+               color: #238b18;
+               margin-right: 5px;
+          }
+
+          .bs-login-footer {
+               height: auto;
+               background-color: #173967;
+               color: #ffffff;
+               padding: 30px 50px;
+               position: fixed;
+               bottom: 0;
+          }
+
+          .login-background-image {
+               background-size: cover;
+               background-position: center top;
+          }
+
+          h5.resource-links {
+               background-color: #173967;
+               padding: 10px 5px;
+               color: #ffffff;
+               font-size: 12px;
+               text-transform: uppercase;
+          }
+
+          .navbar-brand img {
+               width: 70px;
+          }
+
+          #btnExportCram {
+               text-transform: none;
+          }
+
+          .busycircleouter {
+               background-color: rgba(0, 0, 0, 0);
+               border: 5px solid rgba(167, 29, 36, 0.9);
+               opacity: .9;
+               border-right: 5px solid rgba(0, 0, 0, 0);
+               border-left: 5px solid rgba(0, 0, 0, 0);
+               border-radius: 50px;
+               width: 50px;
+               height: 50px;
+               margin: 0 auto;
+               -moz-animation: spinPulse 1s infinite ease-in-out;
+               -webkit-animation: spinPulse 1s infinite linear;
+          }
+
+          .busycircleinner {
+               background-color: rgba(0, 0, 0, 0);
+               border: 5px solid rgba(23, 57, 103, 0.9);
+               opacity: .9;
+               border-left: 5px solid rgba(0, 0, 0, 0);
+               border-right: 5px solid rgba(0, 0, 0, 0);
+               border-radius: 50px;
+               width: 30px;
+               height: 30px;
+               margin: 0 auto;
+               position: relative;
+               top: -40px;
+               -moz-animation: spinoffPulse 1s infinite linear;
+               -webkit-animation: spinoffPulse 1s infinite linear;
+          }
+
+          @-moz-keyframes spinPulse {
+               0% {
+                    -moz-transform: rotate(160deg);
+                    opacity: 0;
+               }
+
+               @-moz-keyframes spinoffPulse {
+                    0% {
+                         -moz-transform: rotate(0deg);
+                    }
+
+                    @-webkit-keyframes spinPulse {
+                         0% {
+                              -webkit-transform: rotate(160deg);
+                              opacity: 0;
+                         }
+
+                         50% {
+                              -moz-transform: rotate(145deg);
+                              -webkit-transform: rotate(145deg);
+                              opacity: 1;
+                         }
+
+                         @-webkit-keyframes spinoffPulse {
+                              0% {
+                                   -webkit-transform: rotate(0deg);
+                              }
+
+                              100% {
+                                   -moz-transform: rotate(360deg);
+                                   opacity: 0;
+                                   -webkit-transform: rotate(360deg);
+                              }
+
+                              #dropZone {
+                                   background: gray;
+                                   border: black dashed 3px;
+                                   width: 200px;
+                                   padding: 50px;
+                                   text-align: center;
+                                   color: white;
+                              }
+
+                              .unhideGreenBox {
+                                   display: block;
+                              }
+
+                              .activity-feed {
+                                   height: 530px;
+                                   overflow-y: scroll;
+                                   padding: 15px;
+                              }
+
+                              h1 {
+                                   font-size: 50px;
+                              }
+
+                              h2 {
+                                   font-size: 37px;
+                              }
+
+                              h3 {
+                                   font-size: 29px;
+                              }
+
+                              h4 {
+                                   font-size: 21px;
+                              }
+
+                              h6 {
+                                   font-size: 12px;
+                              }
+
+                              h3.project-heading {
+                                   text-transform: uppercase;
+                                   font-weight: 100;
+                                   font-size: 18px;
+                                   padding: 30px 0px;
+                              }
+
+                              .header .navbar {
+                                   position: relative;
+                                   min-height: 50px;
+                                   margin-bottom: 10px;
+                                   border: 1px solid transparent;
+                              }
+
+                              .heading-bold {
+                                   font-weight: 700;
+                              }
+
+                              .header .navbar-brand {
+                                   float: left;
+                                   font-size: 18px;
+                                   line-height: 20px;
+                              }
+
+                              .header .navbar-right {
+                                   margin-top: 10px;
+                                   font-size: 16px;
+                                   border: 1px solid #ececec;
+                              }
+
+                              .navbar-nav {
+                                   color: #ffffff;
+                                   font-size: 16px;
+                              }
+
+                              .btn-group {
+                                   margin-top: 10px;
+                                   margin-bottom: 10px;
+                              }
+
+                              .chart-container {
+                                   border: 1px solid #ececec;
+                                   margin: 10px 0px;
+                                   padding: 5px;
+                              }
+
+                              .dropzone {
+                                   min-height: 20px;
+                                   border: 1px solid #ececec;
+                                   background: #f5f5f5;
+                                   padding: 10px 20px;
+                                   margin: 2px 0px;
+                              }
+
+                              ul.nav-documents {
+                                   margin-top: 5px;
+                                   margin-bottom: 30px;
+                              }
+
+                              .nav-documents li.active {
+                                   border-bottom: 2px solid #173967;
+                                   border-top: 2px solid #173967;
+                                   padding: 5px 0px;
+                                   border: 0px;
+                                   background-color: #f4f4f4;
+                                   border-left: 10px solid #173967;
+                              }
+
+                              .nav-documents li a {
+                                   font-weight: lighter;
+                                   color: #173967;
+                                   position: relative;
+                                   display: block;
+                                   padding: 10px 15px;
+                                   line-height: 1.5em;
+                                   font-size: 12px;
+                              }
+
+                              .dashboard-icon:hover {
+                                   -webkit-transform: scale(1.1);
+                                   -moz-transform: scale(1.1);
+                                   -ms-transform: scale(1.1);
+                                   -o-transform: scale(1.1);
+                                   transform: scale(1.1);
+                              }
+
+                              .dashboard-icon a {
+                                   display: block;
+                                   width: 100%;
+                              }
+
+                              .tooltip {
+                                   border-radius: 0px;
+                              }
+
+                              .tooltip-inner {
+                                   font-size: 12px;
+                                   text-transform: capitalize;
+                                   padding: 20px;
+                                   opacity: 0.80;
+                              }
+
+                              .tooltip.in {
+                                   opacity: 1;
+                                   filter: alpha(opacity=100);
+                              }
+
+                              .popover {
+                                   z-index: 1010;
+                              }
+
+                              .fa-square.chart-legend-yellow {
+                                   margin-right: 5px;
+                                   color: #FFC207;
+                              }
+
+                              .fa-square.chart-legend-red {
+                                   color: #A71D23;
+                              }
+
+                              .fa-square.chart-legend-blue {
+                                   margin-right: 5px;
+                                   color: #173967;
+                              }
+
+                              .bs-docs-footer.cb-resource-footer {
+                                   background-color: #003057;
+                                   font-size: 12px;
+                              }
+
+                              .bs-docs-footer {
+                                   padding-top: 10px;
+                                   padding-bottom: 30px;
+                                   margin-top: 10px;
+                                   color: #767676;
+                                   text-align: center;
+                                   border-top: 1px solid #e5e5e5;
+                              }
+
+                              .bs-docs-footer-links {
+                                   padding-left: 0;
+                                   margin-top: 10px;
+                              }
+
+                              .chart-title h5 {
+                                   font-size: 12px;
+                                   font-weight: 400;
+                                   background-color: #ececec;
+                                   padding: 5px;
+                                   line-height: 1.25em;
+                              }
+
+                              div.dataTables_wrapper .col-sm-6 {
+                                   position: relative;
+                                   min-height: 1px;
+                                   padding-left: 0px;
+                                   padding-right: 0px;
+                                   border-top: 2px solid #173967;
+                              }
+
+                              div.dataTables_length label {
+                                   padding: 30px;
+                                   font-size: 14px;
+                                   font-weight: 400;
+                                   line-height: 1;
+                                   color: #555;
+                                   background-color: #ffffff;
+                              }
+
+                              div.dataTables_filter input.form-control {
+                                   display: inline-block;
+                                   vertical-align: middle;
+                                   width: 320px;
+                              }
+
+                              .table-responsive {
+                                   overflow-x: hidden;
+                              }
+
+                              .nav-documents li {
+                                   padding: 5px 10px;
+                                   border: 0px solid #cccccc;
+                                   background-color: #ffffff;
+                              }
+
+                              .nav-documents li.divider {
+                                   border-bottom: 1px solid #cccccc;
+                                   padding: 0px;
+                              }
+
+                              .nav label {
+                                   color: #173967;
+                                   font-weight: 400;
+                                   text-transform: uppercase;
+                              }
+
+                              .tree>li>label {
+                                   padding: 10px 15px;
+                              }
+
+                              .tree>li>ul>li>a {
+                                   color: #cc0000;
+                                   font-size: 10pt;
+                                   margin-left: 15px;
+                              }
+
+                              .crm-tab-inner {
+                                   float: left;
+                                   width: 100%;
+                                   margin: 13px 0;
+                              }
+
+                              ul.risk-profiles {
+                                   background-color: #ffffff;
+                                   border-bottom: 1px solid #dddddd;
+                              }
+
+                              .crm-nav-oter {
+                                   margin: 10px 0 0;
+                              }
+
+                              .nav.nav-pills.risk-profiles.crm-profile li.active a {
+                                   color: #000 !important;
+                              }
+
+                              .deta-sheet-checkbox {
+                                   display: table;
+                                   float: none;
+                                   height: 35px;
+                                   width: 10px !important;
+                              }
+
+                              .table-striped h5:hover {
+                                   cursor: pointer;
+                              }
+
+                              .dividend-margin {
+                                   padding-left: 23px !important;
+                              }
+
+                              .dividend-rate-margin {
+                                   padding-left: 39px !important;
+                              }
+
+                              .data-sheet {
+                                   width: 100%;
+                                   float: left;
+                                   height: 100%;
+                                   margin-top: 30px;
+                              }
+
+                              .save-change-button {
+                                   margin: 6px 3px;
+                                   padding: 9px 8px;
+                              }
+
+                              .save-change-button a {
+                                   float: right;
+                                   margin: 6px 4px;
+                                   padding: 9px 21px;
+                                   width: auto;
+                              }
+
+                              .black-text {
+                                   color: #000;
+                              }
+
+                              .red-text {
+                                   color: #dd0705;
+                              }
+
+                              .table-heading td {
+                                   text-align: center;
+                                   font-weight: 700;
+                              }
+
+                              .data-sheet input {
+                                   background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+                                   min-width: 100%;
+                                   width: 40px;
+                                   text-align: right;
+                                   border: 0 0 1px none none solid -moz-use-text-color -moz-use-text-color #cccccc;
+                              }
+
+                              .checkbox-input {
+                                   float: none;
+                                   width: 40px;
+                              }
+
+                              .checkbox-input input {
+                                   float: none;
+                                   width: 10px;
+                              }
+
+                              .Prior-heading {
+                                   width: 200px;
+                              }
+
+                              .cram-table span {
+                                   float: left;
+                                   text-align: left;
+                                   width: 0;
+                                   margin: 0px 15px 0px 0px;
+                              }
+
+                              .border-th th,
+                              .cram-table td {
+                                   border: 1px solid #ccc;
+                              }
+
+                              .checkbox-width {
+                                   width: auto;
+                              }
+
+                              .tier-1-text p {
+                                   border-bottom: 1px solid #cccccc;
+                                   color: #000;
+                                   font-size: 11px;
+                                   font-weight: 700;
+                                   margin-bottom: 34px;
+                              }
+
+                              .mar-table {
+                                   margin: 40px 0;
+                              }
+
+                              .border-img {
+                                   border: 1px solid #cccccc;
+                                   margin-bottom: 20px;
+                              }
+
+                              .crm-b-space {
+                                   margin-bottom: 30px;
+                              }
+
+                              .risk-rating {
+                                   float: right;
+                                   margin: 30px 0 0;
+                                   width: 100%;
+                              }
+
+                              .risk-rating ul li {
+                                   border: 1px solid #cccccc;
+                                   font-size: 11px;
+                                   list-style: outside none none;
+                                   padding: 1px 10px;
+                              }
+
+                              .risk-rating ul li.active {
+                                   color: #337ab7;
+                                   font-weight: 700;
+                                   text-align: center;
+                              }
+
+                              .report-period {
+                                   float: right;
+                                   margin: 30px 0px 0;
+                                   width: 100%;
+                              }
+
+                              .report-period-main {
+                                   float: left;
+                                   margin-right: 30px;
+                                   width: auto;
+                              }
+
+                              .report-period-main.risk-main {
+                                   margin-right: 0;
+                              }
+
+                              .risk-capital,
+                              .save-model,
+                              div.dataTables_filter label {
+                                   float: right;
+                              }
+
+                              .report-period ul {
+                                   float: left;
+                                   margin-bottom: 0 !important;
+                                   padding: 0;
+                                   width: auto;
+                              }
+
+                              .report-period .select-quarter-droparea button.btn-default.dropdown-toggle {
+                                   padding: 0 10px;
+                                   width: 100%;
+                              }
+
+                              #drawerExample-input-filed h3,
+                              .nav.nav-pills.risk-profiles.crm-profile li a:first-child {
+                                   padding-left: 13px;
+                              }
+
+                              .report-period .select-quarter-droparea ul.dropdown-menu {
+                                   width: auto;
+                                   float: left;
+                                   left: 0;
+                                   margin: 0;
+                                   padding: 0;
+                                   position: absolute;
+                                   right: 0;
+                                   top: 97%;
+                              }
+
+                              .report-period .select-quarter-droparea {
+                                   float: left;
+                                   position: relative;
+                                   width: 100%;
+                              }
+
+                              .report-period .dropdown-menu {
+                                   min-width: 100%;
+                              }
+
+                              .report-period .btn.btn-default.dropdown-toggle {
+                                   border-radius: 0;
+                              }
+
+                              .report-period th:last-child {
+                                   padding: 0 !important;
+                              }
+
+                              .select-quarter li {
+                                   border: 1px solid #ccc;
+                                   color: #000;
+                                   font-size: 11px;
+                                   list-style: outside none none;
+                                   padding: 1px 10px;
+                                   text-align: center;
+                              }
+
+                              .report-period td {
+                                   border: 1px solid #cccccc !important;
+                                   padding: 2px 10px !important;
+                              }
+
+                              .report-period td:last-child {
+                                   border: 1px solid #cccccc !important;
+                                   text-align: center;
+                              }
+
+                              .report-period td:first-child {
+                                   border: 0 none !important;
+                                   text-align: right;
+                              }
+
+                              .select-quarter-droparea {
+                                   width: 160px;
+                                   float: left;
+                              }
+
+                              .select-quarter-droparea button.btn-default.dropdown-toggle {
+                                   padding: 0px 10px;
+                                   width: 161px;
+                              }
+
+                              .select-quarter-droparea ul.dropdown-menu {
+                                   width: 160px;
+                                   float: left;
+                                   padding: 0px;
+                                   right: 0;
+                                   top: 36%;
+                                   left: 72%;
+                                   margin: 0px;
+                              }
+
+                              .select-quarter-droparea ul.dropdown-menu li a:hover,
+                              .select-quarter-droparea ul.dropdown-menu li a,
+                              .select-quarter-droparea ul.dropdown-menu li {
+                                   margin: 0px 0;
+                                   border: 0px solid #ccc;
+                                   color: #000;
+                                   font-size: 11px;
+                                   list-style: outside none none;
+                                   padding: 1px 0px;
+                                   text-align: center;
+                              }
+
+                              .select-quarter-droparea ul.dropdown-menu li.divider {
+                                   height: 1px;
+                                   margin: 0px 0;
+                                   overflow: hidden;
+                                   background-color: #e5e5e5;
+                                   border: 0px solid #ccc;
+                                   padding: 0px 10px;
+                                   text-align: center;
+                              }
+
+                              a.btn.btn-default.btn-sm.search-bank {
+                                   min-width: 200px;
+                                   padding: 6px 10px;
+                                   font-size: 14px;
+                              }
+
+                              .tier-1-text.cram-table a {
+                                   color: #337ab7;
+                              }
+
+                              .report-period ul li.active {
+                                   color: #337ab7;
+                                   font-weight: 700;
+                                   text-align: right;
+                              }
+
+                              .report li {
+                                   font-size: 11px;
+                                   list-style: outside none none;
+                                   text-align: right;
+                                   padding: 1px 10px;
+                              }
+
+                              .green-color {
+                                   background: #00b050;
+                              }
+
+                              .light-green-color {
+                                   background: #92d050;
+                              }
+
+                              .yellow-color {
+                                   background: #ffff00;
+                              }
+
+                              .orange-color {
+                                   background: #ff9900;
+                              }
+
+                              .red-color {
+                                   background: #ff3300;
+                              }
+
+                              .capital-risk-1 li {
+                                   color: #000;
+                                   text-align: center;
+                              }
+
+                              .dollar-text>span {
+                                   float: left;
+                                   text-align: left;
+                              }
+
+                              .note p {
+                                   font-size: 11px;
+                                   font-style: italic;
+                              }
+
+                              .note p span {
+                                   font-style: normal;
+                                   font-weight: 700;
+                              }
+
+                              .report-period table th {
+                                   border-top: 0 none !important;
+                                   padding-bottom: 0 !important;
+                              }
+
+                              .report-period table th.active {
+                                   background: transparent none repeat scroll 0 0 !important;
+                                   color: #337ab7;
+                              }
+
+                              .risk-rating .table tr th {
+                                   background: transparent none repeat scroll 0 0 !important;
+                                   color: #337ab7;
+                                   border: 1px solid #cccccc;
+                                   padding: 2px 10px;
+                              }
+
+                              .risk-rating .table tr td {
+                                   border: 1px solid #cccccc;
+                                   padding: 2px 10px;
+                              }
+
+                              .border-img1 {
+                                   border: 1px solid #cccccc;
+                                   float: left;
+                                   margin-bottom: 15px;
+                                   padding: 20px;
+                                   width: 100%;
+                              }
+
+                              .table.table-condensed.leverage th {
+                                   border-bottom: 0 none;
+                              }
+
+                              .table.table-condensed.input-data-sheet,
+                              .risk-rating tr,
+                              .table.table-condensed.moderate {
+                                   border: 1px solid #cccccc;
+                              }
+
+                              .table.table-condensed.input-data-sheet .clickable-row>td {
+                                   border: 1px solid #cccccc;
+                                   height: 0;
+                                   line-height: 20px;
+                              }
+
+                              td.light-yellow,
+                              .report-period table th:first-child,
+                              .dollar-text {
+                                   text-align: right;
+                              }
+
+                              .table.table-condensed.input-data-sheet .clickable-row>td.saved-tier-space {
+                                   border: 1px solid #cccccc;
+                                   height: 0;
+                                   line-height: 20px;
+                                   width: 50%;
+                              }
+
+                              td.saved-light-yellow {
+                                   text-align: right;
+                                   width: 50%;
+                              }
+
+                              select.risk-score {
+                                   float: right;
+                                   margin-left: 8px;
+                                   padding: 2px;
+                                   width: 38%;
+                              }
+
+                              .light-yellow {
+                                   background: #fff3cb none repeat scroll 0 0 !important;
+                              }
+
+                              .table.table-condensed.input-data-sheet .clickable-row>th {
+                                   border: 1px solid #ccc;
+                                   color: #337ab7;
+                                   height: 35px;
+                                   padding: 5px 0px;
+                                   text-align: center;
+                              }
+
+                              .risk-right {
+                                   float: left;
+                                   width: 100%;
+                                   margin-top: 32px;
+                              }
+
+                              .req-data,
+                              .risk-weigh,
+                              .outer-table {
+                                   float: left;
+                                   width: 100%;
+                              }
+
+                              .row.mar-botm,
+                              .placeholder {
+                                   margin-bottom: 20px;
+                              }
+
+                              .save-changes {
+                                   text-align: center;
+                                   width: 100%;
+                              }
+
+                              .req-data p {
+                                   color: #000;
+                                   font-size: 13px;
+                                   text-align: center;
+                                   text-transform: uppercase;
+                              }
+
+                              .table.table-condensed.moderate th {
+                                   border: 1px solid #cccccc !important;
+                                   text-align: center;
+                                   width: 15%;
+                                   text-transform: uppercase;
+                              }
+
+                              .td-space {
+                                   float: none !important;
+                                   padding-left: 22px;
+                                   width: auto;
+                              }
+
+                              .drawer-heading {
+                                   border-bottom: 1px solid #dfdfdf;
+                                   color: inherit;
+                                   padding: 10px 15px;
+                              }
+
+                              .drawer-title,
+                              .crm-nav-oter .btn-group {
+                                   margin-bottom: 0;
+                                   margin-top: 0;
+                              }
+
+                              .inupt-popup {
+                                   margin: 0 auto;
+                                   width: 100%;
+                              }
+
+                              .input-data-sheet input {
+                                   background: transparent none repeat scroll 0 0;
+                                   border: 0 none;
+                                   height: 20px;
+                                   width: 100%;
+                                   border-bottom: 1px solid #cccccc;
+                              }
+
+                              .tier-1-text input {
+                                   background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+                                   text-align: right;
+                                   border: 0 0 1px none none solid -moz-use-text-color -moz-use-text-color #cccccc;
+                              }
+
+                              .intend1 {
+                                   margin: 0px 10px 0px 15px;
+                              }
+
+                              .collapsing {
+                                   transition: height 0.4s;
+                              }
+
+                              td.expandtd {
+                                   margin: 0px !important;
+                                   padding: 0px 0px 0px 0px !important;
+                                   border-left: 1px solid #cccccc;
+                                   border-right: 1px solid #cccccc;
+                              }
+
+                              table.expandtable {
+                                   margin: 0px !important;
+                                   padding: 0px !important;
+                                   width: 100%;
+                              }
+
+                              table.expandtable td {
+                                   padding: 5px;
+                                   border: 0px;
+                                   border-left: 1px solid #cccccc;
+                                   border-bottom: 0px solid #cccccc;
+                              }
+
+                              table.expandtable td:first-child {
+                                   padding: 5px;
+                                   border: 0px;
+                                   border-left: 0px solid #cccccc;
+                                   border-bottom: 0px solid #cccccc;
+                              }
+
+                              .tier-1-text.cram-table tr {
+                                   border: 0px solid #cccccc;
+                              }
+
+                              .table-striped tr {
+                                   padding: 0px;
+                                   background-color: #f5f5f5;
+                                   border-top: 1px solid #ccc;
+                                   background: none;
+                              }
+
+                              table.nextlevel tr {
+                                   border-bottom: 1px solid #cccccc !important;
+                              }
+
+                              @media only screen and (max-width: 1900px) {
+                                   .nav.nav-pills.risk-profiles.crm-profile li a {
+                                        padding: 12px 10px;
+                                   }
+
+                                   @media only screen and (max-width: 1820px) {
+                                        .inupt-text.req-field {
+                                             width: 37%;
+                                        }
+
+                                        .save-changes a {
+                                             float: left;
+                                             width: auto;
+                                             margin: 6px 3px;
+                                             padding: 9px 8px;
+                                        }
+
+                                        @media only screen and (max-width: 1650px) {
+                                             .inupt-text.req-field {
+                                                  width: 40%;
+                                             }
+
+                                             .inupt-text.opt-input,
+                                             .heading-width {
+                                                  width: 28%;
+                                             }
+
+                                             @media only screen and (max-width: 1500px) {
+                                                  .inupt-text.req-field {
+                                                       width: 45%;
+                                                  }
+
+                                                  @media only screen and (max-width: 1450px) {
+                                                       .allocation-model {
+                                                            width: 50%;
+                                                       }
+
+                                                       .report-outer {
+                                                            padding: 0;
+                                                            width: 100%;
+                                                       }
+
+                                                       @media only screen and (max-width: 1400px) {
+                                                            .save-model li a {
+                                                                 margin: 0 5px 5px;
+                                                                 padding: 8px 22px !important;
+                                                            }
+
+                                                            @media only screen and (max-width: 1350px) {
+                                                                 .inupt-text.req-field {
+                                                                      width: 46%;
+                                                                 }
+
+                                                                 .capital-risk {
+                                                                      padding-top: 34px;
+                                                                 }
+
+                                                                 @media only screen and (max-width: 1320px) {
+                                                                      .nav.nav-pills.risk-profiles.crm-profile li a {
+                                                                           padding: 12px 10px;
+                                                                      }
+
+                                                                      @media only screen and (max-width: 1300px) {
+                                                                           .nav.nav-pills.risk-profiles.crm-profile li a {
+                                                                                padding: 12px 10px;
+                                                                           }
+
+                                                                           .save-model li a {
+                                                                                margin: 0 5px 5px;
+                                                                                padding: 8px 23px !important;
+                                                                           }
+
+                                                                           @media only screen and (max-width: 1280px) {
+
+                                                                                .btn-xs,
+                                                                                .btn-group-xs>.btn {
+                                                                                     font-size: 11px;
+                                                                                }
+
+                                                                                @media only screen and (max-width: 1200px) {
+                                                                                     .req-data {
+                                                                                          width: 100%;
+                                                                                     }
+
+                                                                                     @media only screen and (max-width: 1100px) {
+                                                                                          .nav.nav-pills.risk-profiles.crm-profile li a {
+                                                                                               padding: 12px 10px;
+                                                                                          }
+
+                                                                                          @media only screen and (max-width: 979px) {
+                                                                                               .save-model {
+                                                                                                    float: left;
+                                                                                                    margin: 10px 0;
+                                                                                                    width: 100%;
+                                                                                               }
+
+                                                                                               .view-btn-crm {
+                                                                                                    margin-bottom: 5px;
+                                                                                               }
+
+                                                                                               @media only screen and (max-width: 767px) {
+                                                                                                    .nav.nav-pills.risk-profiles.crm-profile li a {
+                                                                                                         padding: 9px;
+                                                                                                    }
+
+                                                                                                    .btn-group.btn-crm {
+                                                                                                         float: right;
+                                                                                                         margin: 5px 0;
+                                                                                                    }
+
+                                                                                                    .view-btn-crm a.btn {
+                                                                                                         margin: 3px 0;
+                                                                                                         padding: 6px 30px;
+                                                                                                    }
+
+                                                                                                    @media only screen and (max-width: 479px) {
+                                                                                                         .nav.nav-pills.risk-profiles.crm-profile li a {
+                                                                                                              padding: 9px;
+                                                                                                         }
+
+                                                                                                         .save-model li {
+                                                                                                              display: inline;
+                                                                                                              float: left;
+                                                                                                              margin: 5px;
+                                                                                                              width: auto;
+                                                                                                         }
+
+                                                                                                         .nav.nav-pills.risk-profiles.crm-profile>li {
+                                                                                                              margin: 4px;
+                                                                                                              text-align: center;
+                                                                                                              width: 100%;
+                                                                                                         }
+
+                                                                                                         .nav.nav-pills.risk-profiles.crm-profile li a,
+                                                                                                         .risk-rating ul {
+                                                                                                              float: left;
+                                                                                                              padding: 0;
+                                                                                                         }
+
+                                                                                                              {
+                                                                                                              border-radius: 0;
+                                                                                                              z-index: 2;
+                                                                                                              text-align: left;
+                                                                                                              width: 100%;
+                                                                                                              text-decoration: none;
+                                                                                                              outline: 0;
+                                                                                                              padding-top: 10px;
+                                                                                                              padding-bottom: 10px;
+                                                                                                              font-family: 'Lato', sans-serif;
+                                                                                                              display: block;
+                                                                                                              padding: 3px 20px;
+                                                                                                              clear: both;
+                                                                                                              font-weight: 400;
+                                                                                                              line-height: 1.42857143;
+                                                                                                              white-space: nowrap;
+                                                                                                              font-size: 12px;
+                                                                                                              border: 1px solid #ddd;
+                                                                                                              border-bottom-color: transparent;
+                                                                                                              cursor: default;
+                                                                                                              border-top: 5px solid #173967;
+                                                                                                              border-color: transparent;
+                                                                                                              background-color: #173967;
+                                                                                                              color: #fff;
+                                                                                                              margin-right: 5px;
+                                                                                                         }
+
+                                                                                                         .extand-td,
+                                                                                                         .hideGreenBox,
+                                                                                                         .sidebar {
+                                                                                                              display: none;
+                                                                                                         }
+
+                                                                                                         .page-container {
+                                                                                                              padding: 0px;
+                                                                                                         }
+
+                                                                                                         body {
+                                                                                                              background-color: #eeeeee;
+                                                                                                              color: #666766;
+                                                                                                              font-family: 'Lato', sans-serif;
+                                                                                                              font-weight: 400;
+                                                                                                              font-size: 12px;
+                                                                                                         }
+
+                                                                                                         h1,
+                                                                                                         h2,
+                                                                                                         h3,
+                                                                                                         h4,
+                                                                                                         h5,
+                                                                                                         h6 {
+                                                                                                              font-family: 'Fira Sans', sans-serif;
+                                                                                                         }
+
+                                                                                                         a {
+                                                                                                              color: #003057;
+                                                                                                              text-decoration: none;
+                                                                                                         }
+
+                                                                                                         a:hover {
+                                                                                                              color: #2B5E72;
+                                                                                                              text-decoration: none;
+                                                                                                         }
+
+                                                                                                         .navbar-inverse {
+                                                                                                              background-size: cover;
+                                                                                                              background-position: top center;
+                                                                                                              background-repeat: no-repeat;
+                                                                                                              border-color: transparent;
+                                                                                                              margin-bottom: 0px;
+                                                                                                              border-bottom-color: transparent;
+                                                                                                              border-radius: 0px;
+                                                                                                              background-color: #003057;
+                                                                                                         }
+
+                                                                                                         .navbar-inverse .navbar-nav>li>a,
+                                                                                                         .bs-docs-footer a {
+                                                                                                              color: #ffffff;
+                                                                                                         }
+
+                                                                                                         .row {
+                                                                                                              margin: 0px;
+                                                                                                         }
+
+                                                                                                         .row-ba-apps {
+                                                                                                              padding: 0px 15px;
+                                                                                                         }
+
+                                                                                                         .center,
+                                                                                                         .risk-rating .table tr td:last-child,
+                                                                                                         .align-center,
+                                                                                                         .table-heading th {
+                                                                                                              text-align: center;
+                                                                                                         }
+
+                                                                                                         .img-round {
+                                                                                                              border-radius: 50%;
+                                                                                                         }
+
+                                                                                                         .title {
+                                                                                                              border-bottom: 1px solid;
+                                                                                                              padding: 5px 0px;
+                                                                                                              margin-top: 20px;
+                                                                                                              margin-bottom: 20px;
+                                                                                                         }
+
+                                                                                                         div.divider {
+                                                                                                              border-bottom: 1px solid #eeeeee;
+                                                                                                         }
+
+                                                                                                         #custom-search-input {
+                                                                                                              margin-top: 20px;
+                                                                                                              margin-bottom: 10px;
+                                                                                                         }
+
+                                                                                                         .card {
+                                                                                                              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+                                                                                                              transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+                                                                                                         }
+
+                                                                                                         .card-white {
+                                                                                                              background: #ffffff;
+                                                                                                              text-align: center;
+                                                                                                         }
+
+                                                                                                         .card img,
+                                                                                                         .risk-outer,
+                                                                                                         .input-data-sheet td.saved-light-yellow input {
+                                                                                                              width: 100%;
+                                                                                                         }
+
+                                                                                                         #QSCharts .card {
+                                                                                                              background-color: #ffffff;
+                                                                                                              padding: 10px;
+                                                                                                              text-align: center;
+                                                                                                              margin-bottom: 20px;
+                                                                                                         }
+
+                                                                                                         .panel {
+                                                                                                              margin-bottom: 20px;
+                                                                                                              background-color: transparent;
+                                                                                                              border: 0px;
+                                                                                                              border-radius: 0px;
+                                                                                                              -webkit-box-shadow: none;
+                                                                                                              box-shadow: none;
+                                                                                                         }
+
+                                                                                                         .dashboard-icon {
+                                                                                                              color: #666766;
+                                                                                                              background-color: #ffffff;
+                                                                                                              text-align: center;
+                                                                                                              padding: 30px;
+                                                                                                              margin-bottom: 30px;
+                                                                                                         }
+
+                                                                                                         .dashboard-icon [class^="icon-"]:before,
+                                                                                                         .dashboard-icon [class*=" icon-"]:before {
+                                                                                                              font-size: 48px;
+                                                                                                         }
+
+                                                                                                         .dashboard-icon h5,
+                                                                                                         input::placeholder {
+                                                                                                              font-family: 'Lato', sans-serif;
+                                                                                                              font-weight: 400;
+                                                                                                              font-size: 12px;
+                                                                                                         }
+
+                                                                                                         a:hover .dashboard-icon {
+                                                                                                              color: #003057;
+                                                                                                              transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+                                                                                                              box-shadow: 0 5px 5px rgba(0, 0, 0, 0.12), 0 5px 5px rgba(0, 0, 0, 0.24);
+                                                                                                         }
+
+                                                                                                         .dropdown-menu {
+                                                                                                              min-width: 270px;
+                                                                                                              border-top: 3px solid #003057;
+                                                                                                              border-bottom: 3px solid #003057;
+                                                                                                         }
+
+                                                                                                         .navbar-inverse .navbar-nav>.open>a,
+                                                                                                         .navbar-inverse .navbar-nav>.open>a:hover,
+                                                                                                         .navbar-inverse .navbar-nav>.open>a:focus {
+                                                                                                              background-color: #2B5E72;
+                                                                                                              color: #fff;
+                                                                                                         }
+
+                                                                                                         .dropdown-menu.columns-3 {
+                                                                                                              min-width: 420px;
+                                                                                                         }
+
+                                                                                                         .multi-column .col-sm-4 {
+                                                                                                              padding: 10px;
+                                                                                                         }
+
+                                                                                                         .nav.multi-column-dropdown>li>a {
+                                                                                                              padding: 0px;
+                                                                                                              color: #666766;
+                                                                                                         }
+
+                                                                                                         .nav.multi-column-dropdown>li>a:hover {
+                                                                                                              color: #003057;
+                                                                                                              transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+                                                                                                         }
+
+                                                                                                         .multi-column-dropdown .dashboard-icon {
+                                                                                                              margin-bottom: 15px;
+                                                                                                              padding: 15px;
+                                                                                                         }
+
+                                                                                                         .multi-column-dropdown .dashboard-icon:hover {
+                                                                                                              box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
+                                                                                                              transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+                                                                                                         }
+
+                                                                                                         .nav-stacked>li {
+                                                                                                              background-color: #ffffff;
+                                                                                                              text-transform: uppercase;
+                                                                                                         }
+
+                                                                                                         .nav-stacked>li>a {
+                                                                                                              border-radius: 0px;
+                                                                                                              padding: 15px;
+                                                                                                         }
+
+                                                                                                         .nav-stacked-item {
+                                                                                                              vertical-align: super;
+                                                                                                              line-height: 24px;
+                                                                                                              font-size: 12px;
+                                                                                                         }
+
+                                                                                                         .nav-stacked-icon {
+                                                                                                              height: 24px;
+                                                                                                              width: 24px;
+                                                                                                              float: left;
+                                                                                                              margin-right: 12px;
+                                                                                                         }
+
+                                                                                                         .left-menu-header {
+                                                                                                              background-color: #003057;
+                                                                                                              padding: 20px;
+                                                                                                         }
+
+                                                                                                         .left-menu .left-menu-logo {
+                                                                                                              padding: 20px 40px 20px 20px;
+                                                                                                              border-top: 1px solid #eeeeee;
+                                                                                                              border-bottom: 1px solid #eeeeee;
+                                                                                                         }
+
+                                                                                                         .left-menu .nav-stacked-item,
+                                                                                                         h5 {
+                                                                                                              font-size: 16px;
+                                                                                                         }
+
+                                                                                                         .left-menu .pushy-submenu .nav.nav-stacked>li:hover,
+                                                                                                         .left-menu .pushy-submenu .nav.nav-stacked>li:focus {
+                                                                                                              background-color: #eeeeee !important;
+                                                                                                         }
+
+                                                                                                         .left-menu .nav-stacked>li>a {
+                                                                                                              border-radius: 0px;
+                                                                                                              padding: 15px 20px;
+                                                                                                         }
+
+                                                                                                         .left-menu .nav-stacked>li.active {
+                                                                                                              border-left: 5px solid #003057;
+                                                                                                         }
+
+                                                                                                         .left-menu .nav-stacked>li.active>a {
+                                                                                                              color: #003057;
+                                                                                                              background-color: transparent;
+                                                                                                         }
+
+                                                                                                         .left-menu .nav.stacked>li>a:hover,
+                                                                                                         .left-menu .nav>.stackedli>a:focus {
+                                                                                                              background-color: none;
+                                                                                                         }
+
+                                                                                                         .pushy {
+                                                                                                              background: #ffffff;
+                                                                                                              width: 270px;
+                                                                                                         }
+
+                                                                                                         .pushy-submenu button {
+                                                                                                              padding: 15px 20px;
+                                                                                                         }
+
+                                                                                                         .pushy-submenu button:hover {
+                                                                                                              background-color: #eee;
+                                                                                                         }
+
+                                                                                                         .pushy-submenu .nav-stacked>li>a {
+                                                                                                              padding: 10px 20px;
+                                                                                                              margin-left: 36px;
+                                                                                                         }
+
+                                                                                                         .pushy-right,
+                                                                                                         .pushy-open-left #container,
+                                                                                                         .pushy-open-left .push {
+                                                                                                              -webkit-transform: translate3d(270px, 0, 0);
+                                                                                                              -ms-transform: translate3d(270px, 0, 0);
+                                                                                                              transform: translate3d(270px, 0, 0);
+                                                                                                         }
+
+                                                                                                         .pushy-open-right #container,
+                                                                                                         .pushy-open-right .push,
+                                                                                                         .pushy-left {
+                                                                                                              -webkit-transform: translate3d(-270px, 0, 0);
+                                                                                                              -ms-transform: translate3d(-270px, 0, 0);
+                                                                                                              transform: translate3d(-270px, 0, 0);
+                                                                                                         }
+
+                                                                                                         .float {
+                                                                                                              position: fixed;
+                                                                                                              width: 50px;
+                                                                                                              height: 50px;
+                                                                                                              bottom: 20px;
+                                                                                                              right: 10px;
+                                                                                                              background-color: #003057;
+                                                                                                              color: #FFF;
+                                                                                                              border-radius: 50%;
+                                                                                                              text-align: center;
+                                                                                                              box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
+                                                                                                              transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+                                                                                                              z-index: 99;
+                                                                                                         }
+
+                                                                                                         .float:hover {
+                                                                                                              box-shadow: 0 5px 5px rgba(0, 0, 0, 0.12), 0 5px 5px rgba(0, 0, 0, 0.24);
+                                                                                                              color: #fff;
+                                                                                                         }
+
+                                                                                                         .my-float {
+                                                                                                              margin-top: 22px;
+                                                                                                         }
+
+                                                                                                         .my-float.icon-question-mark:before {
+                                                                                                              line-height: 50px;
+                                                                                                         }
+
+                                                                                                         .drawer {
+                                                                                                              background-color: #eeeeee;
+                                                                                                              color: #666766;
+                                                                                                              z-index: 98;
+                                                                                                         }
+
+                                                                                                         .drawer-contents {
+                                                                                                              background-color: #eeeeee;
+                                                                                                         }
+
+                                                                                                         .drawer .title,
+                                                                                                         .pushy ul:first-child,
+                                                                                                         h2.sub-header {
+                                                                                                              margin-top: 0px;
+                                                                                                         }
+
+                                                                                                         .drawer a,
+                                                                                                         .a-grey a,
+                                                                                                         .dropdown-menu>li>a {
+                                                                                                              color: #666766;
+                                                                                                         }
+
+                                                                                                         .drawer [class^="icon-close-menu"]:before,
+                                                                                                         .drawer [class*=" icon-close-menu"]:before,
+                                                                                                         .nav-stacked-icon [class^="icon-"]:before,
+                                                                                                         .nav-stacked-icon [class*=" icon-"]:before,
+                                                                                                         .navbar-inverse [class^="icon-"]:before,
+                                                                                                         .navbar-inverse [class*=" icon-"]:before {
+                                                                                                              font-size: 24px;
+                                                                                                         }
+
+                                                                                                         .resource-links {
+                                                                                                              padding: 10px;
+                                                                                                              margin: 0px;
+                                                                                                         }
+
+                                                                                                         [class^="icon-"]:before,
+                                                                                                         [class*=" icon-"]:before {
+                                                                                                              font-size: 36px;
+                                                                                                         }
+
+                                                                                                         .feed-item {
+                                                                                                              background-color: #fff;
+                                                                                                              padding: 20px;
+                                                                                                              margin-bottom: 20px;
+                                                                                                         }
+
+                                                                                                         .feed-item h5 {
+                                                                                                              font-family: 'Lato', sans-serif;
+                                                                                                              font-weight: 400;
+                                                                                                              line-height: 1.5em;
+                                                                                                         }
+
+                                                                                                         .quote-media-footer {
+                                                                                                              line-height: 1.75em;
+                                                                                                              font-size: 9px;
+                                                                                                         }
+
+                                                                                                         .quote-media-footer a {
+                                                                                                              text-decoration: underline;
+                                                                                                         }
+
+                                                                                                         .qmf-link {
+                                                                                                              white-space: nowrap;
+                                                                                                         }
+
+                                                                                                         .qmf-logo {
+                                                                                                              padding-top: 20px;
+                                                                                                         }
+
+                                                                                                         .qmf-rt,
+                                                                                                         .qmf-non-rt {
+                                                                                                              font-style: italic;
+                                                                                                              font-weight: 700;
+                                                                                                         }
+
+                                                                                                         .qmf-non-rt {
+                                                                                                              color: #333;
+                                                                                                         }
+
+                                                                                                         .qmf-rt {
+                                                                                                              color: #080;
+                                                                                                         }
+
+                                                                                                         ï»¿body {
+                                                                                                              padding-top: 0px;
+                                                                                                              font-family: 'Lato', sans-serif !important;
+                                                                                                         }
+
+                                                                                                         .nav-tabs {
+                                                                                                              border: 0;
+                                                                                                         }
+
+                                                                                                         .nav-tabs>li {
+                                                                                                              text-transform: uppercase;
+                                                                                                              margin-bottom: 0px;
+                                                                                                              border-radius: 0px;
+                                                                                                         }
+
+                                                                                                         .nav-tabs>li.active>a,
+                                                                                                         .nav-tabs>li.active>a:hover,
+                                                                                                         .nav-tabs>li.active>a:focus {
+                                                                                                              color: #4591B0;
+                                                                                                              background-color: #fff;
+                                                                                                              border: 0;
+                                                                                                              border-top: 5px solid #003057 !important;
+                                                                                                              cursor: default;
+                                                                                                              border-bottom: 0;
+                                                                                                              border-radius: 0px;
+                                                                                                         }
+
+                                                                                                         .nav-tabs>li>a:hover {
+                                                                                                              border-color: #eee #eee #ddd;
+                                                                                                              background-color: #ffffff;
+                                                                                                              border-radius: 0px;
+                                                                                                         }
+
+                                                                                                         .bank-details-heading {
+                                                                                                              border: 0;
+                                                                                                              margin-top: 0px;
+                                                                                                              margin-bottom: 20px;
+                                                                                                              padding: 10px 10px 15px;
+                                                                                                              background-color: #ffffff;
+                                                                                                              box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+                                                                                                         }
+
+                                                                                                         .chart-wrapper {
+                                                                                                              font-size: 12px;
+                                                                                                              border: 1px solid #cccccc;
+                                                                                                              padding: 0px;
+                                                                                                              margin-top: 0px;
+                                                                                                              margin-bottom: 20px;
+                                                                                                              background-color: #ffffff;
+                                                                                                              box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+                                                                                                         }
+
+                                                                                                         .chart-wrapper .col-md-6,
+                                                                                                         .pad-zero {
+                                                                                                              padding: 0;
+                                                                                                         }
+
+                                                                                                         .fusion-charts-caption {
+                                                                                                              fill: rgb(85, 85, 85);
+                                                                                                              text-anchor: middle;
+                                                                                                              stroke: none;
+                                                                                                              font-family: 'Fira Sans', sans-serif;
+                                                                                                              font-size: 12px;
+                                                                                                              font-weight: 400;
+                                                                                                              text-align: left;
+                                                                                                              display: block;
+                                                                                                              background-color: #ececec;
+                                                                                                              width: 100%;
+                                                                                                              line-height: 16px;
+                                                                                                         }
+
+                                                                                                         .table {
+                                                                                                              font-size: 12px;
+                                                                                                              background-color: #ffffff;
+                                                                                                              box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+                                                                                                              transition: all .3s;
+                                                                                                         }

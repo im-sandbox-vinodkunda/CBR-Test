@@ -1,0 +1,73 @@
+/* BankAnalytics HEAD CSS */
+
+/* Header Styles Position 1 */
+
+p {
+margin-top: 10px;
+font-size: 11px;
+}
+
+.center {
+text-align: center;
+}
+
+.dashboard-icon {
+}
+
+.dashboard-icon:hover {
+/* box-shadow: 0px 0px 5px 1px #ddd; */
+-webkit-transform: scale(1.0); /* Safari and Chrome */
+-moz-transform: scale(1.0); /* Firefox */
+-ms-transform: scale(1.0); /* IE 9 */
+-o-transform: scale(1.0); /* Opera */
+transform: scale(1.0);
+}
+
+.navbar-inverse .navbar-nav > li > a {
+color: #eeeeee;
+font-size: 13px;
+}
+
+.bank-details-heading {
+border: 1px solid #dddddd;
+margin-top: 15px;
+padding: 10px;
+}
+
+.bank-details-heading h3 {
+margin-top: 0px;
+}
+
+.nav.qtr-ytd > li > a {
+padding: 5px 10px;
+}
+
+.nav-pills ul {
+background-color: #fcfcfc;
+list-style: none;
+}
+
+.nav-pills > li > a, .nav-pills > li > ul > li > a {
+font-size: 11px;
+border-radius: 0px;
+border: 1px solid #ececec;
+}
+
+.how-to-use.nav > li > a {
+padding: 5px 5px !important;
+}
+
+.table {
+font-size: 11px;
+}
+
+.nav-tabs.nav-justified {
+    width: 100%;
+    border-bottom: 0;
+    display: inline-block;
+}
+
+    .nav-tabs.nav-justified > li {
+        display: inline-block;
+        width:auto;
+    }

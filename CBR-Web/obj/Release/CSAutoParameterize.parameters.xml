@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=20.29.50.163,1436;Initial Catalog=CBRDataWareHouse;Integrated Security=False;User ID=CBRDev;Password=CBR!nf0M@gnus001;MultipleActiveResultSets=True;Application Name=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\IM\\Projects\\Code\\CB-Resource\\CBR\\CBR-Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="CBRDataWareHouseEntities-Web.config Connection String" description="CBRDataWareHouseEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/CBRDataWareHouse.csdl|res://*/CBRDataWareHouse.ssdl|res://*/CBRDataWareHouse.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=20.29.50.163,1436;initial catalog=CBRDataWareHouse;integrated security=false;User ID=CBRDev;Password=CBR!nf0M@gnus001;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\IM\\Projects\\Code\\CB-Resource\\CBR\\CBR-Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CBRDataWareHouseEntities']/@connectionString" />
+  </parameter>
+</parameters>

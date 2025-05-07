@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/RiskRadar")
+}
+
+@section jsCode{
+    var cbrRiskRadarModule = angular.module("cbrRiskRadar", ['cbrcommon','fcsa-number','angularBootstrapNavTree','ui.bootstrap','ui.mask','dialogs.main'])
+    .config(function ($routeProvider, $locationProvider) {
+    $routeProvider.when('/RiskRadar', { templateUrl: '/App/RiskRadar/Views/RiskRadar.html', controller: 'riskRadarNavigationController' });
+    $routeProvider.otherwise({ redirectTo: '/' });
+    $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+    });
+    });
+}
+<div ng-non-bindable>
+    <div id="riskRadar" ng-controller="riskRadarNavigationController">
+        <div ng-view></div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+D:\IM\Projects\Code\CB-Resource\CBR\CBR.DataAccess\bin\Release\CBR.DataAccess.dll.config
+D:\IM\Projects\Code\CB-Resource\CBR\CBR.DataAccess\bin\Release\CBR.DataAccess.dll
+D:\IM\Projects\Code\CB-Resource\CBR\CBR.DataAccess\bin\Release\CBR.DataAccess.pdb
+D:\IM\Projects\Code\CB-Resource\CBR\CBR.DataAccess\bin\Release\EntityFramework.dll
+D:\IM\Projects\Code\CB-Resource\CBR\CBR.DataAccess\bin\Release\EntityFramework.SqlServer.dll
+D:\IM\Projects\Code\CB-Resource\CBR\CBR.DataAccess\bin\Release\EntityFramework.xml
+D:\IM\Projects\Code\CB-Resource\CBR\CBR.DataAccess\bin\Release\EntityFramework.SqlServer.xml
+D:\IM\Projects\Code\CB-Resource\CBR\CBR.DataAccess\obj\Release\CBR.DataAccess.csproj.AssemblyReference.cache
+D:\IM\Projects\Code\CB-Resource\CBR\CBR.DataAccess\obj\Release\CBR.DataAccess.csproj.CoreCompileInputs.cache
+D:\IM\Projects\Code\CB-Resource\CBR\CBR.DataAccess\obj\Release\CBR.DataAccess.csproj.CopyComplete
+D:\IM\Projects\Code\CB-Resource\CBR\CBR.DataAccess\obj\Release\CBR.DataAccess.dll
+D:\IM\Projects\Code\CB-Resource\CBR\CBR.DataAccess\obj\Release\CBR.DataAccess.pdb

@@ -1,0 +1,51 @@
+/* 13 BankAnalyticsDashboard.html Strategic Forecast Styles */
+
+
+        .dividend-rate-margin {
+            margin-left:10px;
+        }
+
+        .align-right {
+            text-align: right;
+        }
+
+        /*.navbar-inverse .navbar-nav > li > a {
+            color: #eeeeee;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            font-size: 13px;
+        }*/
+
+        .bank-details-heading {
+            border: 1px solid #dddddd;
+            margin-top: 15px;
+            padding: 10px;
+        }
+
+            .bank-details-heading h3 {
+                margin-top: 0px;
+            }
+
+        .nav.qtr-ytd > li > a {
+            padding: 5px 10px;
+        }
+
+        .nav-pills ul {
+            background-color: #fcfcfc;
+            list-style: none;
+        }
+
+        .table {
+            font-size: 11px;
+        }
+        /*.table-bordered>thead>tr>th.border-none {border-top:0px;border-left:0px;border-right:none;}*/
+
+        table.table-bordered th:last-child, table.table-bordered td:last-child {
+            border-right-width: 1px;
+        }
+
+        input[type="text"]:disabled {
+            color: #eeeeee;
+            border-color: #eeeeee;
+        }
+		

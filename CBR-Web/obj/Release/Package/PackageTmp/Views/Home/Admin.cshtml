@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/administration")
+}
+
+@section Styles{
+    <style>
+        .loaded {
+            display: block;
+        }
+
+        .loading {
+            display: none;
+        }
+
+        .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+            color: #173967;
+            text-decoration: none;
+            outline: 0;
+            background-color: #ececec;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        #admin-navigation .nav-pills > li.active > a,
+        #admin-navigation .nav-pills > li.active > a:hover,
+        #admin-navigation .nav-pills > li.active > a:focus {
+            color: #173967;
+            background-color: #fcfcfc;
+            border-left: 5px solid #173967;
+            border-bottom: 1px solid #ccc;
+            border-radius: 0px;
+        }
+
+        #admin-navigation .nav-pills > li > a {
+            border-radius: 0px;
+            font-size: 14px;
+        }
+
+        .settings-container {
+            background: #ffffff;
+            border-bottom: 1px solid white;
+            border-top: 0px;
+            padding: 15px 0px;
+        }
+
+        .settings-list {
+            line-height: 1.6;
+            margin-bottom: 1em;
+        }
+
+            .settings-list dt {
+                color: #666666;
+                font-size: 11px;
+                font-weight: bold;
+                margin: 0;
+                padding: 5px 5px 4px 0;
+                text-align: left;
+                width: 155px;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            .settings-list dd {
+                border-bottom: 1px solid #dddddd;
+                margin: 0;
+                padding: 5px 5px 4px 155px;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            .settings-list dt {
+                color: #666666;
+                font-size: 11px;
+                font-weight: bold;
+                margin: 0;
+                padding: 5px 5px 4px 0;
+                text-align: left;
+                width: 155px;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+        dt {
+            float: left;
+            clear: left;
+        }
+
+        .glyphicon {
+            margin-right: 0px;
+        }
+    </style>
+}
+
+@section jsCode{
+    var cbrAdministrationModule = angular.module("cbradministration", ['cbrcommon','ui.mask','ui.bootstrap','dialogs.main','ngMask','fcsa-number'])
+    .config(function ($routeProvider, $locationProvider) {
+    $routeProvider.when('/Home/Admin', { templateUrl: '/App/Home/Views/AdministrationMain.html?v=' + versionNumber, controller: 'adminNavigationController' });
+    $routeProvider.otherwise({ redirectTo: '/Home/Admin' });
+    $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+    });
+    });
+}
+<!-- end CSS styles -->
+
+<div ng-non-bindable>
+    <div id="administration">
+        <div ng-view></div>
+    </div>
+</div>
+

@@ -1,0 +1,139 @@
+﻿@{
+    ViewBag.Title = "CB Bank Analytics";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+
+    @Scripts.Render("~/bundles/bankanalytics")
+
+}
+@section Styles{
+    <style>
+        p {
+            margin-top: 10px;
+            font-size: 11px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .dashboard-icon {
+            color: #173967;
+        }
+
+            .dashboard-icon:hover {
+                /* box-shadow: 0px 0px 5px 1px #ddd; */
+                -webkit-transform: scale(1.0); /* Safari and Chrome */
+                -moz-transform: scale(1.0); /* Firefox */
+                -ms-transform: scale(1.0); /* IE 9 */
+                -o-transform: scale(1.0); /* Opera */
+                transform: scale(1.0);
+            }
+
+        /*.navbar-inverse .navbar-nav > li > a {
+            color: #eeeeee;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            font-size: 13px;
+        }*/
+
+        .bank-details-heading {
+            border: 1px solid #dddddd;
+            margin-top: 15px;
+            padding: 10px;
+        }
+
+            .bank-details-heading h3 {
+                margin-top: 0px;
+            }
+
+        .nav.qtr-ytd > li > a {
+            padding: 5px 10px;
+        }
+
+        .nav-pills ul {
+            background-color: #fcfcfc;
+            list-style: none;
+        }
+
+        .nav-pills > li > a, .nav-pills > li > ul > li > a {
+            font-size: 11px;
+            border-radius: 0px;
+            border: 1px solid #ececec;
+        }
+
+        .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+            color: #333;
+            background-color: #173967;
+            border-bottom: 2px solid #173967;
+        }
+
+            .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+                background-color: #173967;
+            }
+
+        .how-to-use.nav > li > a {
+            padding: 5px 5px !important;
+        }
+
+        .table {
+            font-size: 11px;
+        }
+    </style><!-- end CSS styles -->
+}
+@section jsCode{
+    var cbrBankAnalyticsModule = angular.module("cbrbankanalytics", ['cbrcommon','fcsa-number','angularBootstrapNavTree','ui.bootstrap','ui.mask','dialogs.main'])
+    .config(['$provide','$routeProvider', '$locationProvider',function ($provide, $routeProvider, $locationProvider) {
+    $routeProvider.when('/', { templateUrl: '/App/BankAnalytics/Views/BankAnalyticsDashboard.html?v=' + versionNumber, controller: 'bankAnalyticsTabs' });
+    $routeProvider.otherwise({ redirectTo: '/' });
+    $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+    });
+    $provide.decorator('abnTreeDirective', function ($delegate) {
+    var directive = $delegate[0];
+    delete directive.template;
+
+    directive.templateUrl = function(scope, attrs){
+    var templateUrl;
+    switch(attrs.abnTreeTemplateType){
+    case '_ri1_template':
+    templateUrl = '/App/BankAnalytics/Views/_ri1_template.html';
+    break;
+    case '_ri2_template':
+    templateUrl = '/App/BankAnalytics/Views/_ri2_template.html';
+    break;
+    default:
+    templateUrl = '/App/BankAnalytics/Views/_ri1_template.html';
+    break;
+    }
+    return templateUrl;
+    };
+    return $delegate;
+    });
+    }]);
+
+    cbrBankAnalyticsModule.factory('bankanalyticsservice', function ($rootScope, $http, $q, $location, viewModelHelper) { return cbrApp.bankanalyticsservice($rootScope, $http, $q, $location, viewModelHelper); });
+
+    (function (myApp) {
+    var bankanalyticsservice = function ($rootScope, $http, $q, $location, viewModelHelper) {
+    var self = this;
+
+    return this;
+    };
+    myApp.bankAnalyticsService = bankanalyticsservice;
+    }(window.cbrApp));
+}
+@Html.Hidden("forumURL", (object)ViewBag.ForumURL)
+<div ng-non-bindable>
+    <div id="bankanalytics">
+        <div ng-view>
+            <div id="overlay">
+                <div style="margin-top:15%;">
+                    <center><img src="../../../Images/cbr-ripple-small.gif" class="img-responsive" /></center><span id="overlayLoadingText">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

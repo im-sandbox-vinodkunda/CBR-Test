@@ -1,0 +1,300 @@
+﻿@using CBR.Web.WebCommons
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title : Stifel</title>
+    @Styles.Render("~/Styles/Libraries/bootstrapcss")
+    @Styles.Render("~/Styles/Libraries/css")
+    @RenderSection("Styles", false)
+    @Styles.Render("~/Styles/cbrcss")
+    <link href="~/Styles/BankAnalytics-head.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/Layout-head.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/Layout-head1.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/key-risk-trends.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/manage-profiles.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/create-peer-group.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/edit-peer-group.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/favorite-banks.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/performance-comparison.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/benchmarking.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/bank-to-bank-analyzer.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/cram.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/strategic-forecast.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/call-report-analyzer.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/gap-analyzer.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/admin-head-css.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/administrator-head-css.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/cbrv2-combined-08232018.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/app-nav-styles.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/cbr-index-styles.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/quote-stream.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8" />
+    <meta name="WebPartPageExpansion" content="full" />
+    <meta name="ProgId" content="SharePoint.WebPartPage.Document" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="https://fonts.googleapis.com/css?family=Lato|Fira Sans|Roboto+Mono" rel="stylesheet">
+    <link href="~/Images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/Styles/cbr.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body ng-app="cbrMain" class="has-canvas">
+    <div class="overlay"></div>
+    <nav class="navbar navbar-inverse card">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="col-xs-11 col-sm-6 col-sm-offset-0 col-md-6 col-md-offset-0" style="margin-bottom:10px;">
+                <a class="navbar-brand" href="/">
+                    <h1 style="margin:0px;font-size:24px;color:#ffffff;letter-spacing:2px;font-weight:lighter;">
+                        <img src="~/Images/Stifel-Bank-Analytics-logo.png" style="width:250px;" />
+                    </h1>
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+        </div><!-- /.container-fluid -->
+    </nav><!-- END .navbar .navbar-inverse -->
+    <!-- Push Menu Left -->
+    <!-- Push Menu -->
+    <!-- END Push Menu -->
+    <div class="container-fluid page-container">
+        @RenderBody()
+        <!-- Help Center Drawer -->
+        <div id="helpCenter" style="display:none;">
+            <div class="drawer-contents">
+
+                <div class="drawer-heading" style="background-color: #003057;padding:10px 10px;">
+                    <div class="container container-fluid">
+                        <h1 style="margin:0px;font-size:24px;color:#ffffff;letter-spacing:2px;font-weight:lighter;">
+                            CB Bank Analytics&trade;
+                            <span class="pull-right">
+                                <a href="#" class="toggle-help" style="color:#ffffff;"><i
+                                        class="icon-close-menu"></i></a>
+                            </span>
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="drawer-body">
+                    <div class="container container-fluid">
+
+                        <div class="col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0">
+                            <div class="title">
+                                <div class="row">
+                                    <div class="col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0"
+                                        style="padding-left:0px;">
+                                        <h3>Help Center <span class="pull-right"><small>Questions? Call Toll Free: (877)
+                                                    367-8236</small></span></h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="card card-white">
+                                        <a href="resource-library.html" target="_blank">
+                                            <img src="./images/resource-library.jpg" class="img-responsive"
+                                                alt="placeholder thumbnail">
+                                            <h6 class="resource-links">Frequently Asked Questions</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="card card-white">
+                                        <a href="javascript:void(0)">
+                                            <img src="./images/collaboration-center.jpg" class="img-responsive"
+                                                alt="placeholder thumbnail">
+                                            <h6 class="resource-links">Building Custom Peer Groups</h6>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="title">
+                                        <h5>How to Use Our Applications</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <ul class="nav nav-pills nav-stacked card">
+                                            <li><a href="#">Ratio Definitions</a></li>
+                                            <li><a href="@Url.Action("SingleBankProfileHelp","Home")"
+                                                    target="_blank">Single Bank Profile</a></li>
+                                            <li><a href="#">Key Risk Trends</a></li>
+                                            <li><a href="#">Performance Analyzer</a></li>
+                                            <li><a href="#">Benchmark Performance</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <ul class="nav nav-pills nav-stacked card">
+                                            <li><a href="#">Capital Risk Analyzer</a></li>
+                                            <li><a href="#">Bank vs. Bank Analyzer</a></li>
+                                            <li><a href="#">Strategic Forecast</a></li>
+                                            <li><a href="#">Gap Analyzer</a></li>
+                                            <li><a href="#">Build Custom Peer Groups</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- drawer-body -->
+        <!-- End Help Panel -->
+
+    </div>
+    <footer class="bs-docs-footer cb-resource-footer" role="contentinfo">
+        <div class="container">
+
+            <div class="row">
+                <ul class="bs-docs-footer-links text-muted">
+                    <li>Copyright &copy; 2016-2024 Stifel. All Rights Reserved</li>
+                    <li>·</li>
+                    <li>
+                        <a href="https://stifelinstitutional.com/capabilities/fixed-income-capital-markets/" target="_blank">About Us</a>
+                    </li>
+                    <li>·</li>
+                    <li>
+                        <a href="https://www.stifel.com/disclosures/privacy-notice" target="_blank">Privacy Policy</a>
+                    </li>
+                    <li>·</li>
+                    <li>
+                        <a href="javascript:void(0)">Terms of Service</a>
+                    </li>
+                </ul>
+                <ul class="bs-docs-footer-links text-muted">
+                    <li>
+                        <a href="javascript:void(0)" class="toggle-help">Resource Library</a>
+                    </li>
+                    <li>·</li>
+                    <li>
+                        <a href="javascript:void(0)">Collaboration Center</a>
+                    </li>
+                    <li>·</li>
+                    <li>
+                        <a href="javascript:void(0)">User Forums</a>
+                    </li>
+                    <li>·</li>
+                    @*<li>
+                        <a href="javascript:void(0)">Latest News</a>
+                    </li>
+                    <li>·</li>*@
+                    <li>
+                        <a href="https://stifelinstitutional.com/about/stifel-institutional/?anchor=js--to-form" target="_blank">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="quote-media-footer" style="padding:30px;color:#ffffff;">
+                        <!-- Start of QuoteMedia Footer code -->
+                        Market Data copyright &copy; 2018 <a target="_blank" href="http://www.quotemedia.com"
+                            class="qmf-link"> QuoteMedia</a>.<br />
+                        <span class="qmf-rt">RT</span>=Real-Time, <span class="qmf-non-rt">EOD</span>=End of Day, <span
+                            class="qmf-non-rt">PD</span>=Previous Day.<br />
+                        Data delayed 15 minutes unless otherwise indicated (view <a target="_blank"
+                            href="http://www.quotemedia.com/legal/tos/#times" class="qmf-link">delay times</a> for all
+                        exchanges). <br />
+                        Market Data powered by <a target="_blank" href="http://www.quotemedia.com"
+                            class="qmf-link">QuoteMedia</a> Financials by Morningstar. <a target="_blank"
+                            href="http://www.quotemedia.com/legal/tos/" class="qmf-link">Terms of Use</a>. <br />
+                        <div class="qmf-logo"><a target="_blank" href="http://www.quotemedia.com"><img
+                                    src="//www.quotemedia.com/footer/logo.png" alt="QuoteMedia logo" /></a></div>
+                        <!-- End of QuoteMedia Footer code -->
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/commonjs")
+    <script>
+        window.cbrApp = {};
+        $(function () {
+            var scotchPanel = $('#panel-example').scotchPanel({
+                containerSelector: 'body',
+                direction: 'left',
+                duration: 300,
+                transition: 'ease',
+                distanceX: '300px',
+                enableEscapeKey: true,
+            });
+
+            $('.toggle-panel').click(function () {
+                scotchPanel.toggle();
+                return false;
+            });
+
+            $('.overlay').click(function () {
+                // CLOSE ONLY
+                scotchPanel.close();
+            });
+        });
+
+        $(function () {
+            var scotchPanel = $('#helpCenter').scotchPanel({
+                containerSelector: 'body',
+                direction: 'right',
+                duration: 300,
+                transition: 'ease-out',
+                distanceX: '100%',
+                enableEscapeKey: true,
+            });
+
+            $('.toggle-help').click(function () {
+                $('#helpCenter').css('display', 'block');
+                scotchPanel.toggle();
+                return false;
+            });
+
+            $('.overlay').click(function () {
+                // CLOSE ONLY
+                scotchPanel.close();
+            });
+        });
+    </script>
+    @Scripts.Render("~/bundles/cbrapplicationmain")
+    <script type="text/javascript">
+        cbrApp.rootPath = '@Url.Content("~")';
+        @RenderSection("jsCode", required: false)
+    </script>
+    @RenderSection("scripts", required: false)
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Alert</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning ng-binding">
+                        <span class="glyphicon glyphicon-exclamation-sign">
+                        </span> This functionality will be available in a future release.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

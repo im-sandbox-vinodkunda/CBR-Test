@@ -1,0 +1,47 @@
+﻿.table-responsive {
+        overflow-x: hidden;
+    }
+
+    .customwidth1 {
+        width: 35%;
+    }
+
+    .customwidth2 {
+        width: 25%;
+    }
+
+    #tableBankDocs a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    #tableBankDocs span {
+        float: right;
+    }
+
+    .customspancolor1 {
+        color: #808080;
+    }
+
+    .customspancolor2 {
+        color: #808080;
+    }
+
+    #tableBankDocs {
+        font-size: 14px;
+        color: #333;
+    }
+
+    #ddlPageSize {
+        padding: 0;
+        display: inline-block;
+        width: auto;
+    }
+
+.hideElement {
+    display:none;
+}
+
+.showElement {
+    display:inline-block;
+}

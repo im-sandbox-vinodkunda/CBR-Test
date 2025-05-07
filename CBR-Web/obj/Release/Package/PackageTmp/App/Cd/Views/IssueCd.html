@@ -1,0 +1,310 @@
+﻿<div class="row">
+    <div class="col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0">
+        <style>
+            input[type=number]::-webkit-inner-spin-button,
+            input[type=number]::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                margin: 0;
+            }
+            
+            .has-error {
+                border: 1px solid red;
+            }
+            .accounts-dropdown .bootstrap-select .dropdown-toggle {
+                padding: 2px 5px;
+                font-size: 12px;
+                border: 0;
+                /*border-bottom:1px solid #666766;*/
+                border-radius: 0;
+                color: #666766;
+            }
+
+            .accounts-dropdown .bootstrap-select .bs-caret {
+                margin-left: 5px;
+            }
+
+            .info-aligner {
+                background: none;
+                border: 0;
+                padding-left: 5px;
+            }
+            
+            .disabledanchor {
+                pointer-events: none;
+                cursor: default;
+            }
+
+            .handlelargenote {
+                width: 50px;
+                text-overflow: ellipsis;
+                display: inline-block;
+                white-space: nowrap;
+                overflow: hidden;
+                border:0px;
+            }
+
+        </style>
+        <div>
+            <ol class="breadcrumb">
+                <li><a href="javascript:void(0)" ng-click="GoToHome()">Dashboard</a></li>
+                <li class="accounts-dropdown">
+                    Issue A CD
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="title clearfix">
+                <h3 class="pull-left">Finance 500 Brokered Deposit Rates</h3>
+                <h3 class="pull-right"><small>Week of {{ Monday | date:'MMMM dd, yyyy' }}</small></h3>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mobile-merge-table">
+                <!-- Add jQuery data table plugin -->
+                <table id="tableBrokeredDeposit" class="table table-striped table-fluid biggerratefont" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Term</th>
+                            <th class="text-center">Fixed Rate</th>
+                            <th class="text-center">Callable</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="rate in Rates" ng-if="$index < 12" ng-class-odd="'odd'" ng-class-even="'even'">
+                            <td>{{ rate.term }}</td>
+                            <td class="text-center">{{rate.fixedRate}}</td>
+                            <td class="text-center">{{ rate.callable }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <p style="font-size:10px; margin-top:5px;">
+                        By using this on-line CD issuance process you are engaging Finance 500 Inc., a registered broker dealer and a member of FINRA and SIPC for its CD underwriting services. CD issues will be reviewed by Finance 500 and will be finalized when all necessary documents are completed. The All-in CD rates are provided by Finance 500 and are quoted on a “Best Efforts” basis. “Firm Commitment” CD rates on all structures are available and should be discussed directly with Finance 500 by calling the CD underwriting desk.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mobile-merge-table">
+                <!-- Add jQuery data table plugin -->
+                <table id="tableBrokeredDeposit2" class="table table-striped table-fluid biggerratefont" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Term</th>
+                            <th class="text-center">Fixed Rate</th>
+                            <th class="text-center">Callable</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="rate in Rates" ng-if="$index > 11" ng-class-odd="'odd'" ng-class-even="'even'">
+                            <td>{{ rate.term }}</td>
+                            <td class="text-center">{{ rate.fixedRate }}</td>
+                            <td class="text-center">{{ rate.callable }}</td>
+                        </tr>
+                        <tr class="odd">
+                            <td style="display: none;"></td>
+                            <td style="display: none;"></td>
+                            <td colspan="3">
+                                <div class="text-right">NOTE: Latest update: {{ RatesLastUpdatedDate }}</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <form name="outerForm" novalidate autocomplete="off">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title">
+                    <h3>Issue A CD Through Finance 500</h3>
+                </div>
+                <div class="">
+                    <!-- Add jQuery data table plugin -->
+                    <table id="tableOrderCD" class="table table-striped nowrap" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th>Issue Date</th>
+                                <th>Institution Name</th>
+                                <th>Submitted By</th>
+                                <th>Contact Phone</th>
+                                <th>Term</th>
+                                <th>Callable</th>
+                                <th>Call Frequency</th>
+                                <th>Rate</th>
+                                <th>Amount</th>
+                                <th>Settle Date</th>
+                                <th>Interest Payment Frequency</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="order in OrderArray">
+                                <ng-form name="innerForm">
+                                    <td>{{ order.orderDate | date:'MM/dd/yyyy' }}</td>
+                                    <td>{{ InstitutionName }}</td>
+                                    <td>{{ order.orderBy }}</td>
+                                    <td>
+                                        <div class="input-group" style="border-radius:4px" ng-class="{ 'has-error' : innerForm.$$parentForm['contactPhone' + $index].$invalid && innerForm.$$parentForm['contactPhone' + $index].$dirty}">
+                                            <input class="form-control contact-phone" placeholder="Input Phone Number" style="border-radius:4px" type="text" data-toggle="popover" data-placement="left" data-html="true" data-trigger="manual" name="contactPhone{{$index}}" ng-model="order.contactPhone" ng-required="true" ng-minlength="14" phone-input required />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group" style="border-radius:4px" ng-class="{ 'has-error' : innerForm.$$parentForm['orderTerm' + $index].$invalid && innerForm.$$parentForm['orderTerm' + $index].$dirty}">
+                                            <select id="termholder{{order.rowId}}" class="selectpicker" data-width="120px" ng-model="order.term" name="orderTerm{{$index}}" ng-required="true" ng-change="SetRates(order)">
+                                                <option value="">Select Term</option>
+                                                <option ng-repeat="cdRate in Rates" value="{{cdRate.term}}">{{cdRate.term}}</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group" style="border-radius:4px" ng-class="{ 'has-error' : innerForm.$$parentForm['orderCallable' + $index].$invalid && (innerForm.$$parentForm['orderCallable' + $index].$dirty)}">
+                                            <select id="callable{{order.rowId}}" class="selectpicker" data-width="60px" ng-model="order.callable" name="orderCallable{{$index}}" ng-required="true" ng-change="EnableDisableCallFrequency(order)">
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group" style="border-radius:4px" ng-class="{ 'has-error' : innerForm.$$parentForm['callFrequency' + $index].$invalid && (innerForm.$$parentForm['callFrequency' + $index].$dirty)}">
+                                            <select id="callfrequencyholder{{order.rowId}}" class="selectpicker" data-width="110px" ng-model="order.callfrequency" name="callFrequency{{$index}}" ng-required="order.callable == 'Yes'">
+                                                <option value="">Select Call Frequency</option>
+                                                <option value="Quarterly">Quarterly</option>
+                                                <option value="Monthly">Monthly</option>
+                                                <option value="Semi-Annually">Semi-Annually</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group" style="border-radius:4px" ng-class="{ 'has-error' : innerForm.$$parentForm['rate' + $index].$invalid}">
+                                            {{ order.rate }}
+                                            <input type="hidden" ng-model="order.validrate" name="rate{{$index}}" ng-required="(order.rate === 'Callable Rate Not Available') || (order.rate === 'Rate Not Available')" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group" style="border-radius:4px" ng-class="{ 'has-error': (innerForm.$$parentForm['orderAmount' + $index].$invalid && innerForm.$$parentForm['orderAmount' + $index].$dirty) || (innerForm.$$parentForm['numericamount' + $index].$invalid)}">
+                                            <span class="input-group-addon">$</span>
+                                            <input class="form-control with-addon" style="border-radius:4px" type="text" name="orderAmount{{$index}}" placeholder="Min $1,000" data-toggle="popover" data-placement="left" data-html="true" data-trigger="manual" ng-model="order.amount" ng-required="true" fcsa-number ng-change="UpdateNumericAmount(order)" />
+                                            <input type="number" style="display:none;" name="numericamount{{$index}}" ng-model="order.numericamount" min="1000" max="500000000" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group" style="border-radius:4px" ng-class="{ 'has-error' : innerForm.$$parentForm['orderSettleDate' + $index].$invalid && (innerForm.$$parentForm['orderSettleDate' + $index].$dirty)}">
+                                            <input id="settledate{{order.rowId}}" type="text" style="border-radius:4px" class="form-control datetimepicker" placeholder="Select Date" ng-model="order.settleDate" name="orderSettleDate{{$index}}" ng-required="true">
+                                            <span class="input-group-addon info-aligner glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Click on date input box to change Settle Date"></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group" style="border-radius:4px" ng-class="{ 'has-error' : innerForm.$$parentForm['orderFrequency' + $index].$invalid && (innerForm.$$parentForm['orderFrequency' + $index].$dirty)}">
+                                            <select id="frequency{{order.rowId}}" class="selectpicker" data-width="100px" ng-model="order.frequency" ng-required="true" name="orderFrequency{{$index}}">
+                                                <option value="">Frequency</option>
+                                                <option value="Monthly">Monthly</option>
+                                                <option value="Semi-Annual">Semi-Annual</option>
+                                                <option value="At Maturity">At Maturity</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input-group" style="border-radius:4px">
+                                            <input type="text" class="form-control" style="border-radius:4px" data-width="120px" ng-model="order.notes" name="ordernote{{order.rowId}}" maxlength="255" />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-danger deleteRow" href="javascript:void(0)" ng-click="removeRow(order)" ng-hide="OrderArray.length < 2">X</a>
+                                    </td>
+                                </ng-form>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="text-left">
+                    <button class="btn btn-primary btn-group addRow" ng-click="addRow()" ng-hide="OrderArray.length > 9">+</button>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="text-right">
+                    <input type="submit" class="btn btn-primary btn-group open-modal" ng-disabled="outerForm.$invalid" value="Submit Order" ng-click="submitOrder(outerForm)" />
+                </div>
+            </div>
+        </div>
+    </form>
+    
+    <div class="row" id="orderStatus">
+        <div class="col-md-12">
+            <div class="title">
+                <h3>Issue Status</h3>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div>
+                        <label><span>Show</span> <select class="form-control input-sm" style="width:auto;display:inline-block;" ng-model="SelectedPageSize" ng-change="LoadOrders()"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> <span>entries</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                </div>
+            </div>
+            <div class="table-responsive">
+                <!-- Add jQuery data table plugin -->
+                <table id="tableOrderStatus" class="table table-striped table-fluid">
+                    <thead>
+                        <tr>
+                            <th>
+                                <a href="javascript:void(0);" ng-click="orderByField='orderDate'; reverseSort = !reverseSort">
+                                    Issue Date <span ng-show="orderByField == 'orderDate'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                                </a>
+                            </th>
+                            <th>Institution Name</th>
+                            <th>Submitted By</th>
+                            <th>Contact Phone</th>
+                            <th>Term</th>
+                            <th>Callable</th>
+                            <th>Call Frequency</th>
+                            <th>Rate</th>
+                            <th>Amount</th>
+                            <th>Settle Date</th>
+                            <th>Frequency</th>
+                            <th>Notes</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="order in ExistingOrders|orderBy:orderByField:reverseSort" ng-class-odd="'odd'" ng-class-even="'even'">
+                            <td>{{ order.orderDate }}</td>
+                            <td>{{ order.institutionName }}</td>
+                            <td>{{ order.orderedBy}}</td>
+                            <td>{{ order.contactPhone }}</td>
+                            <td>{{ order.term }}</td>
+                            <td>{{ order.callable }}</td>
+                            <td>{{ order.callFrequency }}</td>
+                            <td>{{ order.rate }}</td>
+                            <td>{{ order.amount | currency : "$" : 0 }}</td>
+                            <td>{{ order.settleDate }}</td>
+                            <td>{{ order.interestPaymentFrequency }}</td>
+                            <td class="handlelargenote notes"><span>{{ order.notes }}</span></td>
+                            <td>{{ order.status }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="clearfix"></div>
+                <ul class="pagination pull-right">
+                    <li id="{{ pageNumber.id }}" ng-repeat="pageNumber in PageNumbers" ng-class="{'active':CurrentPage === pageNumber.value}"><a href="javascript:void(0)" ng-hide="pageNumber.value === '>>' && DisableNextClick" ng-click="getCdOrders(pageNumber)">{{ pageNumber.value }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br><br>
+</div>
+<div id="overlay" style="z-index:1000">
+    <div style="margin-top:15%;">
+        <center><img src="../../../Images/cbr-ripple-small.gif" class="img-responsive" /></center><span id="overlayLoadingText">Loading...</span>
+    </div>
+</div>

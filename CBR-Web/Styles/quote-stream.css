@@ -1,0 +1,218 @@
+/* ALL QuoteStream Styles */
+
+.qm-container {
+  max-width: 100%;
+}
+
+.quotehead-container .qmod-after-hours,
+.quotehead-container .qmod-bid,
+.interactive-charts-container .qmod-heading.qmod-hbg,
+.interactive-charts-container .qmod-lnd-time,
+.interactive-charts-container .qmod-simplechart.qmod-ui-tool .qmod-chart-display .qmod-legend {
+  display: none;
+}
+
+.quotehead-container .qmod-head-left,
+.smart-lookup-container .qmod-tool-wrap {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.quotehead-container .qmod-change {
+  font-size: 135% !important;
+}
+
+.smart-lookup-container .qmod-tool-wrap {
+  margin-top: 0;
+}
+
+.smart-lookup-container .qmod-smartlookup,
+.quotehead-container .qmod-block-wrapper {
+  margin-bottom: 5px;
+}
+
+.interactive-charts-container .qmod-simplechart.qmod-ui-tool .qmod-chart-js {
+  padding: 0;
+  margin: 0;
+}
+
+.interactive-charts-container .qmod-simplechart.qmod-ui-tool .qmod-chart-buttons-rs .qmod-legend>li {
+  background-color: #eee;
+  color: #333;
+  border-radius: 0px;
+}
+
+.smart-lookup-container .qmod-smartlookup {
+  padding-bottom: 0;
+  width: 99% !important;
+}
+
+.qmod-simplechart.qmod-ui-tool .qmod-chart-display .qmod-legend>li.qmod-active,
+.qmod-simplechart.qmod-ui-tool .qmod-chart-buttons-rs .qmod-legend>li.qmod-active {
+  background-color: #003057 !important;
+  color: #ffffff;
+}
+
+/* Attempting to set height of chart */
+.qmod-simplechart.qmod-ui-tool .qmod-main-chart {
+  width: 100%;
+  height: 180px !important;
+}
+
+/* Hiding stock price */
+.qmod-head-left {
+  display: none;
+}
+
+h1.qmod-heading {
+  font-size: 12px !important;
+  font-weight: 400;
+}
+
+/* Making date range controls smaller to fit 3 col */
+.qmod-simplechart.qmod-ui-tool .qmod-chart-buttons-rs .qmod-legend>li .qmod-btn-text {
+  display: inline-block;
+  padding: 4px 3px !important;
+  font-size: 9px;
+}
+
+
+#QMOD.card {
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+/* Header Styles */
+.qtool .qmod-heading.qmod-hbg {
+  background-color: #f0f0f0;
+  color: #666766;
+}
+
+.qtool .qmod-heading.qmod-hbg {
+  font-family: Fira Sans, sans-serif;
+}
+
+.qtool .qmod-head-left,
+.qtool .qmod-filing-formtype,
+.qtool .qmod-filing-formdesc .qtool .qmod-filing-pages,
+.qtool . qmod-filing-datefiled,
+.qtool .qmod-filing-formview {
+  font-family: Fira Sans, sans-serif;
+}
+
+/* Quote head's body and table body */
+.qtool .dataTable tbody {
+  font-family: Fira Sans, sans-serif;
+  color: #999999
+}
+
+.qtool .dataTable tbody a {
+  text-decoration: none;
+  color: #999999;
+}
+
+.qtool .dataTable tbody a:hover {
+  color: #333333;
+}
+
+
+.qtool .qmod-ui-tool.qmod-keyratios .qmod-heading.qmod-hbg {
+  background-color: #f0f0f0 !important;
+  color: #666766;
+  font-family: Fira Sans, sans-serif;
+}
+
+
+.qtool .qmod-ui-tool.qmod-keyratios .qmod-head-left,
+.qtool .qmod-ui-tool.qmod-keyratios .pure-g [class*="pure-u"] {
+  font-family: "PT Sans", Helvetica, sans-serif;
+}
+
+
+.qmod-marketindices .qmod-heading.qmod-hbg,
+.qmod-marketindices .qmod-head-left,
+.qmod-marketindices .qmod-label,
+.qmod-marketindices .qmod-data-point .qmod-marketindices .qmod-panel-news,
+.qmod-marketindices .qmod-table {
+  font-family: "Fira Sans", sans-serif;
+}
+
+.qmod-marketindices .qmod-heading.qmod-hbg {
+  background-color: #f0f0f0;
+  color: #666766;
+}
+
+
+.qtool .qmod-heading.qmod-hbg {
+  background-color: #f0f0f0;
+  color: #666766;
+}
+
+
+.qmod-mrktsumy .qmod-heading.qmod-hbg,
+.qmod-mrktsumy .qmod-head-left,
+.qmod-mrktsumy .qmod-label,
+.qmod-mrktsumy .qmod-data-point .qmod-mrktsumy .qmod-panel-news,
+.qmod-mrktsumy .qmod-table {
+  font-family: Fira Sans, sans-serif;
+}
+
+.qmod-mrktsumy {
+  background-color: #003057;
+  color: #ffffff;
+}
+
+.qtool .qmod-head-left,
+.qtool .qmod-heading.qmod-hbg,
+.qtool .qmod-label,
+.qtool .qmod-data-point,
+.qtool .qmod-headline,
+.qtool .qmod-news-date,
+.qtool .qmod-news-source {
+  font-family: Fira Sans, sans-serif;
+}
+
+
+
+/* QuoteMedia Footer Styles */
+.quote-media-footer {
+  line-height: 1.75em;
+  font-size: 9px;
+}
+
+.quote-media-footer a {
+  text-decoration: underline;
+}
+
+.qmf-link {
+  white-space: nowrap;
+}
+
+.qmf-logo {
+  padding-top: 20px;
+}
+
+.qmf-rt,
+.qmf-non-rt {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.qmf-non-rt {
+  color: #333;
+}
+
+.qmf-rt {
+  color: #080;
+}
+
+
+/* MOBILE ADJUSTMENTS */
+
+@media only screen and (min-width: 400px) {
+  .quotehead-container .qmod-ask {
+    display: block;
+    float: right;
+    margin-top: -21px;
+  }
+}

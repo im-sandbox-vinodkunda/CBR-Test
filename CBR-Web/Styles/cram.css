@@ -1,0 +1,44 @@
+
+/* 12 BankAnalyticsDashboard.html CRAM Styles */
+
+            .formcontrolautoheight{
+                height:auto;
+                font-size:11px;
+                padding:0px;
+            }
+
+        /*.navbar-inverse .navbar-nav > li > a {
+                color: #eeeeee;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                font-size: 13px;
+            }*/
+
+            .bank-details-heading {
+                border: 1px solid #dddddd;
+                margin-top: 15px;
+                padding: 10px;
+            }
+
+            .bank-details-heading h3 {
+                margin-top: 0px;
+            }
+
+            .nav.qtr-ytd > li > a {
+                padding: 5px 10px;
+            }
+
+            .nav-pills ul {
+                background-color: #fcfcfc;
+                list-style: none;
+            }
+
+            .table {
+                font-size: 11px;
+            }
+            .color{
+          color:#ff0000;
+        }
+            .has-error{
+                border:  1px solid red;
+            }

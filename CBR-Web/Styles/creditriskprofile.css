@@ -1,0 +1,82 @@
+﻿.bank-profile-details {padding:10px;margin-bottom:30px;border-left: 5px solid #173967;}
+    	.bank-profile-details h3 {margin-top:5px;}
+    	.bank-profile-details p {margin: 0px 0px 0px 0px;}
+    	.bank-profile-details span.cb-bank-info {background-color:#fcfcfc;padding:5px; color:#173967;display:block;border-radius:0px;font-size:10px;}
+    	
+    	.credit-risk-menu {}
+    	
+    	ul.credit-risk-menu li {font-size:12px;}
+    	ul.credit-risk-menu li.active {
+    		background-color: transparent;
+    		border-left:5px solid #173967;
+    		border-bottom:1px solid #173967;
+    		border-radius:0px;
+    		}
+    	
+    	ul.credit-risk-menu li a {color:#173967;}
+    		
+    	ul.credit-risk-menu li.active a,
+    	ul.credit-risk-menu li.active a:hover  {
+    		background-color: transparent;
+    		color:#173967;
+    		}
+    	
+    	
+    	.credit-risk-sub-menu {margin-top:20px;}
+    	.credit-risk-sub-menu li.active {border-top:1px solid #173967;border-bottom:1px solid #173967;}
+    	.credit-risk-sub-menu li a {color:#173967;font-size:12px;}
+    	
+    	.credit-risk-sub-menu li.active a,
+    	.credit-risk-sub-menu li.active a:hover  {
+    		background-color: transparent;
+    		color:#173967;
+    		}
+    	
+    	.peer-group-comparison-table,
+    	.table-financial-highlights,
+    	.table-financial-trends {
+    		font-size:11px;
+    	}
+    	
+    	.peer-group-comparison-table>thead>tr>th {font-size:10px;}
+    	.table-financial-trends>tbody>tr>td {padding-top:5px;padding-bottom: 5px;}
+    	
+    		
+    	
+    	span.twitter-typeahead {width:100%;}
+    	
+    	.tt-menu {width:100%; display: block;}
+    	.tt-dataset {border:2px solid #ececec;border-top:0px;display:block;width:100%;}
+    	
+    	.tt-suggestion.tt-selectable {    
+    		background-color: #fcfcfc;
+    		border-bottom: 2px solid #ccc;
+    		padding: 10px;
+    		width:100%;
+    	}
+    	
+    	.tt-suggestion.tt-selectable:hover {    
+    		background-color: #ececec;
+    	}
+    	
+    	.modal-dialog {
+		    height:100%;
+		    width: 970px;
+		    margin: 0px auto;
+		}
+		
+		.modal-header {
+			padding-top: 5px;
+			padding-bottom: 5px;
+		    border-bottom: 0px; 
+		}
+		.modal-content {
+			border-right:5px solid #173967;
+		    border-left:5px solid #173967; 
+			border-radius:0px;
+			height:100%;
+		}
+		.modal-body, .modal-footer {
+			background-color: #ffffff;
+		    border-top:0px;  
+		 }

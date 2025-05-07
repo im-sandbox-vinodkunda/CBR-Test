@@ -1,0 +1,139 @@
+﻿<style>
+    .disabled {
+        cursor: not-allowed;
+    }
+    .table-condensed {
+        width:100%;
+    }
+    
+    .lesstopbottompadding {
+        padding-top:0px;
+        padding-bottom:0px;
+    }
+</style>
+<div class="modal-header lesstopbottompadding">
+    <h3>Edit</h3>
+</div>
+<form class="form-horizontal" name="orderForm" novalidate autocomplete="off">
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="control-label col-sm-4">Issue Date:</label>
+            <div class="col-sm-8">
+                <label class="control-label">{{OrderToEdit.orderDate}}</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Institution Name:</label>
+            <div class="col-sm-8">
+                <label class="control-label">{{OrderToEdit.institutionName}}</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Submitted By:</label>
+            <div class="col-sm-8">
+                <label class="control-label">{{OrderToEdit.orderedBy}}</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Contact Phone:</label>
+            <div class="col-sm-8">
+                <label class="control-label">{{OrderToEdit.contactPhone}}</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="term">Term:</label>
+            <div class="col-sm-8">
+                <div class="input-group" style="border-radius:4px" ng-class="{ 'has-error' : orderForm['orderterm'].$invalid && orderForm['orderterm'].$dirty}">
+                    <select tabindex="-98" name="orderterm" title="Select Term" class="termpicker" id="term" ng-model="OrderToEdit.term" ng-required="true" ng-change="SetRates()">
+                        <option value="">Select Term</option>
+                        <option ng-repeat="cdrate in Rates" value="{{cdrate.term}}">{{cdrate.term}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="cb">Callable:</label>
+            <div class="col-sm-8">
+                <div class="input-group" style="border-radius:4px" ng-class="{ 'has-error' : orderForm['callable'].$invalid && orderForm['callable'].$dirty}">
+                    <select tabindex="-98" name="callable" class="callablepicker" id="cb" ng-model="OrderToEdit.callable" ng-required="true" ng-change="EnableDisableCallFrequency()">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="cf">Call Frequency:</label>
+            <div class="col-sm-8">
+                <div class="input-group" style="border-radius:4px" ng-class="{ 'has-error' : orderForm['callfrequency'].$invalid && orderForm['callfrequency'].$dirty}">
+                    <select tabindex="-98" name="callfrequency" class="callfrequencypicker" id="callfrequencypicker" ng-model="OrderToEdit.callFrequency" ng-required="OrderToEdit.callable === 'Yes'">
+                        <option value="">Select Call Frequency</option>
+                        <option value="Quarterly">Quarterly</option>
+                        <option value="Monthly">Monthly</option>
+                        <option value="Semi-Annually">Semi-Annually</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="rt">Rate:</label>
+            <div class="col-sm-8">
+                <div class="input-group bootstrap-select" style="border-radius:4px" ng-class="{ 'has-error' : (orderForm['rate'].$invalid && orderForm['rate'].$dirty) || (orderForm['hiddenrate'].$invalid) || (orderForm['validrate'].$invalid) }">
+                    <input class="form-control" id="rt" name="rate" style="border-radius:4px" type="text" placeholder="Rate" ng-model="OrderToEdit.rate" pattern="^\d+(?:\.\d+)?(?:-\d+(?:\.\d+)?)*$" ng-required="true" ng-change="UpdateRate()">
+                    <input class="form-control" name="hiddenrate" style="display:none;" type="number" placeholder="Rate" ng-model="HiddenRate" min="1">
+                    <input type="hidden" ng-model="ValidRate" name="validrate" ng-required="(OrderToEdit.rate === 'Callable Rate Not Available') || (OrderToEdit.rate === 'Rate Not Available')" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="amt">Amount:</label>
+            <div class="col-sm-4">
+                <div class="input-group bootstrap-select" style="border-radius:4px" ng-class="{ 'has-error': (orderForm['amount'].$invalid && orderForm['amount'].$dirty) || (orderForm['numericamount'].$invalid)}">
+                    <span class="input-group-addon" style="float: left;height: 34px;padding-top: 9px;">$</span>
+                    <input class="form-control with-addon" style="width: 88%;float: left;" id="amt" name="amount" type="text" placeholder="Input Amount" ng-model="OrderToEdit.amount" ng-required="true" fcsa-number ng-change="UpdateNumericAmount(OrderToEdit.amount)">
+                    <input type="number" style="display:none;" name="numericamount" ng-model="NumericAmount" min="1000" max="500000000" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="sd">Settle Date:</label>
+            <div class="col-sm-8">
+                <div class="input-group bootstrap-select" style="border-radius:4px" ng-class="{ 'has-error' : orderForm['settledate'].$invalid && orderForm['settledate'].$dirty}">
+                    <input class="form-control datetimepicker" id="sd" name="settledate" style="border-radius:4px" type="text" placeholder="Select Date" ng-model="OrderToEdit.settleDate" ng-required="true">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="fq">Frequency:</label>
+            <div class="col-sm-8">
+                <div class="input-group" style="border-radius:4px" ng-class="{ 'has-error' : orderForm['frequency'].$invalid && orderForm['frequency'].$dirty}">
+                    <select tabindex="-98" name="frequency" title="Interest Payment Frequency" class="frequencypicker" id="fq" ng-model="OrderToEdit.interestPaymentFrequency" ng-required="true">
+                        <option value="">Select Frequency</option>
+                        <option>Monthly</option>
+                        <option>Semi-Annual</option>
+                        <option>At Maturity</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="st">Status:</label>
+            <div class="col-sm-8">
+                <div class="input-group" style="border-radius:4px" ng-class="{ 'has-error' : orderForm['status'].$invalid && orderForm['status'].$dirty}">
+                    <select tabindex="-98" title="Status" name="status" class="statuspicker" id="st" ng-model="OrderToEdit.status" ng-required="true">
+                        <option value="">Select Status</option>
+                        <option>Pending</option>
+                        <option>Accepted</option>
+                        <option>Complete</option>
+                        <option>CD Issued</option>
+                        <option>Not Issued</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="btn btn-primary" data-dismiss="modal" ng-disabled="orderForm.$invalid" ng-click="save()" onclick="javascript:return false;" ng-class="{'disabled': orderForm.$invalid}">Save</a>
+        <a class="btn" data-dismiss="modal" ng-click="cancel()"  onclick="javascript:return false;">Close</a>
+    </div>
+</form>
